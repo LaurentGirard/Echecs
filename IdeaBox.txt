@@ -1,0 +1,18 @@
+interface graphique unreal engine ?
+
+faire un tuto
+
+faire un makefile
+
+Pattern pour état "bouger ou pas" de Pawn / Rook / King ?
+
+Class contenant les différentes erreurs : pattern ?
+
+éventuellement redéfinir printPiece pour les pièces particulières ( donc mettre la fonction en virtual dans la classe Piece)
+
+booléen pour remplacer la couleur d'une pièce ?
+
+-------------------- TO DO ----------------------
+
+Créer le dépot git
+Faire la classe Personnage
