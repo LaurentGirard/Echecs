@@ -1,10 +1,12 @@
+-------------------- IDEABOX ----------------------
+
 interface graphique unreal engine ?
 
 faire un tuto
 
 faire un makefile
 
-Pattern pour état "bouger ou pas" de Pawn / Rook / King ?
+Pattern pour état "bouger ou pas" de Pawn / Rook / King ? => plus trop sûr
 
 Class contenant les différentes erreurs : pattern ?
 
@@ -14,5 +16,5 @@ booléen pour remplacer la couleur d'une pièce ?
 
 -------------------- TO DO ----------------------
 
-Créer le dépot git
 Faire la classe Personnage
+Patter état => chess / chessmate / null / initial 
