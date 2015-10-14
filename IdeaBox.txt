@@ -16,5 +16,5 @@ booléen pour remplacer la couleur d'une pièce ?
 
 -------------------- TO DO ----------------------
 
-Faire la classe Personnage
+Faire la classe Joueur
 Patter état => chess / chessmate / null / initial 
