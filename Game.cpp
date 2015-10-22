@@ -1,5 +1,7 @@
 #include <iostream>
+#include <string>
 #include "Piece.cpp"
+#include "Player.cpp"
 
 int main()
 {
@@ -8,5 +10,8 @@ int main()
 	King kingB("black");
 	kingW.printPiece();
 	kingB.printPiece();
+
+	Player B("Alfred");
+	std::cout << B.getName() << std::endl;	
 	return 0;
 }

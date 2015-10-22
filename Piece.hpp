@@ -72,7 +72,7 @@ class Piece
        * @brief procédure virtuelle permettant le déplacement de la pièce vers la case dest
        * @param Cell dest
        */
-		virtual void move(Cell const dest);
+		virtual void move(Cell const dest) = 0;
 
 };
 
