@@ -6,8 +6,8 @@
 *
 **/
 
+#include "State.cpp"
 #include "Player.hpp"
-// #include "State.cpp"
 
 //------------------------------------------------------------------------------------------------------
 Player::Player(std::string name) : 	_name(name)
@@ -17,7 +17,10 @@ Player::Player(std::string name) : 	_name(name)
 									// _nullState(new NullState(this)),
 									// _endState(new EndState(this)),
 									// _state(_gameState)
-									{}
+{
+	_gameState = new GameState(this);
+	_state = _gameState;
+}
 
 //------------------------------------------------------------------------------------------------------
 Player::~Player(){}

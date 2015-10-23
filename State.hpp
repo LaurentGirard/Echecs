@@ -9,11 +9,13 @@
 #ifndef __State_HPP__
 #define __State_HPP__
 
+class Player;
+
 class State
 {
 	protected:
 
-		Player player;				// Attribut : Player sur lequel l'état courant sera modifié à l'aide des transitions
+		Player * player;				// Attribut : Player sur lequel l'état courant sera modifié à l'aide des transitions
 
 	public:
 
@@ -21,7 +23,7 @@ class State
    * @brief Constructeur, crée un Etat avec un Joueur en paramètre
    * @param p
    */
-		State(Player p);
+		State(Player *p);
 
 	/**
    * @brief Destructeur de l'objet State
@@ -51,59 +53,59 @@ class State
 	/**
    * @brief procédure virtuelle permettant de la transition de l'état MateState ou l'état NullState à l'état EndState
    */
-		virtual void endGame() = 0;
+		virtual void gameEnd() = 0;
 
 	/**
    * @brief procédure virtuelle permettant d'afficher l'état courant
    */
 		virtual void afficher() = 0;
-// };
+};
 
-// class GameState : public State
-// {
-// 	public:
+class GameState : public State
+{
+	public:
 
-// 	/**
-//    * @brief Constructeur, crée un EtatJeu à l'aide du constructeur de State avec un Joueur en paramètre
-//    * @param p
-//    */
-// 		GameState(Player p);
+	/**
+   * @brief Constructeur, crée un EtatJeu à l'aide du constructeur de State avec un Joueur en paramètre
+   * @param p
+   */
+		GameState(Player *p);
 
-// 	/**
-//    * @brief Destructeur de l'objet GameState
-//    */
-// 		~GameState();
+	/**
+   * @brief Destructeur de l'objet GameState
+   */
+		~GameState();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
-//    */
-// 		void inGame():
+	/**
+   * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
+   */
+		void inGame();
 
-// 	*
-//    * @brief Définition de la procédure virtuelle, transition vers l'état CheckState
-   
-// 		void check();
+	/**
+   * @brief Définition de la procédure virtuelle, transition vers l'état CheckState
+   */
+		void check();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, transition vers l'état MateState
-//    */
-// 		void checkMate();
+	/**
+   * @brief Définition de la procédure virtuelle, transition vers l'état MateState
+   */
+		void checkMate();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, transition vers l'état NullState
-//    */
-// 		void gameNull();
+	/**
+   * @brief Définition de la procédure virtuelle, transition vers l'état NullState
+   */
+		void gameNull();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
-//    */
-// 		void gameEnd();
+	/**
+   * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
+   */
+		void gameEnd();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, affiche l'état GameState
-//    */
-// 		void afficher();
-// };
+	/**
+   * @brief Définition de la procédure virtuelle, affiche l'état GameState
+   */
+		void afficher();
+};
 
 // class CheckState : public State
 // {

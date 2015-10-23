@@ -9,15 +9,13 @@
 #ifndef __Player_HPP__
 #define __Player_HPP__
 
-//#include "State.hpp"
-
 class Player
 {
 	private:
 
 		std::string _name;				// Attribut : nom du joueur
-		// State _state;					// Attribut : état courant du joueur dans la partie
-		// State _gameState;				// Attribut : état en jeu
+		State *_state;					// Attribut : état courant du joueur dans la partie
+		State *_gameState;				// Attribut : état en jeu
 		// State _checkState;				// Attribut : état d'échec
 		// State _mateState;				// Attribut : état d'échec et mat
 		// State _nullState;				// Attribut : état de jeu nul
