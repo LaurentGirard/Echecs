@@ -58,7 +58,7 @@ class State
 	/**
    * @brief procédure virtuelle permettant d'afficher l'état courant
    */
-		virtual void afficher() = 0;
+		virtual void print() = 0;
 };
 
 class GameState : public State
@@ -69,7 +69,7 @@ class GameState : public State
    * @brief Constructeur, crée un EtatJeu à l'aide du constructeur de State avec un Joueur en paramètre
    * @param p
    */
-		GameState(Player *p);
+		GameState(Player* p);
 
 	/**
    * @brief Destructeur de l'objet GameState
@@ -104,192 +104,192 @@ class GameState : public State
 	/**
    * @brief Définition de la procédure virtuelle, affiche l'état GameState
    */
-		void afficher();
+		void print();
 };
 
-// class CheckState : public State
-// {
-// 	public:
+class CheckState : public State
+{
+	public:
 
-// 	/**
-//    * @brief Constructeur, crée un EtatEchec à l'aide du constructeur de State avec un Joueur en paramètre
-//    * @param p
-//    */
-// 		CheckState(Player p);
+	/**
+   * @brief Constructeur, crée un EtatEchec à l'aide du constructeur de State avec un Joueur en paramètre
+   * @param p
+   */
+		CheckState(Player* p);
 
-// 	/**
-//    * @brief Destructeur de l'objet CheckState
-//    */
-// 		~CheckState();
+	/**
+   * @brief Destructeur de l'objet CheckState
+   */
+		~CheckState();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, transition vers l'état GameState
-//    */
-// 		void inGame():
+	/**
+   * @brief Définition de la procédure virtuelle, transition vers l'état GameState
+   */
+		void inGame();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
-//    */
-// 		void check();
+	/**
+   * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
+   */
+		void check();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
-//    */
-// 		void checkMate();
+	/**
+   * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
+   */
+		void checkMate();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
-//    */
-// 		void gameNull();
+	/**
+   * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
+   */
+		void gameNull();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
-//    */
-// 		void gameEnd();
+	/**
+   * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
+   */
+		void gameEnd();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, affiche l'état CheckState
-//    */
-// 		void afficher();
-// };
+	/**
+   * @brief Définition de la procédure virtuelle, affiche l'état CheckState
+   */
+		void print();
+};
 
-// class MateState : public State
-// {
-// 	public:
+class MateState : public State
+{
+	public:
 
-// 	/**
-//    * @brief Constructeur, crée un EtatMate à l'aide du constructeur de State avec un Joueur en paramètre
-//    * @param p
-//        */
-// 		MateState(Player p);
+	/**
+   * @brief Constructeur, crée un EtatMate à l'aide du constructeur de State avec un Joueur en paramètre
+   * @param p
+       */
+		MateState(Player* p);
 
-// 	/**
-//    * @brief Destructeur de l'objet MateState
-//    */
-// 		~MateState();
+	/**
+   * @brief Destructeur de l'objet MateState
+   */
+		~MateState();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
-//    */
-// 		void inGame():
+	/**
+   * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
+   */
+		void inGame();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
-//    */
-// 		void check();
+	/**
+   * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
+   */
+		void check();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
-//    */
-// 		void checkMate();
+	/**
+   * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
+   */
+		void checkMate();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
-//    */
-// 		void gameNull();
+	/**
+   * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
+   */
+		void gameNull();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, transition vers l'état EndGame
-//    */
-// 		void gameEnd();
+	/**
+   * @brief Définition de la procédure virtuelle, transition vers l'état EndGame
+   */
+		void gameEnd();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, affiche l'état MateState
-//    */
-// 		void afficher();
-// };
+	/**
+   * @brief Définition de la procédure virtuelle, affiche l'état MateState
+   */
+		void print();
+};
 
-// class NullState : public State
-// {
-// 	public:
+class NullState : public State
+{
+	public:
 
-// 	/**
-//    * @brief Constructeur, crée un EtatNull à l'aide du constructeur de State avec un Joueur en paramètre
-//    * @param p
-//    */
-// 		NullState(Player p);
+	/**
+   * @brief Constructeur, crée un EtatNull à l'aide du constructeur de State avec un Joueur en paramètre
+   * @param p
+   */
+		NullState(Player* p);
 
-// 	/**
-//    * @brief Destructeur de l'objet NullState
-//    */
-// 		~NullState();
+	/**
+   * @brief Destructeur de l'objet NullState
+   */
+		~NullState();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
-//    */
-// 		void inGame():
+	/**
+   * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
+   */
+		void inGame();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
-//    */
-// 		void check();
+	/**
+   * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
+   */
+		void check();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
-//    */
-// 		void checkMate();
+	/**
+   * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
+   */
+		void checkMate();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
-//    */
-// 		void gameNull();
+	/**
+   * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
+   */
+		void gameNull();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, transition vers l'état EndGame
-//    */
-// 		void gameEnd();
+	/**
+   * @brief Définition de la procédure virtuelle, transition vers l'état EndGame
+   */
+		void gameEnd();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, affiche l'état NullState
-//    */
-// 		void afficher();
-// };
+	/**
+   * @brief Définition de la procédure virtuelle, affiche l'état NullState
+   */
+		void print();
+};
 
-// class EndState : public State
-// {
-// 	public:
+class EndState : public State
+{
+	public:
 
-// 	/**
-//    * @brief Constructeur, crée un EtatFin à l'aide du constructeur de State avec un Joueur en paramètre
-//    * @param p
-//    */
-// 		EndState(Player p);
+	/**
+   * @brief Constructeur, crée un EtatFin à l'aide du constructeur de State avec un Joueur en paramètre
+   * @param p
+   */
+		EndState(Player* p);
 
-// 	/**
-//    * @brief Destructeur de l'objet EndState
-//    */
-// 		~EndState();
+	/**
+   * @brief Destructeur de l'objet EndState
+   */
+		~EndState();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
-//    */
-// 		void inGame():
+	/**
+   * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
+   */
+		void inGame();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
-//    */
-// 		void check();
+	/**
+   * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
+   */
+		void check();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
-//    */
-// 		void checkMate();
+	/**
+   * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
+   */
+		void checkMate();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
-//    */
-// 		void gameNull();
+	/**
+   * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
+   */
+		void gameNull();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
-//    */
-// 		void gameEnd();
+	/**
+   * @brief Définition de la procédure virtuelle, pas d'effet dans cet Etat là
+   */
+		void gameEnd();
 
-// 	/**
-//    * @brief Définition de la procédure virtuelle, affiche l'état EndState
-//    */
-// 		void afficher();
-// };
+	/**
+   * @brief Définition de la procédure virtuelle, affiche l'état EndState
+   */
+		void print();
+};
 
 
 #endif // __State_HPP__
