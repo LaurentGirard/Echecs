@@ -59,13 +59,13 @@ void Piece::move(Cell const dest){}
 King::King(std::string color) : Piece(color), _moved(0)
 {
 	if(color == "white")
-		square.setX(0);
+		square.setY(0);
 	else if(color == "black")
-		square.setX(7);
+		square.setY(7);
 	else
 		std::cout << "Erreur d'initialisation" << std::endl;
 
-	square.setY(4);
+	square.setX(3);
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -86,5 +86,64 @@ void King::setMoved(bool newMoved)
 //------------------------------------------------------------------------------------------------------
 void King::move(Cell const dest)
 {
+    square.setX(dest.getX());
+    square.setY(dest.getY());
+}
 
+//------------------------------------------------------------------------------------------------------
+bool King::destination(Cell const dest)
+{
+	if( dest.getX()-square.getX() = 1 && dest.getY()-square.getY()>-2 && dest.getY()-square.getY()<2)
+		return true
+	else if( dest.getX()-square.getX() = 0 && (dest.getY()-square.getY()==1 || dest.getY()-square.getY()==-1) )
+        return true
+    else if( dest.getX()-square.getX() = -1 && dest.getY()-square.getY()>-2 && dest.getY()-square.getY()<2)
+        return true
+    else
+        return false
+}
+
+//------------------------------------------------------------------------------------------------------
+//----------------------------- CLASS CAVALIER ------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------
+
+CAVALIER::CAVALIER(std::string color, int num) : Piece(color),
+{
+    
+    if ( num == 1)		
+        square.setX(1);
+    else if ( num == 2)
+        square.setX(6);
+	else
+		std::cout << "Erreur d'initialisation" << std::endl;
+	if(color == "white")
+        square.setY(0);
+    else if(color == "black")
+	    square.setY(7);
+	else
+		std::cout << "Erreur d'initialisation" << std::endl;
+
+}
+
+//------------------------------------------------------------------------------------------------------
+CAVALIER::~CAVALIER(){}
+
+//------------------------------------------------------------------------------------------------------
+void CAVALIER::move(Cell const dest)
+{
+    /*square.setX(dest.getX());
+    square.setY(dest.getY());*/
+}
+
+//------------------------------------------------------------------------------------------------------
+bool CAVALIER::destination(Cell const dest)
+{
+	/*if( dest.getX()-square.getX() = 1 && dest.getY()-square.getY()>-2 && dest.getY()-square.getY()<2)
+		return true
+	else if( dest.getX()-square.getX() = 0 && (dest.getY()-square.getY()==1 || dest.getY()-square.getY()==-1) )
+        return true
+    else if( dest.getX()-square.getX() = -1 && dest.getY()-square.getY()>-2 && dest.getY()-square.getY()<2)
+        return true
+    else*/
+        return false
 }

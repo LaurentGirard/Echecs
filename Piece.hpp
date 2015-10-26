@@ -74,6 +74,12 @@ class Piece
        */
 		virtual void move(Cell const dest) = 0;
 
+	/**
+       * @brief procédure virtuelle permettant de savoir si la destination est possible ou non
+       * @param Cell dest
+       */
+		virtual bool destination(cell const dest) =0;
+
 };
 
 /**
@@ -118,6 +124,47 @@ class King : public Piece
        * @param Cell dest
        */
 		virtual void move(Cell const dest);
+
+	/**
+       * @brief procédure virtuelle permettant de savoir si la destination est possible ou non
+       * @param Cell dest
+       */
+		virtual bool destination(cell const dest);
+
+};
+
+/**
+* @class Cavalier 
+* 
+* @brief Classe King héritant de Piece
+*
+*/
+class Cavalier : public Piece
+{
+	public:
+
+    	/**
+       * @brief Constructeur, crée un objet cavalier d'une couleur mise en paramètre et de la position 1 ou 2
+       * @param string color, int num
+       */
+		Cavalier(std::string color, int num);
+
+	/**
+       * @brief Destructeur d'un objet cavalier
+       */
+		~Cavalier();
+
+	/**
+       * @brief procédure virtuelle permettant le déplacement du Roi vers la case dest
+       * @param Cell dest
+       */
+		virtual void move(Cell const dest);
+
+	/**
+       * @brief procédure virtuelle permettant de savoir si la destination est possible ou non
+       * @param Cell dest
+       */
+		virtual bool destination(cell const dest);
 
 };
 
