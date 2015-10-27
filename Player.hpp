@@ -14,6 +14,9 @@ class Player
 	private:
 
 		std::string _name;				// Attribut : nom du joueur
+		std::string _color;				// Attribut : couleur du joueur
+		Piece* _pieces[16];				// Attribut : pièces du joueur par indice (Pions: 0->7; Tours: 8,9; Cavaliers: 10,11; Fous: 12,13; Reine: 14, Roi: 15)
+
 		State *_state;					// Attribut : état courant du joueur dans la partie
 		State *_gameState;				// Attribut : état en jeu
 		State *_checkState;				// Attribut : état d'échec
@@ -27,7 +30,7 @@ class Player
    	* @brief Destructeur de Player
    	* @param name, nom du joueur
   	 */
-		Player(std::string name);
+		Player(std::string name, std::string color);
 
 	/**
    	* @brief Destructeur de Player
@@ -75,6 +78,18 @@ class Player
 	* @param newName, nouveau nom
 	*/
 		void setName(std::string newName);
+
+	/**
+	* @brief Getter de l'attribut _color
+	* @return attribut _color
+	*/
+		std::string getColor();
+
+	/**
+	* @brief Getter de l'attribut _color
+	* @return attribut _color
+	*/
+		Piece** getPieces();
 
 	/**
 	* @brief Getter de l'attribut *_state

@@ -5,24 +5,9 @@
 
 int main()
 {
-	Player B("Alfred");
-	std::cout << B.getName() << std::endl;
-
-	B.printState();
-	B.check();
-	B.printState();
-	B.checkMate();
-	B.printState();
-	B.gameEnd();
-	B.printState();
-	B.inGame();
-	B.printState();
-	B.checkMate();
-	B.printState();
-	B.inGame();
-	B.gameNull();
-	B.gameEnd();
-	B.printState();	
+	// Piece* _board[8][8]; // A revoir
+	Player playerA("Alfred","White");
+	Player playerB("Alphonse","Black");
 
 	return 0;
 }
