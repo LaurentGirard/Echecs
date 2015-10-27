@@ -78,7 +78,7 @@ class Piece
        * @brief procédure virtuelle permettant de savoir si la destination est possible ou non
        * @param Cell dest
        */
-		virtual bool destination(cell const dest) =0;
+		virtual bool destination(cell const dest) = 0;
 
 };
 
