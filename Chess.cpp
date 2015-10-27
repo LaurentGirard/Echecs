@@ -15,6 +15,8 @@ Piece* _board[8][8];
 Player* _playerA = new Player("Alfred","White");
 Player* _playerB = new Player("Alphonse","Black");
 
-
-
-
+int main()
+{
+	
+	return 0;
+}

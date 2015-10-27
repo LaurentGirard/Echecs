@@ -1,28 +1,23 @@
 #include <iostream>
 #include <string>
-#include "Piece.cpp"
-#include "Player.cpp"
+#include "ChessBoard.cpp"
 
 int main()
 {
-	Player B("Alfred");
-	std::cout << B.getName() << std::endl;
+	// Player B("Alfred","Black");
 
-	B.printState();
-	B.check();
-	B.printState();
-	B.checkMate();
-	B.printState();
-	B.gameEnd();
-	B.printState();
-	B.inGame();
-	B.printState();
-	B.checkMate();
-	B.printState();
-	B.inGame();
-	B.gameNull();
-	B.gameEnd();
-	B.printState();	
+	// unsigned int i;
+
+	// for (i = 0; i < 16 ; ++i)
+	// {
+	// 	B.getPieces()[i]->printPiece();
+	// 	std::cout << "Piece n°" << i << std::endl;
+	// 	std::cout << "-------------" << std::endl;
+	// }
+
+	ChessBoard chess("Alfred","Alphonse");
+
+
 
 	return 0;
 }

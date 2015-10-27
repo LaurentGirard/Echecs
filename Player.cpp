@@ -10,18 +10,53 @@
 #include "Player.hpp"
 
 //------------------------------------------------------------------------------------------------------
-Player::Player(std::string name) : 	_name(name)
+Player::Player(std::string name, std::string color) : _name(name), _color(color)
 {
+	// Initialisation des différents états
 	_gameState = new GameState(this);
 	_checkState = new CheckState(this);
 	_mateState = new MateState(this);
 	_nullState = new NullState(this);
 	_endState = new EndState(this);
 	_state = _gameState;
+
+	// Initialisation des pièces du joueur en fonction de sa couleur
+	unsigned int i;
+	unsigned int ySpawn = 8;
+	unsigned int yPieces = 8;
+
+	if( (color == "White") || (color == "Blanc") )
+	{
+		ySpawn = 1;
+		yPieces = 0;
+	}
+	else if( (color == "Black") || (color == "Noir"))
+	{
+		ySpawn = 6;
+		yPieces = 7;
+	}
+	else
+	{
+		std::cout << "Erreur d'initialisation, la couleur : " << color << " n'est pas valide !" << std::endl;
+	}
+
+	for(i = 0; i < 8 ; ++i)
+	{
+		_pieces[i] = new Spawn(i,ySpawn);
+	}
+
+	_pieces[8] = new Rook(0,yPieces);
+	_pieces[9] = new Rook(7,yPieces);
+	_pieces[10] = new Knight(1,yPieces);
+	_pieces[11] = new Knight(6,yPieces);
+	_pieces[12] = new Bishop(2,yPieces);
+	_pieces[13] = new Bishop(5,yPieces);
+	_pieces[14] = new Queen(3,yPieces);
+	_pieces[15] = new King(4,yPieces);
 }
 
 //------------------------------------------------------------------------------------------------------
-Player::~Player(){}
+Player::~Player(){} // La destruction des différentes allocations est réalisée à la fin du programme automatiquement
 
 //------------------------------------------------------------------------------------------------------
 void Player::inGame()
@@ -71,6 +106,16 @@ void Player::setName(std::string newName)
 	_name = newName;
 }
 
+//------------------------------------------------------------------------------------------------------
+std::string Player::getColor()
+{
+	return _color;
+}
+//------------------------------------------------------------------------------------------------------
+Piece** Player::getPieces()
+{
+	return _pieces;
+}
 //------------------------------------------------------------------------------------------------------
 State* Player::getState()
 {
