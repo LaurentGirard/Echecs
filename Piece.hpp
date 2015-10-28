@@ -23,7 +23,6 @@ class Piece
 	protected:
 
 		Cell* square;				// attribut : case sur laquelle est la pièce
-		std::string color;			// attribut : couleur de la pièce
 		bool alive;					// attribut : état de la pièce ( 0 = pièce détruite ; 1 = pièce en vie )
 
 	public:
