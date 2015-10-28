@@ -9,5 +9,7 @@ int main()
 	Player playerA("Alfred","White");
 	Player playerB("Alphonse","Black");
 
+	playerB.getPieces()[8]->printPiece();
+
 	return 0;
 }

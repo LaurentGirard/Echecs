@@ -24,24 +24,20 @@ class Cell
 
 	public:
 
-        /**
-       * @brief Constructeur par défaut, crée un objet Cell
-       */
-			Cell();
 
-		/**
+	/**
        * @brief Constructeur, crée un objet Cell initialisant les coordonnées
        * @param unsigned int x
        * @param unsigned int y
        */
 			Cell(unsigned int x, unsigned int y);
 
-		/**
+	/**
        * @brief Destructeur d'un objet Cell
        */
 			~Cell();
 
-		/**
+	/**
        * @brief Getter de l'attribut _x
        * @return attribut _x
        */
