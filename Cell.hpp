@@ -15,6 +15,7 @@
 * @brief Classe permettant de représenter une case du jeu d'echec 
 *
 */
+
 class Cell
 {
 	private:
@@ -30,36 +31,36 @@ class Cell
        * @param unsigned int x
        * @param unsigned int y
        */
-			Cell(unsigned int x, unsigned int y);
+		Cell(unsigned int x, unsigned int y);
 
 	/**
        * @brief Destructeur d'un objet Cell
        */
-			~Cell();
+		~Cell();
 
 	/**
        * @brief Getter de l'attribut _x
        * @return attribut _x
        */
-			unsigned int getX();
+		unsigned int getX();
 
       /**
        * @brief Setter de l'attribut _x
        * @param unsigned int newX
        */
-			void setX(unsigned int newX);
+		void setX(unsigned int newX);
 
-		/**
+	/**
        * @brief Getter de l'attribut _y
        * @return attribut _y
        */
-			unsigned int getY();
+		unsigned int getY();
 
-		/**
+	/**
        * @brief Setter de l'attribut _y
        * @param unsigned int newY
        */	
-			void setY(unsigned int newY);
+		void setY(unsigned int newY);
 };
 
 #endif // __Cell_HPP__
