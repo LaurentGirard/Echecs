@@ -38,25 +38,25 @@ class Piece
 		~Piece();
 
 	/**
-       * @brief de Getter l'attribut _square
-       * @return attribut _square
+       * @brief de Getter l'attribut square
+       * @return attribut square
        */
 		Cell* getSquare();
 
       /**
-       * @brief Setter de l'attribut _square
+       * @brief Setter de l'attribut square
        * @param newCell est la nouvelle case sur laquelle est la pièce
        */
 		void setSquare(Cell* newCell);
 
 	/**
-       * @brief Getter de l'attribut _alive
-       * @return attribut _alive
+       * @brief Getter de l'attribut alive
+       * @return attribut alive
        */
 		bool asAlive();
 
       /**
-       * @brief Setter de l'attribut _alive
+       * @brief Setter de l'attribut alive
        * @param newAlive
        */
 		void setAlive(bool newAlive);
