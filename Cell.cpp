@@ -53,3 +53,11 @@ void Cell::setY(unsigned int newY)
 	else
 		std::cout << "Nouvelle coordonée " << newY << " invalide" << std::endl;
 }
+//------------------------------------------------------------------------------------------------------
+bool Cell::compare(Cell newcell)
+{
+	if(_x==newcell.getX() && _y==newcell.getY())
+		return true;
+	else
+		return false;
+}

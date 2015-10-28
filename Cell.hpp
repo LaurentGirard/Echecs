@@ -61,6 +61,14 @@ class Cell
        * @param unsigned int newY
        */	
 		void setY(unsigned int newY);
+
+	/**
+       * @brief comparer avec une autre piece
+       * @param unsigned cell newcell
+       */	
+		bool compare(Cell newcell);
+
+
 };
 
 #endif // __Cell_HPP__
