@@ -9,8 +9,9 @@
 #ifndef __Piece_HPP__
 #define __Piece_HPP__
 
-#include <string>
 #include "Cell.cpp"
+#include <vector>
+
 /**
 * @class Piece 
 * 
@@ -23,8 +24,8 @@ class Piece
 	protected:
 
 		Cell* square;				// attribut : case sur laquelle est la pièce
-		std::string color;			// attribut : couleur de la pièce
 		bool alive;					// attribut : état de la pièce ( 0 = pièce détruite ; 1 = pièce en vie )
+            std::vector<Cell> movements;        // attribut : liste de cases représentant les déplacements possibles de la pièce
 
 	public:
 
@@ -39,46 +40,39 @@ class Piece
 		~Piece();
 
 	/**
-       * @brief de Getter l'attribut _square
-       * @return attribut _square
+       * @brief de Getter l'attribut square
+       * @return attribut square
        */
 		Cell* getSquare();
 
       /**
-       * @brief Setter de l'attribut _square
+       * @brief Setter de l'attribut square
        * @param newCell est la nouvelle case sur laquelle est la pièce
        */
 		void setSquare(Cell* newCell);
 
 	/**
-       * @brief Getter de l'attribut _alive
-       * @return attribut _alive
+       * @brief Getter de l'attribut alive
+       * @return attribut alive
        */
 		bool asAlive();
 
       /**
-       * @brief Setter de l'attribut _alive
+       * @brief Setter de l'attribut alive
        * @param newAlive
        */
 		void setAlive(bool newAlive);
 
 	/**
-		* @brief procédure permettant d'afficher les coordonnées de la case sur laquelle se trouve la pièce
-		*/
-
+	* @brief procédure permettant d'afficher les coordonnées de la case sur laquelle se trouve la pièce
+	*/
 		void printPiece();
 		
 	/**
-       * @brief procédure virtuelle permettant le déplacement de la pièce vers la case dest
-       * @param Cell dest
+       * @brief fonction virtuelle retournant la liste des cases possibles pour un déplacement de la pièce
+       * @return vector<Cell> 
        */
-		virtual void move(Cell* dest) = 0;
-
-	/**
-       * @brief procédure virtuelle permettant de savoir si la destination est possible ou non
-       * @param Cell dest
-       */
-		virtual bool destination(Cell* dest) = 0;
+		virtual void movement() = 0;
 };
 
 /**
@@ -105,16 +99,9 @@ class Spawn : public Piece
             ~Spawn();
 
       /**
-       * @brief procédure virtuelle permettant le déplacement du Pion vers la case dest
-       * @param Cell dest
+       * @brief procédure virtuelle permettant de mettre à jour l'attribut movements en fonction des déplacements possibles du Pion
        */
-            virtual void move(Cell* dest);
-
-      /**
-       * @brief procédure virtuelle permettant de savoir si la destination est possible ou non
-       * @param Cell dest
-       */
-            virtual bool destination(Cell* dest);
+            virtual void movement();
 };
 
 /**
@@ -157,16 +144,9 @@ class Rook : public Piece
             void setMoved(bool newMoved);
 
       /**
-       * @brief procédure virtuelle permettant le déplacement de la Tour vers la case dest
-       * @param Cell dest
+       * @brief procédure virtuelle permettant de mettre à jour l'attribut movements en fonction des déplacements possibles de la Tour
        */
-            virtual void move(Cell* dest);
-
-      /**
-       * @brief procédure virtuelle permettant de savoir si la destination est possible ou non
-       * @param Cell dest
-       */
-            virtual bool destination(Cell* dest);
+            virtual void movement();
 };
 
 /**
@@ -192,17 +172,10 @@ class Knight : public Piece
        */
 		~Knight();
 
-	/**
-       * @brief procédure virtuelle permettant le déplacement du Cavalier vers la case dest
-       * @param Cell dest
+      /**
+       * @brief procédure virtuelle permettant de mettre à jour l'attribut movements en fonction des déplacements possibles du Cavalier
        */
-		virtual void move(Cell* dest);
-
-	/**
-       * @brief procédure virtuelle permettant de savoir si la destination est possible ou non
-       * @param Cell dest
-       */
-		virtual bool destination(Cell* dest);
+            virtual void movement();
 };
 
 /**
@@ -229,16 +202,9 @@ class Bishop : public Piece
             ~Bishop();
 
       /**
-       * @brief procédure virtuelle permettant le déplacement du Fou vers la case dest
-       * @param Cell dest
+       * @brief procédure virtuelle permettant de mettre à jour l'attribut movements en fonction des déplacements possibles du Fou
        */
-            virtual void move(Cell* dest);
-
-      /**
-       * @brief procédure virtuelle permettant de savoir si la destination est possible ou non
-       * @param Cell dest
-       */
-            virtual bool destination(Cell* dest);
+            virtual void movement();
 };
 
 /**
@@ -265,16 +231,9 @@ class Queen : public Piece
             ~Queen();
 
       /**
-       * @brief procédure virtuelle permettant le déplacement de la Reine vers la case dest
-       * @param Cell dest
+       * @brief procédure virtuelle permettant de mettre à jour l'attribut movements en fonction des déplacements possibles de la Dame
        */
-            virtual void move(Cell* dest);
-
-      /**
-       * @brief procédure virtuelle permettant de savoir si la destination est possible ou non
-       * @param Cell dest
-       */
-            virtual bool destination(Cell* dest);
+            virtual void movement();
 };
 
 /**
@@ -316,16 +275,9 @@ class King : public Piece
             void setMoved(bool newMoved);
 
       /**
-       * @brief procédure virtuelle permettant le déplacement du Roi vers la case dest
-       * @param Cell dest
+       * @brief procédure virtuelle permettant de mettre à jour l'attribut movements en fonction des déplacements possibles du Roi 
        */
-            virtual void move(Cell* dest);
-
-      /**
-       * @brief procédure virtuelle permettant de savoir si la destination est possible ou non
-       * @param Cell dest
-       */
-            virtual bool destination(Cell* dest);
+            virtual void movement();
 };
 
 #endif // __Piece_HPP__

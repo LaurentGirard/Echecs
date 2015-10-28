@@ -52,9 +52,6 @@ void Piece::printPiece()
 }
 
 //------------------------------------------------------------------------------------------------------
-void Piece::move(Cell* dest){}
-
-//------------------------------------------------------------------------------------------------------
 //----------------------------- CLASS SPAWN -------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 
@@ -64,18 +61,12 @@ Spawn::Spawn(unsigned int x, unsigned int y) : Piece(x,y) {}
 Spawn::~Spawn(){}
 
 //------------------------------------------------------------------------------------------------------
-void Spawn::move(Cell* dest)
-{
-    square->setX(dest->getX());
-    square->setY(dest->getY());
-}
-
-//------------------------------------------------------------------------------------------------------
-bool Spawn::destination(Cell* dest)
+void Spawn::movement()
 {
 	// TO DO
-    return false;
+	// ajout sur l'attribut protected movements
 }
+
 
 //------------------------------------------------------------------------------------------------------
 //----------------------------- CLASS ROOK -------------------------------------------------------------
@@ -99,17 +90,11 @@ void Rook::setMoved(bool newMoved)
 }
 
 //------------------------------------------------------------------------------------------------------
-void Rook::move(Cell* dest)
-{
-    square->setX(dest->getX());
-    square->setY(dest->getY());
-}
-
 //------------------------------------------------------------------------------------------------------
-bool Rook::destination(Cell* dest)
+void Rook::movement()
 {
 	// TO DO
-    return false;
+	// ajout sur l'attribut protected movements
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -122,18 +107,11 @@ Knight::Knight(unsigned int x, unsigned int y) : Piece(x,y) {}
 Knight::~Knight(){}
 
 //------------------------------------------------------------------------------------------------------
-void Knight::move(Cell* dest)
-{
-	// TO DO
-    /*square->setX(dest->getX());
-    square->setY(dest->getY());*/
-}
-
 //------------------------------------------------------------------------------------------------------
-bool Knight::destination(Cell* dest)
+void Knight::movement()
 {
 	// TO DO
-        return false;
+	// ajout sur l'attribut protected movements
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -146,18 +124,11 @@ Bishop::Bishop(unsigned int x, unsigned int y) : Piece(x,y) {}
 Bishop::~Bishop(){}
 
 //------------------------------------------------------------------------------------------------------
-void Bishop::move(Cell* dest)
-{
-	// TO DO
-    /*square->setX(dest->getX());
-    square->setY(dest->getY());*/
-}
-
 //------------------------------------------------------------------------------------------------------
-bool Bishop::destination(Cell* dest)
+void Bishop::movement()
 {
 	// TO DO
-    return false;
+	// ajout sur l'attribut protected movements
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -170,18 +141,11 @@ Queen::Queen(unsigned int x, unsigned int y) : Piece(x,y) {}
 Queen::~Queen(){}
 
 //------------------------------------------------------------------------------------------------------
-void Queen::move(Cell* dest)
-{
-	// TO DO
-    /*square->setX(dest->getX());
-    square->setY(dest->getY());*/
-}
-
 //------------------------------------------------------------------------------------------------------
-bool Queen::destination(Cell* dest)
+void Queen::movement()
 {
 	// TO DO
-    return false;
+	// ajout sur l'attribut protected movements
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -200,27 +164,9 @@ bool King::asMoved()
 }
 
 //------------------------------------------------------------------------------------------------------
-void King::setMoved(bool newMoved)
-{
-	_moved = newMoved;
-}
-
 //------------------------------------------------------------------------------------------------------
-void King::move(Cell* dest)
+void King::movement()
 {
-    square->setX(dest->getX());
-    square->setY(dest->getY());
-}
-
-//------------------------------------------------------------------------------------------------------
-bool King::destination(Cell* dest)
-{
-	if( (dest->getX()-square->getX() == 1) && (dest->getY()-square->getY() > -2) && (dest->getY()-square->getY() < 2) )
-		return true;
-	else if( (dest->getX()-square->getX() == 0) && ( (dest->getY()-square->getY() == 1) || (dest->getY()-square->getY() == -1)) )
-        return true;
-    else if( (dest->getX()-square->getX() == -1) && (dest->getY()-square->getY() > -2) && (dest->getY()-square->getY() < 2) )
-        return true;
-    else
-        return false;
+	// TO DO
+	// ajout sur l'attribut protected movements
 }
