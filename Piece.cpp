@@ -254,21 +254,7 @@ void Knight::movement()
 Bishop::Bishop(unsigned int x, unsigned int y) : Piece(x,y)
 {
 	label = "B";
-	/*
-	int xx = x-1;
-	int yy = y+1;
-	while(xx>-1&&yy<8){
-		movements[0].push_back(Cell(xx,yy));
-		xx = xx-1;
-		yy = yy+1;
-	}
-	xx = x+1;
-	yy = y+1;
-	while(xx<8&&yy<8){
-		movements[1].push_back(Cell(xx,yy));
-		xx = xx+1;
-		yy = yy+1;
-	}*/
+	movement();
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -277,38 +263,60 @@ Bishop::~Bishop(){}
 //------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 void Bishop::movement()
-{/*
+{
+	std::vector< Cell> mov; // vecteur de cell afin de l'ajouter ensuite dans movements
+	mov.clear();
 	movements.clear();
 	int x=square->getX();
 	int y=square->getY();
 	int xx = x-1;
 	int yy = y+1;
 	while(xx>-1&&yy<8){
-		movements[0].push_back(Cell(xx,yy));
+		mov.push_back(Cell(xx,yy));
 		xx = xx-1;
 		yy = yy+1;
 	}
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	xx = x+1;
 	yy = y+1;
 	while(xx<8&&yy<8){
-		movements[1].push_back(Cell(xx,yy));
+		mov.push_back(Cell(xx,yy));
 		xx = xx+1;
 		yy = yy+1;
 	}
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	xx = x+1;
 	yy = y-1;
 	while(xx<8&&yy>-1){
-		movements[2].push_back(Cell(xx,yy));
+		mov.push_back(Cell(xx,yy));
 		xx = xx+1;
 		yy = yy-1;
 	}
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	xx = x-1;
 	yy = y-1;
 	while(xx>-1&&yy>-1){
-		movements[3].push_back(Cell(xx,yy));
+		mov.push_back(Cell(xx,yy));
 		xx = xx-1;
 		yy = yy-1;
-	}*/
+	}
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 }
 
 //------------------------------------------------------------------------------------------------------
