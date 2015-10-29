@@ -59,18 +59,33 @@ void Piece::printPiece()
 //------------------------------------------------------------------------------------------------------
 void Piece::movement() {}
 
+std::vector< Cell> Piece::getcaneat() {}
+
+std::vector< std::vector< Cell> > Piece::getmovements(){
+	return movements;
+}
 //------------------------------------------------------------------------------------------------------
-//----------------------------- CLASS SPAWN -------------------------------------------------------------
+//----------------------------- CLASS Spawn -------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 
-Spawn::Spawn(unsigned int x, unsigned int y) : Piece(x,y)
+Spawn::Spawn(unsigned int x, unsigned int y, bool direction) : Piece(x,y)
 {
 	label = "S";
-	/*std::cout << "Buggg  ici ???? "<< std::endl;
-	movements[0].push_back(Cell(x,y+1));
-	std::cout << "Oui ???"<< std::endl;
-	movements[0].push_back(Cell(x,y+2));*/
-
+	direction_ =direction;
+	std::vector< Cell> mov; // vecteur de cell afin de l'ajouter ensuite dans movements
+	if ( direction_ == true ){
+	mov.push_back(Cell(x,y-1));
+	mov.push_back(Cell(x,y-2));
+	caneat_.push_back(Cell(x-1, y-1));
+	caneat_.push_back(Cell(x+1, y-1));
+	}else
+	{
+	mov.push_back(Cell(x,y+1));
+	mov.push_back(Cell(x,y+2));
+	caneat_.push_back(Cell(x-1, y+1));
+	caneat_.push_back(Cell(x+1, y+1));
+	}
+	movements.push_back(mov);
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -78,14 +93,28 @@ Spawn::~Spawn(){}
 
 //------------------------------------------------------------------------------------------------------
 void Spawn::movement()
-{	/*
+{	
 	movements.clear();
-	if(square->getY()<7)
-		movements[0].push_back(Cell(square->getX(),square->getY()+1));
-*/
+	caneat_.clear();
+	std::vector< Cell> mov; // vecteur de cell afin de l'ajouter ensuite dans movements
+	if ( direction_ == true )
+	{
+		if(square->getY()>-1) mov.push_back(Cell(square->getX(),square->getY()-1));
+		caneat_.push_back(Cell(square->getX()-1,square->getY()-1));
+		caneat_.push_back(Cell(square->getX()+1,square->getY()-1));
+	}else
+	{
+		if(square->getY()<7) mov.push_back(Cell(square->getX(),square->getY()+1));
+		caneat_.push_back(Cell(square->getX()-1,square->getY()+1));
+		caneat_.push_back(Cell(square->getX()+1,square->getY()+1));
+	}
+	movements.push_back(mov);
 }
 
-
+std::vector< Cell> Spawn::getcaneat()
+{
+	return caneat_;
+}
 //------------------------------------------------------------------------------------------------------
 //----------------------------- CLASS ROOK -------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
@@ -93,25 +122,7 @@ void Spawn::movement()
 Rook::Rook(unsigned int x, unsigned int y) : Piece(x,y), _moved(0)
 {
 	label = "R";
-	/*
-	int i;
-	for(i = 1; i < 8 ; ++i)
-	{
-		movements[0].push_back(Cell(x,i));
-	};
-	if (x==0)
-	{
-		for(i = 1; i < 8 ; ++i)
-		{
-			movements[1].push_back(Cell(i,0));
-		};
-	}else
-	{
-		for(i = 1; i < 8 ; ++i)
-		{
-			movements[1].push_back(Cell(x-i,0));
-		};
-	}*/
+	movement();
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -132,27 +143,49 @@ void Rook::setMoved(bool newMoved)
 //------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 void Rook::movement()
-{/*
+{
 	movements.clear();
+	std::vector< Cell> mov; // vecteur de cell afin de l'ajouter ensuite dans movements
+	mov.clear();
 	int x=square->getX();
 	int y=square->getY();
 	int i;
 	for (i=1; x+i < 8 ; ++i)
 	{
-		movements[0].push_back(Cell(x+i,y));
-	} 
+		mov.push_back(Cell(x+i,y));
+	};
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	for (i=1; x-i > -1 ; ++i)
 	{
-		movements[1].push_back(Cell(x-i,y));
-	}
+		mov.push_back(Cell(x-i,y));
+	};
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	for (i=1; y+i < 8 ; ++i)
 	{
-		movements[0].push_back(Cell(x,y+i));
-	} 
+		mov.push_back(Cell(x,y+i));
+	};
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	for (i=1; y-i > -1 ; ++i)
 	{
-		movements[1].push_back(Cell(x,y-i));
-	}*/
+		mov.push_back(Cell(x,y-i));
+	};
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -162,17 +195,7 @@ void Rook::movement()
 Knight::Knight(unsigned int x, unsigned int y) : Piece(x,y)
 {
 	label = "C";
-	/*
-	if (x==1){
-		movements[0].push_back(Cell(0,2));
-		movements[1].push_back(Cell(2,2));
-		movements[2].push_back(Cell(3,1));
-	}else
-	{
-		movements[0].push_back(Cell(4,1));
-		movements[1].push_back(Cell(5,2));
-		movements[2].push_back(Cell(7,2));
-	}*/
+	movement();
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -181,30 +204,72 @@ Knight::~Knight(){}
 //------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 void Knight::movement()
-{/*
+{
+	std::vector< Cell> mov; // vecteur de cell afin de l'ajouter ensuite dans movements
+	mov.clear();
 	movements.clear();
 	int x=square->getX();
 	int y=square->getY();
 	if(y+2<8)
 	{
-		if(x-1>-1) 	movements[0].push_back(Cell(x-1,y+2));
-		if(x+1<8) 	movements[1].push_back(Cell(x+1,y+2));
+		if(x-1>-1)
+		{
+			mov.push_back(Cell(x-1,y+2));
+			movements.push_back(mov);
+			mov.clear();
+		}
+		if(x+1<8)
+		{
+			mov.push_back(Cell(x+1,y+2));
+			movements.push_back(mov);
+			mov.clear();
+		}
 	}
 	if(x+2<8)
 	{
-		if(y+1<8) 	movements[2].push_back(Cell(x+2,y+1));
-		if(y-1>-1) 	movements[3].push_back(Cell(x+2,y-1));
+		if(y+1<8) 	
+		{
+			mov.push_back(Cell(x+2,y+1));
+			movements.push_back(mov);
+			mov.clear();
+		}
+		if(y-1>-1) 	
+		{
+			mov.push_back(Cell(x+2,y-1));
+			movements.push_back(mov);
+			mov.clear();
+		}
 	}
 	if(y-2>-1)
 	{
-		if(x+1<8) 	movements[4].push_back(Cell(x+1,y-2));
-		if(x-1>-1) 	movements[5].push_back(Cell(x-1,y-2));
+		if(x+1<8) 	
+		{
+			mov.push_back(Cell(x+1,y-2));
+			movements.push_back(mov);
+			mov.clear();
+		}
+		if(x-1>-1) 	
+		{
+			mov.push_back(Cell(x-1,y-2));
+			movements.push_back(mov);
+			mov.clear();
+		}
 	}
 	if(x-2>-1)
 	{
-		if(y-1>-1) 	movements[6].push_back(Cell(x-2,y-1));
-		if(y+1<8) 	movements[7].push_back(Cell(x-2,y+1));
-	}*/
+		if(y-1>-1) 	
+		{
+			mov.push_back(Cell(x-2,y-1));
+			movements.push_back(mov);
+			mov.clear();
+		}
+		if(y+1<8) 	
+		{
+			mov.push_back(Cell(x-2,y+1));
+			movements.push_back(mov);
+			mov.clear();
+		}
+	}
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -214,21 +279,7 @@ void Knight::movement()
 Bishop::Bishop(unsigned int x, unsigned int y) : Piece(x,y)
 {
 	label = "B";
-	/*
-	int xx = x-1;
-	int yy = y+1;
-	while(xx>-1&&yy<8){
-		movements[0].push_back(Cell(xx,yy));
-		xx = xx-1;
-		yy = yy+1;
-	}
-	xx = x+1;
-	yy = y+1;
-	while(xx<8&&yy<8){
-		movements[1].push_back(Cell(xx,yy));
-		xx = xx+1;
-		yy = yy+1;
-	}*/
+	movement();
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -237,38 +288,60 @@ Bishop::~Bishop(){}
 //------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 void Bishop::movement()
-{/*
+{
+	std::vector< Cell> mov; // vecteur de cell afin de l'ajouter ensuite dans movements
+	mov.clear();
 	movements.clear();
 	int x=square->getX();
 	int y=square->getY();
 	int xx = x-1;
 	int yy = y+1;
 	while(xx>-1&&yy<8){
-		movements[0].push_back(Cell(xx,yy));
+		mov.push_back(Cell(xx,yy));
 		xx = xx-1;
 		yy = yy+1;
 	}
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	xx = x+1;
 	yy = y+1;
 	while(xx<8&&yy<8){
-		movements[1].push_back(Cell(xx,yy));
+		mov.push_back(Cell(xx,yy));
 		xx = xx+1;
 		yy = yy+1;
 	}
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	xx = x+1;
 	yy = y-1;
 	while(xx<8&&yy>-1){
-		movements[2].push_back(Cell(xx,yy));
+		mov.push_back(Cell(xx,yy));
 		xx = xx+1;
 		yy = yy-1;
 	}
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	xx = x-1;
 	yy = y-1;
 	while(xx>-1&&yy>-1){
-		movements[3].push_back(Cell(xx,yy));
+		mov.push_back(Cell(xx,yy));
 		xx = xx-1;
 		yy = yy-1;
-	}*/
+	}
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -278,35 +351,7 @@ void Bishop::movement()
 Queen::Queen(unsigned int x, unsigned int y) : Piece(x,y)
 {
 	label = "Q";
-	/*
-	int i;
-	for(i = 1; i < 8 ; ++i)
-	{
-		movements[0].push_back(Cell(x,i));
-	};
-	int xx = x+1;
-	int yy = y+1;
-	while(xx<8&&yy<8){
-		movements[1].push_back(Cell(xx,yy));
-		xx = xx+1;
-		yy = yy+1;
-	}
-	for(i = 1; i < 8 ; ++i)
-	{
-		movements[2].push_back(Cell(i+x,0));
-	};
-	for(i = 1; i < 8 ; ++i)
-	{
-		movements[3].push_back(Cell(x-i,0));
-	};
-	xx = x-1;
-	yy = y+1;
-	while(xx>-1&&yy<8){
-		movements[4].push_back(Cell(xx,yy));
-		xx = xx-1;
-		yy = yy+1;
-	}*/
-
+	movement();
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -315,7 +360,9 @@ Queen::~Queen(){}
 //------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 void Queen::movement()
-{/*
+{
+	std::vector< Cell> mov; // vecteur de cell afin de l'ajouter ensuite dans movements
+	mov.clear();
 	movements.clear();
 	int x=square->getX();
 	int y=square->getY();
@@ -323,55 +370,95 @@ void Queen::movement()
 	// mouvement comme la tour vers le haut
 	for (i=1; y+i < 8 ; ++i)
 	{
-		movements[0].push_back(Cell(x,y+i));
+		mov.push_back(Cell(x,y+i));
 	} 
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	// mouvement comme le fou vers haut droite
 	xx = x+1;
 	yy = y+1;
 	while(xx<8&&yy<8){
-		movements[1].push_back(Cell(xx,yy));
+		mov.push_back(Cell(xx,yy));
 		xx = xx+1;
 		yy = yy+1;
 	}
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	// mouvement comme la tour vers la droite
 	for (i=1; x+i < 8 ; ++i)
 	{
-		movements[2].push_back(Cell(x+i,y));
+		mov.push_back(Cell(x+i,y));
 	}
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	//mouvement comme le fou vers bas droite
 	xx = x+1;
 	yy = y-1;
 	while(xx<8&&yy>-1){
-		movements[3].push_back(Cell(xx,yy));
+		mov.push_back(Cell(xx,yy));
 		xx = xx+1;
 		yy = yy-1;
 	}
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	//mouvement comme la tour vers le bas
 	for (i=1; y-i > -1 ; ++i)
 	{
-		movements[4].push_back(Cell(x,y-i));
+		mov.push_back(Cell(x,y-i));
 	}
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	// mouvement comme le fou vers bas gauche
 	xx = x-1;
 	yy = y-1;
 	while(xx>-1&&yy>-1){
-		movements[5].push_back(Cell(xx,yy));
+		mov.push_back(Cell(xx,yy));
 		xx = xx-1;
 		yy = yy-1;
 	}
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	// mouvement comme la tour vers la gauche
 	for (i=1; x-i > -1 ; ++i)
 	{
-		movements[6].push_back(Cell(x-i,y));
+		mov.push_back(Cell(x-i,y));
 	}
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	// mouvement comme le fou vers le haut gauche
 	xx = x-1;
 	yy = y+1;
 	while(xx>-1&&yy<8){
-		movements[7].push_back(Cell(xx,yy));
+		mov.push_back(Cell(xx,yy));
 		xx = xx-1;
 		yy = yy+1;
-	}*/
+	}
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -381,12 +468,7 @@ void Queen::movement()
 King::King(unsigned int x, unsigned int y) : Piece(x,y), _moved(0)
 {
 	label = "K";
-	/*
-	movements[0].push_back(Cell(4,1));
-	movements[1].push_back(Cell(5,1));
-	movements[2].push_back(Cell(5,0));
-	movements[3].push_back(Cell(3,0));
-	movements[4].push_back(Cell(3,1));*/
+	movement();
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -401,22 +483,58 @@ bool King::asMoved()
 //------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 void King::movement()
-{/*
+{
+	std::vector< Cell> mov; // vecteur de cell afin de l'ajouter ensuite dans movements
+	mov.clear();
 	movements.clear();
 	int x=square->getX();
 	int y=square->getY();
 	if ( x>0 ) 
 	{
-		if (y>0) 	movements[0].push_back(Cell(x-1,y-1));
-		if (y<7)	movements[1].push_back(Cell(x-1,y+1));
-		movements[2].push_back(Cell(x-1,y));
+		if (y>0)
+		{
+			mov.push_back(Cell(x-1,y-1));
+			movements.push_back(mov);
+			mov.clear();
+		}
+		if (y<7)	
+		{
+			mov.push_back(Cell(x-1,y+1));
+			movements.push_back(mov);
+			mov.clear();
+		}
+		mov.push_back(Cell(x-1,y));
+		movements.push_back(mov);
+		mov.clear();
 	}
 	if ( x<7 )
 	{
-		if (y>0) 	movements[3].push_back(Cell(x+1,y-1));
-		if (y<7)	movements[4].push_back(Cell(x+1,y+1));
-		movements[5].push_back(Cell(x+1,y));
+		if (y>0) 	
+		{
+			mov.push_back(Cell(x+1,y-1));
+			movements.push_back(mov);
+			mov.clear();
+		}
+		if (y<7)	
+		{
+			mov.push_back(Cell(x+1,y+1));
+			movements.push_back(mov);
+			mov.clear();
+		}
+		mov.push_back(Cell(x+1,y));
+		movements.push_back(mov);
+		mov.clear();
 	}
-	if (y>0) 	movements[6].push_back(Cell(x,y-1));
-	if (y<7)	movements[7].push_back(Cell(x,y+1));*/
+	if (y>0) 	
+		{
+			mov.push_back(Cell(x,y-1));
+			movements.push_back(mov);
+			mov.clear();
+		}
+	if (y<7)	
+		{
+			mov.push_back(Cell(x,y+1));
+			movements.push_back(mov);
+			mov.clear();
+		}
 }

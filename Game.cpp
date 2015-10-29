@@ -34,7 +34,7 @@ int main()
 
 	Player playerA("Alfred","White");
 	Player playerB("Alphonse","Black");
-
+	
 	unsigned int i, j;
 
 	// initialisation tableau
@@ -74,6 +74,11 @@ int main()
 
 		std::cout << std::endl;
 	}
+	//affichage des déplacement possible d'une piece 
+	for(int ww = 0; ww< playerB.getPieces()[1]->getcaneat().size() ; ++ww)
+	{	
+		std::cout << playerB.getPieces()[1]->getcaneat()[ww].getX()<<" - "<<playerB.getPieces()[1]->getcaneat()[ww].getY() << std::endl;
 
+	};
 	return 0;
 }
