@@ -59,6 +59,10 @@ void Piece::printPiece()
 //------------------------------------------------------------------------------------------------------
 void Piece::movement() {}
 
+
+std::vector< std::vector< Cell> > Piece::getmovements(){
+	return movements;
+}
 //------------------------------------------------------------------------------------------------------
 //----------------------------- CLASS SPAWN -------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
@@ -93,25 +97,7 @@ void Spawn::movement()
 Rook::Rook(unsigned int x, unsigned int y) : Piece(x,y), _moved(0)
 {
 	label = "R";
-	/*
-	int i;
-	for(i = 1; i < 8 ; ++i)
-	{
-		movements[0].push_back(Cell(x,i));
-	};
-	if (x==0)
-	{
-		for(i = 1; i < 8 ; ++i)
-		{
-			movements[1].push_back(Cell(i,0));
-		};
-	}else
-	{
-		for(i = 1; i < 8 ; ++i)
-		{
-			movements[1].push_back(Cell(x-i,0));
-		};
-	}*/
+	movement();
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -132,27 +118,49 @@ void Rook::setMoved(bool newMoved)
 //------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 void Rook::movement()
-{/*
+{
 	movements.clear();
+	std::vector< Cell> mov; // vecteur de cell afin de l'ajouter ensuite dans movements
+	mov.clear();
 	int x=square->getX();
 	int y=square->getY();
 	int i;
 	for (i=1; x+i < 8 ; ++i)
 	{
-		movements[0].push_back(Cell(x+i,y));
-	} 
+		mov.push_back(Cell(x+i,y));
+	};
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	for (i=1; x-i > -1 ; ++i)
 	{
-		movements[1].push_back(Cell(x-i,y));
-	}
+		mov.push_back(Cell(x-i,y));
+	};
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	for (i=1; y+i < 8 ; ++i)
 	{
-		movements[0].push_back(Cell(x,y+i));
-	} 
+		mov.push_back(Cell(x,y+i));
+	};
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	for (i=1; y-i > -1 ; ++i)
 	{
-		movements[1].push_back(Cell(x,y-i));
-	}*/
+		mov.push_back(Cell(x,y-i));
+	};
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -162,17 +170,7 @@ void Rook::movement()
 Knight::Knight(unsigned int x, unsigned int y) : Piece(x,y)
 {
 	label = "C";
-	/*
-	if (x==1){
-		movements[0].push_back(Cell(0,2));
-		movements[1].push_back(Cell(2,2));
-		movements[2].push_back(Cell(3,1));
-	}else
-	{
-		movements[0].push_back(Cell(4,1));
-		movements[1].push_back(Cell(5,2));
-		movements[2].push_back(Cell(7,2));
-	}*/
+	movement();
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -181,30 +179,72 @@ Knight::~Knight(){}
 //------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 void Knight::movement()
-{/*
+{
+	std::vector< Cell> mov; // vecteur de cell afin de l'ajouter ensuite dans movements
+	mov.clear();
 	movements.clear();
 	int x=square->getX();
 	int y=square->getY();
 	if(y+2<8)
 	{
-		if(x-1>-1) 	movements[0].push_back(Cell(x-1,y+2));
-		if(x+1<8) 	movements[1].push_back(Cell(x+1,y+2));
+		if(x-1>-1)
+		{
+			mov.push_back(Cell(x-1,y+2));
+			movements.push_back(mov);
+			mov.clear();
+		}
+		if(x+1<8)
+		{
+			mov.push_back(Cell(x+1,y+2));
+			movements.push_back(mov);
+			mov.clear();
+		}
 	}
 	if(x+2<8)
 	{
-		if(y+1<8) 	movements[2].push_back(Cell(x+2,y+1));
-		if(y-1>-1) 	movements[3].push_back(Cell(x+2,y-1));
+		if(y+1<8) 	
+		{
+			mov.push_back(Cell(x+2,y+1));
+			movements.push_back(mov);
+			mov.clear();
+		}
+		if(y-1>-1) 	
+		{
+			mov.push_back(Cell(x+2,y-1));
+			movements.push_back(mov);
+			mov.clear();
+		}
 	}
 	if(y-2>-1)
 	{
-		if(x+1<8) 	movements[4].push_back(Cell(x+1,y-2));
-		if(x-1>-1) 	movements[5].push_back(Cell(x-1,y-2));
+		if(x+1<8) 	
+		{
+			mov.push_back(Cell(x+1,y-2));
+			movements.push_back(mov);
+			mov.clear();
+		}
+		if(x-1>-1) 	
+		{
+			mov.push_back(Cell(x-1,y-2));
+			movements.push_back(mov);
+			mov.clear();
+		}
 	}
 	if(x-2>-1)
 	{
-		if(y-1>-1) 	movements[6].push_back(Cell(x-2,y-1));
-		if(y+1<8) 	movements[7].push_back(Cell(x-2,y+1));
-	}*/
+		if(y-1>-1) 	
+		{
+			mov.push_back(Cell(x-2,y-1));
+			movements.push_back(mov);
+			mov.clear();
+		}
+		if(y+1<8) 	
+		{
+			mov.push_back(Cell(x-2,y+1));
+			movements.push_back(mov);
+			mov.clear();
+		}
+	}
 }
 
 //------------------------------------------------------------------------------------------------------

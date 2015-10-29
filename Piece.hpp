@@ -80,6 +80,8 @@ class Piece
        * @return vector<Cell> 
        */
 		virtual void movement();
+
+		std::vector< std::vector< Cell> > getmovements();
 };
 
 /**

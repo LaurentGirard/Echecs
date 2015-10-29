@@ -18,3 +18,4 @@ booléen pour remplacer la couleur d'une pièce ?
 
 Faire la classe Joueur
 Patter état => chess / chessmate / null / initial 
+implémenter le "coup en passant" pour le pion
