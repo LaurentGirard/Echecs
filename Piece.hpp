@@ -82,6 +82,8 @@ class Piece
 		virtual void movement();
 
 		std::vector< std::vector< Cell> > getmovements();
+
+		virtual std::vector< Cell> getcaneat();
 };
 
 /**
@@ -93,14 +95,20 @@ class Piece
 
 class Spawn : public Piece
 {
+	protected:
+
+		bool direction_;
+		std::vector< Cell> caneat_;
+
       public:
 
       /**
        * @brief Constructeur, crée un objet Spawn de coordonnées x,y
        * @param unsigned int x
        * @param unsigned int y
+       * @param bool haut(true)/bas(false)
        */
-            Spawn(unsigned int x, unsigned int y);
+            Spawn(unsigned int x, unsigned int y, bool direction);
 
       /**
        * @brief Destructeur d'un objet cavalier
@@ -111,7 +119,13 @@ class Spawn : public Piece
        * @brief procédure virtuelle permettant de mettre à jour l'attribut movements en fonction des déplacements possibles du Pion
        */
             virtual void movement();
+	 /**
+       * @brief procédure virtuelle permettant de mettre à jour l'attribut movements en fonction des déplacements possibles du Pion
+       */
+		std::vector< Cell> getcaneat();
+
 };
+
 
 /**
 * @class Rook 

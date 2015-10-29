@@ -59,22 +59,33 @@ void Piece::printPiece()
 //------------------------------------------------------------------------------------------------------
 void Piece::movement() {}
 
+std::vector< Cell> Piece::getcaneat() {}
 
 std::vector< std::vector< Cell> > Piece::getmovements(){
 	return movements;
 }
 //------------------------------------------------------------------------------------------------------
-//----------------------------- CLASS SPAWN -------------------------------------------------------------
+//----------------------------- CLASS Spawn -------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 
-Spawn::Spawn(unsigned int x, unsigned int y) : Piece(x,y)
+Spawn::Spawn(unsigned int x, unsigned int y, bool direction) : Piece(x,y)
 {
 	label = "S";
-	/*std::cout << "Buggg  ici ???? "<< std::endl;
-	movements[0].push_back(Cell(x,y+1));
-	std::cout << "Oui ???"<< std::endl;
-	movements[0].push_back(Cell(x,y+2));*/
-
+	direction_ =direction;
+	std::vector< Cell> mov; // vecteur de cell afin de l'ajouter ensuite dans movements
+	if ( direction_ == true ){
+	mov.push_back(Cell(x,y-1));
+	mov.push_back(Cell(x,y-2));
+	caneat_.push_back(Cell(x-1, y-1));
+	caneat_.push_back(Cell(x+1, y-1));
+	}else
+	{
+	mov.push_back(Cell(x,y+1));
+	mov.push_back(Cell(x,y+2));
+	caneat_.push_back(Cell(x-1, y+1));
+	caneat_.push_back(Cell(x+1, y+1));
+	}
+	movements.push_back(mov);
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -82,14 +93,28 @@ Spawn::~Spawn(){}
 
 //------------------------------------------------------------------------------------------------------
 void Spawn::movement()
-{	/*
+{	
 	movements.clear();
-	if(square->getY()<7)
-		movements[0].push_back(Cell(square->getX(),square->getY()+1));
-*/
+	caneat_.clear();
+	std::vector< Cell> mov; // vecteur de cell afin de l'ajouter ensuite dans movements
+	if ( direction_ == true )
+	{
+		if(square->getY()>-1) mov.push_back(Cell(square->getX(),square->getY()-1));
+		caneat_.push_back(Cell(square->getX()-1,square->getY()-1));
+		caneat_.push_back(Cell(square->getX()+1,square->getY()-1));
+	}else
+	{
+		if(square->getY()<7) mov.push_back(Cell(square->getX(),square->getY()+1));
+		caneat_.push_back(Cell(square->getX()-1,square->getY()+1));
+		caneat_.push_back(Cell(square->getX()+1,square->getY()+1));
+	}
+	movements.push_back(mov);
 }
 
-
+std::vector< Cell> Spawn::getcaneat()
+{
+	return caneat_;
+}
 //------------------------------------------------------------------------------------------------------
 //----------------------------- CLASS ROOK -------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------

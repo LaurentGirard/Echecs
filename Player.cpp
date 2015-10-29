@@ -42,7 +42,10 @@ Player::Player(std::string name, std::string color) : _name(name), _color(color)
 
 	for(i = 0; i < 8 ; ++i)
 	{
-		_pieces[i] = new Spawn(i,ySpawn);
+		if ( (color == "White") || (color == "Blanc") )
+		_pieces[i] = new Spawn(i,ySpawn,false);
+		if( (color == "Black") || (color == "Noir"))
+		_pieces[i] = new Spawn(i,ySpawn,true);
 	}
 
 	_pieces[8] = new Rook(0,yPieces);
