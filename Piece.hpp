@@ -23,11 +23,12 @@ class Piece
 {
 	protected:
 
-		Cell* square;				// attribut : case sur laquelle est la pièce
-		bool alive;					// attribut : état de la pièce ( 0 = pièce détruite ; 1 = pièce en vie )
-            std::vector< std::vector< Cell> > movements;        // attribut : liste de liste de cases représentant les déplacements possibles de la pièce
-
-	public:
+		Cell* square;                                         // attribut : case sur laquelle est la pièce
+		bool alive;					                  // attribut : état de la pièce ( 0 = pièce détruite ; 1 = pièce en vie )
+            std::vector< std::vector< Cell> > movements;          // attribut : liste de liste de cases représentant les déplacements possibles de la pièce
+            std::string label;                                    // attribut : libellé de la pièce (S = Spawn, R = Rook, C = Knight etc.)
+	
+      public:
 
       /**
        * @brief Constructeur, crée une pièce
@@ -63,6 +64,12 @@ class Piece
        */
 		void setAlive(bool newAlive);
 
+      /**
+       * @brief de Getter l'attribut label
+       * @return attribut label
+       */
+            std::string getLabel();
+
 	/**
 	* @brief procédure permettant d'afficher les coordonnées de la case sur laquelle se trouve la pièce
 	*/
@@ -72,7 +79,7 @@ class Piece
        * @brief fonction virtuelle retournant la liste des cases possibles pour un déplacement de la pièce
        * @return vector<Cell> 
        */
-		virtual void movement() = 0;
+		virtual void movement();
 };
 
 /**

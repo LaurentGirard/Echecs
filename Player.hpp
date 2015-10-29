@@ -15,7 +15,7 @@ class Player
 
 		std::string _name;				// Attribut : nom du joueur
 		std::string _color;				// Attribut : couleur du joueur
-		Piece* _pieces[16];				// Attribut : pièces du joueur par indice (Pions: 0->7; Tours: 8,9; Cavaliers: 10,11; Fous: 12,13; Reine: 14, Roi: 15)
+		Piece* _pieces[16];				// Attribut : pièces du joueur par indice (Pions: 0->7; Tours: 8,15; Cavaliers: 9,14; Fous: 10,13; Reine: 11, Roi: 12) cf ordre plateau
 
 		State *_state;					// Attribut : état courant du joueur dans la partie
 		State *_gameState;				// Attribut : état en jeu

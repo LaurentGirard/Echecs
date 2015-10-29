@@ -12,7 +12,7 @@
 //----------------------------- CLASS PIECE ------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 
-Piece::Piece(unsigned int x, unsigned int y) : alive(true) 
+Piece::Piece(unsigned int x, unsigned int y) : alive(true), label(" ")
 {
 	square = new Cell(x,y);
 }
@@ -45,18 +45,27 @@ void Piece::setAlive(bool newAlive)
 	alive = newAlive;
 }
 //------------------------------------------------------------------------------------------------------
+std::string Piece::getLabel()
+{
+	return label;
+}
+
+//------------------------------------------------------------------------------------------------------
 void Piece::printPiece()
 {
 	std::cout << "X position : " << square->getX() << std::endl;
 	std::cout << "Y position : " << square->getY() << std::endl;
 }
+//------------------------------------------------------------------------------------------------------
+void Piece::movement() {}
 
 //------------------------------------------------------------------------------------------------------
 //----------------------------- CLASS SPAWN -------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 
-Spawn::Spawn(unsigned int x, unsigned int y) : Piece(x,y) 
+Spawn::Spawn(unsigned int x, unsigned int y) : Piece(x,y)
 {
+	label = "S";
 	/*std::cout << "Buggg  ici ???? "<< std::endl;
 	movements[0].push_back(Cell(x,y+1));
 	std::cout << "Oui ???"<< std::endl;
@@ -82,7 +91,9 @@ void Spawn::movement()
 //------------------------------------------------------------------------------------------------------
 
 Rook::Rook(unsigned int x, unsigned int y) : Piece(x,y), _moved(0)
-{/*
+{
+	label = "R";
+	/*
 	int i;
 	for(i = 1; i < 8 ; ++i)
 	{
@@ -148,8 +159,10 @@ void Rook::movement()
 //----------------------------- CLASS KNIGHT -----------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 
-Knight::Knight(unsigned int x, unsigned int y) : Piece(x,y) 
-{/*
+Knight::Knight(unsigned int x, unsigned int y) : Piece(x,y)
+{
+	label = "C";
+	/*
 	if (x==1){
 		movements[0].push_back(Cell(0,2));
 		movements[1].push_back(Cell(2,2));
@@ -198,8 +211,10 @@ void Knight::movement()
 //----------------------------- CLASS BISHOP -----------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 
-Bishop::Bishop(unsigned int x, unsigned int y) : Piece(x,y) 
-{/*
+Bishop::Bishop(unsigned int x, unsigned int y) : Piece(x,y)
+{
+	label = "B";
+	/*
 	int xx = x-1;
 	int yy = y+1;
 	while(xx>-1&&yy<8){
@@ -260,8 +275,10 @@ void Bishop::movement()
 //----------------------------- CLASS QUEEN ------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 
-Queen::Queen(unsigned int x, unsigned int y) : Piece(x,y) 
-{/*
+Queen::Queen(unsigned int x, unsigned int y) : Piece(x,y)
+{
+	label = "Q";
+	/*
 	int i;
 	for(i = 1; i < 8 ; ++i)
 	{
@@ -361,8 +378,10 @@ void Queen::movement()
 //----------------------------- CLASS KING -------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 
-King::King(unsigned int x, unsigned int y) : Piece(x,y), _moved(0) 
-{/*
+King::King(unsigned int x, unsigned int y) : Piece(x,y), _moved(0)
+{
+	label = "K";
+	/*
 	movements[0].push_back(Cell(4,1));
 	movements[1].push_back(Cell(5,1));
 	movements[2].push_back(Cell(5,0));
