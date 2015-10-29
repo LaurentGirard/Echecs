@@ -326,35 +326,7 @@ void Bishop::movement()
 Queen::Queen(unsigned int x, unsigned int y) : Piece(x,y)
 {
 	label = "Q";
-	/*
-	int i;
-	for(i = 1; i < 8 ; ++i)
-	{
-		movements[0].push_back(Cell(x,i));
-	};
-	int xx = x+1;
-	int yy = y+1;
-	while(xx<8&&yy<8){
-		movements[1].push_back(Cell(xx,yy));
-		xx = xx+1;
-		yy = yy+1;
-	}
-	for(i = 1; i < 8 ; ++i)
-	{
-		movements[2].push_back(Cell(i+x,0));
-	};
-	for(i = 1; i < 8 ; ++i)
-	{
-		movements[3].push_back(Cell(x-i,0));
-	};
-	xx = x-1;
-	yy = y+1;
-	while(xx>-1&&yy<8){
-		movements[4].push_back(Cell(xx,yy));
-		xx = xx-1;
-		yy = yy+1;
-	}*/
-
+	movement();
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -363,7 +335,9 @@ Queen::~Queen(){}
 //------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 void Queen::movement()
-{/*
+{
+	std::vector< Cell> mov; // vecteur de cell afin de l'ajouter ensuite dans movements
+	mov.clear();
 	movements.clear();
 	int x=square->getX();
 	int y=square->getY();
@@ -371,55 +345,95 @@ void Queen::movement()
 	// mouvement comme la tour vers le haut
 	for (i=1; y+i < 8 ; ++i)
 	{
-		movements[0].push_back(Cell(x,y+i));
+		mov.push_back(Cell(x,y+i));
 	} 
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	// mouvement comme le fou vers haut droite
 	xx = x+1;
 	yy = y+1;
 	while(xx<8&&yy<8){
-		movements[1].push_back(Cell(xx,yy));
+		mov.push_back(Cell(xx,yy));
 		xx = xx+1;
 		yy = yy+1;
 	}
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	// mouvement comme la tour vers la droite
 	for (i=1; x+i < 8 ; ++i)
 	{
-		movements[2].push_back(Cell(x+i,y));
+		mov.push_back(Cell(x+i,y));
 	}
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	//mouvement comme le fou vers bas droite
 	xx = x+1;
 	yy = y-1;
 	while(xx<8&&yy>-1){
-		movements[3].push_back(Cell(xx,yy));
+		mov.push_back(Cell(xx,yy));
 		xx = xx+1;
 		yy = yy-1;
 	}
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	//mouvement comme la tour vers le bas
 	for (i=1; y-i > -1 ; ++i)
 	{
-		movements[4].push_back(Cell(x,y-i));
+		mov.push_back(Cell(x,y-i));
 	}
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	// mouvement comme le fou vers bas gauche
 	xx = x-1;
 	yy = y-1;
 	while(xx>-1&&yy>-1){
-		movements[5].push_back(Cell(xx,yy));
+		mov.push_back(Cell(xx,yy));
 		xx = xx-1;
 		yy = yy-1;
 	}
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	// mouvement comme la tour vers la gauche
 	for (i=1; x-i > -1 ; ++i)
 	{
-		movements[6].push_back(Cell(x-i,y));
+		mov.push_back(Cell(x-i,y));
 	}
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 	// mouvement comme le fou vers le haut gauche
 	xx = x-1;
 	yy = y+1;
 	while(xx>-1&&yy<8){
-		movements[7].push_back(Cell(xx,yy));
+		mov.push_back(Cell(xx,yy));
 		xx = xx-1;
 		yy = yy+1;
-	}*/
+	}
+	if(mov.size()>0)
+	{
+		movements.push_back(mov);
+		mov.clear();
+	};
 }
 
 //------------------------------------------------------------------------------------------------------
