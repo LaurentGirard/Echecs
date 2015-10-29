@@ -443,12 +443,7 @@ void Queen::movement()
 King::King(unsigned int x, unsigned int y) : Piece(x,y), _moved(0)
 {
 	label = "K";
-	/*
-	movements[0].push_back(Cell(4,1));
-	movements[1].push_back(Cell(5,1));
-	movements[2].push_back(Cell(5,0));
-	movements[3].push_back(Cell(3,0));
-	movements[4].push_back(Cell(3,1));*/
+	movement();
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -463,22 +458,58 @@ bool King::asMoved()
 //------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 void King::movement()
-{/*
+{
+	std::vector< Cell> mov; // vecteur de cell afin de l'ajouter ensuite dans movements
+	mov.clear();
 	movements.clear();
 	int x=square->getX();
 	int y=square->getY();
 	if ( x>0 ) 
 	{
-		if (y>0) 	movements[0].push_back(Cell(x-1,y-1));
-		if (y<7)	movements[1].push_back(Cell(x-1,y+1));
-		movements[2].push_back(Cell(x-1,y));
+		if (y>0)
+		{
+			mov.push_back(Cell(x-1,y-1));
+			movements.push_back(mov);
+			mov.clear();
+		}
+		if (y<7)	
+		{
+			mov.push_back(Cell(x-1,y+1));
+			movements.push_back(mov);
+			mov.clear();
+		}
+		mov.push_back(Cell(x-1,y));
+		movements.push_back(mov);
+		mov.clear();
 	}
 	if ( x<7 )
 	{
-		if (y>0) 	movements[3].push_back(Cell(x+1,y-1));
-		if (y<7)	movements[4].push_back(Cell(x+1,y+1));
-		movements[5].push_back(Cell(x+1,y));
+		if (y>0) 	
+		{
+			mov.push_back(Cell(x+1,y-1));
+			movements.push_back(mov);
+			mov.clear();
+		}
+		if (y<7)	
+		{
+			mov.push_back(Cell(x+1,y+1));
+			movements.push_back(mov);
+			mov.clear();
+		}
+		mov.push_back(Cell(x+1,y));
+		movements.push_back(mov);
+		mov.clear();
 	}
-	if (y>0) 	movements[6].push_back(Cell(x,y-1));
-	if (y<7)	movements[7].push_back(Cell(x,y+1));*/
+	if (y>0) 	
+		{
+			mov.push_back(Cell(x,y-1));
+			movements.push_back(mov);
+			mov.clear();
+		}
+	if (y<7)	
+		{
+			mov.push_back(Cell(x,y+1));
+			movements.push_back(mov);
+			mov.clear();
+		}
 }

@@ -75,12 +75,12 @@ int main()
 		std::cout << std::endl;
 	}
 	//affichage des déplacement possible d'une piece 
-	for(int ww = 0; ww< playerA.getPieces()[11]->getmovements().size() ; ++ww)
+	for(int ww = 0; ww< playerA.getPieces()[12]->getmovements().size() ; ++ww)
 	{
-		for(int www = 0; www< playerA.getPieces()[11]->getmovements()[ww].size() ; ++www) 		
-		std::cout << playerA.getPieces()[11]->getmovements()[ww][www].getX()<<" - "<<playerA.getPieces()[11]->getmovements()[ww][www].getY() << std::endl;
+		for(int www = 0; www< playerA.getPieces()[12]->getmovements()[ww].size() ; ++www) 		
+		std::cout << playerA.getPieces()[12]->getmovements()[ww][www].getX()<<" - "<<playerA.getPieces()[12]->getmovements()[ww][www].getY() << std::endl;
 		
-		std::cout << playerA.getPieces()[11]->getmovements()[ww].size()<< std::endl;
+		std::cout << playerA.getPieces()[12]->getmovements()[ww].size()<< std::endl;
 	};
 	return 0;
 }
