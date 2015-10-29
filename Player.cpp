@@ -46,13 +46,13 @@ Player::Player(std::string name, std::string color) : _name(name), _color(color)
 	}
 
 	_pieces[8] = new Rook(0,yPieces);
-	_pieces[9] = new Rook(7,yPieces);
-	_pieces[10] = new Knight(1,yPieces);
-	_pieces[11] = new Knight(6,yPieces);
-	_pieces[12] = new Bishop(2,yPieces);
+	_pieces[9] = new Knight(1,yPieces);
+	_pieces[10] = new Bishop(2,yPieces);
+	_pieces[11] = new Queen(3,yPieces);
+	_pieces[12] = new King(4,yPieces);
 	_pieces[13] = new Bishop(5,yPieces);
-	_pieces[14] = new Queen(3,yPieces);
-	_pieces[15] = new King(4,yPieces);
+	_pieces[14] = new Knight(6,yPieces);
+	_pieces[15] = new Rook(7,yPieces);
 }
 
 //------------------------------------------------------------------------------------------------------
