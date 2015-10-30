@@ -12,13 +12,13 @@
 //------------------------------------------------------------------------------------------------------
 Cell::Cell(unsigned int x, unsigned int y)
 {
-	if(x < 8 && y < 8)		// Coordonnées valides pour un jeu d'echec < 8, type unsigned donc > 0
+	if(x < 8 && y < 8)		// Coordonnées valides pour un jeu d'echec < 8, type unsigned donc >= 0
 	{
 		_x = x;
 		_y = y;
 	}
 	else
-		std::cout << "Erreur d'initialisation" << std::endl;
+		std::cout << "Erreur d'initialisation de la case" << std::endl;
 }
 
 //------------------------------------------------------------------------------------------------------

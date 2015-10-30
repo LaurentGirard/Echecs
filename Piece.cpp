@@ -81,7 +81,7 @@ Spawn::Spawn(unsigned int x, unsigned int y, bool direction) : Piece(x,y)
 
 	std::vector< Cell> mov; // vecteur de cell afin de l'ajouter ensuite dans movements
 
-	if ( _direction == true )
+	if (_direction == true)
 	{
 		mov.push_back(Cell(x,y-1));
 		mov.push_back(Cell(x,y-2));
@@ -107,7 +107,8 @@ void Spawn::movement()
 	movements.clear();
 	_caneat.clear();
 	std::vector< Cell> mov; // vecteur de cell afin de l'ajouter ensuite dans movements
-	if ( _direction == true )
+	
+	if (_direction == true)
 	{
 		if(square->getY()>-1) mov.push_back(Cell(square->getX(),square->getY()-1));
 		_caneat.push_back(Cell(square->getX()-1,square->getY()-1));
@@ -163,7 +164,7 @@ void Rook::movement()
 	unsigned int y = square->getY();
 	unsigned int i;
 
-	for (i=1; x+i < 8 ; ++i)
+	for (i = 1; x+i < 8 ; ++i)
 		mov.push_back(Cell(x+i,y));
 
 	if(mov.size() > 0)
