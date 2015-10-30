@@ -30,24 +30,23 @@ Player::Player(std::string name, std::string color) : _name(name), _color(color)
 		ySpawn = 1;
 		yPieces = 0;
 	}
-	else if( (color == "Black") || (color == "Noir"))
+	else if( (color == "Black") || (color == "Noir") )
 	{
 		ySpawn = 6;
 		yPieces = 7;
 	}
 	else
-	{
 		std::cout << "Erreur d'initialisation, la couleur : " << color << " n'est pas valide !" << std::endl;
-	}
 
 	for(i = 0; i < 8 ; ++i)
 	{
 		if ( (color == "White") || (color == "Blanc") )
-		_pieces[i] = new Spawn(i,ySpawn,false);
-		if( (color == "Black") || (color == "Noir"))
-		_pieces[i] = new Spawn(i,ySpawn,true);
-	}
+			_pieces[i] = new Spawn(i,ySpawn,false);
 
+		if( (color == "Black") || (color == "Noir") )
+			_pieces[i] = new Spawn(i,ySpawn,true);
+	}
+	
 	_pieces[8] = new Rook(0,yPieces);
 	_pieces[9] = new Knight(1,yPieces);
 	_pieces[10] = new Bishop(2,yPieces);

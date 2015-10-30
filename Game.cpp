@@ -35,15 +35,13 @@ int main()
 	Player playerA("Alfred","White");
 	Player playerB("Alphonse","Black");
 	
-	unsigned int i, j;
+/*	unsigned int i, j;
 
 	// initialisation tableau
 	for(i = 0; i < 8 ; ++i)
 	{
 		for(j = 0 ; j < 8 ; ++j)
-		{
 			board[i][j] = new Piece(i,j);
-		}
 	}
 	
 	for(i = 0 ; i < 8 ; ++i)
@@ -79,6 +77,7 @@ int main()
 	{	
 		std::cout << playerB.getPieces()[1]->getcaneat()[ww].getX()<<" - "<<playerB.getPieces()[1]->getcaneat()[ww].getY() << std::endl;
 
-	};
+	}
+*/
 	return 0;
 }
