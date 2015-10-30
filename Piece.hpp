@@ -95,10 +95,10 @@ class Piece
 
 class Spawn : public Piece
 {
-	protected:
+	private:
 
-		bool direction_;
-		std::vector< Cell> caneat_;
+		bool _direction;
+		std::vector<Cell> _caneat;
 
       public:
 
@@ -120,7 +120,8 @@ class Spawn : public Piece
        */
             virtual void movement();
 	 /**
-       * @brief procédure virtuelle permettant de mettre à jour l'attribut movements en fonction des déplacements possibles du Pion
+       * @brief Getter de l'attribut _direction
+       * @return attribut _caneat;
        */
 		std::vector< Cell> getcaneat();
 
