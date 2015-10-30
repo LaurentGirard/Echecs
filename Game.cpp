@@ -35,49 +35,49 @@ int main()
 	Player playerA("Alfred","White");
 	Player playerB("Alphonse","Black");
 	
-	// unsigned int i, j;
+/*	unsigned int i, j;
 
-	// // initialisation tableau
-	// for(i = 0; i < 8 ; ++i)
-	// {
-	// 	for(j = 0 ; j < 8 ; ++j)
-	// 		board[i][j] = new Piece(i,j);
-	// }
+	// initialisation tableau
+	for(i = 0; i < 8 ; ++i)
+	{
+		for(j = 0 ; j < 8 ; ++j)
+			board[i][j] = new Piece(i,j);
+	}
 	
-	// for(i = 0 ; i < 8 ; ++i)
-	// {
-	// 	board[i][1] = playerA.getPieces()[i];		// Pions Blancs
-	// 	board[i][0] = playerA.getPieces()[i+8];		// Autre pièces Blanches -> à remettre dans l'ordre
+	for(i = 0 ; i < 8 ; ++i)
+	{
+		board[i][1] = playerA.getPieces()[i];		// Pions Blancs
+		board[i][0] = playerA.getPieces()[i+8];		// Autre pièces Blanches -> à remettre dans l'ordre
 
-	// 	board[i][6] = playerB.getPieces()[i];		// Pions Noirs
-	// 	board[i][7] = playerB.getPieces()[i+8];		// Autres pièces Noires
-	// }
+		board[i][6] = playerB.getPieces()[i];		// Pions Noirs
+		board[i][7] = playerB.getPieces()[i+8];		// Autres pièces Noires
+	}
 
-	// // TESTS
+	// TESTS
 
-	// board[0][2] = playerA.getPieces()[1];				// Nouvelle case de la pièce sur le plateau
-	// playerA.getPieces()[1]->setSquare(new Cell(0,2));	// maj des coordonnées de la pièce
-	// board[0][1] = new Piece(0,1);						// remplace l'ancien emplacement de la pièce par une piece vide
+	board[0][2] = playerA.getPieces()[1];				// Nouvelle case de la pièce sur le plateau
+	playerA.getPieces()[1]->setSquare(new Cell(0,2));	// maj des coordonnées de la pièce
+	board[0][1] = new Piece(0,1);						// remplace l'ancien emplacement de la pièce par une piece vide
 
-	// board[5][5] = playerB.getPieces()[5];
-	// playerA.getPieces()[1]->setSquare(new Cell(5,5));	// maj des coordonnées de la pièce
-	// board[5][6] = new Piece(5,6);
+	board[5][5] = playerB.getPieces()[5];
+	playerA.getPieces()[1]->setSquare(new Cell(5,5));	// maj des coordonnées de la pièce
+	board[5][6] = new Piece(5,6);
 
-	// // affichage
-	// for(i = 0; i < 8 ; ++i)
-	// {
-	// 	std::cout << "|";
-	// 	for(j = 0 ; j < 8 ; ++j)
-	// 		std::cout << board[i][j]->getLabel() << "|";
+	// affichage
+	for(i = 0; i < 8 ; ++i)
+	{
+		std::cout << "|";
+		for(j = 0 ; j < 8 ; ++j)
+			std::cout << board[i][j]->getLabel() << "|";
 
-	// 	std::cout << std::endl;
-	// }
-	// //affichage des déplacement possible d'une piece 
-	// for(int ww = 0; ww< playerB.getPieces()[2]->getcaneat().size() ; ++ww)
-	// {	
-	// 	std::cout << playerB.getPieces()[2]->getcaneat()[ww].getX()<<" - "<<playerB.getPieces()[2]->getcaneat()[ww].getY() << std::endl;
+		std::cout << std::endl;
+	}
+	//affichage des déplacement possible d'une piece 
+	for(int ww = 0; ww< playerB.getPieces()[1]->getcaneat().size() ; ++ww)
+	{	
+		std::cout << playerB.getPieces()[1]->getcaneat()[ww].getX()<<" - "<<playerB.getPieces()[1]->getcaneat()[ww].getY() << std::endl;
 
-	// }
-
+	}
+*/
 	return 0;
 }

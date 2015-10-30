@@ -56,8 +56,5 @@ void Cell::setY(unsigned int newY)
 //------------------------------------------------------------------------------------------------------
 bool Cell::compare(Cell newcell)
 {
-	if(_x==newcell.getX() && _y==newcell.getY())
-		return true;
-	else
-		return false;
+	return (_x==newcell.getX() && _y==newcell.getY());
 }

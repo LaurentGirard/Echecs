@@ -74,10 +74,9 @@ std::vector< std::vector< Cell> > Piece::getmovements()
 //----------------------------- CLASS Spawn -------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 
-Spawn::Spawn(unsigned int x, unsigned int y, bool direction) : Piece(x,y)
+Spawn::Spawn(unsigned int x, unsigned int y, bool direction) : Piece(x,y), _direction(direction)
 {
 	label = "S";
-	_direction = direction;
 
 	std::vector< Cell> mov; // vecteur de cell afin de l'ajouter ensuite dans movements
 
@@ -388,9 +387,9 @@ void Queen::movement()
 	std::vector< Cell> mov; // vecteur de cell afin de l'ajouter ensuite dans movements
 	mov.clear();
 	movements.clear();
-	unsigned int x=square->getX();
-	unsigned int y=square->getY();
-	unsigned int i,xx,yy;
+	unsigned int x = square->getX();
+	unsigned int y = square->getY();
+	unsigned int i, xx, yy;
 	// mouvement comme la tour vers le haut
 	for (i = 1; y+i < 8 ; ++i)
 		mov.push_back(Cell(x,y+i));
