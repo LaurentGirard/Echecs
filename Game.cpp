@@ -74,12 +74,13 @@ int main()
 		
 	}
 	
-  std::cout <<"|||";
+  	std::cout <<"  |";
 	for(i=0; i<8;++i)
 	{
 		std::cout << i <<" ";
 	}
 	std::cout << std::endl;
+
 	//affichage des déplacement possible d'une piece 
 	for(int ww = 0; ww< playerB.getPieces()[1]->getcaneat().size() ; ++ww)
 	{	
