@@ -31,11 +31,10 @@
 int main()
 {
 	Piece* board[8][8]; // A revoir !!!!!!!!!!!!!!!! pas bien !
-
 	Player playerA("Alfred","White");
 	Player playerB("Alphonse","Black");
 	
-/*	unsigned int i, j;
+	unsigned int i, j;
 
 	// initialisation tableau
 	for(i = 0; i < 8 ; ++i)
@@ -64,20 +63,29 @@ int main()
 	board[5][6] = new Piece(5,6);
 
 	// affichage
-	for(i = 0; i < 8 ; ++i)
+	for(j = 0; j < 8 ; ++j)
 	{
-		std::cout << "|";
-		for(j = 0 ; j < 8 ; ++j)
-			std::cout << board[i][j]->getLabel() << "|";
+		std::cout << 7-j<<" |";
+		for(i = 0 ; i < 8 ; ++i)
+
+			std::cout << board[i][7-j]->getLabel() << "|";
 
 		std::cout << std::endl;
+		
 	}
+	
+  std::cout <<"|||";
+	for(i=0; i<8;++i)
+	{
+		std::cout << i <<" ";
+	}
+	std::cout << std::endl;
 	//affichage des déplacement possible d'une piece 
 	for(int ww = 0; ww< playerB.getPieces()[1]->getcaneat().size() ; ++ww)
 	{	
 		std::cout << playerB.getPieces()[1]->getcaneat()[ww].getX()<<" - "<<playerB.getPieces()[1]->getcaneat()[ww].getY() << std::endl;
 
 	}
-*/
+
 	return 0;
 }

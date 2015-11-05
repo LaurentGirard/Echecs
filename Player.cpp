@@ -46,7 +46,7 @@ Player::Player(std::string name, std::string color) : _name(name), _color(color)
 		if( (color == "Black") || (color == "Noir") )
 			_pieces[i] = new Spawn(i,ySpawn,true);
 	}
-	
+
 	_pieces[8] = new Rook(0,yPieces);
 	_pieces[9] = new Knight(1,yPieces);
 	_pieces[10] = new Bishop(2,yPieces);
