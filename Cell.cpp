@@ -6,6 +6,7 @@
 *
 **/
 
+#include <iostream> 
 #include "Cell.hpp"
 
 

@@ -84,15 +84,27 @@ Spawn::Spawn(unsigned int x, unsigned int y, bool direction) : Piece(x,y), _dire
 	{
 		mov.push_back(Cell(x,y-1));
 		mov.push_back(Cell(x,y-2));
-		_caneat.push_back(Cell(x-1, y-1));
-		_caneat.push_back(Cell(x+1, y-1));
+		if(x<7)
+		{
+			_caneat.push_back(Cell(x+1, y-1));
+		}
+		if(x>0)
+		{
+			_caneat.push_back(Cell(x-1, y-1));
+		}
 	}
 	else
 	{
 		mov.push_back(Cell(x,y+1));
 		mov.push_back(Cell(x,y+2));
-		_caneat.push_back(Cell(x-1, y+1));
-		_caneat.push_back(Cell(x+1, y+1));
+		if(x<7)
+		{
+			_caneat.push_back(Cell(x+1, y+1));
+		}
+		if(x>0)
+		{
+			_caneat.push_back(Cell(x-1, y+1));
+		}
 	}
 	movements.push_back(mov);
 }
