@@ -6,9 +6,7 @@
 *
 **/
 
-#include <iostream> 
 #include "Cell.hpp"
-
 
 //------------------------------------------------------------------------------------------------------
 Cell::Cell(unsigned int x, unsigned int y)

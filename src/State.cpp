@@ -6,7 +6,7 @@
 **/
 
 #include "State.hpp"
-#include "Player.hpp"		// Permet d'utiliser les méthodes de Player -> dépendance circulaire
+#include "Player.hpp"
 
 //------------------------------------------------------------------------------------------------------
 //----------------------------- CLASS STATE ------------------------------------------------------------

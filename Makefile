@@ -1,5 +1,5 @@
 # Project name
-EXEC=game
+EXEC=Echecs
 
 # Compiler
 IDIR=include include/constraints include/domains include/misc include/objectives include/variables
@@ -10,9 +10,9 @@ CXXFLAGS=-std=c++0x -Ofast -W -Wall -Wextra -pedantic -Wno-sign-compare -Wno-unu
 LFLAGS=$(IDIRFLAG)
 
 # Directories
-SRCDIR=src src/constraints src/domains src/misc src/objectives src/variables
-OBJDIR=obj
-BINDIR=bin
+SRCDIR=./src
+OBJDIR=./obj
+BINDIR=./bin
 
 # Files
 SOURCES=$(foreach sdir, $(SRCDIR), $(wildcard $(sdir)/*.cpp))
@@ -64,4 +64,3 @@ $(OBJDIR)/%.o: %.cpp
 
 clean:
 	rm -fr core *~ $(OBJECTS) $(BINDIR)/$(EXEC) $(SOURCESTILDE) $(INCLUDESTILDE)
-

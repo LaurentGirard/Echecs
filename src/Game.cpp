@@ -1,8 +1,6 @@
 #include <iostream>
 #include <string>
-#include "Piece.cpp"
-#include "Player.cpp"
-
+#include "Player.hpp"
 // Piece** initBoard(Player playerA, Player playerB)
 // {
 // 	Piece** board = new Piece*[8];
@@ -82,11 +80,11 @@ int main()
 	std::cout << std::endl;
 
 	//affichage des déplacement possible d'une piece 
-	for(int ww = 0; ww< playerB.getPieces()[1]->getcaneat().size() ; ++ww)
-	{	
-		std::cout << playerB.getPieces()[1]->getcaneat()[ww].getX()<<" - "<<playerB.getPieces()[1]->getcaneat()[ww].getY() << std::endl;
+	// for(int ww = 0; ww< playerB.getPieces()[1]->getcaneat().size() ; ++ww)
+	// {	
+	// 	std::cout << playerB.getPieces()[1]->getcaneat()[ww].getX()<<" - "<<playerB.getPieces()[1]->getcaneat()[ww].getY() << std::endl;
 
-	}
+	// }
 
 	return 0;
 }

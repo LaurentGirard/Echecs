@@ -9,9 +9,10 @@
 #ifndef __Piece_HPP__
 #define __Piece_HPP__
 
-#include "Cell.cpp"
+#include "Cell.hpp"
 #include <vector>
-
+#include <string>
+ 
 /**
 * @class Piece 
 * 
@@ -82,8 +83,6 @@ class Piece
 		virtual void movement();
 
 		std::vector< std::vector< Cell> > getmovements();
-
-		virtual std::vector< Cell> getcaneat();
 };
 
 /**

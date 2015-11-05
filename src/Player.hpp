@@ -9,6 +9,9 @@
 #ifndef __Player_HPP__
 #define __Player_HPP__
 
+#include "State.hpp"
+#include "Piece.hpp"
+
 class Player
 {
 	private:

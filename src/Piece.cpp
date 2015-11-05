@@ -62,9 +62,6 @@ void Piece::printPiece()
 void Piece::movement() {}
 
 //------------------------------------------------------------------------------------------------------
-std::vector<Cell> Piece::getcaneat() {}
-
-//------------------------------------------------------------------------------------------------------
 std::vector< std::vector< Cell> > Piece::getmovements()
 {
 	return movements;

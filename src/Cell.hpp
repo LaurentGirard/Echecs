@@ -9,6 +9,8 @@
 #ifndef __Cell_HPP__
 #define __Cell_HPP__
 
+#include <iostream> 
+
 /**
 * @class Cell 
 * 

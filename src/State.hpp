@@ -9,7 +9,7 @@
 #ifndef __State_HPP__
 #define __State_HPP__
 
-class Player;
+class Player;		// Permet d'utiliser les méthodes de Player -> dépendance circulaire
 
 class State
 {
