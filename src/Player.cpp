@@ -94,6 +94,33 @@ void Player::printState()
 {
 	_state->print();
 }
+//------------------------------------------------------------------------------------------------------
+void Player::printPieces()
+{
+	unsigned int i;
+
+	std::cout << "Les pièces encore en vie sont :" << std::endl;
+
+	for( i = 0 ; i < 16 ; ++i)
+	{
+		if (_pieces[i]->isAlive())
+			_pieces[i]->printPiece();
+	}
+}
+
+//------------------------------------------------------------------------------------------------------
+Piece* Player::selectPiece(unsigned int x, unsigned int y)
+{
+	unsigned int i;
+
+	for( i = 0 ; i < 16 ; ++i)
+	{
+		if( (_pieces[i]->getSquare()->getX() == x) && (_pieces[i]->getSquare()->getY() == y) && (_pieces[i]->isAlive()) )
+			return _pieces[i];
+	}
+
+	return NULL;
+}
 
 //------------------------------------------------------------------------------------------------------
 std::string Player::getName()

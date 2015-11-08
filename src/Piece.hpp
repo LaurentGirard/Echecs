@@ -26,13 +26,15 @@ class Piece
 
 		Cell* square;                                         // attribut : case sur laquelle est la pièce
 		bool alive;					                  // attribut : état de la pièce ( 0 = pièce détruite ; 1 = pièce en vie )
-            std::vector< std::vector< Cell> > movements;          // attribut : liste de liste de cases représentant les déplacements possibles de la pièce
+            std::vector< std::vector<Cell*> > movements;           // attribut : liste de liste de cases représentant les déplacements possibles de la pièce
             std::string label;                                    // attribut : libellé de la pièce (S = Spawn, R = Rook, C = Knight etc.)
 	
       public:
 
       /**
        * @brief Constructeur, crée une pièce
+       * @param unsigned int x
+       * @param unsigned int y
        */
 		Piece(unsigned int x, unsigned int y);
 
@@ -57,7 +59,7 @@ class Piece
        * @brief Getter de l'attribut alive
        * @return attribut alive
        */
-		bool asAlive();
+		bool isAlive();
 
       /**
        * @brief Setter de l'attribut alive
@@ -82,7 +84,7 @@ class Piece
        */
 		virtual void movement();
 
-		std::vector< std::vector< Cell> > getmovements();
+		std::vector< std::vector<Cell*> > getmovements();
 };
 
 /**
@@ -97,7 +99,7 @@ class Spawn : public Piece
 	private:
 
 		bool _direction;
-		std::vector<Cell> _caneat;
+		std::vector<Cell*> _caneat;
 
       public:
 
@@ -122,7 +124,7 @@ class Spawn : public Piece
        * @brief Getter de l'attribut _direction
        * @return attribut _caneat;
        */
-		std::vector< Cell> getcaneat();
+		std::vector<Cell*> getcaneat();
 
 };
 
