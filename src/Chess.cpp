@@ -41,17 +41,29 @@ void Chess::initBoard()
 }
 
 //------------------------------------------------------------------------------------------------------
-Piece* Chess::selectDest(Player* p, unsigned int x, unsigned int y)
+Piece* Chess::selectDest(Player* player, Piece* piece, unsigned int x, unsigned int y)
 {
-	unsigned int i;
+	unsigned int i, j, k;
+	Piece* selectedD = _board[x][y];
 
+	// Si la case selectionnée correspond à une pièce que le joueur player possède
 	for(i = 0 ; i < 16 ; ++i)
 	{
-		if( _board[x][y]->getSquare() == p->getPieces()[i]->getSquare() )		// Si la case selectionnée correspond à une pièce que le joueur p possède
+		if( _board[x][y]->getSquare() == player->getPieces()[i]->getSquare() )
 			return NULL;
 	}
 
-	return _board[x][y];
+	// Si la case sélectionnée correspond à un déplacement possible de la pièce
+	for(j = 0 ; j < piece->getMovements().size() ; ++j)
+	{
+		for(k = 0 ; k < piece->getMovements()[j].size() ; ++k)
+		{
+			if(*(piece->getMovements()[j][k]) == *(selectedD->getSquare()) )
+				return selectedD;
+		}
+	}
+
+	return NULL;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -67,7 +79,7 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 	std::cout << "y: ";
 	y = getChoiceInt();
 
-	selectedP = playerIG->selectPiece(x,y);		// Selection de la pièce
+	selectedP = playerIG->selectPiece(x,y);		// Selection de la pièce du joueur
 
 	while(selectedP == NULL)
 	{
@@ -91,8 +103,8 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 	std::cout << "y: ";
 	y2 = getChoiceInt();
 
-	// Selection valide de la destination
-	selectedD = selectDest(playerIG, x2,y2); 	
+	// Selection valide de la destination sur le plateau
+	selectedD = selectDest(playerIG, selectedP, x2, y2); 	
 	while(selectedD == NULL)
 	{
 		std::cout << "Entrée de nouvelles coordonnées pour la destination de la pièce : " << std::endl;
@@ -100,7 +112,7 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 		x2 = getChoiceInt();
 		std::cout << "y: ";
 		y2 = getChoiceInt();
-		selectedD = selectDest(playerIG, x2,y2);
+		selectedD = selectDest(playerIG, selectedP, x2, y2);
 	}
 }
 

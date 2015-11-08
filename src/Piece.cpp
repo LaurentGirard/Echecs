@@ -61,7 +61,7 @@ void Piece::printPiece()
 void Piece::movement() {}
 
 //------------------------------------------------------------------------------------------------------
-std::vector< std::vector< Cell*> > Piece::getmovements()
+std::vector< std::vector< Cell*> > Piece::getMovements()
 {
 	return movements;
 }
@@ -80,27 +80,21 @@ Spawn::Spawn(unsigned int x, unsigned int y, bool direction) : Piece(x,y), _dire
 	{
 		mov.push_back(new Cell(x,y-1));
 		mov.push_back(new Cell(x,y-2));
+
 		if(x < 7)
-		{
 			_caneat.push_back(new Cell(x+1, y-1));
-		}
 		if(x > 0)
-		{
 			_caneat.push_back(new Cell(x-1, y-1));
-		}
 	}
 	else
 	{
 		mov.push_back(new Cell(x,y+1));
 		mov.push_back(new Cell(x,y+2));
+
 		if(x < 7)
-		{
 			_caneat.push_back(new Cell(x+1, y+1));
-		}
 		if(x > 0)
-		{
 			_caneat.push_back(new Cell(x-1, y+1));
-		}
 	}
 	movements.push_back(mov);
 }

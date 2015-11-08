@@ -41,10 +41,11 @@ class Chess
 		* @brief Permet au joueur de selectionner une destination pour son déplacement de pièce
 		* @param unsigned int x, coordonnée x de la case selectionnée
 		* @param unsigned int y, coordonnée y de la case selectionnée
-		* @param Player* p, pointeur vers le joueur en jeu
-		* @return Piece* pointeur de la pièce selectionnée sur le plateau (le board étant un tableau de Piece)
+		* @param Player* player, pointeur vers le joueur en jeu
+		* @param Piece* piece, pointeur de la pièce que le joueur veut déplacer
+		* @return Piece* pointeur de la destination selectionnée sur le plateau (le board étant un tableau de Piece)
 		*/
-			Piece* selectDest(Player* p, unsigned int x, unsigned int y);
+			Piece* selectDest(Player* player, Piece* piece, unsigned int x, unsigned int y);
 
 		/**
 		* @brief Effectue le tour d'un joueur

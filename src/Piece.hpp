@@ -84,7 +84,7 @@ class Piece
        */
 		virtual void movement();
 
-		std::vector< std::vector<Cell*> > getmovements();
+		std::vector< std::vector<Cell*> > getMovements();
 };
 
 /**
