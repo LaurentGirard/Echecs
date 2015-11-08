@@ -2,7 +2,7 @@
 EXEC=Echecs
 
 # Compiler
-IDIR=include include/constraints include/domains include/misc include/objectives include/variables
+IDIR=include include/Modele include/Vue include/Controller
 IDIRFLAG=$(foreach idir, $(IDIR), -I$(idir))
 CXXFLAGS=-std=c++0x -Ofast -W -Wall -Wextra -pedantic -Wno-sign-compare -Wno-unused-parameter $(IDIRFLAG)
 
@@ -10,9 +10,9 @@ CXXFLAGS=-std=c++0x -Ofast -W -Wall -Wextra -pedantic -Wno-sign-compare -Wno-unu
 LFLAGS=$(IDIRFLAG)
 
 # Directories
-SRCDIR=./src
-OBJDIR=./obj
-BINDIR=./bin
+SRCDIR=src src/Modele src/Vue src/Controller
+OBJDIR=obj
+BINDIR=bin
 
 # Files
 SOURCES=$(foreach sdir, $(SRCDIR), $(wildcard $(sdir)/*.cpp))

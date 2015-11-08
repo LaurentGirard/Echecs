@@ -53,7 +53,7 @@ void Cell::setY(unsigned int newY)
 		std::cout << "Nouvelle coordonée " << newY << " invalide" << std::endl;
 }
 //------------------------------------------------------------------------------------------------------
-bool Cell::compare(Cell newcell)
+bool Cell::operator==(Cell & c2)
 {
-	return (_x==newcell.getX() && _y==newcell.getY());
+	return (_x==c2.getX() && _y==c2.getY());
 }

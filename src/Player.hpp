@@ -71,6 +71,19 @@ class Player
 		void printState();
 
 	/**
+	* @brief Affiche l'ensemble des pièces encore en vie avec leurs coordonnées respectives
+	*/
+		void printPieces();
+
+	/**
+	* @brief Permet au joueur de selectionner une pièce qu'il possède
+	* @param unsigned int x, coordonnée x de la case selectionnée
+	* @param unsigned int y, coordonnée y de la case selectionnée
+	* @return Piece* pointeur de la pièce selectionnée (null si coordonnées invalides)
+	*/
+		Piece* selectPiece( unsigned int x, unsigned int y);
+
+	/**
 	* @brief Getter de l'attribut _name
 	* @return attribut _name
 	*/
