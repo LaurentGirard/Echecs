@@ -89,15 +89,15 @@ bool Chess::collision(Player* player, Piece* selectedP, Piece* selectedD)
 	}
 
 	// Tant qu'il n'y a pas de collision et que le parcours du vecteur de mouvement n'arrive pas sur la destination sélectionnée
-	while( noCollision && 
-		  selectedD->getSquare()->getX() != selectedP->getMovements()[i][k]->getX() && 
-		  selectedD->getSquare()->getX() != selectedP->getMovements()[i][k]->getX() )
+	do
 	{
 		x = selectedP->getMovements()[i][k]->getX();
 		y = selectedP->getMovements()[i][k]->getY();
-		noCollision = ((_board[x][y]->getLabel()) == " "); // Si le label de la case (x,y) est " ", alors il n'y a pas de pièce réelle sur la case [i][k]
+		_board[x][y]->printPiece();
+		noCollision = (_board[x][y]->getLabel() == " "); // Si le label de la case (x,y) est " ", alors il n'y a pas de pièce réelle sur la case [i][k]
 		++k;
-	}
+	}while( noCollision && 
+		  ( (selectedD->getSquare()->getX() != x) || (selectedD->getSquare()->getY() != y )) );
 	
 	return noCollision;
 }
@@ -148,6 +148,7 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 		x2 = getChoiceInt();
 		std::cout << "y: ";
 		y2 = getChoiceInt();
+		
 		selectedD = selectDest(playerIG, selectedP, x2, y2);
 	}
 
@@ -215,10 +216,10 @@ void Chess::startGame()
 
 	// Juste bouger le pion sur le plateau, les nouveaux mouvements disponibles ne sont pas mis à jour => c'est juste un test
 
-	/*_board[3][2] = p1->getPieces()[3];					// Nouvelle case de la pièce sur le plateau
+	_board[3][2] = p1->getPieces()[3];					// Nouvelle case de la pièce sur le plateau
 	p1->getPieces()[3]->setSquare(new Cell(3,2));		// maj des coordonnées de la pièce
 	_board[3][1] = new Piece(3,1);						// remplace l'ancien emplacement de la pièce par une piece vide
-	*/
+	
 
 	printBoard();
 
