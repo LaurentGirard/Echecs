@@ -53,7 +53,7 @@ Piece* Chess::selectDest(Player* player, Piece* piece, unsigned int x, unsigned 
 			return NULL;
 	}
 
-	// Si la case sélectionnée correspond à un déplacement possible de la pièce
+	// Si la case sélectionnée correspond à un déplacement théorique possible de la pièce
 	for(j = 0 ; j < piece->getMovements().size() ; ++j)
 	{
 		for(k = 0 ; k < piece->getMovements()[j].size() ; ++k)
@@ -103,7 +103,7 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 	std::cout << "y: ";
 	y2 = getChoiceInt();
 
-	// Selection valide de la destination sur le plateau
+	// Selection valide de la destination sur le plateau ( selectDestD sera soit une pièce noire, soit une pièce "vide" )
 	selectedD = selectDest(playerIG, selectedP, x2, y2); 	
 	while(selectedD == NULL)
 	{
@@ -114,6 +114,8 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 		y2 = getChoiceInt();
 		selectedD = selectDest(playerIG, selectedP, x2, y2);
 	}
+
+	// Gère les collisions
 }
 
 //------------------------------------------------------------------------------------------------------

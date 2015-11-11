@@ -49,6 +49,8 @@ class Chess
 
 		/**
 		* @brief Effectue le tour d'un joueur
+		* @param Player* playerIG, Joueur actuellement en jeu
+		* @param Player* adver, Joueur en attente de jouer
 		*/
 			void gameRound(Player* playerIG, Player* adver);
 
