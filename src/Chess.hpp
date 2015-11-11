@@ -54,7 +54,15 @@ class Chess
 		* @param Piece* selectedD, pointeur vers la pièce représentant la destination
 		* @return bool, vrai s'il n'y a pas de collision, faux sinon
 		*/
-			bool collision(Player* player, Piece* selectedP, Piece* selectedD);
+			bool noCollision(Player* player, Piece* selectedP, Piece* selectedD);
+
+		/**
+		* @brief Effectue le déplacement de la pièce selectionnée vers la destination
+		* @param Player* player, pointeur vers le joueur en jeu
+		* @param Piece* selectedP, pointeur vers la pièce selectionnée
+		* @param Piece* selectedD, pointeur vers la pièce représentant la destination
+		*/
+			void movePiece(Player* player, Piece* selectedP, Piece* selectedD);
 
 		/**
 		* @brief Effectue le tour d'un joueur

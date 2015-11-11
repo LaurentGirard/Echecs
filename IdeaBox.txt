@@ -15,6 +15,8 @@ revoir les déplacements des pions
 Découper le projet pour MVC
 Notamment mettre les affichages dans la vue pour éviter de tout mettre salement dans le Chess.cpp
 
+Peut être enlever Player* player de noCollision(...)
+
 -------------------- RAPPORT --------------------
 
 Préciser la partie nulle lors de trois même positionnement des pièces au cours de la partie

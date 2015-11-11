@@ -67,7 +67,7 @@ Piece* Chess::selectDest(Player* player, Piece* piece, unsigned int x, unsigned 
 }
 
 //------------------------------------------------------------------------------------------------------
-bool Chess::collision(Player* player, Piece* selectedP, Piece* selectedD)
+bool Chess::noCollision(Player* player, Piece* selectedP, Piece* selectedD)
 {
 	bool noCollision = true;
 	bool found = false;
@@ -99,6 +99,22 @@ bool Chess::collision(Player* player, Piece* selectedP, Piece* selectedD)
 		  ( (selectedD->getSquare()->getX() != x) || (selectedD->getSquare()->getY() != y )) );
 	
 	return noCollision;
+}
+//------------------------------------------------------------------------------------------------------
+void Chess::movePiece(Player* player, Piece* selectedP, Piece* selectedD)
+{
+	// Récupération des coordonnées de la destination
+	unsigned int xDest = selectedD->getSquare()->getX();
+	unsigned int yDest = selectedD->getSquare()->getY();
+
+	// Récupération des coordonnées de la Pièce
+	unsigned int xPiece = selectedP->getSquare()->getX();
+	unsigned int yPiece = selectedP->getSquare()->getY();
+
+
+	_board[xDest][yDest] = selectedP;							// La pièce est déplacée sur le plateau
+	_board[xPiece][yPiece] = new Piece(xPiece,yPiece);			// L'ancienne position de la pièce est maintenant une pièce "vide"
+	selectedP->setSquare(selectedD->getSquare());				// Mise à jour des coordonnées de la pièce qui vient d'être déplacée
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -153,10 +169,9 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 
 	// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
 
-	if(collision(playerIG, selectedP, selectedD))
+	if(noCollision(playerIG, selectedP, selectedD))
 	{
-		std::cout << "Pas de collision" << std::endl;
-
+		movePiece(playerIG, selectedP, selectedD);
 	}
 	else
 	{
@@ -219,13 +234,17 @@ void Chess::startGame()
 
 	// Juste bouger le pion sur le plateau, les nouveaux mouvements disponibles ne sont pas mis à jour => c'est juste un test
 
-	_board[3][2] = p1->getPieces()[3];					// Nouvelle case de la pièce sur le plateau
+	/*_board[3][2] = p1->getPieces()[3];					// Nouvelle case de la pièce sur le plateau
 	p1->getPieces()[3]->setSquare(new Cell(3,2));		// maj des coordonnées de la pièce
 	_board[3][1] = new Piece(3,1);						// remplace l'ancien emplacement de la pièce par une piece vide
-	
+	*/
 
 	printBoard();
 
 	gameRound(p1, p2);	// En cours de dev sur les collisions
+
+	printBoard();
+
+	p1->printPieces();
 
 }
