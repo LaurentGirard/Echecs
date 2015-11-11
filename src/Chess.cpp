@@ -67,7 +67,7 @@ Piece* Chess::selectDest(Player* player, Piece* piece, unsigned int x, unsigned 
 }
 
 //------------------------------------------------------------------------------------------------------
-bool Chess::collision(Player* player, Piece* selectedP, Piece* selectedD)
+bool Chess::noCollision(Player* player, Piece* selectedP, Piece* selectedD)
 {
 	bool noCollision = true;
 	bool found = false;
@@ -89,17 +89,33 @@ bool Chess::collision(Player* player, Piece* selectedP, Piece* selectedD)
 	}
 
 	// Tant qu'il n'y a pas de collision et que le parcours du vecteur de mouvement n'arrive pas sur la destination sélectionnée
-	while( noCollision && 
-		  selectedD->getSquare()->getX() != selectedP->getMovements()[i][k]->getX() && 
-		  selectedD->getSquare()->getX() != selectedP->getMovements()[i][k]->getX() )
+	do
 	{
 		x = selectedP->getMovements()[i][k]->getX();
 		y = selectedP->getMovements()[i][k]->getY();
-		noCollision = ((_board[x][y]->getLabel()) == " "); // Si le label de la case (x,y) est " ", alors il n'y a pas de pièce réelle sur la case [i][k]
+		noCollision = (_board[x][y]->getLabel() == " "); // Si le label de la case (x,y) est " ", alors il n'y a pas de pièce réelle sur la case [i][k]
 		++k;
-	}
+	}while( noCollision && 
+		  ( (selectedD->getSquare()->getX() != x) || (selectedD->getSquare()->getY() != y )) );
 	
 	return noCollision;
+}
+//------------------------------------------------------------------------------------------------------
+void Chess::movePiece(Player* player, Piece* selectedP, Piece* selectedD)
+{
+	// Récupération des coordonnées de la destination
+	unsigned int xDest = selectedD->getSquare()->getX();
+	unsigned int yDest = selectedD->getSquare()->getY();
+
+	// Récupération des coordonnées de la Pièce
+	unsigned int xPiece = selectedP->getSquare()->getX();
+	unsigned int yPiece = selectedP->getSquare()->getY();
+
+
+	_board[xDest][yDest] = selectedP;							// La pièce est déplacée sur le plateau
+	_board[xPiece][yPiece] = new Piece(xPiece,yPiece);			// L'ancienne position de la pièce est maintenant une pièce "vide"
+	selectedP->setSquare(selectedD->getSquare());				// Mise à jour des coordonnées de la pièce qui vient d'être déplacée
+	selectedP->movement();										// Mise à jour des déplacements possibles de la pièce depuis sa nouvelle position
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -139,7 +155,7 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 	std::cout << "y: ";
 	y2 = getChoiceInt();
 
-	// Selection valide de la destination sur le plateau ( selectDestD sera soit une pièce noire, soit une pièce "vide" )
+	// Selection valide de la destination sur le plateau ( selectedD sera soit une pièce noire, soit une pièce "vide" )
 	selectedD = selectDest(playerIG, selectedP, x2, y2); 	
 	while(selectedD == NULL)
 	{
@@ -148,16 +164,21 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 		x2 = getChoiceInt();
 		std::cout << "y: ";
 		y2 = getChoiceInt();
+
 		selectedD = selectDest(playerIG, selectedP, x2, y2);
 	}
 
 	// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
 
-	if(collision(playerIG, selectedP, selectedD))
-		std::cout << "Pas de collision" << std::endl;
-	else
-		std::cout << "collision !!" << std::endl;
+	if(noCollision(playerIG, selectedP, selectedD))
+	{
+		movePiece(playerIG, selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
 
+	}
+	else
+	{
+		std::cout << "collision !!" << std::endl;
+	}
 
 }
 
@@ -222,6 +243,10 @@ void Chess::startGame()
 
 	printBoard();
 
-	gameRound(p1, p2);	// En cours de dev sur les collisions
+	gameRound(p1, p2);	
+
+	printBoard();
+
+	p1->printPieces();
 
 }
