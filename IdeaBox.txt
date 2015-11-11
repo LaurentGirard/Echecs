@@ -11,8 +11,10 @@ Class contenant les différentes erreurs : pattern ?
 -------------------- TO DO ----------------------
 
 implémenter le "coup en passant" pour le pion
-
+revoir les déplacements des pions
+Découper le projet pour MVC
+Notamment mettre les affichages dans la vue pour éviter de tout mettre salement dans le Chess.cpp
 
 -------------------- RAPPORT --------------------
 
-Préciser la partie nulle lors de trois même situation
+Préciser la partie nulle lors de trois même positionnement des pièces au cours de la partie

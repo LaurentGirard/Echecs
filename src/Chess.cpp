@@ -93,7 +93,6 @@ bool Chess::collision(Player* player, Piece* selectedP, Piece* selectedD)
 	{
 		x = selectedP->getMovements()[i][k]->getX();
 		y = selectedP->getMovements()[i][k]->getY();
-		_board[x][y]->printPiece();
 		noCollision = (_board[x][y]->getLabel() == " "); // Si le label de la case (x,y) est " ", alors il n'y a pas de pièce réelle sur la case [i][k]
 		++k;
 	}while( noCollision && 
@@ -139,7 +138,7 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 	std::cout << "y: ";
 	y2 = getChoiceInt();
 
-	// Selection valide de la destination sur le plateau ( selectDestD sera soit une pièce noire, soit une pièce "vide" )
+	// Selection valide de la destination sur le plateau ( selectedD sera soit une pièce noire, soit une pièce "vide" )
 	selectedD = selectDest(playerIG, selectedP, x2, y2); 	
 	while(selectedD == NULL)
 	{
@@ -148,17 +147,21 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 		x2 = getChoiceInt();
 		std::cout << "y: ";
 		y2 = getChoiceInt();
-		
+
 		selectedD = selectDest(playerIG, selectedP, x2, y2);
 	}
 
 	// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
 
 	if(collision(playerIG, selectedP, selectedD))
+	{
 		std::cout << "Pas de collision" << std::endl;
-	else
-		std::cout << "collision !!" << std::endl;
 
+	}
+	else
+	{
+		std::cout << "collision !!" << std::endl;
+	}
 
 }
 
