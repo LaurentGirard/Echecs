@@ -115,6 +115,7 @@ void Chess::movePiece(Player* player, Piece* selectedP, Piece* selectedD)
 	_board[xDest][yDest] = selectedP;							// La pièce est déplacée sur le plateau
 	_board[xPiece][yPiece] = new Piece(xPiece,yPiece);			// L'ancienne position de la pièce est maintenant une pièce "vide"
 	selectedP->setSquare(selectedD->getSquare());				// Mise à jour des coordonnées de la pièce qui vient d'être déplacée
+	selectedP->movement();										// Mise à jour des déplacements possibles de la pièce depuis sa nouvelle position
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -171,7 +172,8 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 
 	if(noCollision(playerIG, selectedP, selectedD))
 	{
-		movePiece(playerIG, selectedP, selectedD);
+		movePiece(playerIG, selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
+
 	}
 	else
 	{
@@ -241,7 +243,7 @@ void Chess::startGame()
 
 	printBoard();
 
-	gameRound(p1, p2);	// En cours de dev sur les collisions
+	gameRound(p1, p2);	
 
 	printBoard();
 

@@ -79,8 +79,7 @@ class Piece
 		void printPiece();
 		
 	/**
-      * @brief fonction virtuelle retournant la liste des cases possibles pour un déplacement de la pièce
-      * @return vector<Cell> 
+      * @brief procédure virtuelle mettant à jour les cases possibles pour un déplacement de la pièce
       */
 		virtual void movement();
 
