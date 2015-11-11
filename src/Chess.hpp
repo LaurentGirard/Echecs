@@ -48,7 +48,18 @@ class Chess
 			Piece* selectDest(Player* player, Piece* piece, unsigned int x, unsigned int y);
 
 		/**
+		* @brief Vérifie s'il n'y a pas de collision lors du déplacement de la pièce vers la destination sélectionée
+		* @param Player* player, pointeur vers le joueur en jeu
+		* @param Piece* selectedP, pointeur vers la pièce selectionnée
+		* @param Piece* selectedD, pointeur vers la pièce représentant la destination
+		* @return bool, vrai s'il n'y a pas de collision, faux sinon
+		*/
+			bool collision(Player* player, Piece* selectedP, Piece* selectedD);
+
+		/**
 		* @brief Effectue le tour d'un joueur
+		* @param Player* playerIG, Joueur actuellement en jeu
+		* @param Player* adver, Joueur en attente de jouer
 		*/
 			void gameRound(Player* playerIG, Player* adver);
 

@@ -53,7 +53,7 @@ Piece* Chess::selectDest(Player* player, Piece* piece, unsigned int x, unsigned 
 			return NULL;
 	}
 
-	// Si la case sélectionnée correspond à un déplacement possible de la pièce
+	// Si la case sélectionnée correspond à un déplacement théorique possible de la pièce
 	for(j = 0 ; j < piece->getMovements().size() ; ++j)
 	{
 		for(k = 0 ; k < piece->getMovements()[j].size() ; ++k)
@@ -64,6 +64,42 @@ Piece* Chess::selectDest(Player* player, Piece* piece, unsigned int x, unsigned 
 	}
 
 	return NULL;
+}
+
+//------------------------------------------------------------------------------------------------------
+bool Chess::collision(Player* player, Piece* selectedP, Piece* selectedD)
+{
+	bool noCollision = true;
+	bool found = false;
+	unsigned int i = 0;
+	unsigned int j = 0;
+	unsigned int k = 0;
+	unsigned int x, y;
+
+	// Cherche l'indice i dans lequel se trouve les étapes intermédiaires du déplacement à effectuer
+	while( !found && (i < selectedP->getMovements().size()) )
+	{
+		while ( !found && (j < selectedP->getMovements()[i].size()) )
+		{
+			found = ( (*selectedD->getSquare()) == (*selectedP->getMovements()[i][j]) );
+			++j;
+		}
+		if(!found)
+			++i;
+	}
+
+	// Tant qu'il n'y a pas de collision et que le parcours du vecteur de mouvement n'arrive pas sur la destination sélectionnée
+	while( noCollision && 
+		  selectedD->getSquare()->getX() != selectedP->getMovements()[i][k]->getX() && 
+		  selectedD->getSquare()->getX() != selectedP->getMovements()[i][k]->getX() )
+	{
+		x = selectedP->getMovements()[i][k]->getX();
+		y = selectedP->getMovements()[i][k]->getY();
+		noCollision = ((_board[x][y]->getLabel()) == " "); // Si le label de la case (x,y) est " ", alors il n'y a pas de pièce réelle sur la case [i][k]
+		++k;
+	}
+	
+	return noCollision;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -103,7 +139,7 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 	std::cout << "y: ";
 	y2 = getChoiceInt();
 
-	// Selection valide de la destination sur le plateau
+	// Selection valide de la destination sur le plateau ( selectDestD sera soit une pièce noire, soit une pièce "vide" )
 	selectedD = selectDest(playerIG, selectedP, x2, y2); 	
 	while(selectedD == NULL)
 	{
@@ -114,6 +150,15 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 		y2 = getChoiceInt();
 		selectedD = selectDest(playerIG, selectedP, x2, y2);
 	}
+
+	// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
+
+	if(collision(playerIG, selectedP, selectedD))
+		std::cout << "Pas de collision" << std::endl;
+	else
+		std::cout << "collision !!" << std::endl;
+
+
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -154,5 +199,29 @@ void Chess::printBoard()
 //------------------------------------------------------------------------------------------------------
 void Chess::startGame()
 {
-	gameRound(p1, p2);
+	/*unsigned int i, j;
+
+	Piece* p = _board[3][0];			// Coordonnées de la pièce sur laquelle tu veux afficher les déplacements possible
+
+	std::cout << p->getLabel() << "(" << p->getSquare()->getX() << "," << p->getSquare()->getY() << ")" << std::endl;
+	for(i = 0 ; i < p->getMovements().size() ; ++i)
+	{
+		for(j = 0 ; j < p->getMovements()[i].size() ; ++j)
+		{
+			std::cout << "(" << p->getMovements()[i][j]->getX() << "," << p->getMovements()[i][j]->getY() << ")" << std::endl;
+		}
+		std::cout << std::endl;
+	}*/
+
+	// Juste bouger le pion sur le plateau, les nouveaux mouvements disponibles ne sont pas mis à jour => c'est juste un test
+
+	/*_board[3][2] = p1->getPieces()[3];					// Nouvelle case de la pièce sur le plateau
+	p1->getPieces()[3]->setSquare(new Cell(3,2));		// maj des coordonnées de la pièce
+	_board[3][1] = new Piece(3,1);						// remplace l'ancien emplacement de la pièce par une piece vide
+	*/
+
+	printBoard();
+
+	gameRound(p1, p2);	// En cours de dev sur les collisions
+
 }

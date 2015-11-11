@@ -6,8 +6,7 @@
 int main()
 {
 	Chess* chess = new Chess("Alphonse","Alfred");
-	chess->printBoard();
-
+	
 	chess->startGame();
 
 	// // TESTS

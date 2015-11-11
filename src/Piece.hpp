@@ -68,7 +68,7 @@ class Piece
 		void setAlive(bool newAlive);
 
       /**
-       * @brief de Getter l'attribut label
+       * @brief Getter l'attribut label
        * @return attribut label
        */
             std::string getLabel();
@@ -79,11 +79,15 @@ class Piece
 		void printPiece();
 		
 	/**
-       * @brief fonction virtuelle retournant la liste des cases possibles pour un déplacement de la pièce
-       * @return vector<Cell> 
-       */
+      * @brief fonction virtuelle retournant la liste des cases possibles pour un déplacement de la pièce
+      * @return vector<Cell> 
+      */
 		virtual void movement();
 
+      /**
+      * @brief Getter de l'attribut movements
+      * @return attribut movements
+      */
 		std::vector< std::vector<Cell*> > getMovements();
 };
 
