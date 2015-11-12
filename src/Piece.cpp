@@ -75,18 +75,24 @@ Spawn::Spawn(unsigned int x, unsigned int y, bool direction) : Piece(x,y), _dire
 	label = "S";
 
 	std::vector<Cell*> mov; // vecteur de cell afin de l'ajouter ensuite dans movements
-
 	if (_direction == true)
 	{
 		mov.push_back(new Cell(x,y-1));
 		mov.push_back(new Cell(x,y-2));
 		movements.push_back(mov);
 		mov.clear();
-		mov.push_back(new Cell(x+1, y-1));
-		movements.push_back(mov);
-		mov.clear();
-		mov.push_back(new Cell(x-1, y-1));
-		movements.push_back(mov);
+		if(x<7)
+		{
+			mov.push_back(new Cell(x+1, y-1));
+			movements.push_back(mov);
+			mov.clear();
+		}
+		if(x>0)
+		{		
+			mov.push_back(new Cell(x-1, y-1));
+			movements.push_back(mov);
+			mov.clear();
+		}
 	}
 	else
 	{
@@ -94,13 +100,19 @@ Spawn::Spawn(unsigned int x, unsigned int y, bool direction) : Piece(x,y), _dire
 		mov.push_back(new Cell(x,y+2));
 		movements.push_back(mov);
 		mov.clear();
-		mov.push_back(new Cell(x+1, y+1));
-		movements.push_back(mov);
-		mov.clear();
-		mov.push_back(new Cell(x-1, y+1));
-		movements.push_back(mov);
+		if(x<7)
+		{	
+			mov.push_back(new Cell(x+1, y+1));
+			movements.push_back(mov);
+			mov.clear();
+		}
+		if(x>0)
+		{	
+			mov.push_back(new Cell(x-1, y+1));
+			movements.push_back(mov);
+			mov.clear();
+		}
 	}
-
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -119,11 +131,18 @@ void Spawn::movement()
 			mov.push_back(new Cell(square->getX(),square->getY()-1));
 			movements.push_back(mov);
 			mov.clear();
-			mov.push_back(new Cell(square->getX()-1,square->getY()-1));
-			movements.push_back(mov);
-			mov.clear();
-			mov.push_back(new Cell(square->getX()+1,square->getY()-1));
-			movements.push_back(mov);
+			if(square->getX()>0)
+			{
+				mov.push_back(new Cell(square->getX()-1,square->getY()-1));
+				movements.push_back(mov);
+				mov.clear();
+			}
+			if(square->getX()<7)
+			{
+				mov.push_back(new Cell(square->getX()+1,square->getY()-1));
+				movements.push_back(mov);
+				mov.clear();
+			}
 		}
 	}
 	else
@@ -133,16 +152,22 @@ void Spawn::movement()
 			mov.push_back(new Cell(square->getX(),square->getY()+1));
 			movements.push_back(mov);
 			mov.clear();
-			mov.push_back(new Cell(square->getX()-1,square->getY()+1));
-			movements.push_back(mov);
-			mov.clear();
-			mov.push_back(new Cell(square->getX()+1,square->getY()+1));
-			movements.push_back(mov);
+			if(square->getX()>0)
+			{
+				mov.push_back(new Cell(square->getX()-1,square->getY()+1));
+				movements.push_back(mov);
+				mov.clear();
+			}
+			if(square->getX()<7)
+			{
+				mov.push_back(new Cell(square->getX()+1,square->getY()+1));
+				movements.push_back(mov);
+				mov.clear();				
+			}
 		}
 	}
 	movements.push_back(mov);
 }
-
 //------------------------------------------------------------------------------------------------------
 //----------------------------- CLASS ROOK -------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
