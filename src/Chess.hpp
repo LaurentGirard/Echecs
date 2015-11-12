@@ -82,6 +82,13 @@ class Chess
 			void printBoard();
 
 		/**
+		* @brief Permet de savoir si un joueur se trouve en position d'echec
+		* @return bool
+		*/
+		
+		bool testechec(Player* playerIG, Player* adver); 
+
+		/**
 		* @brief Lance le début d'une partie
 		*/
 
