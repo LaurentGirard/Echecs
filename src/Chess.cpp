@@ -67,7 +67,7 @@ Piece* Chess::selectDest(Player* player, Piece* piece, unsigned int x, unsigned 
 }
 
 //------------------------------------------------------------------------------------------------------
-bool Chess::noCollision(Player* player, Piece* selectedP, Piece* selectedD)
+bool Chess::noCollision(Piece* selectedP, Piece* selectedD)
 {
 	bool noCollision = true;
 	bool found = false;
@@ -101,7 +101,7 @@ bool Chess::noCollision(Player* player, Piece* selectedP, Piece* selectedD)
 	return noCollision;
 }
 //------------------------------------------------------------------------------------------------------
-void Chess::movePiece(Player* player, Piece* selectedP, Piece* selectedD)
+void Chess::movePiece(Piece* selectedP, Piece* selectedD)
 {
 	// Récupération des coordonnées de la destination
 	unsigned int xDest = selectedD->getSquare()->getX();
@@ -111,6 +111,12 @@ void Chess::movePiece(Player* player, Piece* selectedP, Piece* selectedD)
 	unsigned int xPiece = selectedP->getSquare()->getX();
 	unsigned int yPiece = selectedP->getSquare()->getY();
 
+	// Check si la destination est occupée par une pièce adverse (dest est soit une piece "vide" soit une pièce adverse)
+	bool isAdvers = (selectedD->getLabel() != " ");
+
+	// Si la destination est occupée par une pièce adverse
+	if(isAdvers)
+		selectedD->setAlive(false);
 
 	_board[xDest][yDest] = selectedP;							// La pièce est déplacée sur le plateau
 	_board[xPiece][yPiece] = new Piece(xPiece,yPiece);			// L'ancienne position de la pièce est maintenant une pièce "vide"
@@ -124,6 +130,8 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 	Piece* selectedP;
 	Piece* selectedD;
 	unsigned int x, y, x2, y2;
+
+	printBoard();
 
 	std::cout << "Coordonnées de la pièce que vous voulez selectionner : " << std::endl;
 	std::cout << "x: ";
@@ -155,7 +163,7 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 	std::cout << "y: ";
 	y2 = getChoiceInt();
 
-	// Selection valide de la destination sur le plateau ( selectedD sera soit une pièce noire, soit une pièce "vide" )
+	// Selection valide de la destination sur le plateau ( selectedD sera soit une pièce adverse, soit une pièce "vide" )
 	selectedD = selectDest(playerIG, selectedP, x2, y2); 	
 	while(selectedD == NULL)
 	{
@@ -170,9 +178,9 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 
 	// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
 
-	if(noCollision(playerIG, selectedP, selectedD))
+	if(noCollision(selectedP, selectedD))
 	{
-		movePiece(playerIG, selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
+		movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
 
 	}
 	else
@@ -220,7 +228,7 @@ void Chess::printBoard()
 //------------------------------------------------------------------------------------------------------
 void Chess::startGame()
 {
-	/*unsigned int i, j;
+	unsigned int i, j;
 
 	Piece* p = _board[3][0];			// Coordonnées de la pièce sur laquelle tu veux afficher les déplacements possible
 
@@ -232,21 +240,16 @@ void Chess::startGame()
 			std::cout << "(" << p->getMovements()[i][j]->getX() << "," << p->getMovements()[i][j]->getY() << ")" << std::endl;
 		}
 		std::cout << std::endl;
-	}*/
+	}
 
-	// Juste bouger le pion sur le plateau, les nouveaux mouvements disponibles ne sont pas mis à jour => c'est juste un test
-
-	/*_board[3][2] = p1->getPieces()[3];					// Nouvelle case de la pièce sur le plateau
-	p1->getPieces()[3]->setSquare(new Cell(3,2));		// maj des coordonnées de la pièce
-	_board[3][1] = new Piece(3,1);						// remplace l'ancien emplacement de la pièce par une piece vide
+	// Test du jeu pour 2 tours de jeu chacun
+	/*for(unsigned int i = 0 ; i < 3 ; ++i)
+	{
+		gameRound(p1, p2);
+		gameRound(p2, p1);
+	}
 	*/
-
-	printBoard();
-
-	gameRound(p1, p2);	
-
-	printBoard();
-
-	p1->printPieces();
+	
+	// p2->printPieces();
 
 }
