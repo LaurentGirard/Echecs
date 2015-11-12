@@ -80,23 +80,27 @@ Spawn::Spawn(unsigned int x, unsigned int y, bool direction) : Piece(x,y), _dire
 	{
 		mov.push_back(new Cell(x,y-1));
 		mov.push_back(new Cell(x,y-2));
-
-		if(x < 7)
-			_caneat.push_back(new Cell(x+1, y-1));
-		if(x > 0)
-			_caneat.push_back(new Cell(x-1, y-1));
+		movements.push_back(mov);
+		mov.clear();
+		mov.push_back(new Cell(x+1, y-1));
+		movements.push_back(mov);
+		mov.clear();
+		mov.push_back(new Cell(x-1, y-1));
+		movements.push_back(mov);
 	}
 	else
 	{
 		mov.push_back(new Cell(x,y+1));
 		mov.push_back(new Cell(x,y+2));
-
-		if(x < 7)
-			_caneat.push_back(new Cell(x+1, y+1));
-		if(x > 0)
-			_caneat.push_back(new Cell(x-1, y+1));
+		movements.push_back(mov);
+		mov.clear();
+		mov.push_back(new Cell(x+1, y+1));
+		movements.push_back(mov);
+		mov.clear();
+		mov.push_back(new Cell(x-1, y+1));
+		movements.push_back(mov);
 	}
-	movements.push_back(mov);
+
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -106,18 +110,20 @@ Spawn::~Spawn(){}
 void Spawn::movement()
 {	
 	movements.clear();
-	_caneat.clear();
 	std::vector<Cell*> mov; // vecteur de cell afin de l'ajouter ensuite dans movements
-	
+	mov.clear();	
 	if (_direction == true)
 	{
 		if(square->getY()!= 0) 
 		{
 			mov.push_back(new Cell(square->getX(),square->getY()-1));
-			if(square->getX()!= 0) 
-				_caneat.push_back(new Cell(square->getX()-1,square->getY()-1));
-			if(square->getX()!= 7) 
-				_caneat.push_back(new Cell(square->getX()+1,square->getY()-1));
+			movements.push_back(mov);
+			mov.clear();
+			mov.push_back(new Cell(square->getX()-1,square->getY()-1));
+			movements.push_back(mov);
+			mov.clear();
+			mov.push_back(new Cell(square->getX()+1,square->getY()-1));
+			movements.push_back(mov);
 		}
 	}
 	else
@@ -125,19 +131,16 @@ void Spawn::movement()
 		if(square->getY() < 7) 
 		{
 			mov.push_back(new Cell(square->getX(),square->getY()+1));
-			if(square->getX()!= 0) 
-			_caneat.push_back(new Cell(square->getX()-1,square->getY()+1));
-			if(square->getX()!= 7) 
-			_caneat.push_back(new Cell(square->getX()+1,square->getY()+1));
+			movements.push_back(mov);
+			mov.clear();
+			mov.push_back(new Cell(square->getX()-1,square->getY()+1));
+			movements.push_back(mov);
+			mov.clear();
+			mov.push_back(new Cell(square->getX()+1,square->getY()+1));
+			movements.push_back(mov);
 		}
 	}
 	movements.push_back(mov);
-}
-
-//------------------------------------------------------------------------------------------------------
-std::vector<Cell*> Spawn::getcaneat()
-{
-	return _caneat;
 }
 
 //------------------------------------------------------------------------------------------------------

@@ -102,7 +102,6 @@ class Spawn : public Piece
 	private:
 
 		bool _direction;
-		std::vector<Cell*> _caneat;
 
       public:
 
@@ -123,11 +122,7 @@ class Spawn : public Piece
        * @brief procédure virtuelle permettant de mettre à jour l'attribut movements en fonction des déplacements possibles du Pion
        */
             virtual void movement();
-	 /**
-       * @brief Getter de l'attribut _direction
-       * @return attribut _caneat;
-       */
-		std::vector<Cell*> getcaneat();
+
 
 };
 
