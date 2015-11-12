@@ -234,9 +234,9 @@ void Chess::startGame()
 {
 	unsigned int i, j;
 
-	// Piece* p = _board[3][4];			// Coordonnées de la pièce sur laquelle tu veux afficher les déplacements possible
+	Piece* p = _board[2][7];			// Coordonnées de la pièce sur laquelle tu veux afficher les déplacements possible
 
-	/*std::cout << p->getLabel() << "(" << p->getSquare()->getX() << "," << p->getSquare()->getY() << ")" << std::endl;
+	std::cout << p->getLabel() << "(" << p->getSquare()->getX() << "," << p->getSquare()->getY() << ")" << std::endl;
 	std::cout<<p->getMovements().size()<<std::endl;
 	for(i = 0 ; i < p->getMovements().size() ; ++i)
 	{
@@ -245,12 +245,12 @@ void Chess::startGame()
 			std::cout << "(" << p->getMovements()[i][j]->getX() << "," << p->getMovements()[i][j]->getY() << ")" << std::endl;
 		}
 		std::cout << std::endl;
-	}*/
+	}
 
 	//Test du jeu pour 2 tours de jeu chacun
 	for(i = 0 ; i < 3 ; ++i)
 	{
-		gameRound(p1, p2);
+		gameRound(p2, p1);
 		printBoard();
 	}
 
