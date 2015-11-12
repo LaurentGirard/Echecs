@@ -14,8 +14,7 @@ implémenter le "coup en passant" pour le pion
 revoir les déplacements des pions
 Découper le projet pour MVC
 Notamment mettre les affichages dans la vue pour éviter de tout mettre salement dans le Chess.cpp
-
-Peut être enlever Player* player de noCollision(...)
+Initialiser les labels  apres les ":" dans les constructeurs ?
 
 -------------------- RAPPORT --------------------
 

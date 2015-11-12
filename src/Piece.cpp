@@ -396,6 +396,7 @@ void Queen::movement()
 	unsigned int x = square->getX();
 	unsigned int y = square->getY();
 	unsigned int i, xx, yy;
+	
 	// mouvement comme la tour vers le haut
 	for (i = 1; y+i < 8 ; ++i)
 		mov.push_back(new Cell(x,y+i));
@@ -459,7 +460,7 @@ void Queen::movement()
 	xx = x-1;
 	yy = y-1;
 
-	while(xx >- 1 && yy > -1)
+	while(xx > -1 && yy > -1)
 	{
 		mov.push_back(new Cell(xx,yy));
 		xx = xx-1;
@@ -483,7 +484,7 @@ void Queen::movement()
 	xx = x-1;
 	yy = y+1;
 
-	while(xx >- 1 && yy < 8)
+	while(xx > -1 && yy < 8)
 	{
 		mov.push_back(new Cell(xx,yy));
 		xx = xx-1;
