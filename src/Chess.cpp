@@ -118,6 +118,8 @@ void Chess::movePiece(Piece* selectedP, Piece* selectedD)
 	if(isAdvers)
 		selectedD->setAlive(false);
 
+	std::cout << "coucou movePiece" << std::endl;
+
 	_board[xDest][yDest] = selectedP;							// La pièce est déplacée sur le plateau
 	_board[xPiece][yPiece] = new Piece(xPiece,yPiece);			// L'ancienne position de la pièce est maintenant une pièce "vide"
 	selectedP->setSquare(selectedD->getSquare());				// Mise à jour des coordonnées de la pièce qui vient d'être déplacée
@@ -180,6 +182,8 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 
 	if(noCollision(selectedP, selectedD))
 	{
+			std::cout << "coucou" << std::endl;
+
 		movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
 
 	}
@@ -230,9 +234,9 @@ void Chess::startGame()
 {
 	unsigned int i, j;
 
-	Piece* p = _board[3][0];			// Coordonnées de la pièce sur laquelle tu veux afficher les déplacements possible
+	// Piece* p = _board[3][4];			// Coordonnées de la pièce sur laquelle tu veux afficher les déplacements possible
 
-	std::cout << p->getLabel() << "(" << p->getSquare()->getX() << "," << p->getSquare()->getY() << ")" << std::endl;
+	/*std::cout << p->getLabel() << "(" << p->getSquare()->getX() << "," << p->getSquare()->getY() << ")" << std::endl;
 	std::cout<<p->getMovements().size()<<std::endl;
 	for(i = 0 ; i < p->getMovements().size() ; ++i)
 	{
@@ -241,7 +245,7 @@ void Chess::startGame()
 			std::cout << "(" << p->getMovements()[i][j]->getX() << "," << p->getMovements()[i][j]->getY() << ")" << std::endl;
 		}
 		std::cout << std::endl;
-	}
+	}*/
 
 	//Test du jeu pour 2 tours de jeu chacun
 	for(i = 0 ; i < 3 ; ++i)
@@ -249,11 +253,13 @@ void Chess::startGame()
 		gameRound(p1, p2);
 		printBoard();
 	}
-	for(i = 0 ; i < p->getMovements().size() ; ++i)
+
+	std::cout << _board[3][4]->getLabel() << "(" << _board[3][4]->getSquare()->getX() << "," << _board[3][4]->getSquare()->getY() << ")" << std::endl;
+	for(i = 0 ; i < _board[3][4]->getMovements().size() ; ++i)
 	{
-		for(j = 0 ; j < p->getMovements()[i].size() ; ++j)
+		for(j = 0 ; j < _board[3][4]->getMovements()[i].size() ; ++j)
 		{
-			std::cout << "(" << p->getMovements()[i][j]->getX() << "," << p->getMovements()[i][j]->getY() << ")" << std::endl;
+			std::cout << "(" << _board[3][4]->getMovements()[i][j]->getX() << "," << _board[3][4]->getMovements()[i][j]->getY() << ")" << std::endl;
 		}
 		std::cout << std::endl;
 	}
