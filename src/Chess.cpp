@@ -230,7 +230,7 @@ void Chess::startGame()
 {
 	unsigned int i, j;
 
-	Piece* p = _board[2][0];			// Coordonnées de la pièce sur laquelle tu veux afficher les déplacements possible
+	Piece* p = _board[3][0];			// Coordonnées de la pièce sur laquelle tu veux afficher les déplacements possible
 
 	std::cout << p->getLabel() << "(" << p->getSquare()->getX() << "," << p->getSquare()->getY() << ")" << std::endl;
 	std::cout<<p->getMovements().size()<<std::endl;

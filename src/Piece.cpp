@@ -111,19 +111,25 @@ void Spawn::movement()
 	
 	if (_direction == true)
 	{
-		if(square->getY() > -1) 
+		if(square->getY()!= 0) 
+		{
 			mov.push_back(new Cell(square->getX(),square->getY()-1));
-
-		_caneat.push_back(new Cell(square->getX()-1,square->getY()-1));
-		_caneat.push_back(new Cell(square->getX()+1,square->getY()-1));
+			if(square->getX()!= 0) 
+				_caneat.push_back(new Cell(square->getX()-1,square->getY()-1));
+			if(square->getX()!= 7) 
+				_caneat.push_back(new Cell(square->getX()+1,square->getY()-1));
+		}
 	}
 	else
 	{
 		if(square->getY() < 7) 
+		{
 			mov.push_back(new Cell(square->getX(),square->getY()+1));
-
-		_caneat.push_back(new Cell(square->getX()-1,square->getY()+1));
-		_caneat.push_back(new Cell(square->getX()+1,square->getY()+1));
+			if(square->getX()!= 0) 
+			_caneat.push_back(new Cell(square->getX()-1,square->getY()+1));
+			if(square->getX()!= 7) 
+			_caneat.push_back(new Cell(square->getX()+1,square->getY()+1));
+		}
 	}
 	movements.push_back(mov);
 }
@@ -177,9 +183,12 @@ void Rook::movement()
 		movements.push_back(mov);
 		mov.clear();
 	}
-
-	for (i = 1; x-i > -1 ; ++i)
-		mov.push_back(new Cell(x-i,y));
+	i = 0;
+	while(i!=x)
+	{
+		mov.push_back(new Cell(x-i-1,y));
+		i++;
+	}
 
 	if(mov.size() > 0)
 	{
@@ -195,9 +204,12 @@ void Rook::movement()
 		movements.push_back(mov);
 		mov.clear();
 	}
-
-	for (i = 1; y-i > -1 ; ++i)
-		mov.push_back(new Cell(x,y-i));
+	i = 0;
+	while(i!=y)
+	{
+		mov.push_back(new Cell(x,y-i-1));
+		i++;
+	}
 
 	if(mov.size() > 0)
 	{
@@ -230,7 +242,7 @@ void Knight::movement()
 
 	if(y+2 < 8)
 	{
-		if(x-1 > -1)
+		if(x > 0)
 		{
 			mov.push_back(new Cell(x-1,y+2));
 			movements.push_back(mov);
@@ -251,14 +263,14 @@ void Knight::movement()
 			movements.push_back(mov);
 			mov.clear();
 		}
-		if(y-1 > -1) 	
+		if(y > 0) 	
 		{
 			mov.push_back(new Cell(x+2,y-1));
 			movements.push_back(mov);
 			mov.clear();
 		}
 	}
-	if(y-2 > -1)
+	if(y > 1)
 	{
 		if(x+1 < 8) 	
 		{
@@ -266,16 +278,16 @@ void Knight::movement()
 			movements.push_back(mov);
 			mov.clear();
 		}
-		if(x-1 > -1) 	
+		if(x > 0) 	
 		{
 			mov.push_back(new Cell(x-1,y-2));
 			movements.push_back(mov);
 			mov.clear();
 		}
 	}
-	if(x-2 > -1)
+	if(x > 1)
 	{
-		if(y-1 > -1) 	
+		if(y > 0) 	
 		{
 			mov.push_back(new Cell(x-2,y-1));
 			movements.push_back(mov);
@@ -448,11 +460,16 @@ void Queen::movement()
 	//mouvement comme le fou vers bas droite
 	xx = x+1;
 	yy = y-1;
-	while(xx < 8 && yy > -1)
+
+	while(xx < 8 && ((yy >0&&yy<8)||yy==0))
 	{
 		mov.push_back(new Cell(xx,yy));
 		xx = xx+1;
-		yy = yy-1;
+		if(xx==0) 
+			yy= 10;
+			else 
+			yy = yy-1;
+
 	}
 
 	if(mov.size() > 0)
@@ -460,24 +477,36 @@ void Queen::movement()
 		movements.push_back(mov);
 		mov.clear();
 	}
+
 	//mouvement comme la tour vers le bas
-	for (i = 1; y-i > -1 ; ++i)
-		mov.push_back(new Cell(x,y-i));
+	i = 0;
+	while(i!=y)
+	{
+		mov.push_back(new Cell(x,y-i-1));
+		i++;
+	}
 
 	if(mov.size() > 0)
 	{
 		movements.push_back(mov);
 		mov.clear();
 	}
+
 	// mouvement comme le fou vers bas gauche
 	xx = x-1;
 	yy = y-1;
 
-	while(xx > -1 && yy > -1)
+	while(((xx >0&&xx<8)||xx==0) && ((yy >0&&yy<8)||yy==0))
 	{
 		mov.push_back(new Cell(xx,yy));
-		xx = xx-1;
-		yy = yy-1;
+		if(xx==0) 
+			xx= 10;
+			else 
+			xx = xx-1;
+		if(yy==0) 
+			yy= 10;
+			else 
+			yy = yy-1;
 	}
 	if(mov.size() > 0)
 	{
@@ -485,8 +514,12 @@ void Queen::movement()
 		mov.clear();
 	}
 	// mouvement comme la tour vers la gauche
-	for (i = 1; x-i > -1 ; ++i)
-		mov.push_back(new Cell(x-i,y));
+	i = 0;
+	while(i!=x)
+	{
+		mov.push_back(new Cell(x-i-1,y));
+		i++;
+	}
 
 	if(mov.size() > 0)
 	{
@@ -497,10 +530,13 @@ void Queen::movement()
 	xx = x-1;
 	yy = y+1;
 
-	while(xx > -1 && yy < 8)
+	while(((xx >0&&xx<8)||xx==0) && yy < 8)
 	{
 		mov.push_back(new Cell(xx,yy));
-		xx = xx-1;
+		if(xx==0) 
+			xx= 10;
+			else 
+			xx = xx-1;
 		yy = yy+1;
 	}
 
