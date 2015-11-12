@@ -313,11 +313,13 @@ void Bishop::movement()
 	unsigned int y = square->getY();
 	unsigned int xx = x-1;
 	unsigned int yy = y+1;
-
-	while(xx > -1 && yy < 8)
+	while(((xx >0&&xx<8)||xx==0) && yy < 8)
 	{
 		mov.push_back(new Cell(xx,yy));
-		xx = xx-1;
+		if(xx==0) 
+			xx= 10;
+			else 
+			xx = xx-1;
 		yy = yy+1;
 	}
 
@@ -345,11 +347,15 @@ void Bishop::movement()
 	xx = x+1;
 	yy = y-1;
 
-	while(xx < 8 && yy > -1)
+	while(xx < 8 && ((yy >0&&yy<8)||yy==0))
 	{
 		mov.push_back(new Cell(xx,yy));
 		xx = xx+1;
-		yy = yy-1;
+		if(xx==0) 
+			yy= 10;
+			else 
+			yy = yy-1;
+
 	}
 
 	if(mov.size() > 0)
@@ -361,11 +367,17 @@ void Bishop::movement()
 	xx = x-1;
 	yy = y-1;
 
-	while(xx > -1 && yy > -1)
+	while(((xx >0&&xx<8)||xx==0) && ((yy >0&&yy<8)||yy==0))
 	{
 		mov.push_back(new Cell(xx,yy));
-		xx = xx-1;
-		yy = yy-1;
+		if(xx==0) 
+			xx= 10;
+			else 
+			xx = xx-1;
+		if(yy==0) 
+			yy= 10;
+			else 
+			yy = yy-1;
 	}
 	if(mov.size() > 0)
 	{
@@ -373,6 +385,7 @@ void Bishop::movement()
 		mov.clear();
 	}
 }
+
 
 //------------------------------------------------------------------------------------------------------
 //----------------------------- CLASS QUEEN ------------------------------------------------------------
