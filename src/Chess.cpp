@@ -230,6 +230,29 @@ void Chess::printBoard()
 }
 
 //------------------------------------------------------------------------------------------------------
+bool Chess::testechec(Player* playerIG, Player* adver)
+{
+	bool positionEchec = false;
+	Piece* KingIG;
+	Piece* selectedD;
+	KingIG= playerIG->getking();
+	int i=0;
+	while( positionEchec==false&&i <16)
+	{
+		selectedD=adver->getPieces()[i];
+		if (!(selectDest(adver,KingIG, selectedD->getSquare()->getX(), selectedD->getSquare()->getY())==NULL))
+		{
+			if(!(noCollision(selectedD, KingIG)))
+			{
+				positionEchec= true;
+			}
+		}
+		++i;		
+	}
+	return positionEchec;
+}
+
+//------------------------------------------------------------------------------------------------------
 void Chess::startGame()
 {
 	unsigned int i, j;
@@ -263,6 +286,7 @@ void Chess::startGame()
 		}
 		std::cout << std::endl;
 	}
+	std::cout<<testechec(p1,p2)<<std::endl;
 	//p2->printPieces();
 
 }

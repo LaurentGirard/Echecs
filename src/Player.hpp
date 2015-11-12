@@ -102,8 +102,8 @@ class Player
 		std::string getColor();
 
 	/**
-	* @brief Getter de l'attribut _color
-	* @return attribut _color
+	* @brief Getter de l'attribut _pieces
+	* @return attribut _pieces
 	*/
 		Piece** getPieces();
 
@@ -147,6 +147,13 @@ class Player
 	* @return attribut *_endState
 	*/
 		State* getEndState();
+
+	/**
+	* @brief permet de retourner la piece roi
+	* @return piece* pointeur de la piece roi
+	*/
+		Piece* getking();
+
 };
 
 #endif // __Player_HPP__

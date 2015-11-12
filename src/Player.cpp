@@ -185,3 +185,10 @@ State* Player::getEndState()
 {
 	return _endState;
 }
+
+//------------------------------------------------------------------------------------------------------
+Piece* Player::getking()
+{
+	return _pieces[12];
+}
+
