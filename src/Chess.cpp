@@ -91,8 +91,9 @@ bool Chess::noCollision(Piece* selectedP, Piece* selectedD)
 	// Tant qu'il n'y a pas de collision et que le parcours du vecteur de mouvement n'arrive pas sur la destination sélectionnée
 	do
 	{
-		x = selectedP->getMovements()[i][k]->getX();
+		x = selectedP->getMovements()[i][k]->getX();		// !! La seg fault est ICI !!
 		y = selectedP->getMovements()[i][k]->getY();
+
 		noCollision = (_board[x][y]->getLabel() == " "); // Si le label de la case (x,y) est " ", alors il n'y a pas de pièce réelle sur la case [i][k]
 		++k;
 	}while( noCollision && 
@@ -117,8 +118,6 @@ void Chess::movePiece(Piece* selectedP, Piece* selectedD)
 	// Si la destination est occupée par une pièce adverse
 	if(isAdvers)
 		selectedD->setAlive(false);
-
-	std::cout << "coucou movePiece" << std::endl;
 
 	_board[xDest][yDest] = selectedP;							// La pièce est déplacée sur le plateau
 	_board[xPiece][yPiece] = new Piece(xPiece,yPiece);			// L'ancienne position de la pièce est maintenant une pièce "vide"
@@ -182,10 +181,7 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 
 	if(noCollision(selectedP, selectedD))
 	{
-			std::cout << "coucou" << std::endl;
-
 		movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
-
 	}
 	else
 	{
@@ -235,16 +231,16 @@ bool Chess::testechec(Player* playerIG, Player* adver)
 	bool positionEchec = false;
 	Piece* KingIG;
 	Piece* selectedD;
-	KingIG= playerIG->getking();
-	int i=0;
-	while( positionEchec==false&&i <16)
+	KingIG = playerIG->getking();
+	int i = 0;
+	while( (positionEchec == false) && (i < 16) )
 	{
-		selectedD=adver->getPieces()[i];
+		selectedD = adver->getPieces()[i];
 		if (!(selectDest(adver,KingIG, selectedD->getSquare()->getX(), selectedD->getSquare()->getY())==NULL))
 		{
 			if(!(noCollision(selectedD, KingIG)))
 			{
-				positionEchec= true;
+				positionEchec = true;
 			}
 		}
 		++i;		
@@ -271,9 +267,9 @@ void Chess::startGame()
 	}*/
 
 	//Test du jeu pour 2 tours de jeu chacun
-	for(i = 0 ; i < 3 ; ++i)
+	for(i = 0 ; i < 2 ; ++i)
 	{
-		gameRound(p1, p2);
+		gameRound(p2, p1);
 		printBoard();
 	}
 
@@ -286,7 +282,7 @@ void Chess::startGame()
 		}
 		std::cout << std::endl;
 	}
-	std::cout<<testechec(p1,p2)<<std::endl;
+	// std::cout<<testechec(p1,p2)<<std::endl;
 	//p2->printPieces();
 
 }
