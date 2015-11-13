@@ -294,7 +294,6 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 	{
 		res= true;
 	}
-	std::cout<<"voila !!!"<<std::endl;
 	if (res){
 		playerIG->checkMate();
 	}	
@@ -321,7 +320,7 @@ void Chess::startGame()
 
 	//Test du jeu pour 2 tours de jeu chacun
 	int m;
-	/*for(i = 0 ; i < 10 ; ++i)
+	for(i = 0 ; i < 5 ; ++i)
 	{
 		gameRound(p2, p1);
 		printBoard();
@@ -333,7 +332,17 @@ void Chess::startGame()
 			}
 			std::cout << std::endl;
 		}
-	}*/
+		gameRound(p1, p2);
+		printBoard();
+		for(m = 0 ; m < p->getMovements().size() ; ++m)
+		{
+			for(j = 0 ; j < p->getMovements()[m].size() ; ++j)
+			{
+				std::cout << "(" << p->getMovements()[m][j]->getX() << "," << p->getMovements()[m][j]->getY() << ")" << std::endl;
+			}
+			std::cout << std::endl;
+		}
+	}
 
 	/*std::cout << _board[3][4]->getLabel() << "(" << _board[3][4]->getSquare()->getX() << "," << _board[3][4]->getSquare()->getY() << ")" << std::endl;
 	for(i = 0 ; i < _board[3][4]->getMovements().size() ; ++i)
