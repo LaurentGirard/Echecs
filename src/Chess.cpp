@@ -228,37 +228,10 @@ void Chess::printBoard()
 //------------------------------------------------------------------------------------------------------
 bool Chess::testechec(Player* playerIG, Player* adver)
 {
-	bool positionEchec = false;
 	Piece* kingIG;
-	Piece* selectedD;
 	kingIG = playerIG->getking();
-	int i = 0;
-	while( (positionEchec == false) && (i < 16) )
-	{
-		selectedD = adver->getPieces()[i];
-		if(!(selectedD->getLabel()=="S"))
-		{
-			if (!(selectDest(adver,kingIG, selectedD->getSquare()->getX(), selectedD->getSquare()->getY())==NULL))
-			{
-				if(!(noCollision(selectedD, kingIG)))
-				{
-					positionEchec = true;
-				}
-			}
-		}else
-		{
-			if ((selectedD->getMovements()[1][0]->getX()==kingIG->getSquare()->getX())&&(selectedD->getMovements()[1][0]->getY()==kingIG->getSquare()->getY()))
-			{
-				positionEchec = true;
-			}			
-			if ((selectedD->getMovements()[2][0]->getX()==kingIG->getSquare()->getX())&&(selectedD->getMovements()[2][0]->getY()==kingIG->getSquare()->getY()))
-			{			
-				positionEchec = true;		
-			}
-		}
-		++i;		
-	}
-	return positionEchec;
+	bool res = testechec(kingIG, adver);
+	return res;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -266,6 +239,7 @@ bool Chess::testechec(Piece* selectedP, Player* adver)
 {
 	bool positionEchec = false;
 	Piece* selectedD;
+	int j;
 	int i = 0;
 	while( (positionEchec == false) && (i < 16) )
 	{
@@ -281,13 +255,11 @@ bool Chess::testechec(Piece* selectedP, Player* adver)
 			}
 		}else
 		{
-			if ((selectedD->getMovements()[1][0]->getX()==selectedP->getSquare()->getX())&&(selectedD->getMovements()[1][0]->getY()==selectedP->getSquare()->getY()))
-			{
-				positionEchec = true;
-			}			
-			if ((selectedD->getMovements()[2][0]->getX()==selectedP->getSquare()->getX())&&(selectedD->getMovements()[2][0]->getY()==selectedP->getSquare()->getY()))
-			{			
-				positionEchec = true;		
+			for (j=1; j<selectedD->getMovements().size();++j){
+				if ((selectedD->getMovements()[j][0]->getX()==selectedP->getSquare()->getX())&&(selectedD->getMovements()[j][0]->getY()==selectedP->getSquare()->getY()))
+				{
+					positionEchec = true;
+				}		
 			}
 		}
 		++i;		
@@ -316,11 +288,16 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 			}
 		}
 	}
+
 	bool res=false;
 	if(positionEchecmat==kingIG->getMovements().size()-1)
 	{
 		res= true;
 	}
+	std::cout<<"voila !!!"<<std::endl;
+	if (res){
+		playerIG->checkMate();
+	}	
 	return res;
 }
 
@@ -344,7 +321,7 @@ void Chess::startGame()
 
 	//Test du jeu pour 2 tours de jeu chacun
 	int m;
-	for(i = 0 ; i < 10 ; ++i)
+	/*for(i = 0 ; i < 10 ; ++i)
 	{
 		gameRound(p2, p1);
 		printBoard();
@@ -356,7 +333,7 @@ void Chess::startGame()
 			}
 			std::cout << std::endl;
 		}
-	}
+	}*/
 
 	/*std::cout << _board[3][4]->getLabel() << "(" << _board[3][4]->getSquare()->getX() << "," << _board[3][4]->getSquare()->getY() << ")" << std::endl;
 	for(i = 0 ; i < _board[3][4]->getMovements().size() ; ++i)
@@ -367,7 +344,7 @@ void Chess::startGame()
 		}
 		std::cout << std::endl;
 	}*/
-	// std::cout<<testechec(p1,p2)<<std::endl;
+	p1->printState();
 	//p2->printPieces();
 
 }
