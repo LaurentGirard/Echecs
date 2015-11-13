@@ -89,6 +89,20 @@ class Chess
 		bool testechec(Player* playerIG, Player* adver); 
 
 		/**
+		* @brief Permet de savoir si une piece se trouve en position d'echec
+		* @return bool
+		*/
+		
+		bool testechec(Piece* selectedP, Player* adver); 
+
+		/**
+		* @brief Permet de savoir si un joueur se trouve en position d'echec et mat
+		* @return bool
+		*/
+		
+		bool testechecmat(Player* playerIG, Player* adver);
+
+		/**
 		* @brief Lance le début d'une partie
 		*/
 
