@@ -302,13 +302,18 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 	Piece* king_deplacement_virtuel=new Piece(0,0);
 	Piece* kingIG;
 	kingIG = playerIG->getking();
-	int i;
+	int i,x,y;
 	for(i=0; i<kingIG->getMovements().size(); ++i)
 	{
-		king_deplacement_virtuel->setSquare(new Cell(kingIG->getMovements()[i][0]->getX(),kingIG->getMovements()[i][0]->getY()));
-		if(testechec(king_deplacement_virtuel,adver))
-		{
-			positionEchecmat++;
+		x=kingIG->getMovements()[i][0]->getX();
+		y=kingIG->getMovements()[i][0]->getY();
+		king_deplacement_virtuel->setSquare(new Cell(x,y));
+		if(playerIG->selectPiece(x,y)==NULL)
+		{		
+			if(testechec(king_deplacement_virtuel,adver))
+			{
+				positionEchecmat++;
+			}
 		}
 	}
 	bool res=false;
