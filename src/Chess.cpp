@@ -236,11 +236,24 @@ bool Chess::testechec(Player* playerIG, Player* adver)
 	while( (positionEchec == false) && (i < 16) )
 	{
 		selectedD = adver->getPieces()[i];
-		if (!(selectDest(adver,KingIG, selectedD->getSquare()->getX(), selectedD->getSquare()->getY())==NULL))
+		if(!(selectedD->getLabel()=="S"))
 		{
-			if(!(noCollision(selectedD, KingIG)))
+			if (!(selectDest(adver,KingIG, selectedD->getSquare()->getX(), selectedD->getSquare()->getY())==NULL))
+			{
+				if(!(noCollision(selectedD, KingIG)))
+				{
+					positionEchec = true;
+				}
+			}
+		}else
+		{
+			if ((selectedD->getMovements()[1][0]->getX()==KingIG->getSquare()->getX())&&(selectedD->getMovements()[1][0]->getY()==KingIG->getSquare()->getY()))
 			{
 				positionEchec = true;
+			}			
+			if ((selectedD->getMovements()[2][0]->getX()==KingIG->getSquare()->getX())&&(selectedD->getMovements()[2][0]->getY()==KingIG->getSquare()->getY()))
+			{			
+				positionEchec = true;		
 			}
 		}
 		++i;		
