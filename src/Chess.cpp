@@ -84,14 +84,14 @@ bool Chess::noCollision(Piece* selectedP, Piece* selectedD)
 			found = ( (*selectedD->getSquare()) == (*selectedP->getMovements()[i][j]) );
 			++j;
 		}
+		j=0;
 		if(!found)
 			++i;
 	}
-
 	// Tant qu'il n'y a pas de collision et que le parcours du vecteur de mouvement n'arrive pas sur la destination sélectionnée
 	do
 	{
-		x = selectedP->getMovements()[i][k]->getX();		// !! La seg fault est ICI !!
+		x = selectedP->getMovements()[i][k]->getX();		
 		y = selectedP->getMovements()[i][k]->getY();
 
 		noCollision = (_board[x][y]->getLabel() == " "); // Si le label de la case (x,y) est " ", alors il n'y a pas de pièce réelle sur la case [i][k]
@@ -253,9 +253,9 @@ void Chess::startGame()
 {
 	unsigned int i, j;
 
-	// Piece* p = _board[3][4];			// Coordonnées de la pièce sur laquelle tu veux afficher les déplacements possible
+	Piece* p = _board[2][7];			// Coordonnées de la pièce sur laquelle tu veux afficher les déplacements possible
 
-	/*std::cout << p->getLabel() << "(" << p->getSquare()->getX() << "," << p->getSquare()->getY() << ")" << std::endl;
+	std::cout << p->getLabel() << "(" << p->getSquare()->getX() << "," << p->getSquare()->getY() << ")" << std::endl;
 	std::cout<<p->getMovements().size()<<std::endl;
 	for(i = 0 ; i < p->getMovements().size() ; ++i)
 	{
@@ -264,16 +264,25 @@ void Chess::startGame()
 			std::cout << "(" << p->getMovements()[i][j]->getX() << "," << p->getMovements()[i][j]->getY() << ")" << std::endl;
 		}
 		std::cout << std::endl;
-	}*/
+	}
 
 	//Test du jeu pour 2 tours de jeu chacun
-	for(i = 0 ; i < 2 ; ++i)
+	int m;
+	for(i = 0 ; i < 10 ; ++i)
 	{
 		gameRound(p2, p1);
 		printBoard();
+		for(m = 0 ; m < p->getMovements().size() ; ++m)
+		{
+			for(j = 0 ; j < p->getMovements()[m].size() ; ++j)
+			{
+				std::cout << "(" << p->getMovements()[m][j]->getX() << "," << p->getMovements()[m][j]->getY() << ")" << std::endl;
+			}
+			std::cout << std::endl;
+		}
 	}
 
-	std::cout << _board[3][4]->getLabel() << "(" << _board[3][4]->getSquare()->getX() << "," << _board[3][4]->getSquare()->getY() << ")" << std::endl;
+	/*std::cout << _board[3][4]->getLabel() << "(" << _board[3][4]->getSquare()->getX() << "," << _board[3][4]->getSquare()->getY() << ")" << std::endl;
 	for(i = 0 ; i < _board[3][4]->getMovements().size() ; ++i)
 	{
 		for(j = 0 ; j < _board[3][4]->getMovements()[i].size() ; ++j)
@@ -281,7 +290,7 @@ void Chess::startGame()
 			std::cout << "(" << _board[3][4]->getMovements()[i][j]->getX() << "," << _board[3][4]->getMovements()[i][j]->getY() << ")" << std::endl;
 		}
 		std::cout << std::endl;
-	}
+	}*/
 	// std::cout<<testechec(p1,p2)<<std::endl;
 	//p2->printPieces();
 
