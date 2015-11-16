@@ -248,7 +248,6 @@ bool Chess::testechec(Piece* selectedP, Player* adver)
 		{	
 			if (!(selectDest(adver,selectedD, selectedP->getSquare()->getX(), selectedP->getSquare()->getY())==NULL))
 			{
-				std::cout<<"select ???"<<selectDest(adver,selectedP, selectedD->getSquare()->getX(), selectedD->getSquare()->getY())<<std::endl;	
 				if(!(noCollision(selectedD, selectedP)))
 				{
 					positionEchec = true;
@@ -299,10 +298,67 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 			std::cout<<"test echec 2"<<std::endl;
 		}
 	}
-	bool res=false;
-	if(positionEchecmat==kingIG->getMovements().size()-1)
+	bool deplacementvirtuel = false;
+	Piece* selectedD;
+	Piece* piecejoueur;
+	Piece* piecevirtuel;
+	i=0;
+	int t;
+	int w,z;
+	if(positionEchecmat==kingIG->getMovements().size()-1)//roi ne peut pas bouger
 	{
-		res= true;
+		while((i<16)&&(!déplacementvirtuel))
+		{
+			selectedD = adver->getPieces()[i];//on prend toute les pieces du joueur adverse 
+			if (!(selectDest(adver,selectedD, kingIG->getSquare()->getX(), kingIG->getSquare()->getY())==NULL))// si la piece peut manger le roi
+			{
+				for(t=0; t<16; ++t)
+				{
+					piecejoueur= playerIG->getPieces()[i];// on prend toute les pieces du joueur 
+					if(!(selectDest(playerIG,piecejoueur, selectedD->getSquare()->getX(), selectedD->getSquare()->getY())==NULL)) // on regarde s'il ne peut pas manger la piece qui le met en echec
+					{
+						if(!(noCollision(piecejoueur, selectedD))
+						{
+							deplacementvirtuel=true;
+						}
+					}else // si il ne peut pas manger la piece qui le met en echec alors on regarde si on a pas une piece qui ne peux pas couper le chemin de cette piece 
+					{
+						for(w=0; w< selectedD->getMovements().size();++w;)
+						{
+							for(z; z<selectedD->getMovements()[w].size(); ++z)
+							{
+								if(!(selectDest(playerIG,piecejoueur, selectedD->getMovements()[w][z]->getX(), selectedD->getMovements()[w][z])->getY())==NULL)) // test pour chaque case du déplacements virtuels de la piece "tueuse" si on peux y aller
+								{
+									if(!(noCollision(piecejoueur, selectedD))
+									{
+										deplacementvirtuel=true;
+									}
+								}
+							}
+						}				
+					}
+				}
+			}
+			++i;
+		}
+		t=0;// compteur de piece qui peut manger le roi si un déplacement virtuel a été fait;
+		while(i<16)
+		{
+			selectedD = adver->getPieces()[i];
+			if(!(selectDest(adver,selectedD,  kingIG->getSquare()->getX(), kingIG->getSquare()->getY())==NULL)) // test pour chaque case du déplacements virtuels de la piece "tueuse" si on peux y aller
+			{
+				if(!(noCollision(piecejoueur, selectedD))
+				{
+					t++;
+				}
+			}
+			++i;
+		}
+	}
+	bool res = false;
+	if ( (deplacementvirtuel&&i>0)||!deplacementvirtuel)
+	{
+		res=true;
 	}
 	/*if (res){
 		playerIG->checkMate();
