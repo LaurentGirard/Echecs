@@ -246,7 +246,7 @@ bool Chess::testechec(Piece* selectedP, Player* adver)
 		selectedD = adver->getPieces()[i];
 		if(!(selectedD->getLabel()=="S"))
 		{	
-			if (!(selectDest(adver,selectedP, selectedD->getSquare()->getX(), selectedD->getSquare()->getY())==NULL))
+			if (!(selectDest(adver,selectedD, selectedP->getSquare()->getX(), selectedP->getSquare()->getY())==NULL))
 			{
 				std::cout<<"select ???"<<selectDest(adver,selectedP, selectedD->getSquare()->getX(), selectedD->getSquare()->getY())<<std::endl;	
 				if(!(noCollision(selectedD, selectedP)))
@@ -256,7 +256,11 @@ bool Chess::testechec(Piece* selectedP, Player* adver)
 			}
 		}else
 		{
-			if ((selectedD->getMovements()[0][0]->getX()==selectedP->getSquare()->getX())&&(selectedD->getMovements()[0][0]->getY()==selectedP->getSquare()->getY()))
+			if ((selectedD->getMovements()[1][0]->getX()==selectedP->getSquare()->getX())&&(selectedD->getMovements()[1][0]->getY()==selectedP->getSquare()->getY()))
+			{
+				positionEchec = true;
+			}
+			if ((selectedD->getMovements()[1][0]->getX()==selectedP->getSquare()->getX())&&(selectedD->getMovements()[1][0]->getY()==selectedP->getSquare()->getY()))
 			{
 				positionEchec = true;
 			}		
