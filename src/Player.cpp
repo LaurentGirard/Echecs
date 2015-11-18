@@ -193,12 +193,12 @@ Piece* Player::getking()
 }
 
 //------------------------------------------------------------------------------------------------------
-bool Player::isechecmate()
+bool Player::ischeckmate()
 {
-	return _mateState==this->getState();
+	return _state->ischeckmate();
 }
 //------------------------------------------------------------------------------------------------------
-bool Player::isechec()
+bool Player::ischeck()
 {
-	return this->getMateState()==this->getState();
+	return _state->ischeck();
 }

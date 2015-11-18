@@ -43,7 +43,7 @@ void Chess::initBoard()
 //------------------------------------------------------------------------------------------------------
 Piece* Chess::selectDest(Player* player, Piece* piece, unsigned int x, unsigned int y, bool manger =false)
 {
-	unsigned int i, j, k;
+	unsigned int i, j, k,lim=3;
 	Piece* selectedD = _board[x][y];
 	// Si la case selectionnée correspond à une pièce que le joueur player possède
 	if(piece->isAlive()){
@@ -81,7 +81,9 @@ Piece* Chess::selectDest(Player* player, Piece* piece, unsigned int x, unsigned 
 			}else
 			{
 				k=1;
-				while(k<piece->getMovements().size()&&k<3)
+				if(cpt==7||cpt==0)
+					lim--;
+				while(k<piece->getMovements().size()&&k<lim)
 				{
 					if(*(piece->getMovements()[k][0]) == *(selectedD->getSquare()) )
 						return selectedD;
@@ -158,7 +160,7 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 {
 	Piece* selectedP;
 	Piece* selectedD;
-	unsigned int x, y, x2, y2;
+	unsigned int x, y, x2, y2,i,j;
 
 	printBoard();
 
@@ -184,7 +186,15 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 
 			selectedP = playerIG->selectPiece(x,y);
 		}
-
+		std::cout<<"voici les déplacements possible de la pièce : "<<std::endl;
+		for(i = 0 ; i < selectedP->getMovements().size() ; ++i)
+		{
+			for(j = 0 ; j < selectedP->getMovements()[i].size() ; ++j)
+			{
+				std::cout << "(" << selectedP->getMovements()[i][j]->getX() << "," << selectedP->getMovements()[i][j]->getY() << ")" << std::endl;
+			}
+			std::cout << std::endl;
+		}
 		std::cout << "Vous avez selectionné la pièce :" << std::endl;
 		selectedP->printPiece();
 
@@ -207,7 +217,6 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 			selectedD = selectDest(playerIG, selectedP, x2, y2);
 		}
 		// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
-
 		if(noCollision(selectedP, selectedD))
 		{
 			choix=true;
@@ -394,7 +403,61 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 			res=true;
 		}	
 	}
-	if (res){
+	////////////////cas petit et grand roque
+	///////////////////////////A REVOIR ////////////////////////////////////////////////
+	bool roque=false;
+	/*bool direction;//true vers le haut
+	bool test=false;
+	int y=0;
+	int i;
+	if(res)
+	{
+		if( (playerIG->getColor() == "White") || (playerIG->getColor() == "Blanc") )
+		{
+			direction =true;
+		}else 
+		{		
+			direction=false;
+		}		
+		if(direction)
+		{
+			y=0;
+		}else 
+		{
+			y=7;
+		}
+		if( (playerIG->getPieces()[8]->isAlive()) && !(playerIG->getPieces()[8]->asMoved()) )//la tour n'a pas bougé et est en vie
+		{
+			test=true;
+			for(i=1;i<4;i++)
+			{
+				if(!(_board[y][i]!=NULL) )
+					test=false;
+			}
+		}
+		if(test==true)
+		{
+			res=false;
+			roque=true;
+			std::cout<<" le joueur n'est pas en echec et mat car il peut faire le grand roque !! "<<std::endl;
+		}
+		if( !roque && (playerIG->getPieces()[8]->isAlive()) && !(playerIG->getPieces()[8]->asMoved()) )
+		{
+			test=true;
+			for(i=7;i>4;i--)
+			{
+				if(!(_board[y][i]!=NULL) )
+					test=false;
+			}
+		}
+		if(test==true)
+		{
+			res=false;
+			roque=true;
+			std::cout<<" le joueur n'est pas en echec et mat car il peut faire le petit roque !! "<<std::endl;
+		}
+	}*/
+	if (res&&!roque){
 		playerIG->checkMate();
 	}
 	return res;
@@ -403,33 +466,35 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 //------------------------------------------------------------------------------------------------------
 void Chess::startGame()
 {
+	//Piece* p = _board[0][1];
 	bool finpartie=false;
-	bool test;
 	while(!finpartie)
 	{
+		p1->getState()->print();
 		gameRound(p1, p2);
-		testechecmat(p2,p1);
-		test = p1->isechecmate();
-		std::cout<<"p1 en echec et mat ???"<<test<<std::endl;
-		if (!finpartie&&p2->isechecmate())
+		if (testechecmat(p2,p1))
 		{
+			p1->getState()->print();
 			finpartie=true;
 		}else
 		{
+			p2->getState()->print();
 			gameRound(p2, p1);
-			testechecmat(p1,p2);
 		}
-		std::cout<<"p1 en echec et mat ???"<<p1->isechecmate()<<std::endl;
-		if (p1->isechecmate())
+		if (testechecmat(p1,p2))
 		{
+			p1->getState()->print();
 			finpartie=true;
 		}
 	}
 	std::string gagnant;
-	if(p1->isechecmate())
-		gagnant=p1->getName();
-	else
+	if(p1->ischeckmate())
+	{
 		gagnant=p2->getName();
+	}else
+	{	
+		gagnant=p1->getName();
+	}	
 	std::cout<<"La partie est terminé, le Gagnant de ce partie est : "<<gagnant<<std::endl;
 	/*unsigned int i, j;
 

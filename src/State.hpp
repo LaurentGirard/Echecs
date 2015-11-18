@@ -59,6 +59,15 @@ class State
    * @brief procédure virtuelle permettant d'afficher l'état courant
    */
 		virtual void print() = 0;
+
+	/**
+   * @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec
+   */
+		virtual bool ischeck() = 0;
+	/**
+   * @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec
+   */
+		virtual bool ischeckmate() = 0;
 };
 
 class GameState : public State
@@ -105,6 +114,14 @@ class GameState : public State
    * @brief Définition de la procédure virtuelle, affiche l'état GameState
    */
 		void print();
+	/**
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec
+	*/
+		bool ischeck();
+	/**
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec
+	*/
+		bool ischeckmate();
 };
 
 class CheckState : public State
@@ -151,6 +168,14 @@ class CheckState : public State
    * @brief Définition de la procédure virtuelle, affiche l'état CheckState
    */
 		void print();
+	/**
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec
+	*/
+		bool ischeck();
+	/**
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec
+	*/
+		bool ischeckmate();
 };
 
 class MateState : public State
@@ -197,6 +222,14 @@ class MateState : public State
    * @brief Définition de la procédure virtuelle, affiche l'état MateState
    */
 		void print();
+	/**
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec
+	*/
+		bool ischeckmate();
+	/**
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec
+	*/
+		bool ischeck();
 };
 
 class NullState : public State
@@ -243,6 +276,14 @@ class NullState : public State
    * @brief Définition de la procédure virtuelle, affiche l'état NullState
    */
 		void print();
+	/**
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec
+	*/
+		bool ischeck();
+	/**
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec
+	*/
+		bool ischeckmate();
 };
 
 class EndState : public State
@@ -289,6 +330,14 @@ class EndState : public State
    * @brief Définition de la procédure virtuelle, affiche l'état EndState
    */
 		void print();
+	/**
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec
+	*/
+		bool ischeck();
+	/**
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec
+	*/
+		bool ischeckmate();
 
 
 };

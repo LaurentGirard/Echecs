@@ -155,15 +155,16 @@ class Player
 		Piece* getking();
 
 	/**
-	* @brief permet de savoir s'il se trouve en position d'échec
-	* @return bool si vrai
+	* @brief permet de retourner la piece roi
+	* @return piece* pointeur de la piece roi
 	*/
-		bool isechecmate();
+		bool ischeckmate();
+
 	/**
-	* @brief permet de savoir s'il se trouve en position d'échec
-	* @return bool si vrai
+	* @brief permet de retourner la piece roi
+	* @return piece* pointeur de la piece roi
 	*/
-		bool isechec();
+		bool ischeck();
 };
 
 #endif // __Player_HPP__
