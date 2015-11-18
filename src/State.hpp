@@ -289,6 +289,8 @@ class EndState : public State
    * @brief Définition de la procédure virtuelle, affiche l'état EndState
    */
 		void print();
+
+
 };
 
 

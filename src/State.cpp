@@ -261,3 +261,4 @@ void EndState::print()
 {
 	std::cout << "Jeu terminé" << std::endl;
 }
+

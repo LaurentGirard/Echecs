@@ -154,6 +154,16 @@ class Player
 	*/
 		Piece* getking();
 
+	/**
+	* @brief permet de savoir s'il se trouve en position d'échec
+	* @return bool si vrai
+	*/
+		bool isechecmate();
+	/**
+	* @brief permet de savoir s'il se trouve en position d'échec
+	* @return bool si vrai
+	*/
+		bool isechec();
 };
 
 #endif // __Player_HPP__

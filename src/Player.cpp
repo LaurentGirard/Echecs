@@ -192,3 +192,13 @@ Piece* Player::getking()
 	return _pieces[12];
 }
 
+//------------------------------------------------------------------------------------------------------
+bool Player::isechecmate()
+{
+	return _mateState==this->getState();
+}
+//------------------------------------------------------------------------------------------------------
+bool Player::isechec()
+{
+	return this->getMateState()==this->getState();
+}
