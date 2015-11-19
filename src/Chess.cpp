@@ -93,7 +93,7 @@ Piece* Chess::selectDest(Player* player, Piece* piece, unsigned int x, unsigned 
 			}else
 			{
 				k=1;
-				if(cpt==7||cpt==0)
+				if(piece->getSquare()->getX()==7||piece->getSquare()->getX()==0)
 					lim--;
 				while(k<piece->getMovements().size()&&k<lim)
 				{
