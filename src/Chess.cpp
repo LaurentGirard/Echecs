@@ -41,16 +41,28 @@ void Chess::initBoard()
 }
 
 //------------------------------------------------------------------------------------------------------
-Piece* Chess::selectDest(Player* player, Piece* piece, unsigned int x, unsigned int y, bool manger =false)
+Piece* Chess::selectDest(Player* player, Piece* piece, unsigned int x, unsigned int y)
 {
 	unsigned int i, j, k,lim=3;
 	Piece* selectedD = _board[x][y];
-	// Si la case selectionnée correspond à une pièce que le joueur player possède
+	bool manger=false;
+	Player* adver=p1;
 	if(piece->isAlive()){
+		// Si la case selectionnée correspond à une pièce que le joueur player possède
 		for(i = 0 ; i < 16 ; ++i)
 		{
 			if( _board[x][y]->getSquare() == player->getPieces()[i]->getSquare() )
 				return NULL;
+		}
+		// Si la case selectionnée correspond à une pièce que le joueur adver possède
+		
+		if(player->getName()==p1->getName())
+			adver=p2;
+			
+		for(i = 0; i<16;++i)
+		{
+			if( _board[x][y]->getSquare() == adver->getPieces()[i]->getSquare() )
+				manger=true;
 		}
 		// recherche dans quel rend se trouve la piece dans ses mains
 		int cpt =0;
@@ -158,22 +170,22 @@ void Chess::movePiece(Piece* selectedP, Piece* selectedD)
 //------------------------------------------------------------------------------------------------------
 void Chess::gameRound(Player* playerIG, Player* advers)
 {
+	std::cout<<"C'est au tour de : "<<playerIG->getName()<<std::endl;
 	Piece* selectedP;
 	Piece* selectedD;
 	unsigned int x, y, x2, y2,i,j;
-
-	printBoard();
-
-	std::cout << "Coordonnées de la pièce que vous voulez selectionner : " << std::endl;
-	std::cout << "x: ";
-	x = getChoiceInt();
-	std::cout << "y: ";
-	y = getChoiceInt();
-
-	selectedP = playerIG->selectPiece(x,y);		// Selection de la pièce du joueur
+	// Selection de la pièce du joueur
 	bool choix=false;
 	while(!choix)
 	{
+		printBoard();
+		std::cout << "Coordonnées de la pièce que vous voulez selectionner : " << std::endl;
+		std::cout << "x: ";
+		x = getChoiceInt();
+		std::cout << "y: ";
+		y = getChoiceInt();
+
+		selectedP = playerIG->selectPiece(x,y);	
 		while(selectedP == NULL)
 		{
 			std::cout << "Aucune pièce en votre possession ne se situe sur la case : (" << x << "," << y << ")" << std::endl;
@@ -203,28 +215,64 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 		x2 = getChoiceInt();
 		std::cout << "y: ";
 		y2 = getChoiceInt();
-
 		// Selection valide de la destination sur le plateau ( selectedD sera soit une pièce adverse, soit une pièce "vide" )
-		selectedD = selectDest(playerIG, selectedP, x2, y2); 	
-		while(selectedD == NULL)
+		if(!(playerIG->ischeck()))
 		{
-			std::cout << "Entrée de nouvelles coordonnées pour la destination de la pièce : " << std::endl;
-			std::cout << "x: ";
-			x2 = getChoiceInt();
-			std::cout << "y: ";
-			y2 = getChoiceInt();
+			selectedD = selectDest(playerIG, selectedP, x2, y2); 	
+			while(selectedD == NULL)
+			{
+				std::cout << "Entrée de nouvelles coordonnées pour la destination de la pièce : " << std::endl;
+				std::cout << "x: ";
+				x2 = getChoiceInt();
+				std::cout << "y: ";
+				y2 = getChoiceInt();
 
-			selectedD = selectDest(playerIG, selectedP, x2, y2);
-		}
-		// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
-		if(noCollision(selectedP, selectedD))
+				selectedD = selectDest(playerIG, selectedP, x2, y2);
+			}
+			// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
+			if(noCollision(selectedP, selectedD))
+			{
+				choix=true;
+				movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
+			}
+			else
+			{
+				std::cout << "collision !!" << std::endl;
+			}
+		}else
 		{
-			choix=true;
-			movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
-		}
-		else
-		{
-			std::cout << "collision !!" << std::endl;
+			std::cout<<"echec :"<<playerIG->ischeck()<<std::endl;
+			Piece* testsauv = _board[x2][y2];
+			std::cout<<"testttt xxxxxxxxxxx :"<<testsauv->getSquare()->getX()<<std::endl;
+			std::cout<<"testttt yyyyyyyyyyyy :"<<testsauv->getSquare()->getY()<<std::endl;
+			std::cout<<"testttt echec :"<<testechec(testsauv, advers)<<std::endl;
+			if(testechec(testsauv, advers))
+			{
+				selectedD = selectDest(playerIG, selectedP, x2, y2); 	
+				while(selectedD == NULL&&!testechec(_board[x2][x2], advers))
+				{
+					std::cout << "Entrée de nouvelles coordonnées pour la destination de la pièce : " << std::endl;
+					std::cout << "x: ";
+					x2 = getChoiceInt();
+					std::cout << "y: ";
+					y2 = getChoiceInt();
+
+					selectedD = selectDest(playerIG, selectedP, x2, y2);
+				}
+				// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
+				if(noCollision(selectedP, selectedD))
+				{
+					choix=true;
+					movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
+				}
+				else
+				{
+					std::cout << "collision !!" << std::endl;
+				}
+			}else
+			{
+					std::cout << "veuillez prendre une autre piece car vous êtes en mode echec !!" << std::endl;
+			}
 		}
 	}
 
@@ -287,7 +335,7 @@ bool Chess::testechec(Piece* selectedP, Player* adver)
 	while( (positionEchec == false) && (i < 16) )
 	{
 		selectedD = adver->getPieces()[i];
-		if (!(selectDest(adver,selectedD, selectedP->getSquare()->getX(), selectedP->getSquare()->getY(),true)==NULL))
+		if (!(selectDest(adver,selectedD, selectedP->getSquare()->getX(), selectedP->getSquare()->getY())==NULL))
 		{
 			if(noCollision(selectedD, selectedP))
 			{
@@ -379,7 +427,7 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 				piece_test= playerIG->getPieces()[i];// on prend toute les pieces du joueur 						
 				if(i!=12)
 				{
-					if(!(selectDest(playerIG,piece_test, piecetueuse->getSquare()->getX(), piecetueuse->getSquare()->getY(),true)==NULL)) // on regarde s'il peut manger la piece qui le met en echec
+					if(!(selectDest(playerIG,piece_test, piecetueuse->getSquare()->getX(), piecetueuse->getSquare()->getY())==NULL)) // on regarde s'il peut manger la piece qui le met en echec
 					{
 						if(noCollision(piece_test, piecetueuse))
 						{

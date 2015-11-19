@@ -45,7 +45,7 @@ class Chess
 		* @param Piece* piece, pointeur de la pièce que le joueur veut déplacer
 		* @return Piece* pointeur de la destination selectionnée sur le plateau (le board étant un tableau de Piece)
 		*/
-			Piece* selectDest(Player* player, Piece* piece, unsigned int x, unsigned int y, bool manger);
+			Piece* selectDest(Player* player, Piece* piece, unsigned int x, unsigned int y);
 
 		/**
 		* @brief Vérifie s'il n'y a pas de collision lors du déplacement de la pièce vers la destination sélectionée
