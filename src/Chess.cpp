@@ -223,16 +223,11 @@ bool Chess::surlepassage(Player* playerIG, Piece* pieceD, Player* advers){
 		bool testttt2=false;
 		for(w=0;w<indicebis;++w)
 		{
-
 			xxx=piecetueuse->getMovements()[indice][w]->getX();
 			yyy=piecetueuse->getMovements()[indice][w]->getY();
-
 			testttt1=(xx==xxx);
 			testttt2=(yy==yyy);
-			// probleme car quand j'ai true && true il ne veux pas rentré dedans !!! pourquoi ??
 			trouve=(testttt1 && testttt2);							
-
-
 		}
 	}
 	std::cout<<"solution est :::::::"<<trouve<<std::endl;
@@ -257,8 +252,8 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 		std::cout << "y: ";
 		y = getChoiceInt();
 
-		selectedP = playerIG->selectPiece(x,y);	
-		while(selectedP == NULL)
+		selectedP = playerIG->selectPiece(x,y);
+		while((selectedP == NULL))
 		{
 			std::cout << "Aucune pièce en votre possession ne se situe sur la case : (" << x << "," << y << ")" << std::endl;
 
@@ -291,25 +286,18 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 		if(!(playerIG->ischeck()))
 		{
 			selectedD = selectDest(playerIG, selectedP, x2, y2); 	
-			while(selectedD == NULL)
+			if(!(selectedD == NULL))
 			{
-				std::cout << "Entrée de nouvelles coordonnées pour la destination de la pièce : " << std::endl;
-				std::cout << "x: ";
-				x2 = getChoiceInt();
-				std::cout << "y: ";
-				y2 = getChoiceInt();
-
-				selectedD = selectDest(playerIG, selectedP, x2, y2);
-			}
 			// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
-			if(noCollision(selectedP, selectedD))
-			{
-				choix=true;
-				movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
-			}
-			else
-			{
-				std::cout << "collision !!" << std::endl;
+				if(noCollision(selectedP, selectedD))
+				{
+					choix=true;
+					movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
+				}
+				else
+				{
+					std::cout << "collision !!" << std::endl;
+				}
 			}
 		}else
 		{
@@ -337,10 +325,10 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 			{
 				std::cout << "Votre roi est en position d'echec alors veuillez bouger une autre piece ! " << std::endl;
 			}
-			/*}else
-			{
-					std::cout << "veuillez prendre une autre piece car vous êtes en mode echec !!" << std::endl;
-			}*/
+		}
+		if(!choix)
+		{
+			std::cout<<"Veuillez resaisir une piece!!"<<std::endl; 
 		}
 	}
 

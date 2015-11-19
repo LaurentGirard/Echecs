@@ -109,6 +109,8 @@ class Chess
 		
 		bool surlepassage(Player* playerIG, Piece* pieceD, Player* advers);
 
+
+		
 		/**
 		* @brief Lance le début d'une partie
 		*/
