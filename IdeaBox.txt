@@ -19,3 +19,4 @@ Initialiser les labels  apres les ":" dans les constructeurs ?
 -------------------- RAPPORT --------------------
 
 Préciser la partie nulle lors de trois même positionnement des pièces au cours de la partie
+Pas traitez le cas du echec et mat : si une piece bouge pour défendre le roi mais que le roi se trouve encore en position d'echec
