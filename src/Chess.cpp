@@ -58,7 +58,7 @@ Piece* Chess::selectDest(Player* player, Piece* piece, unsigned int x, unsigned 
 		
 		if(player->getName()==p1->getName())
 			adver=p2;
-			
+		
 		for(i = 0; i<16;++i)
 		{
 			if( _board[x][y]->getSquare() == adver->getPieces()[i]->getSquare() )
@@ -71,7 +71,7 @@ Piece* Chess::selectDest(Player* player, Piece* piece, unsigned int x, unsigned 
 			cpt++;
 		}
 		// Si la case sélectionnée correspond à un déplacement théorique possible de la pièce
-		if(cpt>8)
+		if(cpt>7)
 		{
 			for(j = 0 ; j < piece->getMovements().size() ; ++j)
 			{
@@ -166,6 +166,73 @@ void Chess::movePiece(Piece* selectedP, Piece* selectedD)
 	selectedP->setSquare(selectedD->getSquare());				// Mise à jour des coordonnées de la pièce qui vient d'être déplacée
 	selectedP->movement();										// Mise à jour des déplacements possibles de la pièce depuis sa nouvelle position
 }
+//------------------------------------------------------------------------------------------------------
+bool Chess::surlepassage(Player* playerIG, Piece* pieceD, Player* advers){
+	Piece* king = playerIG->getPieces()[12];
+	Piece* piecetueuse=NULL;
+	bool trouve=false;
+	int i=0;
+	int yy=pieceD->getSquare()->getY();
+	int xx=pieceD->getSquare()->getX();
+	while((!trouve)&&i<16)
+	{
+		piecetueuse= advers->getPieces()[i];//on prend toute les pieces du joueur adverse
+		if (!(selectDest(advers,piecetueuse, king->getSquare()->getX(), king->getSquare()->getY())==NULL))// si la piece peut manger le roi
+		{
+			trouve= true;
+		}
+		if(!trouve)
+			i++;
+	}
+	//recherche l'indice dans movements
+	int w=0;
+	i=0;
+	int indice =0;
+	int indicebis=0;
+	trouve=false;
+	if(!(piecetueuse==NULL))
+	{
+		/********************************************/
+		// recherche l'indice du movement de la piece tueuse
+		trouve=false;
+		i=0;
+		while(i<piecetueuse->getMovements().size()&&!trouve)
+		{
+			w=0;
+			while(w<piecetueuse->getMovements()[i].size()&&!trouve)
+			{
+				if((piecetueuse->getMovements()[i][w]->getX()==king->getSquare()->getX())&&(piecetueuse->getMovements()[i][w]->getY()==king->getSquare()->getY()))
+				{
+					indice=i;
+					indicebis=w;
+					trouve=true;
+					
+				}
+				if(!trouve)
+					w++;
+			}
+			if(!trouve)
+				i++;
+		}
+		trouve=false;
+		i=0;
+		//regarde si la destination est bien sur le passage de la piece
+		int xxx;	
+		int yyy;
+		bool testttt1=false;
+		bool testttt2=false;
+		for(w=0;w<indicebis;++w)
+		{
+			xxx=piecetueuse->getMovements()[indice][w]->getX();
+			yyy=piecetueuse->getMovements()[indice][w]->getY();
+			testttt1=(xx==xxx);
+			testttt2=(yy==yyy);
+			trouve=(testttt1 && testttt2);							
+		}
+	}
+	std::cout<<"solution est :::::::"<<trouve<<std::endl;
+	return trouve;
+}
 
 //------------------------------------------------------------------------------------------------------
 void Chess::gameRound(Player* playerIG, Player* advers)
@@ -185,8 +252,8 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 		std::cout << "y: ";
 		y = getChoiceInt();
 
-		selectedP = playerIG->selectPiece(x,y);	
-		while(selectedP == NULL)
+		selectedP = playerIG->selectPiece(x,y);
+		while((selectedP == NULL))
 		{
 			std::cout << "Aucune pièce en votre possession ne se situe sur la case : (" << x << "," << y << ")" << std::endl;
 
@@ -219,47 +286,9 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 		if(!(playerIG->ischeck()))
 		{
 			selectedD = selectDest(playerIG, selectedP, x2, y2); 	
-			while(selectedD == NULL)
+			if(!(selectedD == NULL))
 			{
-				std::cout << "Entrée de nouvelles coordonnées pour la destination de la pièce : " << std::endl;
-				std::cout << "x: ";
-				x2 = getChoiceInt();
-				std::cout << "y: ";
-				y2 = getChoiceInt();
-
-				selectedD = selectDest(playerIG, selectedP, x2, y2);
-			}
 			// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
-			if(noCollision(selectedP, selectedD))
-			{
-				choix=true;
-				movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
-			}
-			else
-			{
-				std::cout << "collision !!" << std::endl;
-			}
-		}else
-		{
-			std::cout<<"echec :"<<playerIG->ischeck()<<std::endl;
-			Piece* testsauv = _board[x2][y2];
-			std::cout<<"testttt xxxxxxxxxxx :"<<testsauv->getSquare()->getX()<<std::endl;
-			std::cout<<"testttt yyyyyyyyyyyy :"<<testsauv->getSquare()->getY()<<std::endl;
-			std::cout<<"testttt echec :"<<testechec(testsauv, advers)<<std::endl;
-			if(testechec(testsauv, advers))
-			{
-				selectedD = selectDest(playerIG, selectedP, x2, y2); 	
-				while(selectedD == NULL&&!testechec(_board[x2][x2], advers))
-				{
-					std::cout << "Entrée de nouvelles coordonnées pour la destination de la pièce : " << std::endl;
-					std::cout << "x: ";
-					x2 = getChoiceInt();
-					std::cout << "y: ";
-					y2 = getChoiceInt();
-
-					selectedD = selectDest(playerIG, selectedP, x2, y2);
-				}
-				// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
 				if(noCollision(selectedP, selectedD))
 				{
 					choix=true;
@@ -269,10 +298,37 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 				{
 					std::cout << "collision !!" << std::endl;
 				}
-			}else
-			{
-					std::cout << "veuillez prendre une autre piece car vous êtes en mode echec !!" << std::endl;
 			}
+		}else
+		{
+			std::cout<<"echec :"<<playerIG->ischeck()<<std::endl;
+			//std::cout<<"testttt xxxxxxxxxxx :"<<testsauv->getSquare()->getX()<<std::endl;
+			//std::cout<<"testttt yyyyyyyyyyyy :"<<testsauv->getSquare()->getY()<<std::endl;
+			selectedD = selectDest(playerIG, selectedP, x2, y2); 	
+			std::cout<<"x destination ? "<<selectedD->getSquare()->getX()<<std::endl;
+			std::cout<<"y destination ? "<<selectedD->getSquare()->getY()<<std::endl;			
+			std::cout<<"testttt sur le passage "<<surlepassage( playerIG, selectedD, advers)<<std::endl;
+			if(selectedD != NULL)
+			{
+				if(surlepassage( playerIG, selectedD, advers))
+				{
+					if(noCollision(selectedP, selectedD))
+					{
+						choix=true;
+						movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
+					}
+				}
+			}
+			// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
+
+			if(choix == false)
+			{
+				std::cout << "Votre roi est en position d'echec alors veuillez bouger une autre piece ! " << std::endl;
+			}
+		}
+		if(!choix)
+		{
+			std::cout<<"Veuillez resaisir une piece!!"<<std::endl; 
 		}
 	}
 
@@ -454,11 +510,12 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 	////////////////cas petit et grand roque
 	///////////////////////////A REVOIR ////////////////////////////////////////////////
 	bool roque=false;
-	/*bool direction;//true vers le haut
+	/*
+	bool direction;//true vers le haut
 	bool test=false;
 	int y=0;
 	int i;
-	if(res)
+	if(res)// true pour voir comment ça se passe a l'interrieur !!
 	{
 		if( (playerIG->getColor() == "White") || (playerIG->getColor() == "Blanc") )
 		{
@@ -474,12 +531,13 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 		{
 			y=7;
 		}
+		std::cout<<" tour 1 ??"<<playerIG->getPieces()[8]->asMoved()<<std::endl;
 		if( (playerIG->getPieces()[8]->isAlive()) && !(playerIG->getPieces()[8]->asMoved()) )//la tour n'a pas bougé et est en vie
 		{
 			test=true;
 			for(i=1;i<4;i++)
 			{
-				if(!(_board[y][i]!=NULL) )
+				if(_board[i][y]->getLabel()!=" ")
 					test=false;
 			}
 		}
@@ -488,23 +546,28 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 			res=false;
 			roque=true;
 			std::cout<<" le joueur n'est pas en echec et mat car il peut faire le grand roque !! "<<std::endl;
-		}
-		if( !roque && (playerIG->getPieces()[8]->isAlive()) && !(playerIG->getPieces()[8]->asMoved()) )
+		}else
 		{
-			test=true;
-			for(i=7;i>4;i--)
+			std::cout<<" tour 2 ??"<<playerIG->getPieces()[15]->asMoved()<<std::endl;
+
+			if( !roque && (playerIG->getPieces()[15]->isAlive()) && !(playerIG->getPieces()[15]->asMoved()) )
 			{
-				if(!(_board[y][i]!=NULL) )
-					test=false;
+				test=true;
+				for(i=7;i>4;i--)
+				{
+					if(_board[i][y]->getLabel()!=" ")
+						test=false;
+				}
+			}
+			if(test==true)
+			{
+				res=false;
+				roque=true;
+				std::cout<<" le joueur n'est pas en echec et mat car il peut faire le petit roque !! "<<std::endl;
 			}
 		}
-		if(test==true)
-		{
-			res=false;
-			roque=true;
-			std::cout<<" le joueur n'est pas en echec et mat car il peut faire le petit roque !! "<<std::endl;
-		}
-	}*/
+	}
+	*/
 	if (res&&!roque){
 		playerIG->checkMate();
 	}
@@ -544,67 +607,4 @@ void Chess::startGame()
 		gagnant=p1->getName();
 	}	
 	std::cout<<"La partie est terminé, le Gagnant de ce partie est : "<<gagnant<<std::endl;
-	/*unsigned int i, j;
-
-	Piece* p = _board[3][7];			// Coordonnées de la pièce sur laquelle tu veux afficher les déplacements possible
-
-	std::cout << p->getLabel() << "(" << p->getSquare()->getX() << "," << p->getSquare()->getY() << ")" << std::endl;
-	std::cout<<p->getMovements().size()<<std::endl;
-	for(i = 0 ; i < p->getMovements().size() ; ++i)
-	{
-		for(j = 0 ; j < p->getMovements()[i].size() ; ++j)
-		{
-			std::cout << "(" << p->getMovements()[i][j]->getX() << "," << p->getMovements()[i][j]->getY() << ")" << std::endl;
-		}
-		std::cout << std::endl;
-	}
-
-	//Test du jeu pour 2 tours de jeu chacun
-	int m;
-	for(i = 0 ; i < 2 ; ++i)
-		{
-		std::cout<<" joueur 2 a vous de jouer !! "<<std::endl;
-		gameRound(p1, p2);
-		printBoard();
-		for(m = 0 ; m < p->getMovements().size() ; ++m)
-		{
-			for(j = 0 ; j < p->getMovements()[m].size() ; ++j)
-			{
-				
-				std::cout << "(" <<m<< p->getMovements()[m][j]->getX() << "," << p->getMovements()[m][j]->getY() <<j<< ")" << std::endl;
-			}
-			std::cout << std::endl;
-		}
-	}
-	for(i = 0 ; i < 8 ; ++i)
-	{
-		std::cout<<" testechec p2 p1 :?????????? "<<testechec(p1,p2)<<std::endl;
-		std::cout<<" testechecmat p2 p1 : "<<testechecmat(p1,p2)<<std::endl;
-		std::cout<<" joueur 1 a vous de jouer !! "<<std::endl;
-		gameRound(p2, p2);
-		printBoard();
-		for(m = 0 ; m < p->getMovements().size() ; ++m)
-		{
-			for(j = 0 ; j < p->getMovements()[m].size() ; ++j)
-			{
-				std::cout << "(" << p->getMovements()[m][j]->getX() << "," << p->getMovements()[m][j]->getY() << ")" << std::endl;
-			}
-			std::cout << std::endl;
-		}
-		//std::cout<<" testechecmat p1 p2 : "<<testechecmat(p1,p2)<<std::endl;
-		
-	}*/
-
-	/*std::cout << _board[3][4]->getLabel() << "(" << _board[3][4]->getSquare()->getX() << "," << _board[3][4]->getSquare()->getY() << ")" << std::endl;
-	for(i = 0 ; i < _board[3][4]->getMovements().size() ; ++i)
-	{
-		for(j = 0 ; j < _board[3][4]->getMovements()[i].size() ; ++j)
-		{
-			std::cout << "(" << _board[3][4]->getMovements()[i][j]->getX() << "," << _board[3][4]->getMovements()[i][j]->getY() << ")" << std::endl;
-		}
-		std::cout << std::endl;
-	}*/
-	//p1->printState();
-	//p2->printPieces();
-
 }
