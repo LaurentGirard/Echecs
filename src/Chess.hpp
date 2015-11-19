@@ -103,6 +103,13 @@ class Chess
 		bool testechecmat(Player* playerIG, Player* adver);
 
 		/**
+		* @brief Permet de savoir si la destination est sur le passage de la piece qui peut manger le roi
+		* @return bool
+		*/
+		
+		bool surlepassage(Player* playerIG, Piece* pieceD, Player* advers);
+
+		/**
 		* @brief Lance le début d'une partie
 		*/
 
