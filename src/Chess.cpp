@@ -64,14 +64,8 @@ Piece* Chess::selectDest(Player* player, Piece* piece, unsigned int x, unsigned 
 			if( _board[x][y]->getSquare() == adver->getPieces()[i]->getSquare() )
 				manger=true;
 		}
-		// recherche dans quel rend se trouve la piece dans ses mains
-		int cpt =0;
-		while(cpt<16 && !( *(player->getPieces()[cpt]->getSquare()) == *(piece->getSquare()) ) )
-		{
-			cpt++;
-		}
 		// Si la case sélectionnée correspond à un déplacement théorique possible de la pièce
-		if(cpt>7)
+		if(piece->getLabel()!="S")
 		{
 			for(j = 0 ; j < piece->getMovements().size() ; ++j)
 			{
