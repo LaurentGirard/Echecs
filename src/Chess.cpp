@@ -510,11 +510,12 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 	////////////////cas petit et grand roque
 	///////////////////////////A REVOIR ////////////////////////////////////////////////
 	bool roque=false;
-	/*bool direction;//true vers le haut
+	/*
+	bool direction;//true vers le haut
 	bool test=false;
 	int y=0;
 	int i;
-	if(res)
+	if(res)// true pour voir comment ça se passe a l'interrieur !!
 	{
 		if( (playerIG->getColor() == "White") || (playerIG->getColor() == "Blanc") )
 		{
@@ -530,12 +531,13 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 		{
 			y=7;
 		}
+		std::cout<<" tour 1 ??"<<playerIG->getPieces()[8]->asMoved()<<std::endl;
 		if( (playerIG->getPieces()[8]->isAlive()) && !(playerIG->getPieces()[8]->asMoved()) )//la tour n'a pas bougé et est en vie
 		{
 			test=true;
 			for(i=1;i<4;i++)
 			{
-				if(!(_board[y][i]!=NULL) )
+				if(_board[i][y]->getLabel()!=" ")
 					test=false;
 			}
 		}
@@ -544,23 +546,28 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 			res=false;
 			roque=true;
 			std::cout<<" le joueur n'est pas en echec et mat car il peut faire le grand roque !! "<<std::endl;
-		}
-		if( !roque && (playerIG->getPieces()[8]->isAlive()) && !(playerIG->getPieces()[8]->asMoved()) )
+		}else
 		{
-			test=true;
-			for(i=7;i>4;i--)
+			std::cout<<" tour 2 ??"<<playerIG->getPieces()[15]->asMoved()<<std::endl;
+
+			if( !roque && (playerIG->getPieces()[15]->isAlive()) && !(playerIG->getPieces()[15]->asMoved()) )
 			{
-				if(!(_board[y][i]!=NULL) )
-					test=false;
+				test=true;
+				for(i=7;i>4;i--)
+				{
+					if(_board[i][y]->getLabel()!=" ")
+						test=false;
+				}
+			}
+			if(test==true)
+			{
+				res=false;
+				roque=true;
+				std::cout<<" le joueur n'est pas en echec et mat car il peut faire le petit roque !! "<<std::endl;
 			}
 		}
-		if(test==true)
-		{
-			res=false;
-			roque=true;
-			std::cout<<" le joueur n'est pas en echec et mat car il peut faire le petit roque !! "<<std::endl;
-		}
-	}*/
+	}
+	*/
 	if (res&&!roque){
 		playerIG->checkMate();
 	}
@@ -600,67 +607,4 @@ void Chess::startGame()
 		gagnant=p1->getName();
 	}	
 	std::cout<<"La partie est terminé, le Gagnant de ce partie est : "<<gagnant<<std::endl;
-	/*unsigned int i, j;
-
-	Piece* p = _board[3][7];			// Coordonnées de la pièce sur laquelle tu veux afficher les déplacements possible
-
-	std::cout << p->getLabel() << "(" << p->getSquare()->getX() << "," << p->getSquare()->getY() << ")" << std::endl;
-	std::cout<<p->getMovements().size()<<std::endl;
-	for(i = 0 ; i < p->getMovements().size() ; ++i)
-	{
-		for(j = 0 ; j < p->getMovements()[i].size() ; ++j)
-		{
-			std::cout << "(" << p->getMovements()[i][j]->getX() << "," << p->getMovements()[i][j]->getY() << ")" << std::endl;
-		}
-		std::cout << std::endl;
-	}
-
-	//Test du jeu pour 2 tours de jeu chacun
-	int m;
-	for(i = 0 ; i < 2 ; ++i)
-		{
-		std::cout<<" joueur 2 a vous de jouer !! "<<std::endl;
-		gameRound(p1, p2);
-		printBoard();
-		for(m = 0 ; m < p->getMovements().size() ; ++m)
-		{
-			for(j = 0 ; j < p->getMovements()[m].size() ; ++j)
-			{
-				
-				std::cout << "(" <<m<< p->getMovements()[m][j]->getX() << "," << p->getMovements()[m][j]->getY() <<j<< ")" << std::endl;
-			}
-			std::cout << std::endl;
-		}
-	}
-	for(i = 0 ; i < 8 ; ++i)
-	{
-		std::cout<<" testechec p2 p1 :?????????? "<<testechec(p1,p2)<<std::endl;
-		std::cout<<" testechecmat p2 p1 : "<<testechecmat(p1,p2)<<std::endl;
-		std::cout<<" joueur 1 a vous de jouer !! "<<std::endl;
-		gameRound(p2, p2);
-		printBoard();
-		for(m = 0 ; m < p->getMovements().size() ; ++m)
-		{
-			for(j = 0 ; j < p->getMovements()[m].size() ; ++j)
-			{
-				std::cout << "(" << p->getMovements()[m][j]->getX() << "," << p->getMovements()[m][j]->getY() << ")" << std::endl;
-			}
-			std::cout << std::endl;
-		}
-		//std::cout<<" testechecmat p1 p2 : "<<testechecmat(p1,p2)<<std::endl;
-		
-	}*/
-
-	/*std::cout << _board[3][4]->getLabel() << "(" << _board[3][4]->getSquare()->getX() << "," << _board[3][4]->getSquare()->getY() << ")" << std::endl;
-	for(i = 0 ; i < _board[3][4]->getMovements().size() ; ++i)
-	{
-		for(j = 0 ; j < _board[3][4]->getMovements()[i].size() ; ++j)
-		{
-			std::cout << "(" << _board[3][4]->getMovements()[i][j]->getX() << "," << _board[3][4]->getMovements()[i][j]->getY() << ")" << std::endl;
-		}
-		std::cout << std::endl;
-	}*/
-	//p1->printState();
-	//p2->printPieces();
-
 }
