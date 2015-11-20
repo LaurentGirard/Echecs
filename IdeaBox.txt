@@ -23,5 +23,6 @@ Pas traitez le cas du echec et mat : si une piece bouge pour défendre le roi ma
 
 -------------------A revoir----------------------
 petit et grand roque dans test echec et mat
-revoir pour l'interdiction du déplacement de certaine piece quand il se trouve en echec !!
-voir le cas Le déplacement n’entraîne pas la mise en échec de son propre roi.
+
+revoir pour l'interdiction du déplacement de certaine piece quand il se trouve en echec ! // normalement c'est bon !!! faire pleins de test !!!
+voir le cas Le déplacement n’entraîne pas la mise en échec de son propre roi. // normalement c'est bon !!! faire pleins de test !!!

@@ -103,7 +103,7 @@ Piece* Chess::selectDest(Player* player, Piece* piece, unsigned int x, unsigned 
 }
 
 //------------------------------------------------------------------------------------------------------
-bool Chess::noCollision(Piece* selectedP, Piece* selectedD)
+bool Chess::noCollision(Piece* selectedP, Piece* selectedD, Piece* pieceeaeviter = NULL)
 {
 	bool noCollision = true;
 	bool found = false;
@@ -130,7 +130,14 @@ bool Chess::noCollision(Piece* selectedP, Piece* selectedD)
 	while( noCollision && 
 		  ( (selectedD->getSquare()->getX() != x) || (selectedD->getSquare()->getY() != y )) )
 	{
-		noCollision = (_board[x][y]->getLabel() == " "); // Si le label de la case (x,y) est " ", alors il n'y a pas de pièce réelle sur la case [i][k]
+			if(pieceeaeviter==NULL)
+			{
+				noCollision = (_board[x][y]->getLabel() == " "); // Si le label de la case (x,y) est " ", alors il n'y a pas de pièce réelle sur la case [i][k]
+			}else
+			{
+				if( ! (( pieceeaeviter->getSquare()->getX()==x ) && ( pieceeaeviter->getSquare()->getY()==y ) ) )
+					noCollision = (_board[x][y]->getLabel() == " "); // Si le label de la case (x,y) est " ", alors il n'y a pas de pièce réelle sur la case [i][k]
+			}
 		++k;
 		x = selectedP->getMovements()[i][k]->getX();		
 		y = selectedP->getMovements()[i][k]->getY();
@@ -159,6 +166,53 @@ void Chess::movePiece(Piece* selectedP, Piece* selectedD)
 	_board[xPiece][yPiece] = new Piece(xPiece,yPiece);			// L'ancienne position de la pièce est maintenant une pièce "vide"
 	selectedP->setSquare(selectedD->getSquare());				// Mise à jour des coordonnées de la pièce qui vient d'être déplacée
 	selectedP->movement();										// Mise à jour des déplacements possibles de la pièce depuis sa nouvelle position
+}
+
+//------------------------------------------------------------------------------------------------------
+
+std::vector<Piece*> Chess::listepieces(Piece* selectedP, Player* advers)
+{
+	std::vector<Piece*> list;
+	Piece* piecetueuse=NULL;
+	for(int i=0;i<16;++i)
+	{
+		piecetueuse= advers->getPieces()[i];//on prend toute les pieces du joueur adverse
+		if (!(selectDest(advers,piecetueuse, selectedP->getSquare()->getX(), selectedP->getSquare()->getY())==NULL))// si la piecetueuse peut aller théoriquement manger la piece selectedp
+		{
+			if(noCollision(piecetueuse, selectedP))//si la piecetueuse peut aller manger selectedP 
+				{
+					list.push_back(piecetueuse);
+				}
+		}
+	}
+	return list;
+}
+
+//------------------------------------------------------------------------------------------------------
+
+bool Chess::listpeutmangerleroi(std::vector<Piece*> list, Player* advers, Player* playerIG, Piece* selectedP)
+{
+	bool res= false;
+	Piece* king = playerIG->getPieces()[12];
+	Piece* piecetueuse=NULL;
+	std::cout<<"taille ::::::: "<<list.size()<<std::endl;;
+	for(int i=0; i<list.size();++i)
+	{
+		piecetueuse= list[i];//on prend toute les pieces du joueur adverse
+		if (!(selectDest(advers,piecetueuse, king->getSquare()->getX(), king->getSquare()->getY())==NULL))// si la piecetueuse peut aller théoriquement manger la piece selectedp
+		{
+			if(noCollision(piecetueuse, king, selectedP))//si la piecetueuse peut aller manger le roi en sautant la piece selectedP
+				{
+					res =true;
+				}
+		}
+	}
+	std::cout<<"ressss ::::::: "<<res<<std::endl;;
+	if(res)
+	{
+		std::cout<<"Vous ne pouvez pas bouger cette piece sinon votre Roi sera encore en position d'échec";
+	}
+	return res;
 }
 //------------------------------------------------------------------------------------------------------
 bool Chess::surlepassage(Player* playerIG, Piece* pieceD, Player* advers){
@@ -277,52 +331,55 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 		std::cout << "y: ";
 		y2 = getChoiceInt();
 		// Selection valide de la destination sur le plateau ( selectedD sera soit une pièce adverse, soit une pièce "vide" )
-		if(!(playerIG->ischeck()))
+		if(!listpeutmangerleroi(listepieces(selectedP, advers), advers, playerIG, selectedP))//évite de mettre le joueur en etat d'echec ou en état echec et mat s'il se trouve déja en echec
 		{
-			selectedD = selectDest(playerIG, selectedP, x2, y2); 	
-			if(!(selectedD == NULL))
+			if(!(playerIG->ischeck()))
 			{
-			// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
-				if(noCollision(selectedP, selectedD))
+				selectedD = selectDest(playerIG, selectedP, x2, y2); 	
+				if(!(selectedD == NULL))
 				{
-					choix=true;
-					movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
-				}
-				else
-				{
-					std::cout << "collision !!" << std::endl;
-				}
-			}
-		}else
-		{
-			std::cout<<"echec :"<<playerIG->ischeck()<<std::endl;
-			//std::cout<<"testttt xxxxxxxxxxx :"<<testsauv->getSquare()->getX()<<std::endl;
-			//std::cout<<"testttt yyyyyyyyyyyy :"<<testsauv->getSquare()->getY()<<std::endl;
-			selectedD = selectDest(playerIG, selectedP, x2, y2); 	
-			std::cout<<"x destination ? "<<selectedD->getSquare()->getX()<<std::endl;
-			std::cout<<"y destination ? "<<selectedD->getSquare()->getY()<<std::endl;			
-			std::cout<<"testttt sur le passage "<<surlepassage( playerIG, selectedD, advers)<<std::endl;
-			if(selectedD != NULL)
-			{
-				if(surlepassage( playerIG, selectedD, advers))
-				{
+				// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
 					if(noCollision(selectedP, selectedD))
 					{
 						choix=true;
 						movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
 					}
+					else
+					{
+						std::cout << "collision !!" << std::endl;
+					}
+				}
+			}else
+			{
+				std::cout<<"echec :"<<playerIG->ischeck()<<std::endl;
+				//std::cout<<"testttt xxxxxxxxxxx :"<<testsauv->getSquare()->getX()<<std::endl;
+				//std::cout<<"testttt yyyyyyyyyyyy :"<<testsauv->getSquare()->getY()<<std::endl;
+				selectedD = selectDest(playerIG, selectedP, x2, y2); 	
+				std::cout<<"x destination ? "<<selectedD->getSquare()->getX()<<std::endl;
+				std::cout<<"y destination ? "<<selectedD->getSquare()->getY()<<std::endl;			
+				std::cout<<"testttt sur le passage "<<surlepassage( playerIG, selectedD, advers)<<std::endl;
+				if(selectedD != NULL)
+				{
+					if(surlepassage( playerIG, selectedD, advers))
+					{
+						if(noCollision(selectedP, selectedD))
+						{
+								choix=true;
+								movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
+						}
+					}
+				}
+				// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
+
+				if(choix == false)
+				{
+					std::cout << "Votre roi est en position d'echec alors veuillez bouger une autre piece ! " << std::endl;
 				}
 			}
-			// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
-
-			if(choix == false)
+			if(!choix)
 			{
-				std::cout << "Votre roi est en position d'echec alors veuillez bouger une autre piece ! " << std::endl;
+				std::cout<<"Veuillez resaisir une piece!!"<<std::endl; 
 			}
-		}
-		if(!choix)
-		{
-			std::cout<<"Veuillez resaisir une piece!!"<<std::endl; 
 		}
 	}
 
