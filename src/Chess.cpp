@@ -195,7 +195,6 @@ bool Chess::listpeutmangerleroi(std::vector<Piece*> list, Player* advers, Player
 	bool res= false;
 	Piece* king = playerIG->getPieces()[12];
 	Piece* piecetueuse=NULL;
-	std::cout<<"taille ::::::: "<<list.size()<<std::endl;;
 	for(int i=0; i<list.size();++i)
 	{
 		piecetueuse= list[i];//on prend toute les pieces du joueur adverse
@@ -207,7 +206,6 @@ bool Chess::listpeutmangerleroi(std::vector<Piece*> list, Player* advers, Player
 				}
 		}
 	}
-	std::cout<<"ressss ::::::: "<<res<<std::endl;;
 	if(res)
 	{
 		std::cout<<"Vous ne pouvez pas bouger cette piece sinon votre Roi sera encore en position d'échec";
@@ -278,10 +276,64 @@ bool Chess::surlepassage(Player* playerIG, Piece* pieceD, Player* advers){
 			trouve=(testttt1 && testttt2);							
 		}
 	}
-	std::cout<<"solution est :::::::"<<trouve<<std::endl;
 	return trouve;
 }
+//------------------------------------------------------------------------------------------------------
+void Chess::transformationspawn(Player* playerIG, Piece* selectedP, Piece* selectedD)
+{
+	int choose;
+	std::cout << "Vous pouvez transformer votre pion en : "<<std::endl;
+	std::cout << "- Saissisez 0 pour le transformer en Reine."<<std::endl;
+	std::cout << "- Saissisez 1 pour le transformer en fou."<<std::endl;
+	std::cout << "- Saissisez 2 pour le transformer en cavalier."<<std::endl;
+	std::cout << "- Saissisez 3 pour le transformer en tour."<<std::endl;
+	choose = getChoiceInt();
+	while(choose>3)
+	{
+		std::cout << "Veuillez saisir un chiffre entre 0 et 4 !"<<std::endl;
+		choose = getChoiceInt();
+	}
+	// recheche de la coordonnée de la piece dans ces mains
+	bool recherche=false;
+	int coordonnee=0;
+	while(!recherche&&coordonnee<16)
+	{
+		if(playerIG->getPieces()[coordonnee]->getSquare()==selectedP->getSquare())
+			recherche=true;
+		if(!recherche)
+			++coordonnee;
+	}
+	if(choose==0)
+	{
+		movePiece(selectedP, selectedD);
+		playerIG->getPieces()[coordonnee]= new Queen(selectedD->getSquare()->getX(),selectedD->getSquare()->getY());
+		selectedP->movement();// Mise à jour des déplacements possibles de la pièce depuis sa nouvelle position
+		_board[selectedD->getSquare()->getX()][selectedD->getSquare()->getY()] = playerIG->getPieces()[coordonnee];	// La pièce est remplacé sur le plateau
+	}
+	if(choose==1)
+	{
+		movePiece(selectedP, selectedD);
+		playerIG->getPieces()[coordonnee]= new Bishop(selectedD->getSquare()->getX(),selectedD->getSquare()->getY());
+		selectedP->movement();// Mise à jour des déplacements possibles de la pièce depuis sa nouvelle position
+		_board[selectedD->getSquare()->getX()][selectedD->getSquare()->getY()] = playerIG->getPieces()[coordonnee];	// La pièce est remplacé sur le plateau
 
+	}
+	if(choose==2)
+	{
+		movePiece(selectedP, selectedD);
+		playerIG->getPieces()[coordonnee]= new Knight(selectedD->getSquare()->getX(),selectedD->getSquare()->getY());
+		selectedP->movement();// Mise à jour des déplacements possibles de la pièce depuis sa nouvelle position
+		_board[selectedD->getSquare()->getX()][selectedD->getSquare()->getY()] = playerIG->getPieces()[coordonnee];	// La pièce est remplacé sur le plateau
+
+	}
+	if(choose==3)
+	{
+		movePiece(selectedP, selectedD);
+		playerIG->getPieces()[coordonnee]= new Rook(selectedD->getSquare()->getX(),selectedD->getSquare()->getY());
+		selectedP->movement();// Mise à jour des déplacements possibles de la pièce depuis sa nouvelle position
+		_board[selectedD->getSquare()->getX()][selectedD->getSquare()->getY()] = playerIG->getPieces()[coordonnee];	// La pièce est remplacé sur le plateau	
+	}
+}
 //------------------------------------------------------------------------------------------------------
 void Chess::gameRound(Player* playerIG, Player* advers)
 {
@@ -341,8 +393,37 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 				// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
 					if(noCollision(selectedP, selectedD))
 					{
+						if(!(selectedP->getLabel()=="S"))
+						{
 						choix=true;
 						movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
+						}else
+						{
+						// cas pour transformer le spawn en reine, fou ..... si possible
+							if( ( playerIG->getColor()=="White" ) || ( playerIG->getColor()=="Blanc") )
+							{
+								if(selectedD->getSquare()->getY()==7)
+								{
+									transformationspawn(playerIG, selectedP, selectedD);
+									choix=true;
+								}else
+								{
+									choix=true;
+									movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD	
+								}
+							}else
+							{
+								if(selectedD->getSquare()->getY()==0)
+								{
+									transformationspawn(playerIG, selectedP, selectedD);
+									choix=true;
+								}else
+								{
+									choix=true;
+									movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
+								}
+							}
+						}
 					}
 					else
 					{
@@ -351,13 +432,7 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 				}
 			}else
 			{
-				std::cout<<"echec :"<<playerIG->ischeck()<<std::endl;
-				//std::cout<<"testttt xxxxxxxxxxx :"<<testsauv->getSquare()->getX()<<std::endl;
-				//std::cout<<"testttt yyyyyyyyyyyy :"<<testsauv->getSquare()->getY()<<std::endl;
 				selectedD = selectDest(playerIG, selectedP, x2, y2); 	
-				std::cout<<"x destination ? "<<selectedD->getSquare()->getX()<<std::endl;
-				std::cout<<"y destination ? "<<selectedD->getSquare()->getY()<<std::endl;			
-				std::cout<<"testttt sur le passage "<<surlepassage( playerIG, selectedD, advers)<<std::endl;
 				if(selectedD != NULL)
 				{
 					if(surlepassage( playerIG, selectedD, advers))
