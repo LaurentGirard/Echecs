@@ -120,6 +120,29 @@ class Chess
 		* @return bool
 		*/
 		bool listpeutmangerleroi(std::vector<Piece*> list, Player* advers, Player* playerIG, Piece* selectedP);
+		
+		/**
+		* @brief Procédure permettant de transformer le spawn
+		*/
+		void transformationspawn(Player* playerIG, Piece* selectedP, Piece* selectedD);
+
+		/**
+		* @brief fonction permettant de savoir si le petit roque est possible
+		*/
+		bool gererpetitroque(Player* playerIG,Piece* selectedP,Piece* selectedD);
+
+		/**
+		* @brief fonction permettant de savoir si le grand roque est possible
+		*/
+		bool gerergrandroque(Player* playerIG,Piece* selectedP,Piece* selectedD);
+		/**
+		* @brief Procédure permettant de faire le petit roque
+		*/
+		void fairepetitroque(Player* playerIG);
+		/**
+		* @brief Procédure permettant de faire le grand roque
+		*/
+		void fairegrandroque(Player* playerIG);
 
 		/**
 		* @brief Lance le début d'une partie
