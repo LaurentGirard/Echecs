@@ -54,7 +54,7 @@ class Chess
 		* @param Piece* selectedD, pointeur vers la pièce représentant la destination
 		* @return bool, vrai s'il n'y a pas de collision, faux sinon
 		*/
-			bool noCollision(Piece* selectedP, Piece* selectedD);
+			bool noCollision(Piece* selectedP, Piece* selectedD, Piece* pieceaeviter);
 
 		/**
 		* @brief Effectue le déplacement de la pièce selectionnée vers la destination
@@ -103,14 +103,24 @@ class Chess
 		bool testechecmat(Player* playerIG, Player* adver);
 
 		/**
-		* @brief Permet de savoir si la destination est sur le passage de la piece qui peut manger le roi
+		* @brief Permet de savoir si la pieceD est sur le passage de la piece qui peut manger le roi
 		* @return bool
 		*/
 		
 		bool surlepassage(Player* playerIG, Piece* pieceD, Player* advers);
 
+		/**
+		* @brief Permet de retourner une liste de pieces de l'advers qui peut manger la piece selectedP
+		* @return liste de piece
+		*/
+		std::vector<Piece*> listepieces(Piece* selectedP, Player* advers);
 
-		
+		/**
+		* @brief Permet de retourner un bool si une des pieces que peut manger la piece selected peut aller manger le roi du playerIG si la piece selectedP bouge
+		* @return bool
+		*/
+		bool listpeutmangerleroi(std::vector<Piece*> list, Player* advers, Player* playerIG, Piece* selectedP);
+
 		/**
 		* @brief Lance le début d'une partie
 		*/
