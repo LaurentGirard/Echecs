@@ -120,6 +120,11 @@ class Chess
 		* @return bool
 		*/
 		bool listpeutmangerleroi(std::vector<Piece*> list, Player* advers, Player* playerIG, Piece* selectedP);
+		
+		/**
+		* @brief Procédure permettant de transformer le spawn
+		*/
+		void transformationspawn(Player* playerIG, Piece* selectedP, Piece* selectedD);
 
 		/**
 		* @brief Lance le début d'une partie
