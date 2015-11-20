@@ -335,6 +335,65 @@ void Chess::transformationspawn(Player* playerIG, Piece* selectedP, Piece* selec
 	}
 }
 //------------------------------------------------------------------------------------------------------
+
+bool Chess::gererpetitroque(Player* playerIG,Piece* selectedP,Piece* selectedD)
+{
+	bool res=false;
+	if(playerIG->getPieces()[15]->getMovements()[0][0]==playerIG->getPieces()[15]->getSquare()&&playerIG->getPieces()[8]->isAlive())
+		res=true;
+	if(res)
+		std::cout<<"le grand roque est possible !"<<std::endl;
+	return res;
+}
+
+//------------------------------------------------------------------------------------------------------
+
+bool Chess::gerergrandroque(Player* playerIG,Piece* selectedP,Piece* selectedD)
+{
+	bool res=false;
+	if(playerIG->getPieces()[8]->getMovements()[0][0]==playerIG->getPieces()[8]->getSquare()&&playerIG->getPieces()[8]->isAlive())
+	{
+		int x = playerIG->getPieces()[8]->getSquare()->getX()+1;
+		int y = playerIG->getPieces()[8]->getSquare()->getY();
+		if( ( _board[x][y]->getLabel()) == " ") 
+			res=true;
+	}
+	if(res)
+		std::cout<<"le grand roque est possible !"<<std::endl;
+	return res;
+}
+
+//------------------------------------------------------------------------------------------------------
+
+void Chess::fairepetitroque(Player* playerIG)
+{
+	int x1=playerIG->getking()->getSquare()->getX()+2;
+	int y1=playerIG->getking()->getSquare()->getY();
+	int x2=x1-1;
+	int y2=y1;
+	_board[x1][y1] = playerIG->getking();	// Le roi est déplacée sur le plateau
+	playerIG->getking()->setSquare(new Cell(x1,y1));// Mise à jour des coordonnées du roi qui vient d'être déplacée
+	playerIG->getking()->movement();	
+	_board[x2][y2] = playerIG->getPieces()[15];// la tour es déplacée
+	playerIG->getPieces()[15]->setSquare(new Cell(x2,y2));// Mise à jour des coordonnées de la tour qui vient d'être déplacée
+}
+//------------------------------------------------------------------------------------------------------
+
+void Chess::fairegrandroque(Player* playerIG)
+{
+	int x1=playerIG->getking()->getSquare()->getX()-2;
+	int y1=playerIG->getking()->getSquare()->getY();
+	int x2=x1+1;
+	int y2=playerIG->getking()->getSquare()->getY();
+	_board[x1][y1] = playerIG->getking();	// Le roi est déplacée sur le plateau
+	playerIG->getking()->setSquare(new Cell(x1,y1));// Mise à jour des coordonnées du roi qui vient d'être déplacée
+	playerIG->getking()->movement();	
+	_board[x2][y2] = playerIG->getPieces()[8]; // la tour es déplacée
+	playerIG->getPieces()[8]->setSquare(new Cell(x2,y2));// Mise à jour des coordonnées de la tour qui vient d'être déplacée
+	playerIG->getPieces()[8]->movement();
+}
+
+//------------------------------------------------------------------------------------------------------
 void Chess::gameRound(Player* playerIG, Player* advers)
 {
 	std::cout<<"C'est au tour de : "<<playerIG->getName()<<std::endl;
@@ -391,43 +450,94 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 				if(!(selectedD == NULL))
 				{
 				// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
-					if(noCollision(selectedP, selectedD))
+					if(selectedP->getLabel()=="R")
 					{
-						if(!(selectedP->getLabel()=="S"))
+						// gerer le cas du petit et grand roque
+						if(selectedP->getMovements().size()==7)//signifie indirectement que le roi n'a pas encore bougé
 						{
-						choix=true;
-						movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
-						}else
-						{
-						// cas pour transformer le spawn en reine, fou ..... si possible
-							if( ( playerIG->getColor()=="White" ) || ( playerIG->getColor()=="Blanc") )
+							bool roque=false;
+							if(selectedP->getSquare()->getX()<6&&selectedD->getSquare()->getX()==(selectedP->getSquare()->getX()+2))
 							{
-								if(selectedD->getSquare()->getY()==7)
-								{
-									transformationspawn(playerIG, selectedP, selectedD);
-									choix=true;
-								}else
-								{
-									choix=true;
-									movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD	
-								}
+								int xroipetit = selectedP->getSquare()->getX();
+								int yroipetit = selectedP->getSquare()->getY();
+								bool test1 = (_board[xroipetit+1][yroipetit]->getLabel()==" ");
+								bool test2 = (_board[xroipetit+2][yroipetit]->getLabel()==" ");
+								if(test1&&test2)
+									roque = gererpetitroque(playerIG,selectedP,selectedD);
+									if(roque)
+										fairepetitroque(playerIG);
 							}else
 							{
-								if(selectedD->getSquare()->getY()==0)
+								if(selectedP->getSquare()->getX()>2&&selectedD->getSquare()->getX()==(selectedP->getSquare()->getX()-2))
 								{
-									transformationspawn(playerIG, selectedP, selectedD);
-									choix=true;
+									int xroipetit = selectedP->getSquare()->getX();
+									int yroipetit = selectedP->getSquare()->getY();
+									bool test1 = (_board[xroipetit+1][yroipetit]->getLabel()==" ");
+									bool test2 = (_board[xroipetit+2][yroipetit]->getLabel()==" ");
+									bool test3 = (_board[xroipetit+3][yroipetit]->getLabel()==" ");
+									if(test1&&test2&&test3)
+									{
+										roque = gerergrandroque(playerIG,selectedP,selectedD);
+										if(roque)
+											fairegrandroque(playerIG);
+									}
 								}else
 								{
+									if(noCollision(selectedP, selectedD))
+									{
+										choix=true;
+										movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
+									}
+								}
+							}
+						}else
+						{
+							if(noCollision(selectedP, selectedD))
+							{
+								choix=true;
+								movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
+							}
+						}
+					}else
+					{
+						if(noCollision(selectedP, selectedD))
+						{
+							if(!(selectedP->getLabel()=="S"))
+							{
 									choix=true;
 									movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
+							}else
+							{
+							// cas pour transformer le spawn en reine, fou ..... si possible
+								if( ( playerIG->getColor()=="White" ) || ( playerIG->getColor()=="Blanc") )
+								{
+									if(selectedD->getSquare()->getY()==7)
+									{
+										transformationspawn(playerIG, selectedP, selectedD);
+										choix=true;
+									}else
+									{
+										choix=true;
+										movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD	
+									}
+								}else
+								{
+									if(selectedD->getSquare()->getY()==0)
+									{
+										transformationspawn(playerIG, selectedP, selectedD);
+										choix=true;
+									}else
+									{
+										choix=true;
+										movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
+									}
 								}
 							}
 						}
-					}
-					else
-					{
-						std::cout << "collision !!" << std::endl;
+						else
+						{
+							std::cout << "collision !!" << std::endl;
+						}
 					}
 				}
 			}else

@@ -208,7 +208,12 @@ void Rook::movement()
 	unsigned int x = square->getX();
 	unsigned int y = square->getY();
 	unsigned int i;
-
+	if(!_moved)
+	{
+		mov.push_back(new Cell(x,y));
+		movements.push_back(mov);
+		mov.clear();
+	}
 	for (i = 1; x+i < 8 ; ++i)
 		mov.push_back(new Cell(x+i,y));
 
@@ -250,6 +255,7 @@ void Rook::movement()
 		movements.push_back(mov);
 		mov.clear();
 	}
+	_moved=false;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -609,7 +615,15 @@ void King::movement()
 	movements.clear();
 	unsigned int x = square->getX();
 	unsigned int y = square->getY();
-
+	if(!_moved)
+	{
+		mov.push_back(new Cell(2,0));
+		movements.push_back(mov);
+		mov.clear();
+		mov.push_back(new Cell(7,0));
+		movements.push_back(mov);
+		mov.clear();
+	}
 	if (x > 0) 
 	{
 		if (y > 0)
@@ -658,4 +672,5 @@ void King::movement()
 		movements.push_back(mov);
 		mov.clear();
 	}
+	_moved=true;
 }
