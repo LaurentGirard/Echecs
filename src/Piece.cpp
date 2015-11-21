@@ -620,7 +620,7 @@ void King::movement()
 		mov.push_back(new Cell(2,0));
 		movements.push_back(mov);
 		mov.clear();
-		mov.push_back(new Cell(7,0));
+		mov.push_back(new Cell(6,0));
 		movements.push_back(mov);
 		mov.clear();
 	}
