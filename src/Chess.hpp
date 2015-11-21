@@ -119,7 +119,7 @@ class Chess
 		* @brief Permet de retourner un bool si une des pieces que peut manger la piece selected peut aller manger le roi du playerIG si la piece selectedP bouge
 		* @return bool
 		*/
-		bool listpeutmangerleroi(std::vector<Piece*> list, Player* advers, Player* playerIG, Piece* selectedP);
+		bool listpeutmangerleroi(std::vector<Piece*> list, Player* advers, Player* playerIG, Piece* selectedP,Piece* selectedD);
 		
 		/**
 		* @brief Procédure permettant de transformer le spawn
@@ -143,6 +143,12 @@ class Chess
 		* @brief Procédure permettant de faire le grand roque
 		*/
 		void fairegrandroque(Player* playerIG);
+		
+		/**
+		* @brief fonction permettant de savoir si une piece appartient au player IG
+		* @return bool
+		*/
+		bool testpieceappartence(Piece* piece, Player* playerIG);
 
 		/**
 		* @brief Lance le début d'une partie
