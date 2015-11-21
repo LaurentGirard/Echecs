@@ -631,7 +631,7 @@ void Chess::printBoard()
 			{
 				std::cout << _board[j][7-i]->getLabel() << "|";
 			}else{
-				std::cout <<  "\E[31;1m"<<_board[j][7-i]->getLabel()<<"\E[m" << "|";
+				std::cout <<  "\x1B[31;1m"<<_board[j][7-i]->getLabel()<<"\x1Bm" << "|";
 			}
 		}
 
