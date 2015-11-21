@@ -761,7 +761,7 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 	}
 	////////////////cas petit et grand roque
 	///////////////////////////A REVOIR ////////////////////////////////////////////////
-	bool roque=false;
+	/*bool roque=false;
 	if(playerIG->getking()->getMovements().size()==7)//signifie indirectement que le roi n'a pas encore bougé
 	{
 		Piece* selectedD;
@@ -787,8 +787,8 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 			if(test1&&test2&&test3)
 				roque = gerergrandroque(playerIG,selectedP,selectedD);
 		}
-	}
-	if (res&&!roque){
+	}*/
+	if (res/*&&!roque*/){
 		playerIG->checkMate();
 	}
 	return res;
