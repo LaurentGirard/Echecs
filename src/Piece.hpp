@@ -82,11 +82,6 @@ class Piece
       * @brief procédure virtuelle mettant à jour les cases possibles pour un déplacement de la pièce
       */
 		virtual void movement();
-      /**
-       * @brief Getter de l'attribut _moved
-       * @return attribut _moved
-       */
-            virtual bool asMoved();
 
       /**
       * @brief Getter de l'attribut movements
