@@ -339,10 +339,10 @@ void Chess::transformationspawn(Player* playerIG, Piece* selectedP, Piece* selec
 bool Chess::gererpetitroque(Player* playerIG,Piece* selectedP,Piece* selectedD)
 {
 	bool res=false;
-	if(playerIG->getPieces()[15]->getMovements()[0][0]==playerIG->getPieces()[15]->getSquare()&&playerIG->getPieces()[8]->isAlive())
+	if(playerIG->getPieces()[15]->isAlive()&&playerIG->getPieces()[15]->getMovements()[0][0]->getX()==playerIG->getPieces()[15]->getSquare()->getX()&&playerIG->getPieces()[15]->getMovements()[0][0]->getY()==playerIG->getPieces()[15]->getSquare()->getY())
 		res=true;
 	if(res)
-		std::cout<<"le grand roque est possible !"<<std::endl;
+		std::cout<<"le petit roque est possible !"<<std::endl;
 	return res;
 }
 
@@ -351,7 +351,7 @@ bool Chess::gererpetitroque(Player* playerIG,Piece* selectedP,Piece* selectedD)
 bool Chess::gerergrandroque(Player* playerIG,Piece* selectedP,Piece* selectedD)
 {
 	bool res=false;
-	if(playerIG->getPieces()[8]->getMovements()[0][0]==playerIG->getPieces()[8]->getSquare()&&playerIG->getPieces()[8]->isAlive())
+	if(playerIG->getPieces()[8]->isAlive()&&playerIG->getPieces()[8]->getMovements()[0][0]->getX()==playerIG->getPieces()[8]->getSquare()->getX()&&playerIG->getPieces()[8]->getMovements()[0][0]->getY()==playerIG->getPieces()[8]->getSquare()->getY())
 	{
 		int x = playerIG->getPieces()[8]->getSquare()->getX()+1;
 		int y = playerIG->getPieces()[8]->getSquare()->getY();
@@ -367,6 +367,10 @@ bool Chess::gerergrandroque(Player* playerIG,Piece* selectedP,Piece* selectedD)
 
 void Chess::fairepetitroque(Player* playerIG)
 {
+	int xroi=playerIG->getking()->getSquare()->getX();
+	int yroi=playerIG->getking()->getSquare()->getY();
+	int xtour=playerIG->getPieces()[15]->getSquare()->getX();
+	int ytour=playerIG->getPieces()[15]->getSquare()->getY();
 	int x1=playerIG->getking()->getSquare()->getX()+2;
 	int y1=playerIG->getking()->getSquare()->getY();
 	int x2=x1-1;
@@ -376,11 +380,20 @@ void Chess::fairepetitroque(Player* playerIG)
 	playerIG->getking()->movement();	
 	_board[x2][y2] = playerIG->getPieces()[15];// la tour es déplacée
 	playerIG->getPieces()[15]->setSquare(new Cell(x2,y2));// Mise à jour des coordonnées de la tour qui vient d'être déplacée
+	_board[xroi][yroi] = new Piece(xroi,yroi);			// L'ancienne position de la pièce est maintenant une pièce "vide"
+	_board[xtour][ytour] = new Piece(xtour,ytour);			// L'ancienne position de la pièce est maintenant une pièce "vide"
+
+
+
 }
 //------------------------------------------------------------------------------------------------------
 
 void Chess::fairegrandroque(Player* playerIG)
 {
+	int xroi=playerIG->getking()->getSquare()->getX();
+	int yroi=playerIG->getking()->getSquare()->getY();
+	int xtour=playerIG->getPieces()[8]->getSquare()->getX();
+	int ytour=playerIG->getPieces()[8]->getSquare()->getY();
 	int x1=playerIG->getking()->getSquare()->getX()-2;
 	int y1=playerIG->getking()->getSquare()->getY();
 	int x2=x1+1;
@@ -391,6 +404,8 @@ void Chess::fairegrandroque(Player* playerIG)
 	_board[x2][y2] = playerIG->getPieces()[8]; // la tour es déplacée
 	playerIG->getPieces()[8]->setSquare(new Cell(x2,y2));// Mise à jour des coordonnées de la tour qui vient d'être déplacée
 	playerIG->getPieces()[8]->movement();
+	_board[xroi][yroi] = new Piece(xroi,yroi);			// L'ancienne position de la pièce est maintenant une pièce "vide"
+	_board[xtour][ytour] = new Piece(xtour,ytour);			// L'ancienne position de la pièce est maintenant une pièce "vide"
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -450,7 +465,7 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 				if(!(selectedD == NULL))
 				{
 				// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
-					if(selectedP->getLabel()=="R")
+					if(selectedP->getLabel()=="K")
 					{
 						// gerer le cas du petit et grand roque
 						if(selectedP->getMovements().size()==7)//signifie indirectement que le roi n'a pas encore bougé
@@ -465,6 +480,7 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 								if(test1&&test2)
 									roque = gererpetitroque(playerIG,selectedP,selectedD);
 									if(roque)
+										choix=true;
 										fairepetitroque(playerIG);
 							}else
 							{
@@ -472,13 +488,14 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 								{
 									int xroipetit = selectedP->getSquare()->getX();
 									int yroipetit = selectedP->getSquare()->getY();
-									bool test1 = (_board[xroipetit+1][yroipetit]->getLabel()==" ");
-									bool test2 = (_board[xroipetit+2][yroipetit]->getLabel()==" ");
-									bool test3 = (_board[xroipetit+3][yroipetit]->getLabel()==" ");
+									bool test1 = (_board[xroipetit-1][yroipetit]->getLabel()==" ");
+									bool test2 = (_board[xroipetit-2][yroipetit]->getLabel()==" ");
+									bool test3 = (_board[xroipetit-3][yroipetit]->getLabel()==" ");
 									if(test1&&test2&&test3)
 									{
 										roque = gerergrandroque(playerIG,selectedP,selectedD);
 										if(roque)
+											choix=true;
 											fairegrandroque(playerIG);
 									}
 								}else
@@ -555,7 +572,6 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 					}
 				}
 				// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
-
 				if(choix == false)
 				{
 					std::cout << "Votre roi est en position d'echec alors veuillez bouger une autre piece ! " << std::endl;
@@ -746,64 +762,32 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 	////////////////cas petit et grand roque
 	///////////////////////////A REVOIR ////////////////////////////////////////////////
 	bool roque=false;
-	/*
-	bool direction;//true vers le haut
-	bool test=false;
-	int y=0;
-	int i;
-	if(res)// true pour voir comment ça se passe a l'interrieur !!
+	if(playerIG->getking()->getMovements().size()==7)//signifie indirectement que le roi n'a pas encore bougé
 	{
-		if( (playerIG->getColor() == "White") || (playerIG->getColor() == "Blanc") )
+		Piece* selectedD;
+		Piece* selectedP = playerIG->getking();
+		selectedD = new Piece(playerIG->getking()->getSquare()->getX()+2,playerIG->getking()->getSquare()->getY());
+		if(selectedP->getSquare()->getX()<6&&selectedD->getSquare()->getX()==(selectedP->getSquare()->getX()+2))
 		{
-			direction =true;
-		}else 
-		{		
-			direction=false;
-		}		
-		if(direction)
-		{
-			y=0;
-		}else 
-		{
-			y=7;
+			int xroipetit = selectedP->getSquare()->getX();
+			int yroipetit = selectedP->getSquare()->getY();
+			bool test1 = (_board[xroipetit+1][yroipetit]->getLabel()==" ");
+			bool test2 = (_board[xroipetit+2][yroipetit]->getLabel()==" ");
+			if(test1&&test2)
+				roque = gererpetitroque(playerIG,selectedP,selectedD);
 		}
-		std::cout<<" tour 1 ??"<<playerIG->getPieces()[8]->asMoved()<<std::endl;
-		if( (playerIG->getPieces()[8]->isAlive()) && !(playerIG->getPieces()[8]->asMoved()) )//la tour n'a pas bougé et est en vie
+		selectedD = new Piece(playerIG->getking()->getSquare()->getX()-2,playerIG->getking()->getSquare()->getY());
+		if(selectedP->getSquare()->getX()>2&&selectedD->getSquare()->getX()==(selectedP->getSquare()->getX()-2))
 		{
-			test=true;
-			for(i=1;i<4;i++)
-			{
-				if(_board[i][y]->getLabel()!=" ")
-					test=false;
-			}
-		}
-		if(test==true)
-		{
-			res=false;
-			roque=true;
-			std::cout<<" le joueur n'est pas en echec et mat car il peut faire le grand roque !! "<<std::endl;
-		}else
-		{
-			std::cout<<" tour 2 ??"<<playerIG->getPieces()[15]->asMoved()<<std::endl;
-
-			if( !roque && (playerIG->getPieces()[15]->isAlive()) && !(playerIG->getPieces()[15]->asMoved()) )
-			{
-				test=true;
-				for(i=7;i>4;i--)
-				{
-					if(_board[i][y]->getLabel()!=" ")
-						test=false;
-				}
-			}
-			if(test==true)
-			{
-				res=false;
-				roque=true;
-				std::cout<<" le joueur n'est pas en echec et mat car il peut faire le petit roque !! "<<std::endl;
-			}
+			int xroipetit = selectedP->getSquare()->getX();
+			int yroipetit = selectedP->getSquare()->getY();
+			bool test1 = (_board[xroipetit-1][yroipetit]->getLabel()==" ");
+			bool test2 = (_board[xroipetit-2][yroipetit]->getLabel()==" ");
+			bool test3 = (_board[xroipetit-3][yroipetit]->getLabel()==" ");
+			if(test1&&test2&&test3)
+				roque = gerergrandroque(playerIG,selectedP,selectedD);
 		}
 	}
-	*/
 	if (res&&!roque){
 		playerIG->checkMate();
 	}
