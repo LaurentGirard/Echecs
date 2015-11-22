@@ -180,6 +180,12 @@ class Chess
 		* @return bool
 		*/
 		bool testpieceappartence(Piece* piece, Player* playerIG);
+	
+		/**
+		* @brief fonction permettant de savoir si la partie se trouve en partie nulle
+		* @return bool
+		*/
+		bool testnull();
 
 		/**
 		* @brief Lance le début d'une partie

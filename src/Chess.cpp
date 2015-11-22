@@ -705,8 +705,147 @@ bool Chess::testechec(Piece* selectedP, Player* adver)
 }
 
 //------------------------------------------------------------------------------------------------------
+bool Chess::testnull()
+{
+	bool tabpieceenviep1[16];
+	bool tabpieceenviep2[16];
+	int i;
+	bool res=false;
+	for (i=0;i<16;i++)
+	{
+		if(p1->getPieces()[i]->isAlive())
+		{
+			tabpieceenviep1[i]=true;
+		}else
+		{
+			tabpieceenviep1[i]=false;
+		}
+		if(p2->getPieces()[i]->isAlive())
+		{
+			tabpieceenviep2[i]=true;
+		}else
+		{
+			tabpieceenviep2[i]=false;
+		}
+	}
+	// si il ne reste plus que deux rois
+	bool test1 = true;
+	for(i=0;i<16;i++)
+	{
+		if(i!=12)
+		{
+			if(tabpieceenviep1[i]==true)
+				test1 = false;
+			if(tabpieceenviep2[i]==true)
+				test1 = false;
+		}
+	}
+	if(test1)
+	{
+		res = true;
+	}
+	if(!res)
+	{
+		// s'il ne reste plus que deux rois et un fou
+		bool test2 =true;
+		for(i=0;i<16;i++)
+		{
+			if(i!=12)
+			{
+				if(i!=10&&i!=13)
+				{
+					if(tabpieceenviep1[i]==true)
+						test2 = false;
+					if(tabpieceenviep2[i]==true)
+						test2 = false;
+				}
+			}
+		}
+		if(test2)
+		{
+			if(tabpieceenviep1[10]==true&&tabpieceenviep2[10]==true)
+				test2=false;
+			if(tabpieceenviep1[13]==true&&tabpieceenviep2[13]==true)
+				test2=false;
+			if(tabpieceenviep1[10]==true&&tabpieceenviep1[13]==true)
+				test2=false;
+			if(tabpieceenviep2[10]==true&&tabpieceenviep2[13]==true)
+				test2=false;
+		}
+		if(test2)
+		{
+			res=true;
+		}
+		if(!res)
+		{
+			// s'il ne reste plus que deux roi et un cavalier
+			bool test3 =true;
+			for(i=0;i<16;i++)
+			{
+				if(i!=12)
+				{
+					if(i!=9&&i!=14)
+					{
+						if(tabpieceenviep1[i]==true)
+							test3 = false;
+						if(tabpieceenviep2[i]==true)
+							test3 = false;
+					}
+				}
+			}
+			if(test3)
+			{
+				if(tabpieceenviep1[9]==true&&tabpieceenviep2[9]==true)
+					test3=false;
+				if(tabpieceenviep1[14]==true&&tabpieceenviep2[14]==true)
+					test3=false;
+				if(tabpieceenviep1[9]==true&&tabpieceenviep1[14]==true)
+					test3=false;
+				if(tabpieceenviep2[9]==true&&tabpieceenviep2[14]==true)
+					test3=false;
+			}
+			if(test3)
+			{
+				res=true;
+			}
+			if(!res)
+			{	
+				// s'il ne reste plus que deux roi et 1 fou pour chaque joueurs
+				bool test4 =true;
+				for(i=0;i<16;i++)
+				{
+					if(i!=12)
+					{
+						if(i!=9&&i!=14)
+						{
+							if(tabpieceenviep1[i]==true)
+								test3 = false;
+							if(tabpieceenviep2[i]==true)
+								test3 = false;
+						}
+					}
+				}
+				if(test4)
+				{
+					if(tabpieceenviep1[10]==true&&tabpieceenviep1[13]==true)
+						test4=false;
+					if(tabpieceenviep2[10]==true&&tabpieceenviep2[13]==true)
+						test4=false;
+				}
+				if(test4)
+				{
+					res=true;
+				}
+			}
+		}
+	}
+	return res;
+}
+//------------------------------------------------------------------------------------------------------
+
 bool Chess::testechecmat(Player* playerIG, Player* adver)
 {
+	std::cout<<"test null : "<< testnull()<<std::endl;
 	bool res = false;
 	bool peuxbloque=false;
 	if(testechec(playerIG,adver))
