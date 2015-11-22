@@ -155,16 +155,22 @@ class Player
 		Piece* getking();
 
 	/**
-	* @brief permet de retourner la piece roi
-	* @return piece* pointeur de la piece roi
+	* @brief permet de savoir si le joueur se trouve en en checkmate
+	* @return bool
 	*/
 		bool ischeckmate();
 
 	/**
-	* @brief permet de retourner la piece roi
-	* @return piece* pointeur de la piece roi
+	* @brief permet de savoir si le joueur se trouve en en check
+	* @return bool
 	*/
 		bool ischeck();
+
+	/**
+	* @brief permet de savoir si le joueur se trouve en en partie nulle
+	* @return bool
+	*/
+		bool isnulle();
 };
 
 #endif // __Player_HPP__

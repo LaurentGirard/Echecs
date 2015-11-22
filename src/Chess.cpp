@@ -839,128 +839,134 @@ bool Chess::testnull()
 			}
 		}
 	}
+	if (res)
+	{
+		p1->gameNull();
+		p2->gameNull();
+	}
 	return res;
 }
 //------------------------------------------------------------------------------------------------------
 
 bool Chess::testechecmat(Player* playerIG, Player* adver)
 {
-	std::cout<<"test null : "<< testnull()<<std::endl;
 	bool res = false;
 	bool peuxbloque=false;
-	if(testechec(playerIG,adver))
-	{
-		int positionEchecmat = 0;
-		Piece* king_deplacement_virtuel=new Piece(0,0);
-		Piece* kingIG;
-		kingIG = playerIG->getking();
-		int i,x,y,s;
-		s=0;
-		// regarde si le roi peut bouger sans qu'il se remette en position d'echec 
-		for(i=0; i<kingIG->getMovements().size(); ++i)
+	if(!testnull()){
+		if(testechec(playerIG,adver))
 		{
-			x=kingIG->getMovements()[i][0]->getX();
-			y=kingIG->getMovements()[i][0]->getY();
-			king_deplacement_virtuel->setSquare(new Cell(x,y));
-			if(_board[x][y]->getLabel()==" ")
-			{	
-				s++;
-				if(testechec(king_deplacement_virtuel,adver))
-				{
-					positionEchecmat++;
-				
-				}
-			}
-			// s'il peut manger la piece tueuse
-			if(testpieceappartence(_board[x][y],adver))
+			int positionEchecmat = 0;
+			Piece* king_deplacement_virtuel=new Piece(0,0);
+			Piece* kingIG;
+			kingIG = playerIG->getking();
+			int i,x,y,s;
+			s=0;
+			// regarde si le roi peut bouger sans qu'il se remette en position d'echec 
+			for(i=0; i<kingIG->getMovements().size(); ++i)
 			{
-				if(!testechec(king_deplacement_virtuel,adver))
-				{
-					peuxbloque=true;
-				}	
-			}
-		}
-		bool found= false;
-		Piece* piecetueuse;
-		int w=0;
-		int indice=-1;
-		int indicebis=-1;
-		/***********************************/
-		std::cout<<"position :"<<positionEchecmat<<" et s : "<<s<<std::endl;
-		// recherche du point qui manger le roi
-		if(positionEchecmat==s)//roi ne peut pas bouger
-		{
-			i=0;
-			while((!found)&&i<16)
-			{
-				piecetueuse= adver->getPieces()[i];//on prend toute les pieces du joueur adverse
-				if (!(selectDest(adver,piecetueuse, kingIG->getSquare()->getX(), kingIG->getSquare()->getY())==NULL))// si la piece peut manger le roi
-				{
-					found= true;
-				}
-				if(!found)
-					i++;
-			}
-			/********************************************/
-			// recherche l'indice du movement de la piece tueuse
-			bool found=false;
-			i=0;
-			while(i<piecetueuse->getMovements().size()&&!found)
-			{
-				w=0;
-				while(w<piecetueuse->getMovements()[i].size()&&!found)
-				{
-					if((piecetueuse->getMovements()[i][w]->getX()==kingIG->getSquare()->getX())&&(piecetueuse->getMovements()[i][w]->getY()==kingIG->getSquare()->getY()))
+				x=kingIG->getMovements()[i][0]->getX();
+				y=kingIG->getMovements()[i][0]->getY();
+				king_deplacement_virtuel->setSquare(new Cell(x,y));
+				if(_board[x][y]->getLabel()==" ")
+				{	
+					s++;
+					if(testechec(king_deplacement_virtuel,adver))
 					{
-						indice=i;
-						indicebis=w;
-						found=true;
-						
+						positionEchecmat++;
+					
+					}
+				}
+				// s'il peut manger la piece tueuse
+				if(testpieceappartence(_board[x][y],adver))
+				{
+					if(!testechec(king_deplacement_virtuel,adver))
+					{
+						peuxbloque=true;
+					}	
+				}
+			}
+			bool found= false;
+			Piece* piecetueuse;
+			int w=0;
+			int indice=-1;
+			int indicebis=-1;
+			/***********************************/
+			std::cout<<"position :"<<positionEchecmat<<" et s : "<<s<<std::endl;
+			// recherche du point qui manger le roi
+			if(positionEchecmat==s)//roi ne peut pas bouger
+			{
+				i=0;
+				while((!found)&&i<16)
+				{
+					piecetueuse= adver->getPieces()[i];//on prend toute les pieces du joueur adverse
+					if (!(selectDest(adver,piecetueuse, kingIG->getSquare()->getX(), kingIG->getSquare()->getY())==NULL))// si la piece peut manger le roi
+					{
+						found= true;
 					}
 					if(!found)
-						w++;
+						i++;
 				}
-				if(!found)
-					i++;
-			}
-			//////////////  Maintenant faire toute les piece du joueurIG et voir s'il peuvent lui couper le chemin !!!!
-			Piece* piece_test;
-			Piece* piece_tableau;
-			for(i=0;i<16;++i)
-			{
-				if(i!=12)
+				/********************************************/
+				// recherche l'indice du movement de la piece tueuse
+				bool found=false;
+				i=0;
+				while(i<piecetueuse->getMovements().size()&&!found)
 				{
-					piece_test= playerIG->getPieces()[i];// on prend toute les pieces du joueur 						
-					// on regarde si la piece du joueur peut manger la pièce tueuse !
-					if(!(selectDest(playerIG,piece_test, piecetueuse->getSquare()->getX(), piecetueuse->getSquare()->getY())==NULL)) // on regarde s'il peut manger la piece qui le met en echec
+					w=0;
+					while(w<piecetueuse->getMovements()[i].size()&&!found)
 					{
-						if(noCollision(piece_test, piecetueuse))
+						if((piecetueuse->getMovements()[i][w]->getX()==kingIG->getSquare()->getX())&&(piecetueuse->getMovements()[i][w]->getY()==kingIG->getSquare()->getY()))
 						{
-							if(!listpeutmangerleroi(listepieces(piece_test, adver),adver,playerIG, piece_test, piecetueuse))//voir si le déplacement de cette piece  n'implique pas encore un echec
-								peuxbloque=true;
+							indice=i;
+							indicebis=w;
+							found=true;
+							
 						}
+						if(!found)
+							w++;
 					}
-					//on regarde si la piece du joueur peut se mettre sur le passage de la piece tueuse !
-					for(w=0;w<indicebis;++w)
+					if(!found)
+						i++;
+				}
+				//////////////  Maintenant faire toute les piece du joueurIG et voir s'il peuvent lui couper le chemin !!!!
+				Piece* piece_test;
+				Piece* piece_tableau;
+				for(i=0;i<16;++i)
+				{
+					if(i!=12)
 					{
-						if(!(selectDest(playerIG,piece_test, piecetueuse->getMovements()[indice][w]->getX(), piecetueuse->getMovements()[indice][w]->getY())==NULL)) // on regarde s'il ne peut pas manger la piece qui le met en echec
+						piece_test= playerIG->getPieces()[i];// on prend toute les pieces du joueur 						
+						// on regarde si la piece du joueur peut manger la pièce tueuse !
+						if(!(selectDest(playerIG,piece_test, piecetueuse->getSquare()->getX(), piecetueuse->getSquare()->getY())==NULL)) // on regarde s'il peut manger la piece qui le met en echec
 						{
-							piece_tableau=_board[piecetueuse->getMovements()[indice][w]->getX()][piecetueuse->getMovements()[indice][w]->getY()];
-							if(noCollision(piece_test, piece_tableau))
+							if(noCollision(piece_test, piecetueuse))
 							{
-								if(!listpeutmangerleroi(listepieces(piece_test, adver),adver,playerIG, piece_test, piece_tableau))//voir si le déplacement de cette piece  n'implique pas encore un echec
-									peuxbloque=true;							
+								if(!listpeutmangerleroi(listepieces(piece_test, adver),adver,playerIG, piece_test, piecetueuse))//voir si le déplacement de cette piece  n'implique pas encore un echec
+									peuxbloque=true;
+							}
+						}
+						//on regarde si la piece du joueur peut se mettre sur le passage de la piece tueuse !
+						for(w=0;w<indicebis;++w)
+						{
+							if(!(selectDest(playerIG,piece_test, piecetueuse->getMovements()[indice][w]->getX(), piecetueuse->getMovements()[indice][w]->getY())==NULL)) // on regarde s'il ne peut pas manger la piece qui le met en echec
+							{
+								piece_tableau=_board[piecetueuse->getMovements()[indice][w]->getX()][piecetueuse->getMovements()[indice][w]->getY()];
+								if(noCollision(piece_test, piece_tableau))
+								{
+									if(!listpeutmangerleroi(listepieces(piece_test, adver),adver,playerIG, piece_test, piece_tableau))//voir si le déplacement de cette piece  n'implique pas encore un echec
+										peuxbloque=true;							
+								}
 							}
 						}
 					}
 				}
 			}
+			//si le joueur n'a pas moyen de couper le chemin ou de manger la piece tueuse alors le resultat est vrai
+			if (!peuxbloque)
+			{
+				res=true;
+			}	
 		}
-		//si le joueur n'a pas moyen de couper le chemin ou de manger la piece tueuse alors le resultat est vrai
-		if (!peuxbloque)
-		{
-			res=true;
-		}	
 	}
 	// si resultat est vrai alors on passe le joueur en état d'echec et mat
 	if (res){
@@ -978,7 +984,7 @@ void Chess::startGame()
 	{
 		p1->getState()->print();
 		gameRound(p1, p2);
-		if (testechecmat(p2,p1))
+		if (testechecmat(p2,p1)||testnull())
 		{
 			p1->getState()->print();
 			finpartie=true;
@@ -987,19 +993,24 @@ void Chess::startGame()
 			p2->getState()->print();
 			gameRound(p2, p1);
 		}
-		if (testechecmat(p1,p2))
+		if (testechecmat(p1,p2)||testnull())
 		{
 			p1->getState()->print();
 			finpartie=true;
 		}
 	}
-	std::string gagnant;
-	if(p1->ischeckmate())
+	if(!p1->isnulle())
 	{
-		gagnant=p2->getName();
-	}else
-	{	
-		gagnant=p1->getName();
-	}	
-	std::cout<<"La partie est terminé, le Gagnant de ce partie est : "<<gagnant<<std::endl;
+		std::string gagnant;
+		if(p1->ischeckmate())
+		{
+			gagnant=p2->getName();
+		}else
+		{	
+			gagnant=p1->getName();
+		}	
+		std::cout<<"La partie est terminé, le Gagnant de ce partie est : "<<gagnant<<std::endl;
+	}else{
+		std::cout<<"La partie est terminé, car la partie est nulle."<<std::endl;
+	}
 }
