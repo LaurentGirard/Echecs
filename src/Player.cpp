@@ -202,3 +202,10 @@ bool Player::ischeck()
 {
 	return _state->ischeck();
 }
+
+//-------------------------------------------------------------------------------------------------------
+bool Player::isnulle()
+{
+	return _state->isnulle();
+}
+

@@ -65,9 +65,13 @@ class State
    */
 		virtual bool ischeck() = 0;
 	/**
-   * @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec
+   * @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec et mate
    */
 		virtual bool ischeckmate() = 0;
+	/**
+   * @brief procédure virtuelle permettant de savoir s'il se trouve en possition null
+   */
+		virtual bool isnulle() = 0;
 };
 
 class GameState : public State
@@ -119,9 +123,14 @@ class GameState : public State
 	*/
 		bool ischeck();
 	/**
-	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec et mate
 	*/
 		bool ischeckmate();
+
+	/**
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition nulle
+	*/
+		bool isnulle();
 };
 
 class CheckState : public State
@@ -173,9 +182,13 @@ class CheckState : public State
 	*/
 		bool ischeck();
 	/**
-	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec et mat
 	*/
 		bool ischeckmate();
+	/**
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition nulle
+	*/
+		bool isnulle();
 };
 
 class MateState : public State
@@ -227,9 +240,13 @@ class MateState : public State
 	*/
 		bool ischeckmate();
 	/**
-	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec et mate
 	*/
 		bool ischeck();
+	/**
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition nulle
+	*/
+		bool isnulle();
 };
 
 class NullState : public State
@@ -281,9 +298,13 @@ class NullState : public State
 	*/
 		bool ischeck();
 	/**
-	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec et mate
 	*/
 		bool ischeckmate();
+	/**
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition nulle
+	*/
+		bool isnulle();
 };
 
 class EndState : public State
@@ -335,9 +356,14 @@ class EndState : public State
 	*/
 		bool ischeck();
 	/**
-	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec et mate
 	*/
 		bool ischeckmate();
+
+	/**
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition nulle
+	*/
+		bool isnulle();
 
 
 };
