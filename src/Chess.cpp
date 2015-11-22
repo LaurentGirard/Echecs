@@ -211,10 +211,10 @@ bool Chess::listpeutmangerleroi(std::vector<Piece*> list, Player* advers, Player
 			}
 		}
 	}
-	if(res)
+	/*if(res)
 	{
 		std::cout<<"Vous ne pouvez pas bouger cette piece sinon votre Roi sera encore en position d'échec";
-	}
+	}*/
 	return res;
 }
 //------------------------------------------------------------------------------------------------------
@@ -601,6 +601,9 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 						std::cout << "Votre roi est en position d'echec alors veuillez bouger une autre piece ! " << std::endl;
 					}
 				}
+			}else
+			{
+				std::cout<<"vous ne pouvez pas bouger cette piece sinon vous mettez votre roi en echec !"<<std::endl; 
 			}
 			if(!choix)
 			{
@@ -837,6 +840,51 @@ bool Chess::testnull()
 					res=true;
 				}
 			}
+		}
+	}
+	if(!res)
+	{
+		//cas pat pour p1 !!
+		bool test4=true;
+		Piece* piece_test;
+		Piece* pieceD;
+		int q,w;
+		for(i=0;i<16;++i)
+		{
+			for(q=0; q<p1->getPieces()[i]->getMovements().size();++q)
+			{
+				for(w=0;w<p1->getPieces()[i]->getMovements()[q].size();++w)
+				{
+					piece_test= p1->getPieces()[i];
+					pieceD=_board[p1->getPieces()[i]->getMovements()[q][w]->getX()][p1->getPieces()[i]->getMovements()[q][w]->getY()];
+					if(noCollision(piece_test, pieceD))
+					{
+						if(!listpeutmangerleroi(listepieces(piece_test, p2),p2,p1, piece_test, pieceD))//voir si le déplacement de cette piece  n'implique pas encore un echec
+							test4=false;
+					}
+				}
+			}
+		}
+		//cas pat pour p2!
+		for(i=0;i<16;++i)
+		{
+			for(q=0; q<p2->getPieces()[i]->getMovements().size();++q)
+			{
+				for(w=0;w<p2->getPieces()[i]->getMovements()[q].size();++w)
+				{
+					piece_test= p2->getPieces()[i];
+					pieceD=_board[p2->getPieces()[i]->getMovements()[q][w]->getX()][p2->getPieces()[i]->getMovements()[q][w]->getY()];
+					if(noCollision(piece_test, pieceD))
+					{
+						if(!listpeutmangerleroi(listepieces(piece_test, p1),p1,p2, piece_test, pieceD))//voir si le déplacement de cette piece  n'implique pas encore un echec
+							test4=false;
+					}
+				}
+			}
+		}
+		if(test4)
+		{
+			res=true;	
 		}
 	}
 	if (res)
