@@ -578,11 +578,9 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 					}
 				}else
 				{
-					std::cout<<"Coucou "<<std::endl;
 					selectedD = selectDest(playerIG, selectedP, x2, y2); 	
 					if(selectedD != NULL)
 					{
-						std::cout<<"Coucou "<<std::endl;
 						if(surlepassage( playerIG, selectedD, advers))//regarde si la destination est sur la passage de l'adverse qui le met en echec
 						{
 							if(noCollision(selectedP, selectedD))
