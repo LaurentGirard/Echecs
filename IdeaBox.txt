@@ -10,9 +10,6 @@ Class contenant les différentes erreurs : pattern ?
 
 -------------------- TO DO ----------------------
 
-implémenter le "coup en passant" pour le pion
-revoir les déplacements des pions
-Découper le projet pour MVC
 Notamment mettre les affichages dans la vue pour éviter de tout mettre salement dans le Chess.cpp
 Initialiser les labels  apres les ":" dans les constructeurs ?
 

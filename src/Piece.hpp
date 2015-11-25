@@ -26,10 +26,15 @@ class Piece
 
 		Cell* square;                                         // attribut : case sur laquelle est la pièce
 		bool alive;					                  // attribut : état de la pièce ( 0 = pièce détruite ; 1 = pièce en vie )
-            std::vector< std::vector<Cell*> > movements;           // attribut : liste de liste de cases représentant les déplacements possibles de la pièce
+            std::vector< std::vector<Cell*> > movements;          // attribut : liste de liste de cases représentant les déplacements possibles de la pièce
             std::string label;                                    // attribut : libellé de la pièce (S = Spawn, R = Rook, C = Knight etc.)
 	
       public:
+
+      /**
+       * @brief Constructeur vide, crée une pièce
+       */
+            Piece();
 
       /**
        * @brief Constructeur, crée une pièce
