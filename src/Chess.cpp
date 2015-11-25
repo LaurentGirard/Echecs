@@ -302,8 +302,7 @@ void Chess::transformationspawn(Player* playerIG, Piece* selectedP, Piece* selec
 		if(!recherche)
 			++coordonnee;
 	}
-	movePiece(selectedP, selectedD);
-
+	movePiece(selectedP, selectedD);//déplacement de la pièce quand meme
 	switch(choose)
 	{
 		// Spawn devient Queen
@@ -1044,7 +1043,7 @@ void Chess::startGame()
 		else	
 			gagnant = p1->getName();
 
-		std::cout << "La partie est terminé, le Gagnant de ce partie est : " << gagnant<<std::endl;
+		std::cout << "La partie est terminé, le Gagnant de cette partie est : " << gagnant<<std::endl;
 	}
 	else
 		std::cout << "La partie est terminé, car la partie est nulle." << std::endl;
