@@ -27,6 +27,7 @@ Piece* ObjectPool::pickPiece(unsigned int indPiece)
 
 	Piece* p = NULL;
 
+	// Si l'indice est valide, l'emplacement de la pièce est mis à NULL et l'ancien contenu est retourné
 	if(indPiece < 17)
 	{
 		p = _pool[indPiece];
@@ -39,5 +40,6 @@ Piece* ObjectPool::pickPiece(unsigned int indPiece)
 //------------------------------------------------------------------------------------------------------
 void ObjectPool::putPiece(Piece* piece, unsigned int indPiece)
 {
+	// L'emplacement à l'indice indPiece contient maintenant piece
 	_pool[indPiece] = piece;
 }
