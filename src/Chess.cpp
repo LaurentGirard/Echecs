@@ -267,16 +267,11 @@ bool Chess::surlepassage(Player* playerIG, Piece* pieceD, Player* advers){
 		//regarde si la destination est bien sur le passage de la piece
 		int xxx;	
 		int yyy;
-		bool testttt1 = false;
-		bool testttt2 = false;
 		for(w = 0 ; w < indicebis ; ++w)
 		{
 			xxx = piecetueuse->getMovements()[indice][w]->getX();
 			yyy = piecetueuse->getMovements()[indice][w]->getY();
-			std::cout << "xx : " << xx << " yy "<< yy << " xxx " << xxx << " yyy " << yyy << std::endl;
-			testttt1 = (xx == xxx);
-			testttt2 = (yy == yyy);
-			if (testttt1 && testttt2)
+			if ( ( xx==xxx ) && ( yy==yyy ) )
 				trouve = true;						
 		}
 	}
@@ -292,7 +287,6 @@ void Chess::transformationspawn(Player* playerIG, Piece* selectedP, Piece* selec
 	std::cout << "- Saissisez 2 pour le transformer en cavalier." << std::endl;
 	std::cout << "- Saissisez 3 pour le transformer en tour." << std::endl;
 	choose = getChoiceInt();
-
 	while(choose > 3)
 	{
 		std::cout << "Veuillez saisir un chiffre entre 0 et 4 !" << std::endl;
@@ -308,40 +302,37 @@ void Chess::transformationspawn(Player* playerIG, Piece* selectedP, Piece* selec
 		if(!recherche)
 			++coordonnee;
 	}
-	// Spawn devient Queen
-	if(choose == 0)
-	{
-		movePiece(selectedP, selectedD);
-		playerIG->getPieces()[coordonnee] = new Queen(selectedD->getSquare()->getX(),selectedD->getSquare()->getY());
-		selectedP->movement();// Mise à jour des déplacements possibles de la pièce depuis sa nouvelle position
-		_board[selectedD->getSquare()->getX()][selectedD->getSquare()->getY()] = playerIG->getPieces()[coordonnee];	// La pièce est remplacé sur le plateau
-	}
-	// Spawn devient Bishop
-	if(choose == 1)
-	{
-		movePiece(selectedP, selectedD);
-		playerIG->getPieces()[coordonnee] = new Bishop(selectedD->getSquare()->getX(),selectedD->getSquare()->getY());
-		selectedP->movement();// Mise à jour des déplacements possibles de la pièce depuis sa nouvelle position
-		_board[selectedD->getSquare()->getX()][selectedD->getSquare()->getY()] = playerIG->getPieces()[coordonnee];	// La pièce est remplacé sur le plateau
+	movePiece(selectedP, selectedD);
 
-	}
-	// Spawn devient Knight
-	if(choose == 2)
+	switch(choose)
 	{
-		movePiece(selectedP, selectedD);
-		playerIG->getPieces()[coordonnee] = new Knight(selectedD->getSquare()->getX(),selectedD->getSquare()->getY());
-		selectedP->movement();// Mise à jour des déplacements possibles de la pièce depuis sa nouvelle position
-		_board[selectedD->getSquare()->getX()][selectedD->getSquare()->getY()] = playerIG->getPieces()[coordonnee];	// La pièce est remplacé sur le plateau
-
+		// Spawn devient Queen
+		case 0:
+		{
+			playerIG->getPieces()[coordonnee] = new Queen(selectedD->getSquare()->getX(),selectedD->getSquare()->getY());
+			break;
+		}
+		// Spawn devient Bishop
+		case 1:
+		{
+			playerIG->getPieces()[coordonnee] = new Bishop(selectedD->getSquare()->getX(),selectedD->getSquare()->getY());
+			break;
+		}
+		// Spawn devient Knight
+		case 2:
+		{
+			playerIG->getPieces()[coordonnee] = new Knight(selectedD->getSquare()->getX(),selectedD->getSquare()->getY());
+			break;
+		}
+		// Spawn devient Rook
+		case 3:
+		{
+			playerIG->getPieces()[coordonnee] = new Rook(selectedD->getSquare()->getX(),selectedD->getSquare()->getY());
+			break;
+		}
 	}
-	// Spawn devient Rook
-	if(choose == 3)
-	{
-		movePiece(selectedP, selectedD);
-		playerIG->getPieces()[coordonnee] = new Rook(selectedD->getSquare()->getX(),selectedD->getSquare()->getY());
-		selectedP->movement();// Mise à jour des déplacements possibles de la pièce depuis sa nouvelle position
-		_board[selectedD->getSquare()->getX()][selectedD->getSquare()->getY()] = playerIG->getPieces()[coordonnee];	// La pièce est remplacé sur le plateau	
-	}
+	selectedP->movement();// Mise à jour des déplacements possibles de la pièce depuis sa nouvelle position
+	_board[selectedD->getSquare()->getX()][selectedD->getSquare()->getY()] = playerIG->getPieces()[coordonnee];	// La pièce est remplacé sur le plateau
 }
 //------------------------------------------------------------------------------------------------------
 // regarde si le petit roque est possible
