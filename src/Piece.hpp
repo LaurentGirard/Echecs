@@ -122,8 +122,6 @@ class Spawn : public Piece
        * @brief procédure virtuelle permettant de mettre à jour l'attribut movements en fonction des déplacements possibles du Pion
        */
             virtual void movement();
-
-
 };
 
 
