@@ -236,7 +236,6 @@ bool Chess::surlepassage(Player* playerIG, Piece* pieceD, Player* advers){
 	int indice = 0;
 	int indicebis = 0;
 	trouve = false;
-	std::cout << " piece tueuse " << piecetueuse->getLabel() << std::endl;
 
 	if(!(piecetueuse == NULL))
 	{
@@ -425,7 +424,7 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 	std::string arret;
 	while(!choix&&!arreter)
 	{
-		std::cout << "Vous souhaitez vous arreter la partie ? si oui, tapez oui sinon mettez n'importe quoi !" << std::endl;
+		std::cout << "Souhaitez-vous arreter la partie ? si oui, tapez oui sinon mettez n'importe quoi !" << std::endl;
 		std::cin>>arret;
 		if( arret =="oui")
 		{
@@ -578,18 +577,33 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 						}
 					}else
 					{
-						selectedD = selectDest(playerIG, selectedP, x2, y2); 	
+						selectedD = selectDest(playerIG, selectedP, x2, y2); 
+						std::cout<<"coucou 11"<<std::endl;
 						if(selectedD != NULL)
 						{
 							if(surlepassage( playerIG, selectedD, advers))//regarde si la destination est sur la passage de l'adverse qui le met en echec
 							{
-								if(noCollision(selectedP, selectedD))
+								if(!(selectedP==playerIG->getking()))
 								{
-										if(!listpeutmangerleroi(listepieces(selectedP, advers),advers,playerIG, selectedP, selectedD))//voir si le déplacement de cette piece  n'implique pas encore un echec
+									if(noCollision(selectedP, selectedD))
+									{
+											if(!listpeutmangerleroi(listepieces(selectedP, advers),advers,playerIG, selectedP, selectedD))//voir si le déplacement de cette piece  n'implique pas encore un echec
+											{
+												choix=true;
+												movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
+											}
+									}
+								}else
+								{
+									if(noCollision(selectedP, selectedD))
+									{
+										if(!testechec(selectedD, advers))
 										{
+											std::cout<<"c'est le roi !!!"<<std::endl;
 											choix=true;
-											movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
+											movePiece(selectedP, selectedD);
 										}
+									}
 								}
 							}
 						}
@@ -607,6 +621,9 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 				{
 					std::cout<<"Veuillez resaisir une piece!!"<<std::endl; 
 				}
+			}else
+			{
+				std::cout<<"Il est impossible d'aller à cette destination."<<std::endl;
 			}
 		}
 	}
@@ -812,7 +829,7 @@ bool Chess::testnull()
 			}
 			if(!res)
 			{	
-				// s'il ne reste plus que deux roi et 1 fou pour chaque joueurs
+				// s'il ne reste plus que un roi et 1 fou pour chaque joueurs
 				bool test4 =true;
 				for(i=0;i<16;i++)
 				{
@@ -937,9 +954,7 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 				}
 			}
 			found = false;
-
 			/***********************************/
-			std::cout << "position :" << positionEchecmat << " et s : " << s << std::endl;
 			// recherche du point qui manger le roi
 			if(positionEchecmat == s)//roi ne peut pas bouger
 			{
@@ -1006,6 +1021,9 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 						}
 					}
 				}
+			}else
+			{
+				peuxbloque=true;
 			}
 			//si le joueur n'a pas moyen de couper le chemin ou de manger la piece tueuse alors le resultat est vrai
 			if (!peuxbloque)

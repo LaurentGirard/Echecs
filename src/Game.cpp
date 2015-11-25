@@ -26,7 +26,7 @@ int main()
 				std::cin>>nomP1;
 				std::cin>>nomP2;
 				chess = new Chess(nomP1,nomP2);
-				std::cout<<"le premier à jouer sera "<<nomP1<< " et il représentera les pions blancs."<<std::endl;
+				std::cout<<"Le premier joueur est "<<nomP1<< " et il représentera les pions blancs."<<std::endl;
 				std::cout<<"Ainsi, "<<nomP2<<" jouera en deuxième et il représentera les pions rouges."<<std::endl;
 				std::cout<<" A vous de jouer ! Nous vous souhaitons bonne chance à vous deux ! :D "<<std::endl;
 				chess->startGame();	
