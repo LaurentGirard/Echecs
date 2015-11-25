@@ -413,7 +413,7 @@ void Chess::fairegrandroque(Player* playerIG)
 }
 
 //------------------------------------------------------------------------------------------------------
-void Chess::gameRound(Player* playerIG, Player* advers)
+bool Chess::gameRound(Player* playerIG, Player* advers)
 {
 	std::cout<<"C'est au tour de : "<<playerIG->getName()<<std::endl;
 	Piece* selectedP;
@@ -421,185 +421,196 @@ void Chess::gameRound(Player* playerIG, Player* advers)
 	unsigned int x, y, x2, y2,i,j;
 	// Selection de la pièce du joueur
 	bool choix=false;
-	while(!choix)
+	bool arreter=false;
+	std::string arret;
+	while(!choix&&!arreter)
 	{
-		printBoard();
-		std::cout << "Coordonnées de la pièce que vous voulez selectionner : " << std::endl;
-		std::cout << "x: ";
-		x = getChoiceInt();
-		std::cout << "y: ";
-		y = getChoiceInt();
-
-		selectedP = playerIG->selectPiece(x,y);
-		//demande au joueur de selectionner une piece tant que la piece selectionnée n'est pas une piece a lui 
-		while((selectedP == NULL))
+		std::cout << "Vous souhaitez vous arreter la partie ? si oui, tapez oui sinon mettez n'importe quoi !" << std::endl;
+		std::cin>>arret;
+		if( arret =="oui")
 		{
-			std::cout << "Aucune pièce en votre possession ne se situe sur la case : (" << x << "," << y << ")" << std::endl;
-
-			std::cout << "Entrer des nouvelles coordonnées : " << std::endl;
+			arreter=true;
+		}
+		if(!arreter)
+		{
+			printBoard();
+			std::cout << "Coordonnées de la pièce que vous voulez selectionner : " << std::endl;
 			std::cout << "x: ";
 			x = getChoiceInt();
 			std::cout << "y: ";
 			y = getChoiceInt();
 
 			selectedP = playerIG->selectPiece(x,y);
-		}
-		std::cout<<"voici les déplacements possible de la pièce : "<<std::endl;
-		// afficher les déplacement possible de la piece
-		for(i = 0 ; i < selectedP->getMovements().size() ; ++i)
-		{
-			for(j = 0 ; j < selectedP->getMovements()[i].size() ; ++j)
+			//demande au joueur de selectionner une piece tant que la piece selectionnée n'est pas une piece a lui 
+			while((selectedP == NULL))
 			{
-				std::cout << "(" << selectedP->getMovements()[i][j]->getX() << "," << selectedP->getMovements()[i][j]->getY() << ")" << std::endl;
-			}
-			std::cout << std::endl;
-		}
-		std::cout << "Vous avez selectionné la pièce :" << std::endl;
-		selectedP->printPiece();
+				std::cout << "Aucune pièce en votre possession ne se situe sur la case : (" << x << "," << y << ")" << std::endl;
 
-		std::cout << "Coordonnées de la case sur laquelle vous voulez déplacer la pièce : " << std::endl;
-		std::cout << "x: ";
-		x2 = getChoiceInt();
-		std::cout << "y: ";
-		y2 = getChoiceInt();
-		selectedD = selectDest(playerIG, selectedP, x2, y2); 	
-		if(!(selectedD == NULL))
-		{
-		// Selection valide de la destination sur le plateau ( selectedD sera soit une pièce adverse, soit une pièce "vide" )
-			if(!listpeutmangerleroi(listepieces(selectedP, advers), advers, playerIG, selectedP, selectedD))//évite de mettre le joueur en etat d'echec ou en état echec et mat s'il se trouve déja en echec
+				std::cout << "Entrer des nouvelles coordonnées : " << std::endl;
+				std::cout << "x: ";
+				x = getChoiceInt();
+				std::cout << "y: ";
+				y = getChoiceInt();
+
+				selectedP = playerIG->selectPiece(x,y);
+			}
+			std::cout<<"voici les déplacements possible de la pièce : "<<std::endl;
+			// afficher les déplacement possible de la piece
+			for(i = 0 ; i < selectedP->getMovements().size() ; ++i)
 			{
-				if(!(playerIG->ischeck()))
+				for(j = 0 ; j < selectedP->getMovements()[i].size() ; ++j)
 				{
-				// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
-					if(selectedP->getLabel()=="K")
+					std::cout << "(" << selectedP->getMovements()[i][j]->getX() << "," << selectedP->getMovements()[i][j]->getY() << ")" << std::endl;
+				}
+				std::cout << std::endl;
+			}
+			std::cout << "Vous avez selectionné la pièce :" << std::endl;
+			selectedP->printPiece();
+
+			std::cout << "Coordonnées de la case sur laquelle vous voulez déplacer la pièce : " << std::endl;
+			std::cout << "x: ";
+			x2 = getChoiceInt();
+			std::cout << "y: ";
+			y2 = getChoiceInt();
+			selectedD = selectDest(playerIG, selectedP, x2, y2); 	
+			if(!(selectedD == NULL))
+			{
+			// Selection valide de la destination sur le plateau ( selectedD sera soit une pièce adverse, soit une pièce "vide" )
+				if(!listpeutmangerleroi(listepieces(selectedP, advers), advers, playerIG, selectedP, selectedD))//évite de mettre le joueur en etat d'echec ou en état echec et mat s'il se trouve déja en echec
+				{
+					if(!(playerIG->ischeck()))
 					{
-						// gerer le cas du petit et grand roque
-						if(selectedP->getMovements().size()==7)//signifie indirectement que le roi n'a pas encore bougé
+					// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
+						if(selectedP->getLabel()=="K")
 						{
-							bool roque=false;
-							// si le cas du petit roque est demandé 
-							if(selectedP->getSquare()->getX()<6&&selectedD->getSquare()->getX()==(selectedP->getSquare()->getX()+2))
+							// gerer le cas du petit et grand roque
+							if(selectedP->getMovements().size()==7)//signifie indirectement que le roi n'a pas encore bougé
 							{
-								int xroipetit = selectedP->getSquare()->getX();
-								int yroipetit = selectedP->getSquare()->getY();
-								// regarde si aucune pieces se trouve entre le roi et la tour
-								bool test1 = (_board[xroipetit+1][yroipetit]->getLabel()==" ");
-								bool test2 = (_board[xroipetit+2][yroipetit]->getLabel()==" ");
-								if(test1&&test2)
-									roque = gererpetitroque(playerIG,selectedP,selectedD);
-									if(roque)
-										choix=true;
-										fairepetitroque(playerIG);
-							}else
-							{
-								//si le cas du grand roque est demandé
-								if(selectedP->getSquare()->getX()>2&&selectedD->getSquare()->getX()==(selectedP->getSquare()->getX()-2))
+								bool roque=false;
+								// si le cas du petit roque est demandé 
+								if(selectedP->getSquare()->getX()<6&&selectedD->getSquare()->getX()==(selectedP->getSquare()->getX()+2))
 								{
 									int xroipetit = selectedP->getSquare()->getX();
 									int yroipetit = selectedP->getSquare()->getY();
 									// regarde si aucune pieces se trouve entre le roi et la tour
-									bool test1 = (_board[xroipetit-1][yroipetit]->getLabel()==" ");
-									bool test2 = (_board[xroipetit-2][yroipetit]->getLabel()==" ");
-									bool test3 = (_board[xroipetit-3][yroipetit]->getLabel()==" ");
-									if(test1&&test2&&test3)
-									{
-										roque = gerergrandroque(playerIG,selectedP,selectedD);
+									bool test1 = (_board[xroipetit+1][yroipetit]->getLabel()==" ");
+									bool test2 = (_board[xroipetit+2][yroipetit]->getLabel()==" ");
+									if(test1&&test2)
+										roque = gererpetitroque(playerIG,selectedP,selectedD);
 										if(roque)
 											choix=true;
-											fairegrandroque(playerIG);
-									}
+											fairepetitroque(playerIG);
 								}else
 								{
-									if(noCollision(selectedP, selectedD))
+									//si le cas du grand roque est demandé
+									if(selectedP->getSquare()->getX()>2&&selectedD->getSquare()->getX()==(selectedP->getSquare()->getX()-2))
 									{
-										choix=true;
-										movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
+										int xroipetit = selectedP->getSquare()->getX();
+										int yroipetit = selectedP->getSquare()->getY();
+										// regarde si aucune pieces se trouve entre le roi et la tour
+										bool test1 = (_board[xroipetit-1][yroipetit]->getLabel()==" ");
+										bool test2 = (_board[xroipetit-2][yroipetit]->getLabel()==" ");
+										bool test3 = (_board[xroipetit-3][yroipetit]->getLabel()==" ");
+										if(test1&&test2&&test3)
+										{
+											roque = gerergrandroque(playerIG,selectedP,selectedD);
+											if(roque)
+												choix=true;
+												fairegrandroque(playerIG);
+										}
+									}else
+									{
+										if(noCollision(selectedP, selectedD))
+										{
+											choix=true;
+											movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
+										}
 									}
+								}
+							}else
+							{
+								if(noCollision(selectedP, selectedD))
+								{
+									choix=true;
+									movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
 								}
 							}
 						}else
 						{
 							if(noCollision(selectedP, selectedD))
 							{
-								choix=true;
-								movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
+								if(!(selectedP->getLabel()=="S"))// si le pion selectionné n'est pas un spawn
+								{
+										choix=true;
+										movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
+								}else
+								{
+									if( ( playerIG->getColor()=="White" ) || ( playerIG->getColor()=="Blanc") )
+									{
+										// cas pour transformer le spawn en reine, fou ..... si possible
+										if(selectedD->getSquare()->getY()==7)
+										{
+											transformationspawn(playerIG, selectedP, selectedD);
+											choix=true;
+										}else// sinon faire le cas normal
+										{
+											choix=true;
+											movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD	
+										}
+									}else
+									{
+										if(selectedD->getSquare()->getY()==0)
+										{
+											transformationspawn(playerIG, selectedP, selectedD);
+											choix=true;
+										}else
+										{
+											choix=true;
+											movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
+										}
+									}
+								}
+							}
+							else
+							{
+								std::cout << "collision !!" << std::endl;
 							}
 						}
 					}else
 					{
-						if(noCollision(selectedP, selectedD))
+						selectedD = selectDest(playerIG, selectedP, x2, y2); 	
+						if(selectedD != NULL)
 						{
-							if(!(selectedP->getLabel()=="S"))// si le pion selectionné n'est pas un spawn
+							if(surlepassage( playerIG, selectedD, advers))//regarde si la destination est sur la passage de l'adverse qui le met en echec
 							{
-									choix=true;
-									movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
-							}else
-							{
-								if( ( playerIG->getColor()=="White" ) || ( playerIG->getColor()=="Blanc") )
+								if(noCollision(selectedP, selectedD))
 								{
-									// cas pour transformer le spawn en reine, fou ..... si possible
-									if(selectedD->getSquare()->getY()==7)
-									{
-										transformationspawn(playerIG, selectedP, selectedD);
-										choix=true;
-									}else// sinon faire le cas normal
-									{
-										choix=true;
-										movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD	
-									}
-								}else
-								{
-									if(selectedD->getSquare()->getY()==0)
-									{
-										transformationspawn(playerIG, selectedP, selectedD);
-										choix=true;
-									}else
-									{
-										choix=true;
-										movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
-									}
+										if(!listpeutmangerleroi(listepieces(selectedP, advers),advers,playerIG, selectedP, selectedD))//voir si le déplacement de cette piece  n'implique pas encore un echec
+										{
+											choix=true;
+											movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
+										}
 								}
 							}
 						}
-						else
+						// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
+						if(choix == false)
 						{
-							std::cout << "collision !!" << std::endl;
+							std::cout << "Votre roi est en position d'echec alors veuillez bouger une autre piece ! " << std::endl;
 						}
 					}
 				}else
 				{
-					selectedD = selectDest(playerIG, selectedP, x2, y2); 	
-					if(selectedD != NULL)
-					{
-						if(surlepassage( playerIG, selectedD, advers))//regarde si la destination est sur la passage de l'adverse qui le met en echec
-						{
-							if(noCollision(selectedP, selectedD))
-							{
-									if(!listpeutmangerleroi(listepieces(selectedP, advers),advers,playerIG, selectedP, selectedD))//voir si le déplacement de cette piece  n'implique pas encore un echec
-									{
-										choix=true;
-										movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
-									}
-							}
-						}
-					}
-					// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
-					if(choix == false)
-					{
-						std::cout << "Votre roi est en position d'echec alors veuillez bouger une autre piece ! " << std::endl;
-					}
+					std::cout<<"vous ne pouvez pas bouger cette piece sinon vous mettez votre roi en echec !"<<std::endl; 
 				}
-			}else
-			{
-				std::cout<<"vous ne pouvez pas bouger cette piece sinon vous mettez votre roi en echec !"<<std::endl; 
-			}
-			if(!choix)
-			{
-				std::cout<<"Veuillez resaisir une piece!!"<<std::endl; 
+				if(!choix)
+				{
+					std::cout<<"Veuillez resaisir une piece!!"<<std::endl; 
+				}
 			}
 		}
 	}
-
+	return arreter;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -1019,7 +1030,7 @@ void Chess::startGame()
 	while(!finpartie)
 	{
 		p1->getState()->print();
-		gameRound(p1, p2);
+		finpartie = gameRound(p1, p2);
 		if (testechecmat(p2,p1)||testnull())
 		{
 			p1->getState()->print();
@@ -1027,7 +1038,7 @@ void Chess::startGame()
 		}else
 		{
 			p2->getState()->print();
-			gameRound(p2, p1);
+			finpartie= gameRound(p2, p1);
 		}
 		if (testechecmat(p1,p2)||testnull())
 		{
@@ -1035,15 +1046,26 @@ void Chess::startGame()
 			finpartie = true;
 		}
 	}
+	bool checkmate = false;
 	if(!p1->isnulle())
 	{
-
 		if(p1->ischeckmate())
+		{
+			checkmate=true;
 			gagnant = p2->getName();
-		else	
+		}
+		else if(p2->ischeckmate())
+		{
+			checkmate=true;
 			gagnant = p1->getName();
-
-		std::cout << "La partie est terminé, le Gagnant de cette partie est : " << gagnant<<std::endl;
+		}
+		if(checkmate)
+		{
+			std::cout << "La partie est terminé, le Gagnant de cette partie est : " << gagnant<<std::endl;
+		}else
+		{
+			std::cout << "La partie est terminé ! " << gagnant<<std::endl;
+		}
 	}
 	else
 		std::cout << "La partie est terminé, car la partie est nulle." << std::endl;

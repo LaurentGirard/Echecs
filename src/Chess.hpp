@@ -67,8 +67,9 @@ class Chess
 		* @brief Effectue le tour d'un joueur
 		* @param Player* playerIG, Joueur actuellement en jeu
 		* @param Player* adver, Joueur en attente de jouer
+		* @return bool ( true si le joueur veut arreter de joueur)
 		*/
-			void gameRound(Player* playerIG, Player* adver);
+			bool gameRound(Player* playerIG, Player* adver);
 
 		/**
 		* @brief Permet l'entrée utilisateur d'une coordonnée valide
