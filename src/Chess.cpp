@@ -115,12 +115,13 @@ bool Chess::noCollision(Piece* selectedP, Piece* selectedD, Piece* pieceeaeviter
 	unsigned int x, y;
 
 	// Cherche l'indice i dans lequel se trouve les étapes intermédiaires du déplacement à effectuer
+
 	while( !found && (i < selectedP->getMovements().size()) )
 	{
 		while ( !found && (j < selectedP->getMovements()[i].size()) )
 		{
 			found = ( (*selectedD->getSquare()) == (*selectedP->getMovements()[i][j]) );
-			++j;
+			j++;
 		}
 		j = 0;
 		if(!found)
@@ -128,7 +129,7 @@ bool Chess::noCollision(Piece* selectedP, Piece* selectedD, Piece* pieceeaeviter
 	}
 	// Tant qu'il n'y a pas de collision et que le parcours du vecteur de mouvement n'arrive pas sur la destination sélectionnée
 	x = selectedP->getMovements()[i][k]->getX();		
-	y = selectedP->getMovements()[i][k]->getY();	
+	y = selectedP->getMovements()[i][k]->getY();
 	while( noCollision && 
 		  ( (selectedD->getSquare()->getX() != x) || (selectedD->getSquare()->getY() != y )) )
 	{
@@ -195,19 +196,27 @@ bool Chess::listpeutmangerleroi(std::vector<Piece*> list, Player* advers, Player
 	bool res = false;
 	Piece* king = playerIG->getPieces()[12];
 	Piece* piecetueuse = NULL;
-
+	std::cout<<"test ?? "<<list.size()<<std::endl;
 	for(int i = 0; i < list.size() ; ++i)
 	{
 		piecetueuse = list[i];//on prend toute les pieces du joueur adverse
 		if (!(selectDest(advers,piecetueuse, king->getSquare()->getX(), king->getSquare()->getY())==NULL))// si la piecetueuse peut aller théoriquement manger la piece selectedp
 		{
-			if((selectDest(advers,piecetueuse, selectedD->getSquare()->getX(), selectedD->getSquare()->getY())==NULL))
+			if(!(selectDest(advers,piecetueuse, selectedD->getSquare()->getX(), selectedD->getSquare()->getY())==NULL))
 			{
-				if(noCollision(piecetueuse, king, selectedP))//si la piecetueuse peut aller manger le roi en sautant la piece selectedP
+				if(selectedP==king)
+				{
+					if(noCollision(piecetueuse, selectedD,selectedP))//si la piecetueuse peut aller manger le roi en sautant la piece selectedP
+						res=true;
+				}else
+				{
+					if(noCollision(piecetueuse, king, selectedP))//si la piecetueuse peut aller manger le roi en sautant la piece selectedP
 						res = true;
+				}
 			}
 		}
 	}
+	std::cout<<"res ?? "<<res<<std::endl;
 	/*if(res)
 	{
 		std::cout<<"Vous ne pouvez pas bouger cette piece sinon votre Roi sera encore en position d'échec";
@@ -590,9 +599,9 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 						selectedD = selectDest(playerIG, selectedP, x2, y2); 
 						if(selectedD != NULL)
 						{
-							if(surlepassage( playerIG, selectedD, advers))//regarde si la destination est sur la passage de l'adverse qui le met en echec
+							if(!(selectedP==playerIG->getking()))
 							{
-								if(!(selectedP==playerIG->getking()))
+								if(surlepassage( playerIG, selectedD, advers))//regarde si la destination est sur la passage de l'adverse qui le met en echec
 								{
 									if(noCollision(selectedP, selectedD))
 									{
@@ -602,17 +611,13 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 												movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
 											}
 									}
-								}else
+								}
+							}else
+							{
+								if(noCollision(selectedP, selectedD))
 								{
-									if(noCollision(selectedP, selectedD))
-									{
-										if(!testechec(selectedD, advers))
-										{
-											std::cout<<"c'est le roi !!!"<<std::endl;
-											choix=true;
-											movePiece(selectedP, selectedD);
-										}
-									}
+									choix=true;
+									movePiece(selectedP, selectedD);
 								}
 							}
 						}
