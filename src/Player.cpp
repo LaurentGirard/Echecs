@@ -20,7 +20,7 @@ Player::Player(std::string name, std::string color) : _name(name), _color(color)
 	_state = _gameState;
 
 	// Initialisation des pièces du joueur en fonction de sa couleur
-	unsigned int i;
+	/*unsigned int i;
 	unsigned int ySpawn = 8;
 	unsigned int yPieces = 8;
 
@@ -53,7 +53,19 @@ Player::Player(std::string name, std::string color) : _name(name), _color(color)
 	_pieces[12] = new King(4,yPieces);
 	_pieces[13] = new Bishop(5,yPieces);
 	_pieces[14] = new Knight(6,yPieces);
-	_pieces[15] = new Rook(7,yPieces);
+	_pieces[15] = new Rook(7,yPieces);*/
+	bool col;
+	int i;
+	if( (color == "White") || (color == "Blanc") )
+	{
+		col=false;
+	}else
+	{
+		col=true;	
+	}
+	Factory* factory=new Factory();
+	for (i =0; i<16;++i)
+		_pieces[i]=factory->fabriquePieces(col)[i];
 }
 
 //------------------------------------------------------------------------------------------------------

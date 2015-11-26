@@ -196,7 +196,6 @@ bool Chess::listpeutmangerleroi(std::vector<Piece*> list, Player* advers, Player
 	bool res = false;
 	Piece* king = playerIG->getPieces()[12];
 	Piece* piecetueuse = NULL;
-	std::cout<<"test ?? "<<list.size()<<std::endl;
 	for(int i = 0; i < list.size() ; ++i)
 	{
 		piecetueuse = list[i];//on prend toute les pieces du joueur adverse
@@ -216,7 +215,6 @@ bool Chess::listpeutmangerleroi(std::vector<Piece*> list, Player* advers, Player
 			}
 		}
 	}
-	std::cout<<"res ?? "<<res<<std::endl;
 	/*if(res)
 	{
 		std::cout<<"Vous ne pouvez pas bouger cette piece sinon votre Roi sera encore en position d'échec";
