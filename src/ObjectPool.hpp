@@ -43,6 +43,12 @@ class ObjectPool{
 		*/
 			void putPiece(Piece* piece, unsigned int indPiece);
 
+		/**
+		* @brief getter de l'attribut _pool
+		* @return Piece*
+		*/
+			Piece** getPool();
+
 };
 
 #endif // __OBJECTPOOL_HPP__

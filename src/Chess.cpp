@@ -45,8 +45,9 @@ Piece* Chess::selectDest(Player* player, Piece* piece, unsigned int x, unsigned 
 {
 	unsigned int i, j, k,lim=3;
 	Piece* selectedD = _board[x][y];
-	bool manger=false;
-	Player* adver=p1;
+	bool manger = false;
+	Player* adver = p1;
+
 	if(piece->isAlive()){
 		// Si la case selectionnée correspond à une pièce que le joueur player possède
 		for(i = 0 ; i < 16 ; ++i)
@@ -56,10 +57,10 @@ Piece* Chess::selectDest(Player* player, Piece* piece, unsigned int x, unsigned 
 		}
 		// Si la case selectionnée correspond à une pièce que le joueur adver possède
 		
-		if(player->getName()==p1->getName())
+		if(player->getName() == p1->getName())
 			adver=p2;
 		
-		for(i = 0; i<16;++i)
+		for(i = 0; i < 16 ; ++i)
 		{
 			if( _board[x][y]->getSquare() == adver->getPieces()[i]->getSquare() )
 				manger=true;
@@ -294,7 +295,7 @@ void Chess::transformationspawn(Player* playerIG, Piece* selectedP, Piece* selec
 	// recheche de la coordonnée de la piece dans ces mains
 	bool recherche = false;
 	int coordonnee = 0;
-	while(!recherche&&coordonnee < 16)
+	while(!recherche && coordonnee < 16)
 	{
 		if(playerIG->getPieces()[coordonnee]->getSquare() == selectedP->getSquare())
 			recherche = true;
@@ -335,10 +336,11 @@ void Chess::transformationspawn(Player* playerIG, Piece* selectedP, Piece* selec
 //------------------------------------------------------------------------------------------------------
 // regarde si le petit roque est possible
 
-bool Chess::gererpetitroque(Player* playerIG,Piece* selectedP,Piece* selectedD)
+bool Chess::gererpetitroque(Player* playerIG, Piece* selectedP, Piece* selectedD)
 {
 	bool res = false;
-	if( playerIG->getPieces()[15]->isAlive()&&playerIG->getPieces()[15]->getMovements()[0][0]->getX() == playerIG->getPieces()[15]->getSquare()->getX() &&
+	if( playerIG->getPieces()[15]->isAlive() && 
+		playerIG->getPieces()[15]->getMovements()[0][0]->getX() == playerIG->getPieces()[15]->getSquare()->getX() &&
 		playerIG->getPieces()[15]->getMovements()[0][0]->getY() == playerIG->getPieces()[15]->getSquare()->getY() )
 		res = true;
 	if(res)
@@ -348,12 +350,14 @@ bool Chess::gererpetitroque(Player* playerIG,Piece* selectedP,Piece* selectedD)
 
 //------------------------------------------------------------------------------------------------------
 // regarde si le grand roque est possible
-bool Chess::gerergrandroque(Player* playerIG,Piece* selectedP,Piece* selectedD)
+bool Chess::gerergrandroque(Player* playerIG, Piece* selectedP, Piece* selectedD)
 {
 	bool res = false;
 	int x, y;
 
-	if(playerIG->getPieces()[8]->isAlive()&&playerIG->getPieces()[8]->getMovements()[0][0]->getX()==playerIG->getPieces()[8]->getSquare()->getX()&&playerIG->getPieces()[8]->getMovements()[0][0]->getY()==playerIG->getPieces()[8]->getSquare()->getY())
+	if( playerIG->getPieces()[8]->isAlive() && 
+		playerIG->getPieces()[8]->getMovements()[0][0]->getX() == playerIG->getPieces()[8]->getSquare()->getX() &&
+		playerIG->getPieces()[8]->getMovements()[0][0]->getY() == playerIG->getPieces()[8]->getSquare()->getY() )
 	{
 		x = playerIG->getPieces()[8]->getSquare()->getX() + 1;
 		y = playerIG->getPieces()[8]->getSquare()->getY();
@@ -378,6 +382,7 @@ void Chess::fairepetitroque(Player* playerIG)
 	int y1 = playerIG->getking()->getSquare()->getY();
 	int x2 = x1-1;
 	int y2 = y1;
+
 	_board[x1][y1] = playerIG->getking();	// Le roi est déplacée sur le plateau
 	playerIG->getking()->setSquare(new Cell(x1,y1));// Mise à jour des coordonnées du roi qui vient d'être déplacée
 	playerIG->getking()->movement();	
@@ -393,14 +398,15 @@ void Chess::fairepetitroque(Player* playerIG)
 //procédure permettant d'effectuer le grand roque, on suppose que gerergrandroque == true
 void Chess::fairegrandroque(Player* playerIG)
 {
-	int xroi=playerIG->getking()->getSquare()->getX();
-	int yroi=playerIG->getking()->getSquare()->getY();
-	int xtour=playerIG->getPieces()[8]->getSquare()->getX();
-	int ytour=playerIG->getPieces()[8]->getSquare()->getY();
-	int x1=playerIG->getking()->getSquare()->getX()-2;
-	int y1=playerIG->getking()->getSquare()->getY();
-	int x2=x1+1;
-	int y2=playerIG->getking()->getSquare()->getY();
+	int xroi = playerIG->getking()->getSquare()->getX();
+	int yroi = playerIG->getking()->getSquare()->getY();
+	int xtour = playerIG->getPieces()[8]->getSquare()->getX();
+	int ytour = playerIG->getPieces()[8]->getSquare()->getY();
+	int x1 = playerIG->getking()->getSquare()->getX()-2;
+	int y1 = playerIG->getking()->getSquare()->getY();
+	int x2 = x1 + 1;
+	int y2 = playerIG->getking()->getSquare()->getY();
+
 	_board[x1][y1] = playerIG->getking();	// Le roi est déplacée sur le plateau
 	playerIG->getking()->setSquare(new Cell(x1,y1));// Mise à jour des coordonnées du roi qui vient d'être déplacée
 	playerIG->getking()->movement();	
@@ -414,25 +420,28 @@ void Chess::fairegrandroque(Player* playerIG)
 //------------------------------------------------------------------------------------------------------
 bool Chess::gameRound(Player* playerIG, Player* advers)
 {
-	std::cout<<"C'est au tour de : "<<playerIG->getName()<<std::endl;
 	Piece* selectedP;
 	Piece* selectedD;
-	unsigned int x, y, x2, y2,i,j;
+	unsigned int x, y, x2, y2; //,i,j;
 	// Selection de la pièce du joueur
-	bool choix=false;
-	bool arreter=false;
+	bool choix = false;
+	bool arreter = false;
 	std::string arret;
+	int value_returned;
+	
+	std::cout << "C'est au tour de : "<<playerIG->getName()<<std::endl;
 	while(!choix&&!arreter)
 	{
 		std::cout << "Souhaitez-vous arreter la partie ? si oui, tapez oui sinon mettez n'importe quoi !" << std::endl;
-		std::cin>>arret;
-		if( arret =="oui")
+		std::cin >> arret;
+		if( arret == "oui")
 		{
-			arreter=true;
+			arreter = true;
 		}
 		if(!arreter)
 		{
 			printBoard();
+			std::cout << std::endl;
 			std::cout << "Coordonnées de la pièce que vous voulez selectionner : " << std::endl;
 			std::cout << "x: ";
 			x = getChoiceInt();
@@ -453,18 +462,19 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 
 				selectedP = playerIG->selectPiece(x,y);
 			}
-			std::cout<<"voici les déplacements possible de la pièce : "<<std::endl;
+			std::cout << std::endl;
+			std::cout << "Vous avez selectionné la pièce :" << std::endl;
+			selectedP->printPiece();
+
+			std::cout << std::endl;
+			/*std::cout << "Voici les déplacements possibles : "<<std::endl;
 			// afficher les déplacement possible de la piece
 			for(i = 0 ; i < selectedP->getMovements().size() ; ++i)
 			{
 				for(j = 0 ; j < selectedP->getMovements()[i].size() ; ++j)
-				{
 					std::cout << "(" << selectedP->getMovements()[i][j]->getX() << "," << selectedP->getMovements()[i][j]->getY() << ")" << std::endl;
-				}
-				std::cout << std::endl;
-			}
-			std::cout << "Vous avez selectionné la pièce :" << std::endl;
-			selectedP->printPiece();
+
+			}*/
 
 			std::cout << "Coordonnées de la case sur laquelle vous voulez déplacer la pièce : " << std::endl;
 			std::cout << "x: ";
@@ -480,12 +490,12 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 					if(!(playerIG->ischeck()))
 					{
 					// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
-						if(selectedP->getLabel()=="K")
+						if(selectedP->getLabel() == "K")
 						{
 							// gerer le cas du petit et grand roque
-							if(selectedP->getMovements().size()==7)//signifie indirectement que le roi n'a pas encore bougé
+							if(selectedP->getMovements().size() == 7)//signifie indirectement que le roi n'a pas encore bougé
 							{
-								bool roque=false;
+								bool roque = false;
 								// si le cas du petit roque est demandé 
 								if(selectedP->getSquare()->getX()<6&&selectedD->getSquare()->getX()==(selectedP->getSquare()->getX()+2))
 								{
@@ -494,10 +504,10 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 									// regarde si aucune pieces se trouve entre le roi et la tour
 									bool test1 = (_board[xroipetit+1][yroipetit]->getLabel()==" ");
 									bool test2 = (_board[xroipetit+2][yroipetit]->getLabel()==" ");
-									if(test1&&test2)
+									if(test1 && test2)
 										roque = gererpetitroque(playerIG,selectedP,selectedD);
 										if(roque)
-											choix=true;
+											choix = true;
 											fairepetitroque(playerIG);
 								}else
 								{
@@ -578,7 +588,6 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 					}else
 					{
 						selectedD = selectDest(playerIG, selectedP, x2, y2); 
-						std::cout<<"coucou 11"<<std::endl;
 						if(selectedD != NULL)
 						{
 							if(surlepassage( playerIG, selectedD, advers))//regarde si la destination est sur la passage de l'adverse qui le met en echec
@@ -610,23 +619,24 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 						// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
 						if(choix == false)
 						{
-							std::cout << "Votre roi est en position d'echec alors veuillez bouger une autre piece ! " << std::endl;
+							std::cout << "Votre roi se trouve en position d'échec vous devez le sauver ! " << std::endl;
 						}
 					}
 				}else
-				{
-					std::cout<<"vous ne pouvez pas bouger cette piece sinon vous mettez votre roi en echec !"<<std::endl; 
-				}
+					std::cout << "Vous ne pouvez pas bouger cette piece car vous mettez votre Roi en échec !" << std::endl; 
+
 				if(!choix)
-				{
-					std::cout<<"Veuillez resaisir une piece!!"<<std::endl; 
-				}
+					std::cout << "Veuillez reselectionner une pièce" << std::endl; 
 			}else
-			{
-				std::cout<<"Il est impossible d'aller à cette destination."<<std::endl;
-			}
+				std::cout << "Il est impossible d'aller à cette destination." << std::endl;
 		}
 	}
+
+	// Permet de clear la sortie standard en affichant un message s'il y a eu une erreur
+	value_returned = std::system("clear");
+	if(value_returned != 0)
+		std::cout << "Problem Clear" << std::endl;
+
 	return arreter;
 }
 
@@ -729,33 +739,30 @@ bool Chess::testnull()
 	bool tabpieceenviep1[16];
 	bool tabpieceenviep2[16];
 	int i;
-	bool res=false;
-	for (i=0;i<16;i++)
+	bool res = false;
+	bool test1 = true;
+
+	for (i = 0 ; i < 16 ; ++i)
 	{
 		if(p1->getPieces()[i]->isAlive())
-		{
-			tabpieceenviep1[i]=true;
-		}else
-		{
-			tabpieceenviep1[i]=false;
-		}
+			tabpieceenviep1[i] = true;
+		else
+			tabpieceenviep1[i] = false;
+
 		if(p2->getPieces()[i]->isAlive())
-		{
-			tabpieceenviep2[i]=true;
-		}else
-		{
-			tabpieceenviep2[i]=false;
-		}
+			tabpieceenviep2[i] = true;
+		else
+			tabpieceenviep2[i] = false;
 	}
 	// si il ne reste plus que deux rois
-	bool test1 = true;
-	for(i=0;i<16;i++)
+
+	for(i = 0; i < 16 ; ++i)
 	{
-		if(i!=12)
+		if(i != 12)
 		{
-			if(tabpieceenviep1[i]==true)
+			if(tabpieceenviep1[i])
 				test1 = false;
-			if(tabpieceenviep2[i]==true)
+			if(tabpieceenviep2[i])
 				test1 = false;
 		}
 	}
@@ -766,90 +773,88 @@ bool Chess::testnull()
 	if(!res)
 	{
 		// s'il ne reste plus que deux rois et un fou
-		bool test2 =true;
-		for(i=0;i<16;i++)
+		bool test2 = true;
+		for(i = 0 ; i < 16 ; ++i)
 		{
-			if(i!=12)
+			if(i != 12)
 			{
-				if(i!=10&&i!=13)
+				if( (i != 10) && (i != 13) )
 				{
-					if(tabpieceenviep1[i]==true)
+					if(tabpieceenviep1[i])
 						test2 = false;
-					if(tabpieceenviep2[i]==true)
+					if(tabpieceenviep2[i])
 						test2 = false;
 				}
 			}
 		}
 		if(test2)
 		{
-			if(tabpieceenviep1[10]==true&&tabpieceenviep2[10]==true)
-				test2=false;
-			if(tabpieceenviep1[13]==true&&tabpieceenviep2[13]==true)
-				test2=false;
-			if(tabpieceenviep1[10]==true&&tabpieceenviep1[13]==true)
-				test2=false;
-			if(tabpieceenviep2[10]==true&&tabpieceenviep2[13]==true)
-				test2=false;
+			if(tabpieceenviep1[10] && tabpieceenviep2[10])
+				test2 = false;
+			if(tabpieceenviep1[13] && tabpieceenviep2[13])
+				test2 = false;
+			if(tabpieceenviep1[10] && tabpieceenviep1[13])
+				test2 = false;
+			if(tabpieceenviep2[10] && tabpieceenviep2[13])
+				test2 = false;
 		}
+
 		if(test2)
-		{
-			res=true;
-		}
+			res = true;
+
 		if(!res)
 		{
 			// s'il ne reste plus que deux roi et un cavalier
-			bool test3 =true;
-			for(i=0;i<16;i++)
+			bool test3 = true;
+			for(i = 0 ; i < 16 ; ++i)
 			{
 				if(i!=12)
 				{
-					if(i!=9&&i!=14)
+					if(i != 9 && i != 14)
 					{
-						if(tabpieceenviep1[i]==true)
+						if(tabpieceenviep1[i])
 							test3 = false;
-						if(tabpieceenviep2[i]==true)
+						if(tabpieceenviep2[i])
 							test3 = false;
 					}
 				}
 			}
 			if(test3)
 			{
-				if(tabpieceenviep1[9]==true&&tabpieceenviep2[9]==true)
-					test3=false;
-				if(tabpieceenviep1[14]==true&&tabpieceenviep2[14]==true)
-					test3=false;
-				if(tabpieceenviep1[9]==true&&tabpieceenviep1[14]==true)
-					test3=false;
-				if(tabpieceenviep2[9]==true&&tabpieceenviep2[14]==true)
-					test3=false;
+				if(tabpieceenviep1[9] && tabpieceenviep2[9])
+					test3 = false;
+				if(tabpieceenviep1[14] && tabpieceenviep2[14])
+					test3 = false;
+				if(tabpieceenviep1[9] && tabpieceenviep1[14])
+					test3 = false;
+				if(tabpieceenviep2[9] && tabpieceenviep2[14])
+					test3 = false;
 			}
 			if(test3)
-			{
-				res=true;
-			}
+				res = true;
 			if(!res)
 			{	
 				// s'il ne reste plus que un roi et 1 fou pour chaque joueurs
-				bool test4 =true;
-				for(i=0;i<16;i++)
+				bool test4 = true;
+				for(i = 0; i < 16 ; ++i)
 				{
-					if(i!=12)
+					if(i != 12)
 					{
-						if(i!=9&&i!=14)
+						if(i !=9 && i != 14)
 						{
-							if(tabpieceenviep1[i]==true)
+							if(tabpieceenviep1[i])
 								test3 = false;
-							if(tabpieceenviep2[i]==true)
+							if(tabpieceenviep2[i])
 								test3 = false;
 						}
 					}
 				}
 				if(test4)
 				{
-					if(tabpieceenviep1[10]==true&&tabpieceenviep1[13]==true)
-						test4=false;
-					if(tabpieceenviep2[10]==true&&tabpieceenviep2[13]==true)
-						test4=false;
+					if(tabpieceenviep1[10] && tabpieceenviep1[13])
+						test4 = false;
+					if(tabpieceenviep2[10] && tabpieceenviep2[13])
+						test4 = false;
 				}
 				if(test4)
 				{
@@ -861,47 +866,45 @@ bool Chess::testnull()
 	if(!res)
 	{
 		//cas pat pour p1 !!
-		bool test4=true;
+		bool test4 = true;
 		Piece* piece_test;
 		Piece* pieceD;
 		int q,w;
-		for(i=0;i<16;++i)
+		for(i = 0 ; i < 16 ; ++i)
 		{
-			for(q=0; q<p1->getPieces()[i]->getMovements().size();++q)
+			for(q = 0 ; q < p1->getPieces()[i]->getMovements().size(); ++q)
 			{
-				for(w=0;w<p1->getPieces()[i]->getMovements()[q].size();++w)
+				for(w = 0 ; w < p1->getPieces()[i]->getMovements()[q].size() ; ++w)
 				{
 					piece_test= p1->getPieces()[i];
 					pieceD=_board[p1->getPieces()[i]->getMovements()[q][w]->getX()][p1->getPieces()[i]->getMovements()[q][w]->getY()];
 					if(noCollision(piece_test, pieceD))
 					{
 						if(!listpeutmangerleroi(listepieces(piece_test, p2),p2,p1, piece_test, pieceD))//voir si le déplacement de cette piece  n'implique pas encore un echec
-							test4=false;
+							test4 = false;
 					}
 				}
 			}
 		}
 		//cas pat pour p2!
-		for(i=0;i<16;++i)
+		for(i = 0 ; i < 16 ; ++i)
 		{
-			for(q=0; q<p2->getPieces()[i]->getMovements().size();++q)
+			for(q = 0; q < p2->getPieces()[i]->getMovements().size() ; ++q)
 			{
-				for(w=0;w<p2->getPieces()[i]->getMovements()[q].size();++w)
+				for(w = 0 ; w < p2->getPieces()[i]->getMovements()[q].size(); ++w)
 				{
-					piece_test= p2->getPieces()[i];
-					pieceD=_board[p2->getPieces()[i]->getMovements()[q][w]->getX()][p2->getPieces()[i]->getMovements()[q][w]->getY()];
+					piece_test = p2->getPieces()[i];
+					pieceD = _board[p2->getPieces()[i]->getMovements()[q][w]->getX()][p2->getPieces()[i]->getMovements()[q][w]->getY()];
 					if(noCollision(piece_test, pieceD))
 					{
 						if(!listpeutmangerleroi(listepieces(piece_test, p1),p1,p2, piece_test, pieceD))//voir si le déplacement de cette piece  n'implique pas encore un echec
-							test4=false;
+							test4 = false;
 					}
 				}
 			}
 		}
 		if(test4)
-		{
-			res=true;	
-		}
+			res = true;	
 	}
 	if (res)
 	{
@@ -1022,14 +1025,10 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 					}
 				}
 			}else
-			{
-				peuxbloque=true;
-			}
+				peuxbloque = true;
 			//si le joueur n'a pas moyen de couper le chemin ou de manger la piece tueuse alors le resultat est vrai
 			if (!peuxbloque)
-			{
 				res = true;
-			}	
 		}
 	}
 	// si resultat est vrai alors on passe le joueur en état d'echec et mat
@@ -1079,13 +1078,13 @@ void Chess::startGame()
 		}
 		if(checkmate)
 		{
-			std::cout << "La partie est terminé, le Gagnant de cette partie est : " << gagnant<<std::endl;
+			std::cout << "La partie est terminée, le Gagnant de cette partie est : " << gagnant<<std::endl;
 		}else
 		{
-			std::cout << "La partie est terminé ! " << gagnant<<std::endl;
+			std::cout << "La partie est terminée ! " << gagnant<<std::endl;
 		}
 	}
 	else
-		std::cout << "La partie est terminé, car la partie est nulle." << std::endl;
+		std::cout << "La partie est terminée, car la partie est nulle." << std::endl;
 	
 }
