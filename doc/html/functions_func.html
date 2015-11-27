@@ -156,10 +156,16 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 , <a class="el" href="class_factory_rook.html#a50ff41cf552af801c123bf2b28120c68">FactoryRook</a>
 , <a class="el" href="class_factory_spawn.html#acdae41c4747246f35de741b32b3f74ac">FactorySpawn</a>
 </li>
+<li>buildTeamNormal()
+: <a class="el" href="class_team.html#a775920b00268678f778e08c0bf3ef514">Team</a>
+</li>
 </ul>
 
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>castling()
+: <a class="el" href="class_chess.html#af1af4be28978dcf09309883d38cf71cd">Chess</a>
+</li>
 <li>Cell()
 : <a class="el" href="class_cell.html#a4ccfb0a9923271daba6000afa1a33ee9">Cell</a>
 </li>
@@ -219,12 +225,6 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>FactorySpawn()
 : <a class="el" href="class_factory_spawn.html#afa2ea203f016dc06217ab48607c4e899">FactorySpawn</a>
 </li>
-<li>fairegrandroque()
-: <a class="el" href="class_chess.html#a65ef639fd19934036349c68e911ca71d">Chess</a>
-</li>
-<li>fairepetitroque()
-: <a class="el" href="class_chess.html#ab92c6dd132e82810617bd3abc02feda0">Chess</a>
-</li>
 </ul>
 
 
@@ -253,11 +253,8 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>GameState()
 : <a class="el" href="class_game_state.html#a564f9ae19ac9980b28b78944645b5163">GameState</a>
 </li>
-<li>gerergrandroque()
-: <a class="el" href="class_chess.html#a37bce0d85e4d9e66dcc9845a440cd30d">Chess</a>
-</li>
-<li>gererpetitroque()
-: <a class="el" href="class_chess.html#a6206462cbbff396c4fa898d45660471b">Chess</a>
+<li>gCastling()
+: <a class="el" href="class_chess.html#a81042bba80e10e971474b6f8488d8242">Chess</a>
 </li>
 <li>getCheckState()
 : <a class="el" href="class_player.html#a24f6a87b0480786ba2f966bc88d15195">Player</a>
@@ -274,8 +271,8 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>getGameState()
 : <a class="el" href="class_player.html#a98676a7d1647ac6db50507850fab1d92">Player</a>
 </li>
-<li>getking()
-: <a class="el" href="class_player.html#a5c1bd88d1c71575488196335b60a76b0">Player</a>
+<li>getKing()
+: <a class="el" href="class_player.html#a40125b547cb5a3c25f17a34364e6c411">Player</a>
 </li>
 <li>getLabel()
 : <a class="el" href="class_piece.html#ab0b61a2a0f2f3d977b4b1946ab328f2b">Piece</a>
@@ -338,14 +335,17 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 , <a class="el" href="class_player.html#aa8d4b069eedca62c2b8d5243db8689db">Player</a>
 , <a class="el" href="class_state.html#ad2d7084c507d8d20be2e772d953129fb">State</a>
 </li>
-<li>ischeckmate()
-: <a class="el" href="class_check_state.html#ae3704aaa5fbaf6c947462c211eafc9c9">CheckState</a>
-, <a class="el" href="class_end_state.html#a2f505cd7004247548a3026ce70bc0f58">EndState</a>
-, <a class="el" href="class_game_state.html#a595eb9db47758b91835fc12b13311b98">GameState</a>
-, <a class="el" href="class_mate_state.html#a9b9eb5923dc94adb69b28174d580c3b1">MateState</a>
-, <a class="el" href="class_null_state.html#adda1a19059bc77cf09886873912f91ff">NullState</a>
-, <a class="el" href="class_player.html#a98003bced20a95fd42452ce149fddad7">Player</a>
-, <a class="el" href="class_state.html#ae1d813f250db75015ddeebece5ec0f2b">State</a>
+<li>isCheckMate()
+: <a class="el" href="class_check_state.html#a35143fe625f5b7c6d5712ce77c3c016f">CheckState</a>
+, <a class="el" href="class_end_state.html#a78472ec2e6794153781eee37f6522fc1">EndState</a>
+, <a class="el" href="class_game_state.html#ac9b5e18d5bec890d741cc0eae4bb5600">GameState</a>
+, <a class="el" href="class_mate_state.html#a0d1f10729d785d5e8e5ca3134c09e24e">MateState</a>
+, <a class="el" href="class_null_state.html#a0b43994870d835258a68300d710992ac">NullState</a>
+, <a class="el" href="class_player.html#aa9c151901c3fae3ead5dc7d82e9a7f88">Player</a>
+, <a class="el" href="class_state.html#ac67ccfcdc2d3e9fbe6d05961416ffeda">State</a>
+</li>
+<li>isNull()
+: <a class="el" href="class_chess.html#a97adeb237c2acae0efe4097a36a304b9">Chess</a>
 </li>
 <li>isnulle()
 : <a class="el" href="class_check_state.html#a569daf96d0340272068a3d36fdf288c4">CheckState</a>
@@ -355,6 +355,9 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 , <a class="el" href="class_null_state.html#a0aa0845d4f2ce4f86749bd73edb8c8da">NullState</a>
 , <a class="el" href="class_player.html#a363d24fe41c4d6b0faad5f90f53a2114">Player</a>
 , <a class="el" href="class_state.html#a869f2ebfad7e60719df5f89a613adee1">State</a>
+</li>
+<li>isPieceIn()
+: <a class="el" href="class_chess.html#a003d9681123559dc1c1b665695e6cd20">Chess</a>
 </li>
 </ul>
 
@@ -370,11 +373,11 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 
 
 <h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
-<li>listepieces()
-: <a class="el" href="class_chess.html#ab1077aa8c0d1d6849788b2548c2e71ad">Chess</a>
+<li>listCanEatKing()
+: <a class="el" href="class_chess.html#a860115fe5245b5d361ccb3ce7ea545b6">Chess</a>
 </li>
-<li>listpeutmangerleroi()
-: <a class="el" href="class_chess.html#ae4012cc01ef4914e17c756c0adcfee14">Chess</a>
+<li>listPieces()
+: <a class="el" href="class_chess.html#ac70f9b16162244c5ab75e93b52db2024">Chess</a>
 </li>
 </ul>
 
@@ -411,6 +414,9 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <h3><a class="anchor" id="index_o"></a>- o -</h3><ul>
 <li>ObjectPool()
 : <a class="el" href="class_object_pool.html#ad6a851944917327bd1c035f9a81e0684">ObjectPool</a>
+</li>
+<li>onTheWay()
+: <a class="el" href="class_chess.html#a7b2dde25a7cbe133dbb0fa9e71909e8f">Chess</a>
 </li>
 <li>operator==()
 : <a class="el" href="class_cell.html#ae889f79cafc3dda80d430980e4418333">Cell</a>
@@ -506,27 +512,27 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>State()
 : <a class="el" href="class_state.html#a7a0a6af0cd97aa575a097eca87e090ba">State</a>
 </li>
-<li>surlepassage()
-: <a class="el" href="class_chess.html#aa4a6555edfbb4ec3d81f5feea272c889">Chess</a>
-</li>
 </ul>
 
 
 <h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
-<li>testechec()
-: <a class="el" href="class_chess.html#a801d97e9ed968f62b1dd850e11ff3b49">Chess</a>
+<li>Team()
+: <a class="el" href="class_team.html#aada295895b747960576b69d8c87a54ba">Team</a>
 </li>
-<li>testechecmat()
-: <a class="el" href="class_chess.html#a8bb11009c45ca72877afdddc67c23016">Chess</a>
+<li>testEchec()
+: <a class="el" href="class_chess.html#aae6464a0576a72f63aab8450b18dd580">Chess</a>
 </li>
-<li>testnull()
-: <a class="el" href="class_chess.html#a6e538fe6848f15b72dfa95bd1aac4eec">Chess</a>
+<li>testEchecMat()
+: <a class="el" href="class_chess.html#a591da78c202b3e870c683789662a65c4">Chess</a>
 </li>
-<li>testpieceappartence()
-: <a class="el" href="class_chess.html#a50a49db321a3b0a7ce8c812b72ef0fe1">Chess</a>
+<li>transfoSpawn()
+: <a class="el" href="class_chess.html#a29329920258b662de0bdac41ba547f57">Chess</a>
 </li>
-<li>transformationspawn()
-: <a class="el" href="class_chess.html#a28adecf1d95d52e735ae592222bd2618">Chess</a>
+<li>tryCastling()
+: <a class="el" href="class_chess.html#a750a533ab68f71194b7f1ea7a0b5cdda">Chess</a>
+</li>
+<li>tryGCastling()
+: <a class="el" href="class_chess.html#a63ef59d4f464e63ae2da3386c1abcea3">Chess</a>
 </li>
 </ul>
 
@@ -604,13 +610,16 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>~State()
 : <a class="el" href="class_state.html#afab438d92b90dc18d194dbd9c9c8bab3">State</a>
 </li>
+<li>~Team()
+: <a class="el" href="class_team.html#ab4218fddd612d52bab47bec4feeb49de">Team</a>
+</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Généré le Vendredi 27 Novembre 2015 02:34:12 pour Echecs par
+    <li class="footer">Généré le Vendredi 27 Novembre 2015 11:13:41 pour Echecs par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -20,11 +20,11 @@ Graphe d'héritage de Factory\-King\-:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_factory_king_ad6762ceddcc10d41b5652e17455d3503}{Factory\-King} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Constructeur de \hyperlink{class_factory_king}{Factory\-King}. \end{DoxyCompactList}\item 
 \hyperlink{class_factory_king_adbf2005c439f045fb97bdb86147181a7}{$\sim$\-Factory\-King} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Destructeur de \hyperlink{class_factory_king}{Factory\-King}. \end{DoxyCompactList}\item 
 std\-::vector$<$ \hyperlink{class_piece}{Piece} $\ast$ $>$ \hyperlink{class_factory_king_a0d5fd0a7340ab7bb50fe63e119c3a3ef}{build\-Pieces} (bool color)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Permet de retourner une liste de Pièce$\ast$ bien initialisée pour le roi normal. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Description détaillée}
@@ -38,6 +38,10 @@ Classe \hyperlink{class_factory_king}{Factory\-King} héritant de \hyperlink{cla
 {}
 \end{DoxyParamCaption}
 )}}\label{class_factory_king_ad6762ceddcc10d41b5652e17455d3503}
+
+
+Constructeur de \hyperlink{class_factory_king}{Factory\-King}. 
+
 \hypertarget{class_factory_king_adbf2005c439f045fb97bdb86147181a7}{\index{Factory\-King@{Factory\-King}!$\sim$\-Factory\-King@{$\sim$\-Factory\-King}}
 \index{$\sim$\-Factory\-King@{$\sim$\-Factory\-King}!FactoryKing@{Factory\-King}}
 \subsubsection[{$\sim$\-Factory\-King}]{\setlength{\rightskip}{0pt plus 5cm}Factory\-King\-::$\sim$\-Factory\-King (
@@ -45,6 +49,10 @@ Classe \hyperlink{class_factory_king}{Factory\-King} héritant de \hyperlink{cla
 {}
 \end{DoxyParamCaption}
 )}}\label{class_factory_king_adbf2005c439f045fb97bdb86147181a7}
+
+
+Destructeur de \hyperlink{class_factory_king}{Factory\-King}. 
+
 
 
 \subsection{Documentation des fonctions membres}
@@ -55,6 +63,18 @@ Classe \hyperlink{class_factory_king}{Factory\-King} héritant de \hyperlink{cla
 \item[{bool}]{color}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_factory_king_a0d5fd0a7340ab7bb50fe63e119c3a3ef}
+
+
+Permet de retourner une liste de Pièce$\ast$ bien initialisée pour le roi normal. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em bool} & color, false signifie que l'équipe est white \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+une liste de Piece$\ast$ 
+\end{DoxyReturn}
 
 
 Réimplémentée à partir de \hyperlink{class_factory_a90f20f663caa6e5a5370465d3014630f}{Factory}.

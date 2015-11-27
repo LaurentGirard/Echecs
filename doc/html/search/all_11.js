@@ -23,5 +23,6 @@ var searchData=
   ['_7equeen',['~Queen',['../class_queen.html#aa22f6c1a49a583b549bd1f940e50721d',1,'Queen']]],
   ['_7erook',['~Rook',['../class_rook.html#a70d445b94848b22ded850b6f58bc2972',1,'Rook']]],
   ['_7espawn',['~Spawn',['../class_spawn.html#aea08036b23acdb06fd47eba35dc2a8cf',1,'Spawn']]],
-  ['_7estate',['~State',['../class_state.html#afab438d92b90dc18d194dbd9c9c8bab3',1,'State']]]
+  ['_7estate',['~State',['../class_state.html#afab438d92b90dc18d194dbd9c9c8bab3',1,'State']]],
+  ['_7eteam',['~Team',['../class_team.html#ab4218fddd612d52bab47bec4feeb49de',1,'Team']]]
 ];

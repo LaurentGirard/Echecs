@@ -617,10 +617,10 @@ void King::movement()
 	unsigned int y = square->getY();
 	if(!_moved)
 	{
-		mov.push_back(new Cell(2,0));
+		mov.push_back(new Cell(2,y));
 		movements.push_back(mov);
 		mov.clear();
-		mov.push_back(new Cell(6,0));
+		mov.push_back(new Cell(6,y));
 		movements.push_back(mov);
 		mov.clear();
 	}

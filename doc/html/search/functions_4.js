@@ -6,7 +6,5 @@ var searchData=
   ['factoryknight',['FactoryKnight',['../class_factory_knight.html#a4c3de6c385f4b3d02286e39cdbf99136',1,'FactoryKnight']]],
   ['factoryqueen',['FactoryQueen',['../class_factory_queen.html#ab6cc7393c4cb1670ba041a44276a58cd',1,'FactoryQueen']]],
   ['factoryrook',['FactoryRook',['../class_factory_rook.html#a4d8dfebcba093ee2f6009ffe907a8a8a',1,'FactoryRook']]],
-  ['factoryspawn',['FactorySpawn',['../class_factory_spawn.html#afa2ea203f016dc06217ab48607c4e899',1,'FactorySpawn']]],
-  ['fairegrandroque',['fairegrandroque',['../class_chess.html#a65ef639fd19934036349c68e911ca71d',1,'Chess']]],
-  ['fairepetitroque',['fairepetitroque',['../class_chess.html#ab92c6dd132e82810617bd3abc02feda0',1,'Chess']]]
+  ['factoryspawn',['FactorySpawn',['../class_factory_spawn.html#afa2ea203f016dc06217ab48607c4e899',1,'FactorySpawn']]]
 ];

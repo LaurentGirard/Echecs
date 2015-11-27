@@ -14,6 +14,5 @@ var searchData=
   ['startgame',['startGame',['../class_chess.html#aea92734ff5516066d5c1a690a78ea146',1,'Chess']]],
   ['state',['State',['../class_state.html',1,'State'],['../class_state.html#a7a0a6af0cd97aa575a097eca87e090ba',1,'State::State()']]],
   ['state_2ecpp',['State.cpp',['../_state_8cpp.html',1,'']]],
-  ['state_2ehpp',['State.hpp',['../_state_8hpp.html',1,'']]],
-  ['surlepassage',['surlepassage',['../class_chess.html#aa4a6555edfbb4ec3d81f5feea272c889',1,'Chess']]]
+  ['state_2ehpp',['State.hpp',['../_state_8hpp.html',1,'']]]
 ];

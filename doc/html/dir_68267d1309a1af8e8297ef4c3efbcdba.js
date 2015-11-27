@@ -45,5 +45,9 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
       [ "MateState", "class_mate_state.html", "class_mate_state" ],
       [ "NullState", "class_null_state.html", "class_null_state" ],
       [ "EndState", "class_end_state.html", "class_end_state" ]
+    ] ],
+    [ "Team.cpp", "_team_8cpp.html", null ],
+    [ "Team.hpp", "_team_8hpp.html", [
+      [ "Team", "class_team.html", "class_team" ]
     ] ]
 ];

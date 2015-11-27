@@ -13,7 +13,7 @@ Player::Player(std::string name, std::string color) : _name(name), _color(color)
 {
 	bool col;
 	int i;
-	Factory* factory = new Factory();
+	Team* team = new Team();
 
 	// Initialisation des différents états
 	_gameState = new GameState(this);
@@ -27,9 +27,9 @@ Player::Player(std::string name, std::string color) : _name(name), _color(color)
 
 
 	for (i = 0; i < 16;++i)
-		_pieces[i] = factory->buildPieces(col)[i];
+		_pieces[i] = team->buildTeamNormal(col)[i];
 
-	delete factory;
+	delete team;
 }
 
 //------------------------------------------------------------------------------------------------------

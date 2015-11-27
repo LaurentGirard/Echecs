@@ -20,11 +20,11 @@ Graphe d'héritage de Factory\-Queen\-:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_factory_queen_ab6cc7393c4cb1670ba041a44276a58cd}{Factory\-Queen} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Constructeur de \hyperlink{class_factory_queen}{Factory\-Queen}. \end{DoxyCompactList}\item 
 \hyperlink{class_factory_queen_ab1e9dfe91a868c88b775d3220b8f9bc0}{$\sim$\-Factory\-Queen} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Destructeur de \hyperlink{class_factory_queen}{Factory\-Queen}. \end{DoxyCompactList}\item 
 std\-::vector$<$ \hyperlink{class_piece}{Piece} $\ast$ $>$ \hyperlink{class_factory_queen_ac256e556b525b35d39f58af62fd1f962}{build\-Pieces} (bool color)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Permet de retourner une liste de Pièce$\ast$ bien initialisée pour la reine normale. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Description détaillée}
@@ -38,6 +38,10 @@ Classe \hyperlink{class_factory_queen}{Factory\-Queen} héritant de \hyperlink{c
 {}
 \end{DoxyParamCaption}
 )}}\label{class_factory_queen_ab6cc7393c4cb1670ba041a44276a58cd}
+
+
+Constructeur de \hyperlink{class_factory_queen}{Factory\-Queen}. 
+
 \hypertarget{class_factory_queen_ab1e9dfe91a868c88b775d3220b8f9bc0}{\index{Factory\-Queen@{Factory\-Queen}!$\sim$\-Factory\-Queen@{$\sim$\-Factory\-Queen}}
 \index{$\sim$\-Factory\-Queen@{$\sim$\-Factory\-Queen}!FactoryQueen@{Factory\-Queen}}
 \subsubsection[{$\sim$\-Factory\-Queen}]{\setlength{\rightskip}{0pt plus 5cm}Factory\-Queen\-::$\sim$\-Factory\-Queen (
@@ -45,6 +49,10 @@ Classe \hyperlink{class_factory_queen}{Factory\-Queen} héritant de \hyperlink{c
 {}
 \end{DoxyParamCaption}
 )}}\label{class_factory_queen_ab1e9dfe91a868c88b775d3220b8f9bc0}
+
+
+Destructeur de \hyperlink{class_factory_queen}{Factory\-Queen}. 
+
 
 
 \subsection{Documentation des fonctions membres}
@@ -55,6 +63,18 @@ Classe \hyperlink{class_factory_queen}{Factory\-Queen} héritant de \hyperlink{c
 \item[{bool}]{color}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_factory_queen_ac256e556b525b35d39f58af62fd1f962}
+
+
+Permet de retourner une liste de Pièce$\ast$ bien initialisée pour la reine normale. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em bool} & color, false signifie que l'équipe est white \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+une liste de Piece$\ast$ 
+\end{DoxyReturn}
 
 
 Réimplémentée à partir de \hyperlink{class_factory_a90f20f663caa6e5a5370465d3014630f}{Factory}.

@@ -27,5 +27,6 @@ var hierarchy =
       [ "GameState", "class_game_state.html", null ],
       [ "MateState", "class_mate_state.html", null ],
       [ "NullState", "class_null_state.html", null ]
-    ] ]
+    ] ],
+    [ "Team", "class_team.html", null ]
 ];

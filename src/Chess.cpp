@@ -273,6 +273,10 @@ bool Chess::onTheWay(Player* playerIG, Piece* pieceD, Player* advers){
 		}
 		trouve = false;
 		i = 0;
+		//regarde si la destination est la piece tueuse
+		if(piecetueuse->getSquare()==pieceD->getSquare())
+			trouve=true;
+
 		//regarde si la destination est bien sur le passage de la piece
 		int xxx;	
 		int yyy;

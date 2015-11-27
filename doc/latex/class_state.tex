@@ -31,11 +31,11 @@ virtual void \hyperlink{class_state_a5117e1f9bf06e17b4b0277838fe39bd8}{game\-End
 virtual void \hyperlink{class_state_a95a537bb55b9118b23d5bed88ba3b335}{print} ()=0
 \begin{DoxyCompactList}\small\item\em procédure virtuelle permettant d'afficher l'état courant \end{DoxyCompactList}\item 
 virtual bool \hyperlink{class_state_ad2d7084c507d8d20be2e772d953129fb}{ischeck} ()=0
-\begin{DoxyCompactList}\small\item\em procédure virtuelle permettant de savoir s'il se trouve en possition d'echec \end{DoxyCompactList}\item 
-virtual bool \hyperlink{class_state_ae1d813f250db75015ddeebece5ec0f2b}{ischeckmate} ()=0
-\begin{DoxyCompactList}\small\item\em procédure virtuelle permettant de savoir s'il se trouve en possition d'echec et mate \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em procédure virtuelle permettant de savoir s'il se trouve en position d'echec \end{DoxyCompactList}\item 
+virtual bool \hyperlink{class_state_ac67ccfcdc2d3e9fbe6d05961416ffeda}{is\-Check\-Mate} ()=0
+\begin{DoxyCompactList}\small\item\em procédure virtuelle permettant de savoir s'il se trouve en position d'echec et mate \end{DoxyCompactList}\item 
 virtual bool \hyperlink{class_state_a869f2ebfad7e60719df5f89a613adee1}{isnulle} ()=0
-\begin{DoxyCompactList}\small\item\em procédure virtuelle permettant de savoir s'il se trouve en possition null \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em procédure virtuelle permettant de savoir s'il se trouve en position null \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Attributs protégés}
 \begin{DoxyCompactItemize}
 \item 
@@ -158,26 +158,26 @@ Implémenté dans \hyperlink{class_end_state_a6ba5aa5cfd2d0ac4aa1609e336d5669f}{
 )\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_state_ad2d7084c507d8d20be2e772d953129fb}
 
 
-procédure virtuelle permettant de savoir s'il se trouve en possition d'echec 
+procédure virtuelle permettant de savoir s'il se trouve en position d'echec 
 
 
 
 Implémenté dans \hyperlink{class_end_state_ae4ea53e0246be8cf37ccd8cf7b442523}{End\-State}, \hyperlink{class_null_state_a8da9c3d889ff161f893d5522a89567a5}{Null\-State}, \hyperlink{class_mate_state_a47e7642586f54efaa977755bb2b2311d}{Mate\-State}, \hyperlink{class_check_state_aa6e88c453114883d8a415ff338b65526}{Check\-State}, et \hyperlink{class_game_state_ae0f8b04f85ed4dfbbd4c2a6a06827273}{Game\-State}.
 
-\hypertarget{class_state_ae1d813f250db75015ddeebece5ec0f2b}{\index{State@{State}!ischeckmate@{ischeckmate}}
-\index{ischeckmate@{ischeckmate}!State@{State}}
-\subsubsection[{ischeckmate}]{\setlength{\rightskip}{0pt plus 5cm}bool State\-::ischeckmate (
+\hypertarget{class_state_ac67ccfcdc2d3e9fbe6d05961416ffeda}{\index{State@{State}!is\-Check\-Mate@{is\-Check\-Mate}}
+\index{is\-Check\-Mate@{is\-Check\-Mate}!State@{State}}
+\subsubsection[{is\-Check\-Mate}]{\setlength{\rightskip}{0pt plus 5cm}bool State\-::is\-Check\-Mate (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_state_ae1d813f250db75015ddeebece5ec0f2b}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_state_ac67ccfcdc2d3e9fbe6d05961416ffeda}
 
 
-procédure virtuelle permettant de savoir s'il se trouve en possition d'echec et mate 
+procédure virtuelle permettant de savoir s'il se trouve en position d'echec et mate 
 
 
 
-Implémenté dans \hyperlink{class_end_state_a2f505cd7004247548a3026ce70bc0f58}{End\-State}, \hyperlink{class_null_state_adda1a19059bc77cf09886873912f91ff}{Null\-State}, \hyperlink{class_mate_state_a9b9eb5923dc94adb69b28174d580c3b1}{Mate\-State}, \hyperlink{class_check_state_ae3704aaa5fbaf6c947462c211eafc9c9}{Check\-State}, et \hyperlink{class_game_state_a595eb9db47758b91835fc12b13311b98}{Game\-State}.
+Implémenté dans \hyperlink{class_end_state_a78472ec2e6794153781eee37f6522fc1}{End\-State}, \hyperlink{class_null_state_a0b43994870d835258a68300d710992ac}{Null\-State}, \hyperlink{class_mate_state_a0d1f10729d785d5e8e5ca3134c09e24e}{Mate\-State}, \hyperlink{class_check_state_a35143fe625f5b7c6d5712ce77c3c016f}{Check\-State}, et \hyperlink{class_game_state_ac9b5e18d5bec890d741cc0eae4bb5600}{Game\-State}.
 
 \hypertarget{class_state_a869f2ebfad7e60719df5f89a613adee1}{\index{State@{State}!isnulle@{isnulle}}
 \index{isnulle@{isnulle}!State@{State}}
@@ -188,7 +188,7 @@ Implémenté dans \hyperlink{class_end_state_a2f505cd7004247548a3026ce70bc0f58}{
 )\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_state_a869f2ebfad7e60719df5f89a613adee1}
 
 
-procédure virtuelle permettant de savoir s'il se trouve en possition null 
+procédure virtuelle permettant de savoir s'il se trouve en position null 
 
 
 

@@ -13,67 +13,85 @@
 \hypertarget{_factory_8hpp_source_l00022}{}\hyperlink{class_factory}{00022} \textcolor{keyword}{class }\hyperlink{class_factory}{Factory}
 00023 \{
 00024     \textcolor{keyword}{public}:
-00025 
-00026     \hyperlink{class_factory_ac792bf88cfb7b6804b479529da5308cc}{Factory}();
-00027     \textcolor{keyword}{virtual} \hyperlink{class_factory_a8f71456f48e4df402c778a44191ff40e}{~Factory}();
-00028 
-00029         \textcolor{keyword}{virtual} std::vector<Piece*> \hyperlink{class_factory_a90f20f663caa6e5a5370465d3014630f}{buildPieces}(\textcolor{keywordtype}{bool} color); \textcolor{comment}{//false == White}
-00030 \};
-00031 
-\hypertarget{_factory_8hpp_source_l00039}{}\hyperlink{class_factory_spawn}{00039} \textcolor{keyword}{class }\hyperlink{class_factory_spawn}{FactorySpawn} : \textcolor{keyword}{public} \hyperlink{class_factory}{Factory}
-00040 \{
-00041 
-00042       \textcolor{keyword}{public}:
-00043       \hyperlink{class_factory_spawn_afa2ea203f016dc06217ab48607c4e899}{FactorySpawn}();
-00044       \hyperlink{class_factory_spawn_ae7ec52abd4b3dc1e49cd9988a1d1d9bc}{~FactorySpawn}();
-00045       std::vector<Piece*> \hyperlink{class_factory_spawn_acdae41c4747246f35de741b32b3f74ac}{buildPieces}(\textcolor{keywordtype}{bool} color);
-00046 \};
-00047 
-\hypertarget{_factory_8hpp_source_l00055}{}\hyperlink{class_factory_rook}{00055} \textcolor{keyword}{class }\hyperlink{class_factory_rook}{FactoryRook} : \textcolor{keyword}{public} \hyperlink{class_factory}{Factory}
-00056 \{
-00057 
-00058       \textcolor{keyword}{public}:
-00059       \hyperlink{class_factory_rook_a4d8dfebcba093ee2f6009ffe907a8a8a}{FactoryRook}();
-00060       \hyperlink{class_factory_rook_a0bc1c85e0c4db96d877ccf00566470f4}{~FactoryRook}();
-00061       std::vector<Piece*> \hyperlink{class_factory_rook_a50ff41cf552af801c123bf2b28120c68}{buildPieces}(\textcolor{keywordtype}{bool} color);
-00062 \};
+00028     \hyperlink{class_factory_ac792bf88cfb7b6804b479529da5308cc}{Factory}();
+00029 
+00033     \textcolor{keyword}{virtual} \hyperlink{class_factory_a8f71456f48e4df402c778a44191ff40e}{~Factory}();
+00034 
+00040         \textcolor{keyword}{virtual} std::vector<Piece*> \hyperlink{class_factory_a90f20f663caa6e5a5370465d3014630f}{buildPieces}(\textcolor{keywordtype}{bool} color); \textcolor{comment}{//false == White}
+00041 \};
+00042 
+\hypertarget{_factory_8hpp_source_l00050}{}\hyperlink{class_factory_spawn}{00050} \textcolor{keyword}{class }\hyperlink{class_factory_spawn}{FactorySpawn} : \textcolor{keyword}{public} \hyperlink{class_factory}{Factory}
+00051 \{
+00052 
+00053       \textcolor{keyword}{public}:
+00057       \hyperlink{class_factory_spawn_afa2ea203f016dc06217ab48607c4e899}{FactorySpawn}();
+00058 
+00062       \hyperlink{class_factory_spawn_ae7ec52abd4b3dc1e49cd9988a1d1d9bc}{~FactorySpawn}();
 00063 
-\hypertarget{_factory_8hpp_source_l00071}{}\hyperlink{class_factory_knight}{00071} \textcolor{keyword}{class }\hyperlink{class_factory_knight}{FactoryKnight} : \textcolor{keyword}{public} \hyperlink{class_factory}{Factory}
-00072 \{
-00073 
-00074       \textcolor{keyword}{public}:
-00075       \hyperlink{class_factory_knight_a4c3de6c385f4b3d02286e39cdbf99136}{FactoryKnight}();
-00076       \hyperlink{class_factory_knight_a40846bdf0be3fb8ecbcb50df3c4a7f61}{~FactoryKnight}();
-00077       std::vector<Piece*> \hyperlink{class_factory_knight_a25af606063189d96698aae45b1bfc1b9}{buildPieces}(\textcolor{keywordtype}{bool} color);
-00078 \};
-00079 
-\hypertarget{_factory_8hpp_source_l00087}{}\hyperlink{class_factory_bishop}{00087} \textcolor{keyword}{class }\hyperlink{class_factory_bishop}{FactoryBishop} : \textcolor{keyword}{public} \hyperlink{class_factory}{Factory}
-00088 \{
-00089 
-00090       \textcolor{keyword}{public}:
-00091       \hyperlink{class_factory_bishop_a6452991e628ec8262c57318da26171f1}{FactoryBishop}();
-00092       \hyperlink{class_factory_bishop_aacec6859e5c70571357c5d172a62a38e}{~FactoryBishop}();
-00093       std::vector<Piece*> \hyperlink{class_factory_bishop_a501a01fc371b26931d528ea0aa8b5c14}{buildPieces}(\textcolor{keywordtype}{bool} color);
-00094 \};
-00095 
-\hypertarget{_factory_8hpp_source_l00103}{}\hyperlink{class_factory_queen}{00103} \textcolor{keyword}{class }\hyperlink{class_factory_queen}{FactoryQueen} : \textcolor{keyword}{public} \hyperlink{class_factory}{Factory}
-00104 \{
-00105 
-00106       \textcolor{keyword}{public}:
-00107       \hyperlink{class_factory_queen_ab6cc7393c4cb1670ba041a44276a58cd}{FactoryQueen}();
-00108       \hyperlink{class_factory_queen_ab1e9dfe91a868c88b775d3220b8f9bc0}{~FactoryQueen}();
-00109       std::vector<Piece*> \hyperlink{class_factory_queen_ac256e556b525b35d39f58af62fd1f962}{buildPieces}(\textcolor{keywordtype}{bool} color);
-00110 \};
+00069       std::vector<Piece*> \hyperlink{class_factory_spawn_acdae41c4747246f35de741b32b3f74ac}{buildPieces}(\textcolor{keywordtype}{bool} color);
+00070 \};
+00071 
+\hypertarget{_factory_8hpp_source_l00079}{}\hyperlink{class_factory_rook}{00079} \textcolor{keyword}{class }\hyperlink{class_factory_rook}{FactoryRook} : \textcolor{keyword}{public} \hyperlink{class_factory}{Factory}
+00080 \{
+00081 
+00082       \textcolor{keyword}{public}:
+00083 
+00087       \hyperlink{class_factory_rook_a4d8dfebcba093ee2f6009ffe907a8a8a}{FactoryRook}();
+00088 
+00092       \hyperlink{class_factory_rook_a0bc1c85e0c4db96d877ccf00566470f4}{~FactoryRook}();
+00093 
+00099       std::vector<Piece*> \hyperlink{class_factory_rook_a50ff41cf552af801c123bf2b28120c68}{buildPieces}(\textcolor{keywordtype}{bool} color);
+00100 \};
+00101 
+\hypertarget{_factory_8hpp_source_l00109}{}\hyperlink{class_factory_knight}{00109} \textcolor{keyword}{class }\hyperlink{class_factory_knight}{FactoryKnight} : \textcolor{keyword}{public} \hyperlink{class_factory}{Factory}
+00110 \{
 00111 
-\hypertarget{_factory_8hpp_source_l00119}{}\hyperlink{class_factory_king}{00119} \textcolor{keyword}{class }\hyperlink{class_factory_king}{FactoryKing} : \textcolor{keyword}{public} \hyperlink{class_factory}{Factory}
-00120 \{
-00121 
-00122       \textcolor{keyword}{public}:
-00123       \hyperlink{class_factory_king_ad6762ceddcc10d41b5652e17455d3503}{FactoryKing}();
-00124       \hyperlink{class_factory_king_adbf2005c439f045fb97bdb86147181a7}{~FactoryKing}();
-00125       std::vector<Piece*> \hyperlink{class_factory_king_a0d5fd0a7340ab7bb50fe63e119c3a3ef}{buildPieces}(\textcolor{keywordtype}{bool} color);
-00126 \};
-00127 
-00128 
-00129 \textcolor{preprocessor}{#endif // \_\_FACTORY\_HPP\_\_}
+00112       \textcolor{keyword}{public}:
+00113 
+00117       \hyperlink{class_factory_knight_a4c3de6c385f4b3d02286e39cdbf99136}{FactoryKnight}();
+00118 
+00119 
+00123       \hyperlink{class_factory_knight_a40846bdf0be3fb8ecbcb50df3c4a7f61}{~FactoryKnight}();
+00124 
+00130       std::vector<Piece*> \hyperlink{class_factory_knight_a25af606063189d96698aae45b1bfc1b9}{buildPieces}(\textcolor{keywordtype}{bool} color);
+00131 \};
+00132 
+\hypertarget{_factory_8hpp_source_l00140}{}\hyperlink{class_factory_bishop}{00140} \textcolor{keyword}{class }\hyperlink{class_factory_bishop}{FactoryBishop} : \textcolor{keyword}{public} \hyperlink{class_factory}{Factory}
+00141 \{
+00142 
+00143       \textcolor{keyword}{public}:
+00144 
+00148       \hyperlink{class_factory_bishop_a6452991e628ec8262c57318da26171f1}{FactoryBishop}();
+00149 
+00153       \hyperlink{class_factory_bishop_aacec6859e5c70571357c5d172a62a38e}{~FactoryBishop}();
+00154 
+00160       std::vector<Piece*> \hyperlink{class_factory_bishop_a501a01fc371b26931d528ea0aa8b5c14}{buildPieces}(\textcolor{keywordtype}{bool} color);
+00161 \};
+00162 
+\hypertarget{_factory_8hpp_source_l00170}{}\hyperlink{class_factory_queen}{00170} \textcolor{keyword}{class }\hyperlink{class_factory_queen}{FactoryQueen} : \textcolor{keyword}{public} \hyperlink{class_factory}{Factory}
+00171 \{
+00172 
+00173       \textcolor{keyword}{public}:
+00174 
+00178       \hyperlink{class_factory_queen_ab6cc7393c4cb1670ba041a44276a58cd}{FactoryQueen}();
+00179 
+00183       \hyperlink{class_factory_queen_ab1e9dfe91a868c88b775d3220b8f9bc0}{~FactoryQueen}();
+00184 
+00190       std::vector<Piece*> \hyperlink{class_factory_queen_ac256e556b525b35d39f58af62fd1f962}{buildPieces}(\textcolor{keywordtype}{bool} color);
+00191 \};
+00192 
+\hypertarget{_factory_8hpp_source_l00200}{}\hyperlink{class_factory_king}{00200} \textcolor{keyword}{class }\hyperlink{class_factory_king}{FactoryKing} : \textcolor{keyword}{public} \hyperlink{class_factory}{Factory}
+00201 \{
+00202 
+00203       \textcolor{keyword}{public}:
+00204 
+00208       \hyperlink{class_factory_king_ad6762ceddcc10d41b5652e17455d3503}{FactoryKing}();
+00209 
+00213       \hyperlink{class_factory_king_adbf2005c439f045fb97bdb86147181a7}{~FactoryKing}();
+00214 
+00220       std::vector<Piece*> \hyperlink{class_factory_king_a0d5fd0a7340ab7bb50fe63e119c3a3ef}{buildPieces}(\textcolor{keywordtype}{bool} color);
+00221 \};
+00222 
+00223 
+00224 \textcolor{preprocessor}{#endif // \_\_FACTORY\_HPP\_\_}
 \end{DoxyCode}

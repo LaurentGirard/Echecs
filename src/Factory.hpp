@@ -22,10 +22,21 @@
 class Factory
 {
     public:
-
+    /**
+    * @brief Constructeur de Factory
+     */
     Factory();
+
+    /**
+    * @brief Destructeur de Factory
+     */
     virtual ~Factory();
 
+    /**
+    * @brief Permet de retourner une liste de Pièce*
+    * @param bool color, false signifie que l'équipe est white
+    * @return une liste de Piece*
+    */
 		virtual std::vector<Piece*> buildPieces(bool color); //false == White
 };
 
@@ -40,8 +51,21 @@ class FactorySpawn : public Factory
 {
 
       public:
+      /**
+      * @brief Constructeur de FactorySpawn
+      */
       FactorySpawn();
+
+      /**
+      * @brief Destructeur de FactorySpawn
+       */
       ~FactorySpawn();
+
+      /**
+      * @brief Permet de retourner une liste de Pièce* bien initialisée pour les spawns normals
+      * @param bool color, false signifie que l'équipe est white
+      * @return une liste de Piece*
+      */
       std::vector<Piece*> buildPieces(bool color);
 };
 
@@ -56,8 +80,22 @@ class FactoryRook : public Factory
 {
 
       public:
+
+      /**
+      * @brief Constructeur de FactoryRook
+      */
       FactoryRook();
+
+      /**
+      * @brief Destructeur de FactoryRook
+       */
       ~FactoryRook();
+
+      /**
+      * @brief Permet de retourner une liste de Pièce* bien initialisée pour les Rooks normals
+      * @param bool color, false signifie que l'équipe est white
+      * @return une liste de Piece*
+      */
       std::vector<Piece*> buildPieces(bool color);
 };
 
@@ -72,8 +110,23 @@ class FactoryKnight : public Factory
 {
 
       public:
+
+      /**
+      * @brief Constructeur de FactoryKnight
+      */
       FactoryKnight();
+
+
+      /**
+      * @brief Destructeur de FactoryKnight
+       */
       ~FactoryKnight();
+
+      /**
+      * @brief Permet de retourner une liste de Pièce* bien initialisée pour les Knights normals
+      * @param bool color, false signifie que l'équipe est white
+      * @return une liste de Piece*
+      */
       std::vector<Piece*> buildPieces(bool color);
 };
 
@@ -88,8 +141,22 @@ class FactoryBishop : public Factory
 {
 
       public:
+
+      /**
+      * @brief Constructeur de FactoryBishop
+      */
       FactoryBishop();
+
+      /**
+      * @brief Destructeur de FactoryBishop
+       */
       ~FactoryBishop();
+
+      /**
+      * @brief Permet de retourner une liste de Pièce* bien initialisée pour les Bishops normals
+      * @param bool color, false signifie que l'équipe est white
+      * @return une liste de Piece*
+      */
       std::vector<Piece*> buildPieces(bool color);
 };
 
@@ -104,8 +171,22 @@ class FactoryQueen : public Factory
 {
 
       public:
+
+      /**
+      * @brief Constructeur de FactoryQueen
+      */
       FactoryQueen();
+
+      /**
+      * @brief Destructeur de FactoryQueen
+       */
       ~FactoryQueen();
+
+      /**
+      * @brief Permet de retourner une liste de Pièce* bien initialisée pour la reine normale
+      * @param bool color, false signifie que l'équipe est white
+      * @return une liste de Piece*
+      */
       std::vector<Piece*> buildPieces(bool color);
 };
 
@@ -120,8 +201,22 @@ class FactoryKing : public Factory
 {
 
       public:
+
+      /**
+      * @brief Constructeur de FactoryKing
+      */
       FactoryKing();
+
+      /**
+      * @brief Destructeur de FactoryKing
+       */
       ~FactoryKing();
+
+      /**
+      * @brief Permet de retourner une liste de Pièce* bien initialisée pour le roi normal
+      * @param bool color, false signifie que l'équipe est white
+      * @return une liste de Piece*
+      */
       std::vector<Piece*> buildPieces(bool color);
 };
 

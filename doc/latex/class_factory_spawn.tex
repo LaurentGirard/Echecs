@@ -20,11 +20,11 @@ Graphe d'héritage de Factory\-Spawn\-:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_factory_spawn_afa2ea203f016dc06217ab48607c4e899}{Factory\-Spawn} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Constructeur de \hyperlink{class_factory_spawn}{Factory\-Spawn}. \end{DoxyCompactList}\item 
 \hyperlink{class_factory_spawn_ae7ec52abd4b3dc1e49cd9988a1d1d9bc}{$\sim$\-Factory\-Spawn} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Destructeur de \hyperlink{class_factory_spawn}{Factory\-Spawn}. \end{DoxyCompactList}\item 
 std\-::vector$<$ \hyperlink{class_piece}{Piece} $\ast$ $>$ \hyperlink{class_factory_spawn_acdae41c4747246f35de741b32b3f74ac}{build\-Pieces} (bool color)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Permet de retourner une liste de Pièce$\ast$ bien initialisée pour les spawns normals. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Description détaillée}
@@ -38,6 +38,10 @@ Classe \hyperlink{class_factory_spawn}{Factory\-Spawn} héritant de \hyperlink{c
 {}
 \end{DoxyParamCaption}
 )}}\label{class_factory_spawn_afa2ea203f016dc06217ab48607c4e899}
+
+
+Constructeur de \hyperlink{class_factory_spawn}{Factory\-Spawn}. 
+
 \hypertarget{class_factory_spawn_ae7ec52abd4b3dc1e49cd9988a1d1d9bc}{\index{Factory\-Spawn@{Factory\-Spawn}!$\sim$\-Factory\-Spawn@{$\sim$\-Factory\-Spawn}}
 \index{$\sim$\-Factory\-Spawn@{$\sim$\-Factory\-Spawn}!FactorySpawn@{Factory\-Spawn}}
 \subsubsection[{$\sim$\-Factory\-Spawn}]{\setlength{\rightskip}{0pt plus 5cm}Factory\-Spawn\-::$\sim$\-Factory\-Spawn (
@@ -45,6 +49,10 @@ Classe \hyperlink{class_factory_spawn}{Factory\-Spawn} héritant de \hyperlink{c
 {}
 \end{DoxyParamCaption}
 )}}\label{class_factory_spawn_ae7ec52abd4b3dc1e49cd9988a1d1d9bc}
+
+
+Destructeur de \hyperlink{class_factory_spawn}{Factory\-Spawn}. 
+
 
 
 \subsection{Documentation des fonctions membres}
@@ -55,6 +63,18 @@ Classe \hyperlink{class_factory_spawn}{Factory\-Spawn} héritant de \hyperlink{c
 \item[{bool}]{color}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_factory_spawn_acdae41c4747246f35de741b32b3f74ac}
+
+
+Permet de retourner une liste de Pièce$\ast$ bien initialisée pour les spawns normals. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em bool} & color, false signifie que l'équipe est white \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+une liste de Piece$\ast$ 
+\end{DoxyReturn}
 
 
 Réimplémentée à partir de \hyperlink{class_factory_a90f20f663caa6e5a5370465d3014630f}{Factory}.

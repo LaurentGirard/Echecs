@@ -20,11 +20,11 @@ Graphe d'héritage de Factory\-Bishop\-:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_factory_bishop_a6452991e628ec8262c57318da26171f1}{Factory\-Bishop} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Constructeur de \hyperlink{class_factory_bishop}{Factory\-Bishop}. \end{DoxyCompactList}\item 
 \hyperlink{class_factory_bishop_aacec6859e5c70571357c5d172a62a38e}{$\sim$\-Factory\-Bishop} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Destructeur de \hyperlink{class_factory_bishop}{Factory\-Bishop}. \end{DoxyCompactList}\item 
 std\-::vector$<$ \hyperlink{class_piece}{Piece} $\ast$ $>$ \hyperlink{class_factory_bishop_a501a01fc371b26931d528ea0aa8b5c14}{build\-Pieces} (bool color)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Permet de retourner une liste de Pièce$\ast$ bien initialisée pour les Bishops normals. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Description détaillée}
@@ -38,6 +38,10 @@ Classe \hyperlink{class_factory_bishop}{Factory\-Bishop} héritant de \hyperlink
 {}
 \end{DoxyParamCaption}
 )}}\label{class_factory_bishop_a6452991e628ec8262c57318da26171f1}
+
+
+Constructeur de \hyperlink{class_factory_bishop}{Factory\-Bishop}. 
+
 \hypertarget{class_factory_bishop_aacec6859e5c70571357c5d172a62a38e}{\index{Factory\-Bishop@{Factory\-Bishop}!$\sim$\-Factory\-Bishop@{$\sim$\-Factory\-Bishop}}
 \index{$\sim$\-Factory\-Bishop@{$\sim$\-Factory\-Bishop}!FactoryBishop@{Factory\-Bishop}}
 \subsubsection[{$\sim$\-Factory\-Bishop}]{\setlength{\rightskip}{0pt plus 5cm}Factory\-Bishop\-::$\sim$\-Factory\-Bishop (
@@ -45,6 +49,10 @@ Classe \hyperlink{class_factory_bishop}{Factory\-Bishop} héritant de \hyperlink
 {}
 \end{DoxyParamCaption}
 )}}\label{class_factory_bishop_aacec6859e5c70571357c5d172a62a38e}
+
+
+Destructeur de \hyperlink{class_factory_bishop}{Factory\-Bishop}. 
+
 
 
 \subsection{Documentation des fonctions membres}
@@ -55,6 +63,18 @@ Classe \hyperlink{class_factory_bishop}{Factory\-Bishop} héritant de \hyperlink
 \item[{bool}]{color}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_factory_bishop_a501a01fc371b26931d528ea0aa8b5c14}
+
+
+Permet de retourner une liste de Pièce$\ast$ bien initialisée pour les Bishops normals. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em bool} & color, false signifie que l'équipe est white \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+une liste de Piece$\ast$ 
+\end{DoxyReturn}
 
 
 Réimplémentée à partir de \hyperlink{class_factory_a90f20f663caa6e5a5370465d3014630f}{Factory}.

@@ -24,5 +24,6 @@ var annotated =
     [ "Queen", "class_queen.html", "class_queen" ],
     [ "Rook", "class_rook.html", "class_rook" ],
     [ "Spawn", "class_spawn.html", "class_spawn" ],
-    [ "State", "class_state.html", "class_state" ]
+    [ "State", "class_state.html", "class_state" ],
+    [ "Team", "class_team.html", "class_team" ]
 ];

@@ -26,31 +26,31 @@ unsigned int \hyperlink{class_chess_a7d4dbb556159e245fe753d5a6daada8b}{get\-Choi
 \begin{DoxyCompactList}\small\item\em Permet l'entrée utilisateur d'une coordonnée valide. \end{DoxyCompactList}\item 
 void \hyperlink{class_chess_a9cd677e16f4c08ddcdad57a4e12be99f}{print\-Board} ()
 \begin{DoxyCompactList}\small\item\em Affiche le plateau dans le terminal. \end{DoxyCompactList}\item 
-bool \hyperlink{class_chess_a801d97e9ed968f62b1dd850e11ff3b49}{testechec} (\hyperlink{class_player}{Player} $\ast$player\-I\-G, \hyperlink{class_player}{Player} $\ast$adver)
+bool \hyperlink{class_chess_aae6464a0576a72f63aab8450b18dd580}{test\-Echec} (\hyperlink{class_player}{Player} $\ast$player\-I\-G, \hyperlink{class_player}{Player} $\ast$adver)
 \begin{DoxyCompactList}\small\item\em Permet de savoir si un joueur se trouve en position d'echec. \end{DoxyCompactList}\item 
-bool \hyperlink{class_chess_a48268de47926c93a0c5c906faffa4397}{testechec} (\hyperlink{class_piece}{Piece} $\ast$selected\-P, \hyperlink{class_player}{Player} $\ast$adver)
+bool \hyperlink{class_chess_a1b5cf39c4f616e5e79bd16d4837bc2dc}{test\-Echec} (\hyperlink{class_piece}{Piece} $\ast$selected\-P, \hyperlink{class_player}{Player} $\ast$adver)
 \begin{DoxyCompactList}\small\item\em Permet de savoir si une piece se trouve en position d'echec. \end{DoxyCompactList}\item 
-bool \hyperlink{class_chess_a8bb11009c45ca72877afdddc67c23016}{testechecmat} (\hyperlink{class_player}{Player} $\ast$player\-I\-G, \hyperlink{class_player}{Player} $\ast$adver)
+bool \hyperlink{class_chess_a591da78c202b3e870c683789662a65c4}{test\-Echec\-Mat} (\hyperlink{class_player}{Player} $\ast$player\-I\-G, \hyperlink{class_player}{Player} $\ast$adver)
 \begin{DoxyCompactList}\small\item\em Permet de savoir si un joueur se trouve en position d'echec et mat. \end{DoxyCompactList}\item 
-bool \hyperlink{class_chess_aa4a6555edfbb4ec3d81f5feea272c889}{surlepassage} (\hyperlink{class_player}{Player} $\ast$player\-I\-G, \hyperlink{class_piece}{Piece} $\ast$piece\-D, \hyperlink{class_player}{Player} $\ast$advers)
+bool \hyperlink{class_chess_a7b2dde25a7cbe133dbb0fa9e71909e8f}{on\-The\-Way} (\hyperlink{class_player}{Player} $\ast$player\-I\-G, \hyperlink{class_piece}{Piece} $\ast$piece\-D, \hyperlink{class_player}{Player} $\ast$advers)
 \begin{DoxyCompactList}\small\item\em Permet de savoir si la piece\-D est sur le passage de la piece qui peut manger le roi. \end{DoxyCompactList}\item 
-std\-::vector$<$ \hyperlink{class_piece}{Piece} $\ast$ $>$ \hyperlink{class_chess_ab1077aa8c0d1d6849788b2548c2e71ad}{listepieces} (\hyperlink{class_piece}{Piece} $\ast$selected\-P, \hyperlink{class_player}{Player} $\ast$advers)
+std\-::vector$<$ \hyperlink{class_piece}{Piece} $\ast$ $>$ \hyperlink{class_chess_ac70f9b16162244c5ab75e93b52db2024}{list\-Pieces} (\hyperlink{class_piece}{Piece} $\ast$selected\-P, \hyperlink{class_player}{Player} $\ast$advers)
 \begin{DoxyCompactList}\small\item\em Permet de retourner une liste de pieces de l'advers qui peut manger la piece selected\-P. \end{DoxyCompactList}\item 
-bool \hyperlink{class_chess_ae4012cc01ef4914e17c756c0adcfee14}{listpeutmangerleroi} (std\-::vector$<$ \hyperlink{class_piece}{Piece} $\ast$ $>$ list, \hyperlink{class_player}{Player} $\ast$advers, \hyperlink{class_player}{Player} $\ast$player\-I\-G, \hyperlink{class_piece}{Piece} $\ast$selected\-P, \hyperlink{class_piece}{Piece} $\ast$selected\-D)
+bool \hyperlink{class_chess_a860115fe5245b5d361ccb3ce7ea545b6}{list\-Can\-Eat\-King} (std\-::vector$<$ \hyperlink{class_piece}{Piece} $\ast$ $>$ list, \hyperlink{class_player}{Player} $\ast$advers, \hyperlink{class_player}{Player} $\ast$player\-I\-G, \hyperlink{class_piece}{Piece} $\ast$selected\-P, \hyperlink{class_piece}{Piece} $\ast$selected\-D)
 \begin{DoxyCompactList}\small\item\em Permet de retourner un bool si une des pieces que peut manger la piece selected peut aller manger le roi du player\-I\-G si la piece selected\-P bouge. \end{DoxyCompactList}\item 
-void \hyperlink{class_chess_a28adecf1d95d52e735ae592222bd2618}{transformationspawn} (\hyperlink{class_player}{Player} $\ast$player\-I\-G, \hyperlink{class_piece}{Piece} $\ast$selected\-P, \hyperlink{class_piece}{Piece} $\ast$selected\-D)
+void \hyperlink{class_chess_a29329920258b662de0bdac41ba547f57}{transfo\-Spawn} (\hyperlink{class_player}{Player} $\ast$player\-I\-G, \hyperlink{class_piece}{Piece} $\ast$selected\-P, \hyperlink{class_piece}{Piece} $\ast$selected\-D)
 \begin{DoxyCompactList}\small\item\em Procédure permettant de transformer le spawn. \end{DoxyCompactList}\item 
-bool \hyperlink{class_chess_a6206462cbbff396c4fa898d45660471b}{gererpetitroque} (\hyperlink{class_player}{Player} $\ast$player\-I\-G, \hyperlink{class_piece}{Piece} $\ast$selected\-P, \hyperlink{class_piece}{Piece} $\ast$selected\-D)
+bool \hyperlink{class_chess_a750a533ab68f71194b7f1ea7a0b5cdda}{try\-Castling} (\hyperlink{class_player}{Player} $\ast$player\-I\-G, \hyperlink{class_piece}{Piece} $\ast$selected\-P, \hyperlink{class_piece}{Piece} $\ast$selected\-D)
 \begin{DoxyCompactList}\small\item\em fonction permettant de savoir si le petit roque est possible \end{DoxyCompactList}\item 
-bool \hyperlink{class_chess_a37bce0d85e4d9e66dcc9845a440cd30d}{gerergrandroque} (\hyperlink{class_player}{Player} $\ast$player\-I\-G, \hyperlink{class_piece}{Piece} $\ast$selected\-P, \hyperlink{class_piece}{Piece} $\ast$selected\-D)
+bool \hyperlink{class_chess_a63ef59d4f464e63ae2da3386c1abcea3}{try\-G\-Castling} (\hyperlink{class_player}{Player} $\ast$player\-I\-G, \hyperlink{class_piece}{Piece} $\ast$selected\-P, \hyperlink{class_piece}{Piece} $\ast$selected\-D)
 \begin{DoxyCompactList}\small\item\em fonction permettant de savoir si le grand roque est possible \end{DoxyCompactList}\item 
-void \hyperlink{class_chess_ab92c6dd132e82810617bd3abc02feda0}{fairepetitroque} (\hyperlink{class_player}{Player} $\ast$player\-I\-G)
+void \hyperlink{class_chess_af1af4be28978dcf09309883d38cf71cd}{castling} (\hyperlink{class_player}{Player} $\ast$player\-I\-G)
 \begin{DoxyCompactList}\small\item\em Procédure permettant de faire le petit roque. \end{DoxyCompactList}\item 
-void \hyperlink{class_chess_a65ef639fd19934036349c68e911ca71d}{fairegrandroque} (\hyperlink{class_player}{Player} $\ast$player\-I\-G)
+void \hyperlink{class_chess_a81042bba80e10e971474b6f8488d8242}{g\-Castling} (\hyperlink{class_player}{Player} $\ast$player\-I\-G)
 \begin{DoxyCompactList}\small\item\em Procédure permettant de faire le grand roque. \end{DoxyCompactList}\item 
-bool \hyperlink{class_chess_a50a49db321a3b0a7ce8c812b72ef0fe1}{testpieceappartence} (\hyperlink{class_piece}{Piece} $\ast$piece, \hyperlink{class_player}{Player} $\ast$player\-I\-G)
+bool \hyperlink{class_chess_a003d9681123559dc1c1b665695e6cd20}{is\-Piece\-In} (\hyperlink{class_piece}{Piece} $\ast$piece, \hyperlink{class_player}{Player} $\ast$player\-I\-G)
 \begin{DoxyCompactList}\small\item\em fonction permettant de savoir si une piece appartient au player I\-G \end{DoxyCompactList}\item 
-bool \hyperlink{class_chess_a6e538fe6848f15b72dfa95bd1aac4eec}{testnull} ()
+bool \hyperlink{class_chess_a97adeb237c2acae0efe4097a36a304b9}{is\-Null} ()
 \begin{DoxyCompactList}\small\item\em fonction permettant de savoir si la partie se trouve en partie nulle \end{DoxyCompactList}\item 
 void \hyperlink{class_chess_aea92734ff5516066d5c1a690a78ea146}{start\-Game} ()
 \begin{DoxyCompactList}\small\item\em Lance le début d'une partie. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -90,29 +90,13 @@ Destructeur de \hyperlink{class_chess}{Chess}.
 
 
 \subsection{Documentation des fonctions membres}
-\hypertarget{class_chess_a65ef639fd19934036349c68e911ca71d}{\index{Chess@{Chess}!fairegrandroque@{fairegrandroque}}
-\index{fairegrandroque@{fairegrandroque}!Chess@{Chess}}
-\subsubsection[{fairegrandroque}]{\setlength{\rightskip}{0pt plus 5cm}void Chess\-::fairegrandroque (
+\hypertarget{class_chess_af1af4be28978dcf09309883d38cf71cd}{\index{Chess@{Chess}!castling@{castling}}
+\index{castling@{castling}!Chess@{Chess}}
+\subsubsection[{castling}]{\setlength{\rightskip}{0pt plus 5cm}void Chess\-::castling (
 \begin{DoxyParamCaption}
 \item[{{\bf Player} $\ast$}]{player\-I\-G}
 \end{DoxyParamCaption}
-)}}\label{class_chess_a65ef639fd19934036349c68e911ca71d}
-
-
-Procédure permettant de faire le grand roque. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em Player$\ast$} & player\-I\-G, joueur actuellement en jeu \\
-\hline
-\end{DoxyParams}
-\hypertarget{class_chess_ab92c6dd132e82810617bd3abc02feda0}{\index{Chess@{Chess}!fairepetitroque@{fairepetitroque}}
-\index{fairepetitroque@{fairepetitroque}!Chess@{Chess}}
-\subsubsection[{fairepetitroque}]{\setlength{\rightskip}{0pt plus 5cm}void Chess\-::fairepetitroque (
-\begin{DoxyParamCaption}
-\item[{{\bf Player} $\ast$}]{player\-I\-G}
-\end{DoxyParamCaption}
-)}}\label{class_chess_ab92c6dd132e82810617bd3abc02feda0}
+)}}\label{class_chess_af1af4be28978dcf09309883d38cf71cd}
 
 
 Procédure permettant de faire le petit roque. 
@@ -144,48 +128,20 @@ Effectue le tour d'un joueur.
 \begin{DoxyReturn}{Renvoie}
 bool ( true si le joueur veut arreter de joueur) 
 \end{DoxyReturn}
-\hypertarget{class_chess_a37bce0d85e4d9e66dcc9845a440cd30d}{\index{Chess@{Chess}!gerergrandroque@{gerergrandroque}}
-\index{gerergrandroque@{gerergrandroque}!Chess@{Chess}}
-\subsubsection[{gerergrandroque}]{\setlength{\rightskip}{0pt plus 5cm}bool Chess\-::gerergrandroque (
+\hypertarget{class_chess_a81042bba80e10e971474b6f8488d8242}{\index{Chess@{Chess}!g\-Castling@{g\-Castling}}
+\index{g\-Castling@{g\-Castling}!Chess@{Chess}}
+\subsubsection[{g\-Castling}]{\setlength{\rightskip}{0pt plus 5cm}void Chess\-::g\-Castling (
 \begin{DoxyParamCaption}
-\item[{{\bf Player} $\ast$}]{player\-I\-G, }
-\item[{{\bf Piece} $\ast$}]{selected\-P, }
-\item[{{\bf Piece} $\ast$}]{selected\-D}
+\item[{{\bf Player} $\ast$}]{player\-I\-G}
 \end{DoxyParamCaption}
-)}}\label{class_chess_a37bce0d85e4d9e66dcc9845a440cd30d}
+)}}\label{class_chess_a81042bba80e10e971474b6f8488d8242}
 
 
-fonction permettant de savoir si le grand roque est possible 
+Procédure permettant de faire le grand roque. 
 
 
 \begin{DoxyParams}{Paramètres}
 {\em Player$\ast$} & player\-I\-G, joueur actuellement en jeu \\
-\hline
-{\em Piece$\ast$} & selected\-P, pointeur d'une piece \\
-\hline
-{\em Piece$\ast$} & selected\-D, pointeur d'une piece \\
-\hline
-\end{DoxyParams}
-\hypertarget{class_chess_a6206462cbbff396c4fa898d45660471b}{\index{Chess@{Chess}!gererpetitroque@{gererpetitroque}}
-\index{gererpetitroque@{gererpetitroque}!Chess@{Chess}}
-\subsubsection[{gererpetitroque}]{\setlength{\rightskip}{0pt plus 5cm}bool Chess\-::gererpetitroque (
-\begin{DoxyParamCaption}
-\item[{{\bf Player} $\ast$}]{player\-I\-G, }
-\item[{{\bf Piece} $\ast$}]{selected\-P, }
-\item[{{\bf Piece} $\ast$}]{selected\-D}
-\end{DoxyParamCaption}
-)}}\label{class_chess_a6206462cbbff396c4fa898d45660471b}
-
-
-fonction permettant de savoir si le petit roque est possible 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em Player$\ast$} & player\-I\-G, joueur actuellement en jeu \\
-\hline
-{\em Piece$\ast$} & selected\-P, pointeur d'une piece \\
-\hline
-{\em Piece$\ast$} & selected\-D, pointeur d'une piece \\
 \hline
 \end{DoxyParams}
 \hypertarget{class_chess_a7d4dbb556159e245fe753d5a6daada8b}{\index{Chess@{Chess}!get\-Choice\-Int@{get\-Choice\-Int}}
@@ -213,31 +169,45 @@ unsigned int, coordonnée comprise entre 0 et 7
 
 Initialise le plateau de jeu. 
 
-\hypertarget{class_chess_ab1077aa8c0d1d6849788b2548c2e71ad}{\index{Chess@{Chess}!listepieces@{listepieces}}
-\index{listepieces@{listepieces}!Chess@{Chess}}
-\subsubsection[{listepieces}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ {\bf Piece} $\ast$ $>$ Chess\-::listepieces (
+\hypertarget{class_chess_a97adeb237c2acae0efe4097a36a304b9}{\index{Chess@{Chess}!is\-Null@{is\-Null}}
+\index{is\-Null@{is\-Null}!Chess@{Chess}}
+\subsubsection[{is\-Null}]{\setlength{\rightskip}{0pt plus 5cm}bool Chess\-::is\-Null (
 \begin{DoxyParamCaption}
-\item[{{\bf Piece} $\ast$}]{selected\-P, }
-\item[{{\bf Player} $\ast$}]{advers}
+{}
 \end{DoxyParamCaption}
-)}}\label{class_chess_ab1077aa8c0d1d6849788b2548c2e71ad}
+)}}\label{class_chess_a97adeb237c2acae0efe4097a36a304b9}
 
 
-Permet de retourner une liste de pieces de l'advers qui peut manger la piece selected\-P. 
+fonction permettant de savoir si la partie se trouve en partie nulle 
+
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+\hypertarget{class_chess_a003d9681123559dc1c1b665695e6cd20}{\index{Chess@{Chess}!is\-Piece\-In@{is\-Piece\-In}}
+\index{is\-Piece\-In@{is\-Piece\-In}!Chess@{Chess}}
+\subsubsection[{is\-Piece\-In}]{\setlength{\rightskip}{0pt plus 5cm}bool Chess\-::is\-Piece\-In (
+\begin{DoxyParamCaption}
+\item[{{\bf Piece} $\ast$}]{piece, }
+\item[{{\bf Player} $\ast$}]{player\-I\-G}
+\end{DoxyParamCaption}
+)}}\label{class_chess_a003d9681123559dc1c1b665695e6cd20}
+
+
+fonction permettant de savoir si une piece appartient au player I\-G 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em Piece$\ast$} & selected\-P, pointeur d'une piece \\
+{\em Piece$\ast$} & piece, pointeur vers une piece \\
 \hline
-{\em Player$\ast$} & advers, joueur adversaire \\
+{\em Player$\ast$} & player\-I\-G, joueur actuellement en jeu \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-liste de piece 
+bool 
 \end{DoxyReturn}
-\hypertarget{class_chess_ae4012cc01ef4914e17c756c0adcfee14}{\index{Chess@{Chess}!listpeutmangerleroi@{listpeutmangerleroi}}
-\index{listpeutmangerleroi@{listpeutmangerleroi}!Chess@{Chess}}
-\subsubsection[{listpeutmangerleroi}]{\setlength{\rightskip}{0pt plus 5cm}bool Chess\-::listpeutmangerleroi (
+\hypertarget{class_chess_a860115fe5245b5d361ccb3ce7ea545b6}{\index{Chess@{Chess}!list\-Can\-Eat\-King@{list\-Can\-Eat\-King}}
+\index{list\-Can\-Eat\-King@{list\-Can\-Eat\-King}!Chess@{Chess}}
+\subsubsection[{list\-Can\-Eat\-King}]{\setlength{\rightskip}{0pt plus 5cm}bool Chess\-::list\-Can\-Eat\-King (
 \begin{DoxyParamCaption}
 \item[{std\-::vector$<$ {\bf Piece} $\ast$ $>$}]{list, }
 \item[{{\bf Player} $\ast$}]{advers, }
@@ -245,7 +215,7 @@ liste de piece
 \item[{{\bf Piece} $\ast$}]{selected\-P, }
 \item[{{\bf Piece} $\ast$}]{selected\-D}
 \end{DoxyParamCaption}
-)}}\label{class_chess_ae4012cc01ef4914e17c756c0adcfee14}
+)}}\label{class_chess_a860115fe5245b5d361ccb3ce7ea545b6}
 
 
 Permet de retourner un bool si une des pieces que peut manger la piece selected peut aller manger le roi du player\-I\-G si la piece selected\-P bouge. 
@@ -265,6 +235,28 @@ Permet de retourner un bool si une des pieces que peut manger la piece selected 
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 bool 
+\end{DoxyReturn}
+\hypertarget{class_chess_ac70f9b16162244c5ab75e93b52db2024}{\index{Chess@{Chess}!list\-Pieces@{list\-Pieces}}
+\index{list\-Pieces@{list\-Pieces}!Chess@{Chess}}
+\subsubsection[{list\-Pieces}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ {\bf Piece} $\ast$ $>$ Chess\-::list\-Pieces (
+\begin{DoxyParamCaption}
+\item[{{\bf Piece} $\ast$}]{selected\-P, }
+\item[{{\bf Player} $\ast$}]{advers}
+\end{DoxyParamCaption}
+)}}\label{class_chess_ac70f9b16162244c5ab75e93b52db2024}
+
+
+Permet de retourner une liste de pieces de l'advers qui peut manger la piece selected\-P. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em Piece$\ast$} & selected\-P, pointeur d'une piece \\
+\hline
+{\em Player$\ast$} & advers, joueur adversaire \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+liste de piece 
 \end{DoxyReturn}
 \hypertarget{class_chess_aec36eadf1a550d2f6c85ec8a23bac2d1}{\index{Chess@{Chess}!move\-Piece@{move\-Piece}}
 \index{move\-Piece@{move\-Piece}!Chess@{Chess}}
@@ -309,6 +301,31 @@ Vérifie s'il n'y a pas de collision lors du déplacement de la pièce vers la d
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 bool, vrai s'il n'y a pas de collision, faux sinon 
+\end{DoxyReturn}
+\hypertarget{class_chess_a7b2dde25a7cbe133dbb0fa9e71909e8f}{\index{Chess@{Chess}!on\-The\-Way@{on\-The\-Way}}
+\index{on\-The\-Way@{on\-The\-Way}!Chess@{Chess}}
+\subsubsection[{on\-The\-Way}]{\setlength{\rightskip}{0pt plus 5cm}bool Chess\-::on\-The\-Way (
+\begin{DoxyParamCaption}
+\item[{{\bf Player} $\ast$}]{player\-I\-G, }
+\item[{{\bf Piece} $\ast$}]{piece\-D, }
+\item[{{\bf Player} $\ast$}]{advers}
+\end{DoxyParamCaption}
+)}}\label{class_chess_a7b2dde25a7cbe133dbb0fa9e71909e8f}
+
+
+Permet de savoir si la piece\-D est sur le passage de la piece qui peut manger le roi. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em Player$\ast$} & player\-I\-G, joueur actuellement en jeu \\
+\hline
+{\em Piece$\ast$} & piece\-D, pointeur d'une piece qui sera une destination \\
+\hline
+{\em Player$\ast$} & advers, joueur adversaire \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool 
 \end{DoxyReturn}
 \hypertarget{class_chess_a9cd677e16f4c08ddcdad57a4e12be99f}{\index{Chess@{Chess}!print\-Board@{print\-Board}}
 \index{print\-Board@{print\-Board}!Chess@{Chess}}
@@ -360,39 +377,14 @@ Piece$\ast$ pointeur de la destination selectionnée sur le plateau (le board é
 
 Lance le début d'une partie. 
 
-\hypertarget{class_chess_aa4a6555edfbb4ec3d81f5feea272c889}{\index{Chess@{Chess}!surlepassage@{surlepassage}}
-\index{surlepassage@{surlepassage}!Chess@{Chess}}
-\subsubsection[{surlepassage}]{\setlength{\rightskip}{0pt plus 5cm}bool Chess\-::surlepassage (
-\begin{DoxyParamCaption}
-\item[{{\bf Player} $\ast$}]{player\-I\-G, }
-\item[{{\bf Piece} $\ast$}]{piece\-D, }
-\item[{{\bf Player} $\ast$}]{advers}
-\end{DoxyParamCaption}
-)}}\label{class_chess_aa4a6555edfbb4ec3d81f5feea272c889}
-
-
-Permet de savoir si la piece\-D est sur le passage de la piece qui peut manger le roi. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em Player$\ast$} & player\-I\-G, joueur actuellement en jeu \\
-\hline
-{\em Piece$\ast$} & piece\-D, pointeur d'une piece qui sera une destination \\
-\hline
-{\em Player$\ast$} & advers, joueur adversaire \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
-bool 
-\end{DoxyReturn}
-\hypertarget{class_chess_a801d97e9ed968f62b1dd850e11ff3b49}{\index{Chess@{Chess}!testechec@{testechec}}
-\index{testechec@{testechec}!Chess@{Chess}}
-\subsubsection[{testechec}]{\setlength{\rightskip}{0pt plus 5cm}bool Chess\-::testechec (
+\hypertarget{class_chess_aae6464a0576a72f63aab8450b18dd580}{\index{Chess@{Chess}!test\-Echec@{test\-Echec}}
+\index{test\-Echec@{test\-Echec}!Chess@{Chess}}
+\subsubsection[{test\-Echec}]{\setlength{\rightskip}{0pt plus 5cm}bool Chess\-::test\-Echec (
 \begin{DoxyParamCaption}
 \item[{{\bf Player} $\ast$}]{player\-I\-G, }
 \item[{{\bf Player} $\ast$}]{adver}
 \end{DoxyParamCaption}
-)}}\label{class_chess_a801d97e9ed968f62b1dd850e11ff3b49}
+)}}\label{class_chess_aae6464a0576a72f63aab8450b18dd580}
 
 
 Permet de savoir si un joueur se trouve en position d'echec. 
@@ -407,14 +399,14 @@ Permet de savoir si un joueur se trouve en position d'echec.
 \begin{DoxyReturn}{Renvoie}
 bool 
 \end{DoxyReturn}
-\hypertarget{class_chess_a48268de47926c93a0c5c906faffa4397}{\index{Chess@{Chess}!testechec@{testechec}}
-\index{testechec@{testechec}!Chess@{Chess}}
-\subsubsection[{testechec}]{\setlength{\rightskip}{0pt plus 5cm}bool Chess\-::testechec (
+\hypertarget{class_chess_a1b5cf39c4f616e5e79bd16d4837bc2dc}{\index{Chess@{Chess}!test\-Echec@{test\-Echec}}
+\index{test\-Echec@{test\-Echec}!Chess@{Chess}}
+\subsubsection[{test\-Echec}]{\setlength{\rightskip}{0pt plus 5cm}bool Chess\-::test\-Echec (
 \begin{DoxyParamCaption}
 \item[{{\bf Piece} $\ast$}]{selected\-P, }
 \item[{{\bf Player} $\ast$}]{adver}
 \end{DoxyParamCaption}
-)}}\label{class_chess_a48268de47926c93a0c5c906faffa4397}
+)}}\label{class_chess_a1b5cf39c4f616e5e79bd16d4837bc2dc}
 
 
 Permet de savoir si une piece se trouve en position d'echec. 
@@ -429,14 +421,14 @@ Permet de savoir si une piece se trouve en position d'echec.
 \begin{DoxyReturn}{Renvoie}
 bool 
 \end{DoxyReturn}
-\hypertarget{class_chess_a8bb11009c45ca72877afdddc67c23016}{\index{Chess@{Chess}!testechecmat@{testechecmat}}
-\index{testechecmat@{testechecmat}!Chess@{Chess}}
-\subsubsection[{testechecmat}]{\setlength{\rightskip}{0pt plus 5cm}bool Chess\-::testechecmat (
+\hypertarget{class_chess_a591da78c202b3e870c683789662a65c4}{\index{Chess@{Chess}!test\-Echec\-Mat@{test\-Echec\-Mat}}
+\index{test\-Echec\-Mat@{test\-Echec\-Mat}!Chess@{Chess}}
+\subsubsection[{test\-Echec\-Mat}]{\setlength{\rightskip}{0pt plus 5cm}bool Chess\-::test\-Echec\-Mat (
 \begin{DoxyParamCaption}
 \item[{{\bf Player} $\ast$}]{player\-I\-G, }
 \item[{{\bf Player} $\ast$}]{adver}
 \end{DoxyParamCaption}
-)}}\label{class_chess_a8bb11009c45ca72877afdddc67c23016}
+)}}\label{class_chess_a591da78c202b3e870c683789662a65c4}
 
 
 Permet de savoir si un joueur se trouve en position d'echec et mat. 
@@ -451,54 +443,62 @@ Permet de savoir si un joueur se trouve en position d'echec et mat.
 \begin{DoxyReturn}{Renvoie}
 bool 
 \end{DoxyReturn}
-\hypertarget{class_chess_a6e538fe6848f15b72dfa95bd1aac4eec}{\index{Chess@{Chess}!testnull@{testnull}}
-\index{testnull@{testnull}!Chess@{Chess}}
-\subsubsection[{testnull}]{\setlength{\rightskip}{0pt plus 5cm}bool Chess\-::testnull (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}\label{class_chess_a6e538fe6848f15b72dfa95bd1aac4eec}
-
-
-fonction permettant de savoir si la partie se trouve en partie nulle 
-
-\begin{DoxyReturn}{Renvoie}
-bool 
-\end{DoxyReturn}
-\hypertarget{class_chess_a50a49db321a3b0a7ce8c812b72ef0fe1}{\index{Chess@{Chess}!testpieceappartence@{testpieceappartence}}
-\index{testpieceappartence@{testpieceappartence}!Chess@{Chess}}
-\subsubsection[{testpieceappartence}]{\setlength{\rightskip}{0pt plus 5cm}bool Chess\-::testpieceappartence (
-\begin{DoxyParamCaption}
-\item[{{\bf Piece} $\ast$}]{piece, }
-\item[{{\bf Player} $\ast$}]{player\-I\-G}
-\end{DoxyParamCaption}
-)}}\label{class_chess_a50a49db321a3b0a7ce8c812b72ef0fe1}
-
-
-fonction permettant de savoir si une piece appartient au player I\-G 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em Piece$\ast$} & piece, pointeur vers une piece \\
-\hline
-{\em Player$\ast$} & player\-I\-G, joueur actuellement en jeu \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
-bool 
-\end{DoxyReturn}
-\hypertarget{class_chess_a28adecf1d95d52e735ae592222bd2618}{\index{Chess@{Chess}!transformationspawn@{transformationspawn}}
-\index{transformationspawn@{transformationspawn}!Chess@{Chess}}
-\subsubsection[{transformationspawn}]{\setlength{\rightskip}{0pt plus 5cm}void Chess\-::transformationspawn (
+\hypertarget{class_chess_a29329920258b662de0bdac41ba547f57}{\index{Chess@{Chess}!transfo\-Spawn@{transfo\-Spawn}}
+\index{transfo\-Spawn@{transfo\-Spawn}!Chess@{Chess}}
+\subsubsection[{transfo\-Spawn}]{\setlength{\rightskip}{0pt plus 5cm}void Chess\-::transfo\-Spawn (
 \begin{DoxyParamCaption}
 \item[{{\bf Player} $\ast$}]{player\-I\-G, }
 \item[{{\bf Piece} $\ast$}]{selected\-P, }
 \item[{{\bf Piece} $\ast$}]{selected\-D}
 \end{DoxyParamCaption}
-)}}\label{class_chess_a28adecf1d95d52e735ae592222bd2618}
+)}}\label{class_chess_a29329920258b662de0bdac41ba547f57}
 
 
 Procédure permettant de transformer le spawn. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em Player$\ast$} & player\-I\-G, joueur actuellement en jeu \\
+\hline
+{\em Piece$\ast$} & selected\-P, pointeur d'une piece \\
+\hline
+{\em Piece$\ast$} & selected\-D, pointeur d'une piece \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_chess_a750a533ab68f71194b7f1ea7a0b5cdda}{\index{Chess@{Chess}!try\-Castling@{try\-Castling}}
+\index{try\-Castling@{try\-Castling}!Chess@{Chess}}
+\subsubsection[{try\-Castling}]{\setlength{\rightskip}{0pt plus 5cm}bool Chess\-::try\-Castling (
+\begin{DoxyParamCaption}
+\item[{{\bf Player} $\ast$}]{player\-I\-G, }
+\item[{{\bf Piece} $\ast$}]{selected\-P, }
+\item[{{\bf Piece} $\ast$}]{selected\-D}
+\end{DoxyParamCaption}
+)}}\label{class_chess_a750a533ab68f71194b7f1ea7a0b5cdda}
+
+
+fonction permettant de savoir si le petit roque est possible 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em Player$\ast$} & player\-I\-G, joueur actuellement en jeu \\
+\hline
+{\em Piece$\ast$} & selected\-P, pointeur d'une piece \\
+\hline
+{\em Piece$\ast$} & selected\-D, pointeur d'une piece \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_chess_a63ef59d4f464e63ae2da3386c1abcea3}{\index{Chess@{Chess}!try\-G\-Castling@{try\-G\-Castling}}
+\index{try\-G\-Castling@{try\-G\-Castling}!Chess@{Chess}}
+\subsubsection[{try\-G\-Castling}]{\setlength{\rightskip}{0pt plus 5cm}bool Chess\-::try\-G\-Castling (
+\begin{DoxyParamCaption}
+\item[{{\bf Player} $\ast$}]{player\-I\-G, }
+\item[{{\bf Piece} $\ast$}]{selected\-P, }
+\item[{{\bf Piece} $\ast$}]{selected\-D}
+\end{DoxyParamCaption}
+)}}\label{class_chess_a63ef59d4f464e63ae2da3386c1abcea3}
+
+
+fonction permettant de savoir si le grand roque est possible 
 
 
 \begin{DoxyParams}{Paramètres}

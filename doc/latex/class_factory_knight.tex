@@ -20,11 +20,11 @@ Graphe d'héritage de Factory\-Knight\-:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_factory_knight_a4c3de6c385f4b3d02286e39cdbf99136}{Factory\-Knight} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Constructeur de \hyperlink{class_factory_knight}{Factory\-Knight}. \end{DoxyCompactList}\item 
 \hyperlink{class_factory_knight_a40846bdf0be3fb8ecbcb50df3c4a7f61}{$\sim$\-Factory\-Knight} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Destructeur de \hyperlink{class_factory_knight}{Factory\-Knight}. \end{DoxyCompactList}\item 
 std\-::vector$<$ \hyperlink{class_piece}{Piece} $\ast$ $>$ \hyperlink{class_factory_knight_a25af606063189d96698aae45b1bfc1b9}{build\-Pieces} (bool color)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Permet de retourner une liste de Pièce$\ast$ bien initialisée pour les Knights normals. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Description détaillée}
@@ -38,6 +38,10 @@ Classe \hyperlink{class_factory_knight}{Factory\-Knight} héritant de \hyperlink
 {}
 \end{DoxyParamCaption}
 )}}\label{class_factory_knight_a4c3de6c385f4b3d02286e39cdbf99136}
+
+
+Constructeur de \hyperlink{class_factory_knight}{Factory\-Knight}. 
+
 \hypertarget{class_factory_knight_a40846bdf0be3fb8ecbcb50df3c4a7f61}{\index{Factory\-Knight@{Factory\-Knight}!$\sim$\-Factory\-Knight@{$\sim$\-Factory\-Knight}}
 \index{$\sim$\-Factory\-Knight@{$\sim$\-Factory\-Knight}!FactoryKnight@{Factory\-Knight}}
 \subsubsection[{$\sim$\-Factory\-Knight}]{\setlength{\rightskip}{0pt plus 5cm}Factory\-Knight\-::$\sim$\-Factory\-Knight (
@@ -45,6 +49,10 @@ Classe \hyperlink{class_factory_knight}{Factory\-Knight} héritant de \hyperlink
 {}
 \end{DoxyParamCaption}
 )}}\label{class_factory_knight_a40846bdf0be3fb8ecbcb50df3c4a7f61}
+
+
+Destructeur de \hyperlink{class_factory_knight}{Factory\-Knight}. 
+
 
 
 \subsection{Documentation des fonctions membres}
@@ -55,6 +63,18 @@ Classe \hyperlink{class_factory_knight}{Factory\-Knight} héritant de \hyperlink
 \item[{bool}]{color}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_factory_knight_a25af606063189d96698aae45b1bfc1b9}
+
+
+Permet de retourner une liste de Pièce$\ast$ bien initialisée pour les Knights normals. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em bool} & color, false signifie que l'équipe est white \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+une liste de Piece$\ast$ 
+\end{DoxyReturn}
 
 
 Réimplémentée à partir de \hyperlink{class_factory_a90f20f663caa6e5a5370465d3014630f}{Factory}.

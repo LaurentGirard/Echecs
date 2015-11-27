@@ -1,6 +1,6 @@
 var searchData=
 [
   ['label',['label',['../class_piece.html#aec026f7ca20120f0b635591de2f86662',1,'Piece']]],
-  ['listepieces',['listepieces',['../class_chess.html#ab1077aa8c0d1d6849788b2548c2e71ad',1,'Chess']]],
-  ['listpeutmangerleroi',['listpeutmangerleroi',['../class_chess.html#ae4012cc01ef4914e17c756c0adcfee14',1,'Chess']]]
+  ['listcaneatking',['listCanEatKing',['../class_chess.html#a860115fe5245b5d361ccb3ce7ea545b6',1,'Chess']]],
+  ['listpieces',['listPieces',['../class_chess.html#ac70f9b16162244c5ab75e93b52db2024',1,'Chess']]]
 ];

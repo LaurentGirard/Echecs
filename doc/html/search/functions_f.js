@@ -11,6 +11,5 @@ var searchData=
   ['sety',['setY',['../class_cell.html#ad797a4c776783b15f4637b1f667f56a5',1,'Cell']]],
   ['spawn',['Spawn',['../class_spawn.html#ad401aa751cbbf9ea4f444e3011ff36b5',1,'Spawn']]],
   ['startgame',['startGame',['../class_chess.html#aea92734ff5516066d5c1a690a78ea146',1,'Chess']]],
-  ['state',['State',['../class_state.html#a7a0a6af0cd97aa575a097eca87e090ba',1,'State']]],
-  ['surlepassage',['surlepassage',['../class_chess.html#aa4a6555edfbb4ec3d81f5feea272c889',1,'Chess']]]
+  ['state',['State',['../class_state.html#a7a0a6af0cd97aa575a097eca87e090ba',1,'State']]]
 ];

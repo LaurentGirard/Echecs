@@ -12,7 +12,7 @@
 #include "State.hpp"
 #include "Piece.hpp"
 #include "ObjectPool.hpp"
-#include "Factory.hpp"
+#include "Team.hpp"
 
 
 class Player

@@ -8,7 +8,7 @@ var class_check_state =
     [ "gameNull", "class_check_state.html#ae3cc6446e2dd5de333797bb180104c50", null ],
     [ "inGame", "class_check_state.html#a3cc0cb64d061a72d91ee60b60801aa3b", null ],
     [ "ischeck", "class_check_state.html#aa6e88c453114883d8a415ff338b65526", null ],
-    [ "ischeckmate", "class_check_state.html#ae3704aaa5fbaf6c947462c211eafc9c9", null ],
+    [ "isCheckMate", "class_check_state.html#a35143fe625f5b7c6d5712ce77c3c016f", null ],
     [ "isnulle", "class_check_state.html#a569daf96d0340272068a3d36fdf288c4", null ],
     [ "print", "class_check_state.html#ace4965a79b3614c50d0db5396121b75e", null ]
 ];
