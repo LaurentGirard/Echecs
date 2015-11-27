@@ -155,13 +155,13 @@ class Player
 	* @brief permet de retourner la piece roi
 	* @return piece* pointeur de la piece roi
 	*/
-		Piece* getking();
+		Piece* getKing();
 
 	/**
 	* @brief permet de savoir si le joueur se trouve en en checkmate
 	* @return bool
 	*/
-		bool ischeckmate();
+		bool isCheckMate();
 
 	/**
 	* @brief permet de savoir si le joueur se trouve en en check

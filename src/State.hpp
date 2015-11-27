@@ -61,15 +61,15 @@ class State
 		virtual void print() = 0;
 
 	/**
-   * @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec
+   * @brief procédure virtuelle permettant de savoir s'il se trouve en position d'echec
    */
 		virtual bool ischeck() = 0;
 	/**
-   * @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec et mate
+   * @brief procédure virtuelle permettant de savoir s'il se trouve en position d'echec et mate
    */
-		virtual bool ischeckmate() = 0;
+		virtual bool isCheckMate() = 0;
 	/**
-   * @brief procédure virtuelle permettant de savoir s'il se trouve en possition null
+   * @brief procédure virtuelle permettant de savoir s'il se trouve en position null
    */
 		virtual bool isnulle() = 0;
 };
@@ -119,16 +119,16 @@ class GameState : public State
    */
 		void print();
 	/**
-	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en position d'echec
 	*/
 		bool ischeck();
 	/**
-	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec et mate
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en position d'echec et mate
 	*/
-		bool ischeckmate();
+		bool isCheckMate();
 
 	/**
-	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition nulle
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en position nulle
 	*/
 		bool isnulle();
 };
@@ -178,15 +178,15 @@ class CheckState : public State
    */
 		void print();
 	/**
-	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en position d'echec
 	*/
 		bool ischeck();
 	/**
-	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec et mat
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en position d'echec et mat
 	*/
-		bool ischeckmate();
+		bool isCheckMate();
 	/**
-	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition nulle
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en position nulle
 	*/
 		bool isnulle();
 };
@@ -236,15 +236,15 @@ class MateState : public State
    */
 		void print();
 	/**
-	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en position d'echec
 	*/
-		bool ischeckmate();
+		bool isCheckMate();
 	/**
-	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec et mate
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en position d'echec et mate
 	*/
 		bool ischeck();
 	/**
-	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition nulle
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en position nulle
 	*/
 		bool isnulle();
 };
@@ -294,15 +294,15 @@ class NullState : public State
    */
 		void print();
 	/**
-	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en position d'echec
 	*/
 		bool ischeck();
 	/**
-	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec et mate
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en position d'echec et mate
 	*/
-		bool ischeckmate();
+		bool isCheckMate();
 	/**
-	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition nulle
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en position nulle
 	*/
 		bool isnulle();
 };
@@ -352,16 +352,16 @@ class EndState : public State
    */
 		void print();
 	/**
-	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en position d'echec
 	*/
 		bool ischeck();
 	/**
-	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition d'echec et mate
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en position d'echec et mate
 	*/
-		bool ischeckmate();
+		bool isCheckMate();
 
 	/**
-	* @brief procédure virtuelle permettant de savoir s'il se trouve en possition nulle
+	* @brief procédure virtuelle permettant de savoir s'il se trouve en position nulle
 	*/
 		bool isnulle();
 

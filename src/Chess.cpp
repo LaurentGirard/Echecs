@@ -173,7 +173,7 @@ void Chess::movePiece(Piece* selectedP, Piece* selectedD)
 
 //------------------------------------------------------------------------------------------------------
 // permet de retourner une liste de piece que peut manger la piece selecteP
-std::vector<Piece*> Chess::listepieces(Piece* selectedP, Player* advers)
+std::vector<Piece*> Chess::listPieces(Piece* selectedP, Player* advers)
 {
 	std::vector<Piece*> list;
 	Piece* piecetueuse = NULL;
@@ -191,7 +191,7 @@ std::vector<Piece*> Chess::listepieces(Piece* selectedP, Player* advers)
 }
 
 //------------------------------------------------------------------------------------------------------
-bool Chess::listpeutmangerleroi(std::vector<Piece*> list, Player* advers, Player* playerIG, Piece* selectedP, Piece* selectedD)
+bool Chess::listCanEatKing(std::vector<Piece*> list, Player* advers, Player* playerIG, Piece* selectedP, Piece* selectedD)
 {
 	bool res = false;
 	Piece* king = playerIG->getPieces()[12];
@@ -224,7 +224,7 @@ bool Chess::listpeutmangerleroi(std::vector<Piece*> list, Player* advers, Player
 	return res;
 }
 //------------------------------------------------------------------------------------------------------
-bool Chess::surlepassage(Player* playerIG, Piece* pieceD, Player* advers){
+bool Chess::onTheWay(Player* playerIG, Piece* pieceD, Player* advers){
 	Piece* king = playerIG->getPieces()[12];
 	Piece* piecetueuse = NULL;
 	bool trouve = false;
@@ -287,7 +287,7 @@ bool Chess::surlepassage(Player* playerIG, Piece* pieceD, Player* advers){
 	return trouve;
 }
 //------------------------------------------------------------------------------------------------------
-void Chess::transformationspawn(Player* playerIG, Piece* selectedP, Piece* selectedD)
+void Chess::transfoSpawn(Player* playerIG, Piece* selectedP, Piece* selectedD)
 {
 	int choose;
 	bool recherche = false;
@@ -350,7 +350,7 @@ void Chess::transformationspawn(Player* playerIG, Piece* selectedP, Piece* selec
 //------------------------------------------------------------------------------------------------------
 // regarde si le petit roque est possible
 
-bool Chess::gererpetitroque(Player* playerIG, Piece* selectedP, Piece* selectedD)
+bool Chess::tryCastling(Player* playerIG, Piece* selectedP, Piece* selectedD)
 {
 	bool res = false;
 	if( playerIG->getPieces()[15]->isAlive() && 
@@ -365,7 +365,7 @@ bool Chess::gererpetitroque(Player* playerIG, Piece* selectedP, Piece* selectedD
 
 //------------------------------------------------------------------------------------------------------
 // regarde si le grand roque est possible
-bool Chess::gerergrandroque(Player* playerIG, Piece* selectedP, Piece* selectedD)
+bool Chess::tryGCastling(Player* playerIG, Piece* selectedP, Piece* selectedD)
 {
 	bool res = false;
 	int x, y;
@@ -386,22 +386,22 @@ bool Chess::gerergrandroque(Player* playerIG, Piece* selectedP, Piece* selectedD
 }
 
 //------------------------------------------------------------------------------------------------------
-//procédure permettant d'effectuer le petit roque, on suppose que gererpetitroque == true
+//procédure permettant d'effectuer le petit roque, on suppose que tryCastling == true
 
-void Chess::fairepetitroque(Player* playerIG)
+void Chess::castling(Player* playerIG)
 {
-	int xroi = playerIG->getking()->getSquare()->getX();
-	int yroi = playerIG->getking()->getSquare()->getY();
+	int xroi = playerIG->getKing()->getSquare()->getX();
+	int yroi = playerIG->getKing()->getSquare()->getY();
 	int xtour = playerIG->getPieces()[15]->getSquare()->getX();
 	int ytour = playerIG->getPieces()[15]->getSquare()->getY();
-	int x1 = playerIG->getking()->getSquare()->getX()+2;
-	int y1 = playerIG->getking()->getSquare()->getY();
+	int x1 = playerIG->getKing()->getSquare()->getX()+2;
+	int y1 = playerIG->getKing()->getSquare()->getY();
 	int x2 = x1-1;
 	int y2 = y1;
 
-	_board[x1][y1] = playerIG->getking();	// Le roi est déplacée sur le plateau
-	playerIG->getking()->setSquare(new Cell(x1,y1));// Mise à jour des coordonnées du roi qui vient d'être déplacée
-	playerIG->getking()->movement();	
+	_board[x1][y1] = playerIG->getKing();	// Le roi est déplacée sur le plateau
+	playerIG->getKing()->setSquare(new Cell(x1,y1));// Mise à jour des coordonnées du roi qui vient d'être déplacée
+	playerIG->getKing()->movement();	
 	_board[x2][y2] = playerIG->getPieces()[15];// la tour es déplacée
 	playerIG->getPieces()[15]->setSquare(new Cell(x2,y2));// Mise à jour des coordonnées de la tour qui vient d'être déplacée
 	_board[xroi][yroi] = new Piece(xroi,yroi);			// L'ancienne position de la pièce est maintenant une pièce "vide"
@@ -411,22 +411,22 @@ void Chess::fairepetitroque(Player* playerIG)
 
 }
 //------------------------------------------------------------------------------------------------------
-//procédure permettant d'effectuer le grand roque, on suppose que gerergrandroque == true
-void Chess::fairegrandroque(Player* playerIG)
+//procédure permettant d'effectuer le grand roque, on suppose que tryGCastling == true
+void Chess::gCastling(Player* playerIG)
 {
-	int xroi = playerIG->getking()->getSquare()->getX();
-	int yroi = playerIG->getking()->getSquare()->getY();
+	int xroi = playerIG->getKing()->getSquare()->getX();
+	int yroi = playerIG->getKing()->getSquare()->getY();
 	int xtour = playerIG->getPieces()[8]->getSquare()->getX();
 	int ytour = playerIG->getPieces()[8]->getSquare()->getY();
-	int x1 = playerIG->getking()->getSquare()->getX()-2;
-	int y1 = playerIG->getking()->getSquare()->getY();
+	int x1 = playerIG->getKing()->getSquare()->getX()-2;
+	int y1 = playerIG->getKing()->getSquare()->getY();
 	int x2 = x1 + 1;
-	int y2 = playerIG->getking()->getSquare()->getY();
+	int y2 = playerIG->getKing()->getSquare()->getY();
 
-	_board[x1][y1] = playerIG->getking();	// Le roi est déplacée sur le plateau
+	_board[x1][y1] = playerIG->getKing();	// Le roi est déplacée sur le plateau
 
-	playerIG->getking()->setSquare(new Cell(x1,y1));// Mise à jour des coordonnées du roi qui vient d'être déplacée
-	playerIG->getking()->movement();	
+	playerIG->getKing()->setSquare(new Cell(x1,y1));// Mise à jour des coordonnées du roi qui vient d'être déplacée
+	playerIG->getKing()->movement();	
 
 	_board[x2][y2] = playerIG->getPieces()[8]; // la tour es déplacée
 
@@ -501,7 +501,7 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 			if(!(selectedD == NULL))
 			{
 			// Selection valide de la destination sur le plateau ( selectedD sera soit une pièce adverse, soit une pièce "vide" )
-				if(!listpeutmangerleroi(listepieces(selectedP, advers), advers, playerIG, selectedP, selectedD))//évite de mettre le joueur en etat d'echec ou en état echec et mat s'il se trouve déja en echec
+				if(!listCanEatKing(listPieces(selectedP, advers), advers, playerIG, selectedP, selectedD))//évite de mettre le joueur en etat d'echec ou en état echec et mat s'il se trouve déja en echec
 				{
 					if(!(playerIG->ischeck()))
 					{
@@ -521,10 +521,10 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 									bool test1 = (_board[xroipetit+1][yroipetit]->getLabel()==" ");
 									bool test2 = (_board[xroipetit+2][yroipetit]->getLabel()==" ");
 									if(test1 && test2)
-										roque = gererpetitroque(playerIG,selectedP,selectedD);
+										roque = tryCastling(playerIG,selectedP,selectedD);
 										if(roque)
 											choix = true;
-											fairepetitroque(playerIG);
+											castling(playerIG);
 								}
 								else
 								{
@@ -539,10 +539,10 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 										bool test3 = (_board[xroipetit-3][yroipetit]->getLabel()==" ");
 										if(test1 && test2 && test3)
 										{
-											roque = gerergrandroque(playerIG,selectedP,selectedD);
+											roque = tryGCastling(playerIG,selectedP,selectedD);
 											if(roque)
 												choix = true;
-												fairegrandroque(playerIG);
+												gCastling(playerIG);
 										}
 									}
 									else
@@ -580,7 +580,7 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 										// cas pour transformer le spawn en reine, fou ..... si possible
 										if(selectedD->getSquare()->getY() == 7)
 										{
-											transformationspawn(playerIG, selectedP, selectedD);
+											transfoSpawn(playerIG, selectedP, selectedD);
 											choix = true;
 										}
 										else// sinon faire le cas normal
@@ -593,7 +593,7 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 									{
 										if(selectedD->getSquare()->getY() == 0)
 										{
-											transformationspawn(playerIG, selectedP, selectedD);
+											transfoSpawn(playerIG, selectedP, selectedD);
 											choix = true;
 										}
 										else
@@ -615,13 +615,13 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 						selectedD = selectDest(playerIG, selectedP, x2, y2); 
 						if(selectedD != NULL)
 						{
-							if(!(selectedP==playerIG->getking()))
+							if(!(selectedP==playerIG->getKing()))
 							{
-								if(surlepassage( playerIG, selectedD, advers))//regarde si la destination est sur la passage de l'adverse qui le met en echec
+								if(onTheWay( playerIG, selectedD, advers))//regarde si la destination est sur la passage de l'adverse qui le met en echec
 								{
 									if(noCollision(selectedP, selectedD))
 									{
-											if(!listpeutmangerleroi(listepieces(selectedP, advers),advers,playerIG, selectedP, selectedD))//voir si le déplacement de cette piece  n'implique pas encore un echec
+											if(!listCanEatKing(listPieces(selectedP, advers),advers,playerIG, selectedP, selectedD))//voir si le déplacement de cette piece  n'implique pas encore un echec
 											{
 												choix=true;
 												movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
@@ -711,7 +711,7 @@ void Chess::printBoard()
 		{
 			piece =_board[j][7-i]; 
 
-			if (testpieceappartence(piece,p1))
+			if (isPieceIn(piece,p1))
 				std::cout << _board[j][7-i]->getLabel() << "|";
 			else
 				std::cout << "\x1B[31;1m" << _board[j][7-i]->getLabel() << "\x1B[m" << "|";
@@ -729,7 +729,7 @@ void Chess::printBoard()
 
 //------------------------------------------------------------------------------------------------------
 // regarde si la piece appartient au joueur
-bool Chess::testpieceappartence(Piece* piece, Player* playerIG)
+bool Chess::isPieceIn(Piece* piece, Player* playerIG)
 {
 	bool trouve = false;
 	int i = 0;
@@ -744,11 +744,11 @@ bool Chess::testpieceappartence(Piece* piece, Player* playerIG)
 }
 
 //------------------------------------------------------------------------------------------------------
-bool Chess::testechec(Player* playerIG, Player* adver)
+bool Chess::testEchec(Player* playerIG, Player* adver)
 {
 	Piece* kingIG;
-	kingIG = playerIG->getking();
-	bool res = testechec(kingIG, adver);
+	kingIG = playerIG->getKing();
+	bool res = testEchec(kingIG, adver);
 
 	if(res)
 		playerIG->check();
@@ -759,7 +759,7 @@ bool Chess::testechec(Player* playerIG, Player* adver)
 }
 
 //------------------------------------------------------------------------------------------------------
-bool Chess::testechec(Piece* selectedP, Player* adver)
+bool Chess::testEchec(Piece* selectedP, Player* adver)
 {
 	bool positionEchec = false;
 	Piece* selectedD;
@@ -780,7 +780,7 @@ bool Chess::testechec(Piece* selectedP, Player* adver)
 }
 
 //------------------------------------------------------------------------------------------------------
-bool Chess::testnull()
+bool Chess::isNull()
 {
 	bool tabpieceenviep1[16];
 	bool tabpieceenviep2[16];
@@ -926,7 +926,7 @@ bool Chess::testnull()
 					pieceD=_board[p1->getPieces()[i]->getMovements()[q][w]->getX()][p1->getPieces()[i]->getMovements()[q][w]->getY()];
 					if(noCollision(piece_test, pieceD))
 					{
-						if(!listpeutmangerleroi(listepieces(piece_test, p2),p2,p1, piece_test, pieceD))//voir si le déplacement de cette piece  n'implique pas encore un echec
+						if(!listCanEatKing(listPieces(piece_test, p2),p2,p1, piece_test, pieceD))//voir si le déplacement de cette piece  n'implique pas encore un echec
 							test4 = false;
 					}
 				}
@@ -943,7 +943,7 @@ bool Chess::testnull()
 					pieceD = _board[p2->getPieces()[i]->getMovements()[q][w]->getX()][p2->getPieces()[i]->getMovements()[q][w]->getY()];
 					if(noCollision(piece_test, pieceD))
 					{
-						if(!listpeutmangerleroi(listepieces(piece_test, p1),p1,p2, piece_test, pieceD))//voir si le déplacement de cette piece  n'implique pas encore un echec
+						if(!listCanEatKing(listPieces(piece_test, p1),p1,p2, piece_test, pieceD))//voir si le déplacement de cette piece  n'implique pas encore un echec
 							test4 = false;
 					}
 				}
@@ -961,7 +961,7 @@ bool Chess::testnull()
 }
 //------------------------------------------------------------------------------------------------------
 
-bool Chess::testechecmat(Player* playerIG, Player* adver)
+bool Chess::testEchecMat(Player* playerIG, Player* adver)
 {
 	bool res = false;
 	bool peuxbloque = false;
@@ -975,11 +975,11 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 	int positionEchecmat = 0;
 	Piece* king_deplacement_virtuel = new Piece(0,0);
 	Piece* kingIG;
-	kingIG = playerIG->getking();
+	kingIG = playerIG->getKing();
 	int i,x,y,s;
 
-	if(!testnull()){
-		if(testechec(playerIG,adver))
+	if(!isNull()){
+		if(testEchec(playerIG,adver))
 		{
 			s = 0;
 			// regarde si le roi peut bouger sans qu'il se remette en position d'echec 
@@ -991,13 +991,13 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 				if(_board[x][y]->getLabel() == " ")
 				{	
 					++s;
-					if(testechec(king_deplacement_virtuel,adver))
+					if(testEchec(king_deplacement_virtuel,adver))
 						positionEchecmat++;
 				}
 				// s'il peut manger la piece tueuse
-				if(testpieceappartence(_board[x][y],adver))
+				if(isPieceIn(_board[x][y],adver))
 				{
-					if(!testechec(king_deplacement_virtuel,adver))
+					if(!testEchec(king_deplacement_virtuel,adver))
 						peuxbloque = true;
 				}
 			}
@@ -1050,7 +1050,7 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 						{
 							if(noCollision(piece_test, piecetueuse))
 							{
-								if(!listpeutmangerleroi(listepieces(piece_test, adver),adver,playerIG, piece_test, piecetueuse))//voir si le déplacement de cette piece  n'implique pas encore un echec
+								if(!listCanEatKing(listPieces(piece_test, adver),adver,playerIG, piece_test, piecetueuse))//voir si le déplacement de cette piece  n'implique pas encore un echec
 									peuxbloque = true;
 							}
 						}
@@ -1062,7 +1062,7 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 								piece_tableau = _board[piecetueuse->getMovements()[indice][w]->getX()][piecetueuse->getMovements()[indice][w]->getY()];
 								if(noCollision(piece_test, piece_tableau))
 								{
-									if(!listpeutmangerleroi(listepieces(piece_test, adver),adver,playerIG, piece_test, piece_tableau))//voir si le déplacement de cette piece  n'implique pas encore un echec
+									if(!listCanEatKing(listPieces(piece_test, adver),adver,playerIG, piece_test, piece_tableau))//voir si le déplacement de cette piece  n'implique pas encore un echec
 										peuxbloque = true;							
 								}
 							}
@@ -1099,7 +1099,7 @@ void Chess::startGame()
 
 		finpartie = gameRound(p1, p2);
 
-		if (testechecmat(p2,p1) || testnull())
+		if (testEchecMat(p2,p1) || isNull())
 		{
 			p1->getState()->print();
 			finpartie = true;
@@ -1109,7 +1109,7 @@ void Chess::startGame()
 			p2->getState()->print();
 			finpartie = gameRound(p2, p1);
 		}
-		if (testechecmat(p1,p2) || testnull())
+		if (testEchecMat(p1,p2) || isNull())
 		{
 			p1->getState()->print();
 			finpartie = true;
@@ -1118,12 +1118,12 @@ void Chess::startGame()
 
 	if(!p1->isnulle())
 	{
-		if(p1->ischeckmate())
+		if(p1->isCheckMate())
 		{
 			checkmate = true;
 			gagnant = p2->getName();
 		}
-		else if(p2->ischeckmate())
+		else if(p2->isCheckMate())
 		{
 			checkmate = true;
 			gagnant = p1->getName();

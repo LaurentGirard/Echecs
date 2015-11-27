@@ -2,15 +2,7 @@
 
 faire un tuto
 
-faire un makefile
-
-Class contenant les différentes erreurs : pattern ?
-
-éventuellement redéfinir printPiece pour les pièces particulières ( donc mettre la fonction en virtual dans la classe Piece)
-
--------------------- TO DO ----------------------
-
-FAIRE LES DELETE
+Fichier contenant les différentes erreurs : pattern ?
 
 -------------------A revoir----------------------
 petit et grand roque dans test echec et mat // vérif avec tests !!!!
@@ -25,4 +17,4 @@ Il y a une liste de cas comme ça
 
 A REVOIR URGENT :
 Revoir tous les copier coller que tu as fait (cf transformationsSpawns : il y a des trucs que tu executes dans tous tes "if")
-Revoir le nom des variables dans "surlepassage"
+Revoir le nom des variables dans "onTheWay"

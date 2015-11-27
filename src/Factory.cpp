@@ -22,7 +22,7 @@ Factory::~Factory(){}
 std::vector<Piece*> Factory::buildPieces(bool color){
 	int i = 0;
 
-	std::vector<Piece*> listpieces;
+	std::vector<Piece*> listPieces;
 
 	FactorySpawn* spawn = new FactorySpawn();
 	FactoryRook* rook = new FactoryRook(); 
@@ -40,20 +40,20 @@ std::vector<Piece*> Factory::buildPieces(bool color){
 
 	while (i < spawns.size())
 	{
-		listpieces.push_back(spawns[i]);
+		listPieces.push_back(spawns[i]);
 		++i;
 	}
 
-	listpieces.push_back(rooks[0]);
-	listpieces.push_back(knights[0]);
-	listpieces.push_back(bishops[0]);
-	listpieces.push_back(queens[0]);
-	listpieces.push_back(kings[0]);
-	listpieces.push_back(bishops[1]);
-	listpieces.push_back(knights[1]);
-	listpieces.push_back(rooks[1]);
+	listPieces.push_back(rooks[0]);
+	listPieces.push_back(knights[0]);
+	listPieces.push_back(bishops[0]);
+	listPieces.push_back(queens[0]);
+	listPieces.push_back(kings[0]);
+	listPieces.push_back(bishops[1]);
+	listPieces.push_back(knights[1]);
+	listPieces.push_back(rooks[1]);
 
-	return listpieces;
+	return listPieces;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -68,7 +68,7 @@ FactorySpawn::~FactorySpawn(){}
 
 //------------------------------------------------------------------------------------------------------
 std::vector<Piece*> FactorySpawn::buildPieces(bool color){
-	std::vector<Piece*> listpieces;
+	std::vector<Piece*> listPieces;
 	int y;
 
 	if(!color)
@@ -77,9 +77,9 @@ std::vector<Piece*> FactorySpawn::buildPieces(bool color){
 		y = 6;
 
 	for(int i = 0; i < 8; ++i)
-		listpieces.push_back(new Spawn(i,y,color));
+		listPieces.push_back(new Spawn(i,y,color));
 
-	return listpieces;
+	return listPieces;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -92,7 +92,7 @@ FactoryRook::~FactoryRook(){}
 
 //------------------------------------------------------------------------------------------------------
 std::vector<Piece*> FactoryRook::buildPieces(bool color){
-	std::vector<Piece*> listpieces;
+	std::vector<Piece*> listPieces;
 	int y;
 
 	if(!color)
@@ -100,10 +100,10 @@ std::vector<Piece*> FactoryRook::buildPieces(bool color){
 	else
 		y = 7;
 
-	listpieces.push_back(new Rook(0,y));
-	listpieces.push_back(new Rook(7,y));
+	listPieces.push_back(new Rook(0,y));
+	listPieces.push_back(new Rook(7,y));
 
-	return listpieces;
+	return listPieces;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -117,7 +117,7 @@ FactoryKnight::~FactoryKnight(){}
 
 //------------------------------------------------------------------------------------------------------
 std::vector<Piece*> FactoryKnight::buildPieces(bool color){
-	std::vector<Piece*> listpieces;
+	std::vector<Piece*> listPieces;
 	int y;
 
 	if(!color)
@@ -125,10 +125,10 @@ std::vector<Piece*> FactoryKnight::buildPieces(bool color){
 	else
 		y = 7;
 
-	listpieces.push_back(new Knight(1,y));
-	listpieces.push_back(new Knight(6,y));
+	listPieces.push_back(new Knight(1,y));
+	listPieces.push_back(new Knight(6,y));
 
-	return listpieces;
+	return listPieces;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -144,7 +144,7 @@ FactoryBishop::~FactoryBishop(){}
 //------------------------------------------------------------------------------------------------------
 
 std::vector<Piece*> FactoryBishop::buildPieces(bool color){
-	std::vector<Piece*> listpieces;
+	std::vector<Piece*> listPieces;
 	int y;
 
 	if(!color)
@@ -152,9 +152,9 @@ std::vector<Piece*> FactoryBishop::buildPieces(bool color){
 	else
 		y = 7;
 
-	listpieces.push_back(new Bishop(2,y));
-	listpieces.push_back(new Bishop(5,y));
-	return listpieces;
+	listPieces.push_back(new Bishop(2,y));
+	listPieces.push_back(new Bishop(5,y));
+	return listPieces;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -169,7 +169,7 @@ FactoryQueen::~FactoryQueen(){}
 
 //------------------------------------------------------------------------------------------------------
 std::vector<Piece*> FactoryQueen::buildPieces(bool color){
-	std::vector<Piece*> listpieces;
+	std::vector<Piece*> listPieces;
 	int y;
 
 	if(!color)
@@ -177,8 +177,8 @@ std::vector<Piece*> FactoryQueen::buildPieces(bool color){
 	else
 		y = 7;
 
-	listpieces.push_back(new Queen(3,y));
-	return listpieces;
+	listPieces.push_back(new Queen(3,y));
+	return listPieces;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -191,7 +191,7 @@ FactoryKing::~FactoryKing(){}
 
 //------------------------------------------------------------------------------------------------------
 std::vector<Piece*> FactoryKing::buildPieces(bool color){
-	std::vector<Piece*> listpieces;
+	std::vector<Piece*> listPieces;
 	int y;	
 
 	if(!color)
@@ -199,6 +199,6 @@ std::vector<Piece*> FactoryKing::buildPieces(bool color){
 	else
 		y = 7;
 
-	listpieces.push_back(new King(4,y));
-	return listpieces;
+	listPieces.push_back(new King(4,y));
+	return listPieces;
 }

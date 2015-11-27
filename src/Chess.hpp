@@ -89,7 +89,7 @@ class Chess
 		* @return bool
 		*/
 		
-		bool testechec(Player* playerIG, Player* adver); 
+		bool testEchec(Player* playerIG, Player* adver); 
 
 		/**
 		* @brief Permet de savoir si une piece se trouve en position d'echec
@@ -98,7 +98,7 @@ class Chess
 		* @return bool
 		*/
 		
-		bool testechec(Piece* selectedP, Player* adver); 
+		bool testEchec(Piece* selectedP, Player* adver); 
 
 		/**
 		* @brief Permet de savoir si un joueur se trouve en position d'echec et mat
@@ -107,7 +107,7 @@ class Chess
 		* @return bool
 		*/
 		
-		bool testechecmat(Player* playerIG, Player* adver);
+		bool testEchecMat(Player* playerIG, Player* adver);
 
 		/**
 		* @brief Permet de savoir si la pieceD est sur le passage de la piece qui peut manger le roi
@@ -117,7 +117,7 @@ class Chess
 		* @return bool
 		*/
 		
-		bool surlepassage(Player* playerIG, Piece* pieceD, Player* advers);
+		bool onTheWay(Player* playerIG, Piece* pieceD, Player* advers);
 
 		/**
 		* @brief Permet de retourner une liste de pieces de l'advers qui peut manger la piece selectedP
@@ -125,7 +125,7 @@ class Chess
 		* @param Player* advers, joueur adversaire
 		* @return liste de piece
 		*/
-		std::vector<Piece*> listepieces(Piece* selectedP, Player* advers);
+		std::vector<Piece*> listPieces(Piece* selectedP, Player* advers);
 
 		/**
 		* @brief Permet de retourner un bool si une des pieces que peut manger la piece selected peut aller manger le roi du playerIG si la piece selectedP bouge
@@ -136,7 +136,7 @@ class Chess
 		* @param Piece* selectedD, pointeur d'une piece
 		* @return bool
 		*/
-		bool listpeutmangerleroi(std::vector<Piece*> list, Player* advers, Player* playerIG, Piece* selectedP,Piece* selectedD);
+		bool listCanEatKing(std::vector<Piece*> list, Player* advers, Player* playerIG, Piece* selectedP,Piece* selectedD);
 		
 		/**
 		* @brief Procédure permettant de transformer le spawn
@@ -144,7 +144,7 @@ class Chess
 		* @param Piece* selectedP, pointeur d'une piece
 		* @param Piece* selectedD, pointeur d'une piece
 		*/
-		void transformationspawn(Player* playerIG, Piece* selectedP, Piece* selectedD);
+		void transfoSpawn(Player* playerIG, Piece* selectedP, Piece* selectedD);
 
 		/**
 		* @brief fonction permettant de savoir si le petit roque est possible
@@ -152,7 +152,7 @@ class Chess
 		* @param Piece* selectedP, pointeur d'une piece
 		* @param Piece* selectedD, pointeur d'une piece
 		*/
-		bool gererpetitroque(Player* playerIG,Piece* selectedP,Piece* selectedD);
+		bool tryCastling(Player* playerIG,Piece* selectedP,Piece* selectedD);
 
 		/**
 		* @brief fonction permettant de savoir si le grand roque est possible
@@ -160,19 +160,19 @@ class Chess
 		* @param Piece* selectedP, pointeur d'une piece
 		* @param Piece* selectedD, pointeur d'une piece
 		*/
-		bool gerergrandroque(Player* playerIG,Piece* selectedP,Piece* selectedD);
+		bool tryGCastling(Player* playerIG,Piece* selectedP,Piece* selectedD);
 
 		/**
 		* @brief Procédure permettant de faire le petit roque
 		* @param Player* playerIG, joueur actuellement en jeu
 		*/
-		void fairepetitroque(Player* playerIG);
+		void castling(Player* playerIG);
 
 		/**
 		* @brief Procédure permettant de faire le grand roque
 		* @param Player* playerIG, joueur actuellement en jeu
 		*/
-		void fairegrandroque(Player* playerIG);
+		void gCastling(Player* playerIG);
 		
 		/**
 		* @brief fonction permettant de savoir si une piece appartient au player IG
@@ -180,13 +180,13 @@ class Chess
 		* @param Player* playerIG, joueur actuellement en jeu
 		* @return bool
 		*/
-		bool testpieceappartence(Piece* piece, Player* playerIG);
+		bool isPieceIn(Piece* piece, Player* playerIG);
 	
 		/**
 		* @brief fonction permettant de savoir si la partie se trouve en partie nulle
 		* @return bool
 		*/
-		bool testnull();
+		bool isNull();
 
 		/**
 		* @brief Lance le début d'une partie

@@ -163,15 +163,15 @@ State* Player::getEndState()
 }
 
 //------------------------------------------------------------------------------------------------------
-Piece* Player::getking()
+Piece* Player::getKing()
 {
 	return _pieces[12];
 }
 
 //------------------------------------------------------------------------------------------------------
-bool Player::ischeckmate()
+bool Player::isCheckMate()
 {
-	return _state->ischeckmate();
+	return _state->isCheckMate();
 }
 //------------------------------------------------------------------------------------------------------
 bool Player::ischeck()
