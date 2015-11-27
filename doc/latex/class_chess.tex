@@ -16,7 +16,7 @@ void \hyperlink{class_chess_a8fc79b0c34c21d522abd9b8ae62ee38f}{init\-Board} ()
 \begin{DoxyCompactList}\small\item\em Initialise le plateau de jeu. \end{DoxyCompactList}\item 
 \hyperlink{class_piece}{Piece} $\ast$ \hyperlink{class_chess_a67069ea8ee1fce34961fc9c645c4dc10}{select\-Dest} (\hyperlink{class_player}{Player} $\ast$player, \hyperlink{class_piece}{Piece} $\ast$piece, unsigned int x, unsigned int y)
 \begin{DoxyCompactList}\small\item\em Permet au joueur de selectionner une destination pour son déplacement de pièce. \end{DoxyCompactList}\item 
-bool \hyperlink{class_chess_ae24e3b25128b76757859c913fae1930f}{no\-Collision} (\hyperlink{class_piece}{Piece} $\ast$selected\-P, \hyperlink{class_piece}{Piece} $\ast$selected\-D, \hyperlink{class_piece}{Piece} $\ast$pieceaeviter)
+bool \hyperlink{class_chess_ac29b7a4bed77102b3ddaf079ce2c9abf}{no\-Collision} (\hyperlink{class_piece}{Piece} $\ast$selected\-P, \hyperlink{class_piece}{Piece} $\ast$selected\-D, \hyperlink{class_piece}{Piece} $\ast$pieceaeviter, \hyperlink{class_piece}{Piece} $\ast$piece\-D)
 \begin{DoxyCompactList}\small\item\em Vérifie s'il n'y a pas de collision lors du déplacement de la pièce vers la destination sélectionée. \end{DoxyCompactList}\item 
 void \hyperlink{class_chess_aec36eadf1a550d2f6c85ec8a23bac2d1}{move\-Piece} (\hyperlink{class_piece}{Piece} $\ast$selected\-P, \hyperlink{class_piece}{Piece} $\ast$selected\-D)
 \begin{DoxyCompactList}\small\item\em Effectue le déplacement de la pièce selectionnée vers la destination. \end{DoxyCompactList}\item 
@@ -277,15 +277,16 @@ Effectue le déplacement de la pièce selectionnée vers la destination.
 {\em Piece$\ast$} & selected\-D, pointeur vers la pièce représentant la destination \\
 \hline
 \end{DoxyParams}
-\hypertarget{class_chess_ae24e3b25128b76757859c913fae1930f}{\index{Chess@{Chess}!no\-Collision@{no\-Collision}}
+\hypertarget{class_chess_ac29b7a4bed77102b3ddaf079ce2c9abf}{\index{Chess@{Chess}!no\-Collision@{no\-Collision}}
 \index{no\-Collision@{no\-Collision}!Chess@{Chess}}
 \subsubsection[{no\-Collision}]{\setlength{\rightskip}{0pt plus 5cm}bool Chess\-::no\-Collision (
 \begin{DoxyParamCaption}
 \item[{{\bf Piece} $\ast$}]{selected\-P, }
 \item[{{\bf Piece} $\ast$}]{selected\-D, }
-\item[{{\bf Piece} $\ast$}]{pieceaeviter = {\ttfamily NULL}}
+\item[{{\bf Piece} $\ast$}]{pieceaeviter = {\ttfamily NULL}, }
+\item[{{\bf Piece} $\ast$}]{piece\-D = {\ttfamily NULL}}
 \end{DoxyParamCaption}
-)}}\label{class_chess_ae24e3b25128b76757859c913fae1930f}
+)}}\label{class_chess_ac29b7a4bed77102b3ddaf079ce2c9abf}
 
 
 Vérifie s'il n'y a pas de collision lors du déplacement de la pièce vers la destination sélectionée. 

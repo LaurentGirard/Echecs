@@ -12,7 +12,7 @@ var class_chess =
     [ "listCanEatKing", "class_chess.html#a860115fe5245b5d361ccb3ce7ea545b6", null ],
     [ "listPieces", "class_chess.html#ac70f9b16162244c5ab75e93b52db2024", null ],
     [ "movePiece", "class_chess.html#aec36eadf1a550d2f6c85ec8a23bac2d1", null ],
-    [ "noCollision", "class_chess.html#ae24e3b25128b76757859c913fae1930f", null ],
+    [ "noCollision", "class_chess.html#ac29b7a4bed77102b3ddaf079ce2c9abf", null ],
     [ "onTheWay", "class_chess.html#a7b2dde25a7cbe133dbb0fa9e71909e8f", null ],
     [ "printBoard", "class_chess.html#a9cd677e16f4c08ddcdad57a4e12be99f", null ],
     [ "selectDest", "class_chess.html#a67069ea8ee1fce34961fc9c645c4dc10", null ],

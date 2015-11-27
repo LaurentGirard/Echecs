@@ -2,19 +2,4 @@
 
 faire un tuto
 
-Fichier contenant les différentes erreurs : pattern ?
 
--------------------A revoir----------------------
-petit et grand roque dans test echec et mat // vérif avec tests !!!!
-
-revoir pour l'interdiction du déplacement de certaine piece quand il se trouve en echec ! // normalement c'est bon !!! faire pleins de test !!!
-voir le cas Le déplacement n’entraîne pas la mise en échec de son propre roi. // normalement c'est bon !!! faire pleins de test !!!
-
-Si le roi n'est pas en échec mais que le joueur ne peut faire aucun déplacement avec l'une de ses pièces (le roi compris)normalement c'est bon !!! faire pleins de test !!!
-
-Si la partie ne peut pas se finir, genre s'il ne reste plus que Roi contre Roi, Roi et fou contre Roi, etc.normalement c'est bon !!! faire pleins de test !!!
-Il y a une liste de cas comme ça
-
-A REVOIR URGENT :
-Revoir tous les copier coller que tu as fait (cf transformationsSpawns : il y a des trucs que tu executes dans tous tes "if")
-Revoir le nom des variables dans "onTheWay"

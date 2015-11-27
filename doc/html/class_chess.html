@@ -128,9 +128,9 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:a67069ea8ee1fce34961fc9c645c4dc10"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_piece.html">Piece</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess.html#a67069ea8ee1fce34961fc9c645c4dc10">selectDest</a> (<a class="el" href="class_player.html">Player</a> *player, <a class="el" href="class_piece.html">Piece</a> *piece, unsigned int x, unsigned int y)</td></tr>
 <tr class="memdesc:a67069ea8ee1fce34961fc9c645c4dc10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet au joueur de selectionner une destination pour son déplacement de pièce.  <a href="#a67069ea8ee1fce34961fc9c645c4dc10">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a67069ea8ee1fce34961fc9c645c4dc10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae24e3b25128b76757859c913fae1930f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess.html#ae24e3b25128b76757859c913fae1930f">noCollision</a> (<a class="el" href="class_piece.html">Piece</a> *selectedP, <a class="el" href="class_piece.html">Piece</a> *selectedD, <a class="el" href="class_piece.html">Piece</a> *pieceaeviter)</td></tr>
-<tr class="memdesc:ae24e3b25128b76757859c913fae1930f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie s'il n'y a pas de collision lors du déplacement de la pièce vers la destination sélectionée.  <a href="#ae24e3b25128b76757859c913fae1930f">Plus de détails...</a><br/></td></tr>
-<tr class="separator:ae24e3b25128b76757859c913fae1930f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac29b7a4bed77102b3ddaf079ce2c9abf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess.html#ac29b7a4bed77102b3ddaf079ce2c9abf">noCollision</a> (<a class="el" href="class_piece.html">Piece</a> *selectedP, <a class="el" href="class_piece.html">Piece</a> *selectedD, <a class="el" href="class_piece.html">Piece</a> *pieceaeviter, <a class="el" href="class_piece.html">Piece</a> *pieceD)</td></tr>
+<tr class="memdesc:ac29b7a4bed77102b3ddaf079ce2c9abf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie s'il n'y a pas de collision lors du déplacement de la pièce vers la destination sélectionée.  <a href="#ac29b7a4bed77102b3ddaf079ce2c9abf">Plus de détails...</a><br/></td></tr>
+<tr class="separator:ac29b7a4bed77102b3ddaf079ce2c9abf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec36eadf1a550d2f6c85ec8a23bac2d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess.html#aec36eadf1a550d2f6c85ec8a23bac2d1">movePiece</a> (<a class="el" href="class_piece.html">Piece</a> *selectedP, <a class="el" href="class_piece.html">Piece</a> *selectedD)</td></tr>
 <tr class="memdesc:aec36eadf1a550d2f6c85ec8a23bac2d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Effectue le déplacement de la pièce selectionnée vers la destination.  <a href="#aec36eadf1a550d2f6c85ec8a23bac2d1">Plus de détails...</a><br/></td></tr>
 <tr class="separator:aec36eadf1a550d2f6c85ec8a23bac2d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -541,7 +541,7 @@ Fonctions membres publiques</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae24e3b25128b76757859c913fae1930f"></a>
+<a class="anchor" id="ac29b7a4bed77102b3ddaf079ce2c9abf"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -561,7 +561,13 @@ Fonctions membres publiques</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="class_piece.html">Piece</a> *&#160;</td>
-          <td class="paramname"><em>pieceaeviter</em> = <code>NULL</code>&#160;</td>
+          <td class="paramname"><em>pieceaeviter</em> = <code>NULL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_piece.html">Piece</a> *&#160;</td>
+          <td class="paramname"><em>pieceD</em> = <code>NULL</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -955,7 +961,7 @@ Fonctions membres publiques</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_chess.html">Chess</a></li>
-    <li class="footer">Généré le Vendredi 27 Novembre 2015 11:13:38 pour Echecs par
+    <li class="footer">Généré le Vendredi 27 Novembre 2015 17:26:56 pour Echecs par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
