@@ -226,7 +226,6 @@ bool Chess::listCanEatKing(std::vector<Piece*> list, Player* advers, Player* pla
 					{
 						res = true;
 					}
-					std::cout<<"okokok beug"<<res<<std::endl;
 				}
 			}
 		}
