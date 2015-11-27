@@ -105,7 +105,7 @@ Piece* Chess::selectDest(Player* player, Piece* piece, unsigned int x, unsigned 
 }
 
 //------------------------------------------------------------------------------------------------------
-bool Chess::noCollision(Piece* selectedP, Piece* selectedD, Piece* pieceeaeviter = NULL)
+bool Chess::noCollision(Piece* selectedP, Piece* selectedD, Piece* pieceeaeviter = NULL, Piece* pieceD = NULL)
 {
 	bool noCollision = true;
 	bool found = false;
@@ -138,8 +138,13 @@ bool Chess::noCollision(Piece* selectedP, Piece* selectedD, Piece* pieceeaeviter
 				noCollision = (_board[x][y]->getLabel() == " "); // Si le label de la case (x,y) est " ", alors il n'y a pas de pièce réelle sur la case [i][k]
 			}else
 			{
-				if( ! (( pieceeaeviter->getSquare()->getX() == x ) && ( pieceeaeviter->getSquare()->getY() == y ) ) )
+				std::cout<<"no collision "<<noCollision<<" label "<<_board[x][y]->getLabel()<<std::endl;
+				if( (( pieceeaeviter->getSquare()->getX() != x ) && ( pieceeaeviter->getSquare()->getY() != y ))  )
 					noCollision = (_board[x][y]->getLabel() == " "); // Si le label de la case (x,y) est " ", alors il n'y a pas de pièce réelle sur la case [i][k]
+				std::cout<<"no collision "<<noCollision<<" label "<<_board[x][y]->getLabel()<<std::endl;
+				
+				if( pieceD!= NULL &&pieceD->getSquare()->getX()==x && pieceD->getSquare()->getY()==y )
+					noCollision = false;
 			}
 		++k;
 		x = selectedP->getMovements()[i][k]->getX();		
@@ -196,12 +201,14 @@ bool Chess::listCanEatKing(std::vector<Piece*> list, Player* advers, Player* pla
 	bool res = false;
 	Piece* king = playerIG->getPieces()[12];
 	Piece* piecetueuse = NULL;
-
 	for(int i = 0; i < list.size() ; ++i)
 	{
 		piecetueuse = list[i];//on prend toute les pieces du joueur adverse
+
 		if (!(selectDest(advers,piecetueuse, king->getSquare()->getX(), king->getSquare()->getY())==NULL))// si la piecetueuse peut aller théoriquement manger la piece selectedp
 		{
+			if(selectedD->getSquare()==piecetueuse->getSquare())
+				return false;
 			if(!(selectDest(advers,piecetueuse, selectedD->getSquare()->getX(), selectedD->getSquare()->getY())==NULL))
 			{
 				if(selectedP==king)
@@ -211,8 +218,18 @@ bool Chess::listCanEatKing(std::vector<Piece*> list, Player* advers, Player* pla
 				}
 				else
 				{
-					if(noCollision(piecetueuse, king, selectedP))//si la piecetueuse peut aller manger le roi en sautant la piece selectedP
+					if(noCollision(piecetueuse, king, selectedP, selectedD))//si la piecetueuse peut aller manger le roi en sautant la piece selectedP
 						res = true;
+					std::cout<<"res ?"<<res <<" nocollision ? "<<noCollision(piecetueuse, king, selectedP)<<std::endl;
+				}
+			}else
+			{
+				if(!(selectDest(advers,piecetueuse, selectedP->getSquare()->getX(), selectedP->getSquare()->getY())==NULL))
+				{
+						if(noCollision(piecetueuse, king, selectedD))
+						{
+							res = true;
+						}
 				}
 			}
 		}

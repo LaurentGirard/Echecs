@@ -54,7 +54,7 @@ class Chess
 		* @param Piece* selectedD, pointeur vers la pièce représentant la destination
 		* @return bool, vrai s'il n'y a pas de collision, faux sinon
 		*/
-			bool noCollision(Piece* selectedP, Piece* selectedD, Piece* pieceaeviter);
+			bool noCollision(Piece* selectedP, Piece* selectedD, Piece* pieceaeviter, Piece* pieceD);
 
 		/**
 		* @brief Effectue le déplacement de la pièce selectionnée vers la destination
