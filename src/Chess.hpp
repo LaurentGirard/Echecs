@@ -49,9 +49,11 @@ class Chess
 
 		/**
 		* @brief Vérifie s'il n'y a pas de collision lors du déplacement de la pièce vers la destination sélectionée
-		* @param Player* player, pointeur vers le joueur en jeu
 		* @param Piece* selectedP, pointeur vers la pièce selectionnée
 		* @param Piece* selectedD, pointeur vers la pièce représentant la destination
+		* @param Piece* pieceaeviter = NULL, pointeur vers la pièce représentant une piece a éviter
+		* @param Piece* pieceD = NULL , pointeur vers la pièce représentant la destination virtuel
+
 		* @return bool, vrai s'il n'y a pas de collision, faux sinon
 		*/
 			bool noCollision(Piece* selectedP, Piece* selectedD, Piece* pieceaeviter, Piece* pieceD);

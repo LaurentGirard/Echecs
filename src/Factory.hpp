@@ -1,6 +1,6 @@
 /**
  * @file Factory.hpp
- * @author P. Sullivan, G.Laurent
+* @author G.Laurent, P. Sullivan
  * @since 25/12/2015
  * @brief Définition de la factoty
  *

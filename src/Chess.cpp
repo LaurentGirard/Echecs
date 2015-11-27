@@ -138,7 +138,7 @@ bool Chess::noCollision(Piece* selectedP, Piece* selectedD, Piece* pieceeaeviter
 				noCollision = (_board[x][y]->getLabel() == " "); // Si le label de la case (x,y) est " ", alors il n'y a pas de pièce réelle sur la case [i][k]
 			}else
 			{
-				if( (( pieceeaeviter->getSquare()->getX() != x ) && ( pieceeaeviter->getSquare()->getY() != y ))  )
+				if( (( pieceeaeviter->getSquare()->getX() != x ) || ( pieceeaeviter->getSquare()->getY() != y ))  )
 					noCollision = (_board[x][y]->getLabel() == " "); // Si le label de la case (x,y) est " ", alors il n'y a pas de pièce réelle sur la case [i][k]				
 				if( pieceD!= NULL &&pieceD->getSquare()->getX()==x && pieceD->getSquare()->getY()==y )
 					noCollision = false;
@@ -222,10 +222,11 @@ bool Chess::listCanEatKing(std::vector<Piece*> list, Player* advers, Player* pla
 			{
 				if(!(selectDest(advers,piecetueuse, selectedP->getSquare()->getX(), selectedP->getSquare()->getY())==NULL))
 				{
-						if(noCollision(piecetueuse, king, selectedD))
-						{
-							res = true;
-						}
+					if(noCollision(piecetueuse, king, selectedP, selectedD))
+					{
+						res = true;
+					}
+					std::cout<<"okokok beug"<<res<<std::endl;
 				}
 			}
 		}
@@ -242,9 +243,13 @@ bool Chess::onTheWay(Player* playerIG, Piece* pieceD, Player* advers){
 	Piece* piecetueuse = NULL;
 	bool trouve = false;
 	int i = 0;
-	int yy = pieceD->getSquare()->getY();
-	int xx = pieceD->getSquare()->getX();
-
+	int ypieceD = pieceD->getSquare()->getY();
+	int xpieceD = pieceD->getSquare()->getX();
+	int xpiecetueuse;	
+	int ypiecetueuse;
+	int w = 0;
+	int indice = 0;
+	int indicebis = 0;
 	while((!trouve) && (i < 16) )
 	{
 		piecetueuse= advers->getPieces()[i];//on prend toute les pieces du joueur adverse
@@ -254,12 +259,8 @@ bool Chess::onTheWay(Player* playerIG, Piece* pieceD, Player* advers){
 			++i;
 	}
 	//recherche l'indice dans movements
-	int w = 0;
 	i = 0;
-	int indice = 0;
-	int indicebis = 0;
 	trouve = false;
-
 	if(!(piecetueuse == NULL))
 	{
 		/********************************************/
@@ -291,13 +292,11 @@ bool Chess::onTheWay(Player* playerIG, Piece* pieceD, Player* advers){
 			trouve=true;
 
 		//regarde si la destination est bien sur le passage de la piece
-		int xxx;	
-		int yyy;
 		for(w = 0 ; w < indicebis ; ++w)
 		{
-			xxx = piecetueuse->getMovements()[indice][w]->getX();
-			yyy = piecetueuse->getMovements()[indice][w]->getY();
-			if ( (xx == xxx) && (yy == yyy) )
+			xpiecetueuse = piecetueuse->getMovements()[indice][w]->getX();
+			ypiecetueuse = piecetueuse->getMovements()[indice][w]->getY();
+			if ( (xpieceD == xpiecetueuse) && (ypieceD == ypiecetueuse) )
 				trouve = true;						
 		}
 	}
@@ -465,7 +464,9 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 	bool arreter = false;
 	std::string arret;
 	int value_returned;
-	
+	int xroipetit;
+	int yroipetit;
+	bool test1, test2, test3;
 	std::cout << " C'est au tour de : " << playerIG->getName() << std::endl;
 	std::cout << "---------------------------------------------------------" << std::endl << std::endl;
 
@@ -532,11 +533,11 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 								// si le cas du petit roque est demandé 
 								if(selectedP->getSquare()->getX()<6&&selectedD->getSquare()->getX()==(selectedP->getSquare()->getX()+2))
 								{
-									int xroipetit = selectedP->getSquare()->getX();
-									int yroipetit = selectedP->getSquare()->getY();
+									xroipetit = selectedP->getSquare()->getX();
+									yroipetit = selectedP->getSquare()->getY();
 									// regarde si aucune pieces se trouve entre le roi et la tour
-									bool test1 = (_board[xroipetit+1][yroipetit]->getLabel()==" ");
-									bool test2 = (_board[xroipetit+2][yroipetit]->getLabel()==" ");
+									test1 = (_board[xroipetit+1][yroipetit]->getLabel()==" ");
+									test2 = (_board[xroipetit+2][yroipetit]->getLabel()==" ");
 									if(test1 && test2)
 										roque = tryCastling(playerIG,selectedP,selectedD);
 										if(roque)
@@ -551,9 +552,9 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 										int xroipetit = selectedP->getSquare()->getX();
 										int yroipetit = selectedP->getSquare()->getY();
 										// regarde si aucune pieces se trouve entre le roi et la tour
-										bool test1 = (_board[xroipetit-1][yroipetit]->getLabel()==" ");
-										bool test2 = (_board[xroipetit-2][yroipetit]->getLabel()==" ");
-										bool test3 = (_board[xroipetit-3][yroipetit]->getLabel()==" ");
+										test1 = (_board[xroipetit-1][yroipetit]->getLabel()==" ");
+										test2 = (_board[xroipetit-2][yroipetit]->getLabel()==" ");
+										test3 = (_board[xroipetit-3][yroipetit]->getLabel()==" ");
 										if(test1 && test2 && test3)
 										{
 											roque = tryGCastling(playerIG,selectedP,selectedD);
@@ -804,7 +805,9 @@ bool Chess::isNull()
 	int i;
 	bool res = false;
 	bool test1 = true;
-
+	bool test2;
+	bool test3;
+	bool test4;
 	for (i = 0 ; i < 16 ; ++i)
 	{
 		if(p1->getPieces()[i]->isAlive())
@@ -836,7 +839,7 @@ bool Chess::isNull()
 	if(!res)
 	{
 		// s'il ne reste plus que deux rois et un fou
-		bool test2 = true;
+		test2 = true;
 		for(i = 0 ; i < 16 ; ++i)
 		{
 			if(i != 12)
@@ -868,7 +871,7 @@ bool Chess::isNull()
 		if(!res)
 		{
 			// s'il ne reste plus que deux roi et un cavalier
-			bool test3 = true;
+			test3 = true;
 			for(i = 0 ; i < 16 ; ++i)
 			{
 				if(i!=12)
@@ -898,7 +901,7 @@ bool Chess::isNull()
 			if(!res)
 			{	
 				// s'il ne reste plus que un roi et 1 fou pour chaque joueurs
-				bool test4 = true;
+				test4 = true;
 				for(i = 0; i < 16 ; ++i)
 				{
 					if(i != 12)

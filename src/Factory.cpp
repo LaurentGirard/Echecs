@@ -1,6 +1,6 @@
 /**
 * @file Piece.cpp
-* @author P. Sullivan, G.Laurent
+* @author G.Laurent, P. Sullivan
 * @since 25/12/2015
 * @brief implémentation des méthodes de la classe Factory
 *
