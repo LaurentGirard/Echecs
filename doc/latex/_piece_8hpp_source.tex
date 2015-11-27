@@ -1,0 +1,142 @@
+\hypertarget{_piece_8hpp}{\section{Piece.\-hpp}
+\label{_piece_8hpp}\index{src/\-Piece.\-hpp@{src/\-Piece.\-hpp}}
+}
+
+\begin{DoxyCode}
+00001 
+00009 \textcolor{preprocessor}{#ifndef \_\_Piece\_HPP\_\_}
+00010 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define \_\_Piece\_HPP\_\_}
+00011 \textcolor{preprocessor}{}
+00012 \textcolor{preprocessor}{#include "\hyperlink{_cell_8hpp}{Cell.hpp}"}
+00013 \textcolor{preprocessor}{#include <vector>}
+00014 \textcolor{preprocessor}{#include <string>}
+00015  
+\hypertarget{_piece_8hpp_source_l00023}{}\hyperlink{class_piece}{00023} \textcolor{keyword}{class }\hyperlink{class_piece}{Piece}
+00024 \{
+00025     \textcolor{keyword}{protected}:
+00026 
+\hypertarget{_piece_8hpp_source_l00027}{}\hyperlink{class_piece_a1e38a3d73f5f7171eca664a77c7aaeff}{00027}         \hyperlink{class_cell}{Cell}* \hyperlink{class_piece_a1e38a3d73f5f7171eca664a77c7aaeff}{square};                                         \textcolor{comment}{// attribut : case sur laquelle est
+       la pièce}
+\hypertarget{_piece_8hpp_source_l00028}{}\hyperlink{class_piece_a8b3c2f812ead74ba513f521e63f767f9}{00028}         \textcolor{keywordtype}{bool} \hyperlink{class_piece_a8b3c2f812ead74ba513f521e63f767f9}{alive};                                      \textcolor{comment}{// attribut : état de la pièce ( 0 = pièce
+       détruite ; 1 = pièce en vie )}
+\hypertarget{_piece_8hpp_source_l00029}{}\hyperlink{class_piece_a022b28159d944243023804a678d7024f}{00029}             std::vector< std::vector<Cell*> > \hyperlink{class_piece_a022b28159d944243023804a678d7024f}{movements};          \textcolor{comment}{// attribut : liste de liste de
+       cases représentant les déplacements possibles de la pièce}
+\hypertarget{_piece_8hpp_source_l00030}{}\hyperlink{class_piece_aec026f7ca20120f0b635591de2f86662}{00030}             std::string \hyperlink{class_piece_aec026f7ca20120f0b635591de2f86662}{label};                                    \textcolor{comment}{// attribut : libellé de la pièce (S
+       = Spawn, R = Rook, C = Knight etc.)}
+00031     
+00032       \textcolor{keyword}{public}:
+00033 
+00037             \hyperlink{class_piece_ac57de5803bbad829b143bc7268267dc1}{Piece}();
+00038 
+00044         \hyperlink{class_piece_ac57de5803bbad829b143bc7268267dc1}{Piece}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} x, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} y);
+00045 
+00049         \textcolor{keyword}{virtual} \hyperlink{class_piece_a5d7a4f6bade94cb33b6f634de8aa7918}{~Piece}();
+00050 
+00055         \hyperlink{class_cell}{Cell}* \hyperlink{class_piece_a91fddbcc85fe9fbbca1897079ce9b9e5}{getSquare}();
+00056 
+00061         \textcolor{keywordtype}{void} \hyperlink{class_piece_af405feca349d71dfacb20b128c3cc686}{setSquare}(\hyperlink{class_cell}{Cell}* newCell);
+00062 
+00067         \textcolor{keywordtype}{bool} \hyperlink{class_piece_a9f6a89d6fd5ae865af73c2220d1a5839}{isAlive}();
+00068 
+00073         \textcolor{keywordtype}{void} \hyperlink{class_piece_ad4161cd37efb373e08b50cdf43b07b5f}{setAlive}(\textcolor{keywordtype}{bool} newAlive);
+00074 
+00079             std::string \hyperlink{class_piece_ab0b61a2a0f2f3d977b4b1946ab328f2b}{getLabel}();
+00080 
+00084         \textcolor{keywordtype}{void} \hyperlink{class_piece_ae9c47c1e15caf3ecf060c274aec62820}{printPiece}();
+00085         
+00089         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_piece_ae721b5ed94376fd4e7d348d36739ed4d}{movement}();
+00090 
+00095         std::vector< std::vector<Cell*> > \hyperlink{class_piece_af2a3be14e4732ac3f09a84a9cbefbf5b}{getMovements}();
+00096 \};
+00097 
+\hypertarget{_piece_8hpp_source_l00105}{}\hyperlink{class_spawn}{00105} \textcolor{keyword}{class }\hyperlink{class_spawn}{Spawn} : \textcolor{keyword}{public} \hyperlink{class_piece}{Piece}
+00106 \{
+00107     \textcolor{keyword}{private}:
+00108 
+00109         \textcolor{keywordtype}{bool} \_direction;
+00110 
+00111       \textcolor{keyword}{public}:
+00112 
+00119             \hyperlink{class_spawn_ad401aa751cbbf9ea4f444e3011ff36b5}{Spawn}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} x, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} y, \textcolor{keywordtype}{bool} direction);
+00120 
+00124             \hyperlink{class_spawn_aea08036b23acdb06fd47eba35dc2a8cf}{~Spawn}();
+00125 
+00129             \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_spawn_ae176dffa40411480840c3e39cd619300}{movement}();
+00130 \};
+00131 
+00132 
+\hypertarget{_piece_8hpp_source_l00140}{}\hyperlink{class_rook}{00140} \textcolor{keyword}{class }\hyperlink{class_rook}{Rook} : \textcolor{keyword}{public} \hyperlink{class_piece}{Piece}
+00141 \{
+00142       \textcolor{keyword}{private}:
+00143 
+00144             \textcolor{keywordtype}{bool} \_moved;                        \textcolor{comment}{// attribut : permet de savoir si la tour a bougé ou non
+       pendant la partie}
+00145 
+00146       \textcolor{keyword}{public}:
+00147 
+00153             \hyperlink{class_rook_ab9613a93abc8a73bda94c596868ec1b1}{Rook}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} x, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} y);
+00154 
+00158             \hyperlink{class_rook_a70d445b94848b22ded850b6f58bc2972}{~Rook}();
+00159 
+00164             \textcolor{keywordtype}{bool} \hyperlink{class_rook_afb50e8a85759ba7518b55dace6b6e406}{asMoved}();
+00165 
+00170             \textcolor{keywordtype}{void} \hyperlink{class_rook_a7ee5b6169a3fff6d5536ba0c02607950}{setMoved}(\textcolor{keywordtype}{bool} newMoved);
+00171 
+00175             \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_rook_acc6139577c8ca679a93dcfbe42b71cb3}{movement}();
+00176 \};
+00177 
+\hypertarget{_piece_8hpp_source_l00185}{}\hyperlink{class_knight}{00185} \textcolor{keyword}{class }\hyperlink{class_knight}{Knight} : \textcolor{keyword}{public} \hyperlink{class_piece}{Piece}
+00186 \{
+00187     \textcolor{keyword}{public}:
+00188 
+00194         \hyperlink{class_knight_ae39d8e49ade7c0b66cf35dad69f2d2db}{Knight}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} x, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} y);
+00195 
+00199         \hyperlink{class_knight_a2754123d6876babe915f4da8f761361b}{~Knight}();
+00200 
+00204             \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_knight_ab228b385a3154ecdc18fce4cc0df9cd6}{movement}();
+00205 \};
+00206 
+\hypertarget{_piece_8hpp_source_l00214}{}\hyperlink{class_bishop}{00214} \textcolor{keyword}{class }\hyperlink{class_bishop}{Bishop} : \textcolor{keyword}{public} \hyperlink{class_piece}{Piece}
+00215 \{
+00216       \textcolor{keyword}{public}:
+00217 
+00223             \hyperlink{class_bishop_a7e73da51fcaac88ce0d16e78221142ee}{Bishop}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} x, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} y);
+00224 
+00228             \hyperlink{class_bishop_a3705b4537a39d09a59143fe01a62442f}{~Bishop}();
+00229 
+00233             \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_bishop_abd25da5816a737ab64880cbaa7bd7582}{movement}();
+00234 \};
+00235 
+\hypertarget{_piece_8hpp_source_l00243}{}\hyperlink{class_queen}{00243} \textcolor{keyword}{class }\hyperlink{class_queen}{Queen} : \textcolor{keyword}{public} \hyperlink{class_piece}{Piece}
+00244 \{
+00245       \textcolor{keyword}{public}:
+00246 
+00252             \hyperlink{class_queen_a90ebaca4522d07b5a662b20c09a968aa}{Queen}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} x, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} y);
+00253 
+00257             \hyperlink{class_queen_aa22f6c1a49a583b549bd1f940e50721d}{~Queen}();
+00258 
+00262             \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_queen_a6cf9ea1320f2ebe6fa9bb35430e63603}{movement}();
+00263 \};
+00264 
+\hypertarget{_piece_8hpp_source_l00272}{}\hyperlink{class_king}{00272} \textcolor{keyword}{class }\hyperlink{class_king}{King} : \textcolor{keyword}{public} \hyperlink{class_piece}{Piece}
+00273 \{
+00274       \textcolor{keyword}{private}:
+00275 
+00276             \textcolor{keywordtype}{bool} \_moved;                        \textcolor{comment}{// attribut : permet de savoir si le roi a bougé ou non
+       pendant la partie}
+00277 
+00278       \textcolor{keyword}{public}:
+00279 
+00284             \hyperlink{class_king_af934f2cda4bb5baca66c2ae114997b6e}{King}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} x, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} y);
+00285 
+00289             \hyperlink{class_king_aac368ce96e2b12f62e3608d27262e941}{~King}();
+00290 
+00295             \textcolor{keywordtype}{bool} \hyperlink{class_king_a1e7d9da6599c3e3ab9cbc4d5026f0dcf}{asMoved}();
+00296 
+00301             \textcolor{keywordtype}{void} \hyperlink{class_king_a29a4ff10443abb0b0ecd088c88861d18}{setMoved}(\textcolor{keywordtype}{bool} newMoved);
+00302 
+00306             \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_king_aabc0b7a9a553383e7aba11daecbbc61c}{movement}();
+00307 \};
+00308 
+00309 \textcolor{preprocessor}{#endif // \_\_Piece\_HPP\_\_}
+\end{DoxyCode}

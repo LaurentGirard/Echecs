@@ -1,0 +1,213 @@
+\hypertarget{class_mate_state}{\section{Référence de la classe Mate\-State}
+\label{class_mate_state}\index{Mate\-State@{Mate\-State}}
+}
+
+
+{\ttfamily \#include $<$State.\-hpp$>$}
+
+Graphe d'héritage de Mate\-State\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_mate_state}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_mate_state_aa4a8a6d8614ffddaeac5cf19b2707136}{Mate\-State} (\hyperlink{class_player}{Player} $\ast$p)
+\begin{DoxyCompactList}\small\item\em Constructeur, crée un Etat\-Mate à l'aide du constructeur de \hyperlink{class_state}{State} avec un Joueur en paramètre. \end{DoxyCompactList}\item 
+\hyperlink{class_mate_state_af75f5df59f008abe5e1913e1d55acbad}{$\sim$\-Mate\-State} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de l'objet \hyperlink{class_mate_state}{Mate\-State}. \end{DoxyCompactList}\item 
+void \hyperlink{class_mate_state_a99575ed4587f029511bc5bd1ec9ab262}{in\-Game} ()
+\begin{DoxyCompactList}\small\item\em Définition de la procédure virtuelle, pas d'effet dans cet Etat là \end{DoxyCompactList}\item 
+void \hyperlink{class_mate_state_a2205b5879c63fcdf469002d9d5203bb3}{check} ()
+\begin{DoxyCompactList}\small\item\em Définition de la procédure virtuelle, pas d'effet dans cet Etat là \end{DoxyCompactList}\item 
+void \hyperlink{class_mate_state_af785a3407109dd3d0a6868a358c92213}{check\-Mate} ()
+\begin{DoxyCompactList}\small\item\em Définition de la procédure virtuelle, pas d'effet dans cet Etat là \end{DoxyCompactList}\item 
+void \hyperlink{class_mate_state_a59ad17cb3366c560b921619d52f00181}{game\-Null} ()
+\begin{DoxyCompactList}\small\item\em Définition de la procédure virtuelle, pas d'effet dans cet Etat là \end{DoxyCompactList}\item 
+void \hyperlink{class_mate_state_a19b4fa2115a36da6e1dd333a617ee7bb}{game\-End} ()
+\begin{DoxyCompactList}\small\item\em Définition de la procédure virtuelle, transition vers l'état End\-Game. \end{DoxyCompactList}\item 
+void \hyperlink{class_mate_state_ab96d11c6cbb289483659d55bb8735c77}{print} ()
+\begin{DoxyCompactList}\small\item\em Définition de la procédure virtuelle, affiche l'état \hyperlink{class_mate_state}{Mate\-State}. \end{DoxyCompactList}\item 
+bool \hyperlink{class_mate_state_a9b9eb5923dc94adb69b28174d580c3b1}{ischeckmate} ()
+\begin{DoxyCompactList}\small\item\em procédure virtuelle permettant de savoir s'il se trouve en possition d'echec \end{DoxyCompactList}\item 
+bool \hyperlink{class_mate_state_a47e7642586f54efaa977755bb2b2311d}{ischeck} ()
+\begin{DoxyCompactList}\small\item\em procédure virtuelle permettant de savoir s'il se trouve en possition d'echec et mate \end{DoxyCompactList}\item 
+bool \hyperlink{class_mate_state_a0d586f9c4dafd94ebfa6b14e425fff8b}{isnulle} ()
+\begin{DoxyCompactList}\small\item\em procédure virtuelle permettant de savoir s'il se trouve en possition nulle \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{class_mate_state_aa4a8a6d8614ffddaeac5cf19b2707136}{\index{Mate\-State@{Mate\-State}!Mate\-State@{Mate\-State}}
+\index{Mate\-State@{Mate\-State}!MateState@{Mate\-State}}
+\subsubsection[{Mate\-State}]{\setlength{\rightskip}{0pt plus 5cm}Mate\-State\-::\-Mate\-State (
+\begin{DoxyParamCaption}
+\item[{{\bf Player} $\ast$}]{p}
+\end{DoxyParamCaption}
+)}}\label{class_mate_state_aa4a8a6d8614ffddaeac5cf19b2707136}
+
+
+Constructeur, crée un Etat\-Mate à l'aide du constructeur de \hyperlink{class_state}{State} avec un Joueur en paramètre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_mate_state_af75f5df59f008abe5e1913e1d55acbad}{\index{Mate\-State@{Mate\-State}!$\sim$\-Mate\-State@{$\sim$\-Mate\-State}}
+\index{$\sim$\-Mate\-State@{$\sim$\-Mate\-State}!MateState@{Mate\-State}}
+\subsubsection[{$\sim$\-Mate\-State}]{\setlength{\rightskip}{0pt plus 5cm}Mate\-State\-::$\sim$\-Mate\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_mate_state_af75f5df59f008abe5e1913e1d55acbad}
+
+
+Destructeur de l'objet \hyperlink{class_mate_state}{Mate\-State}. 
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_mate_state_a2205b5879c63fcdf469002d9d5203bb3}{\index{Mate\-State@{Mate\-State}!check@{check}}
+\index{check@{check}!MateState@{Mate\-State}}
+\subsubsection[{check}]{\setlength{\rightskip}{0pt plus 5cm}void Mate\-State\-::check (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_mate_state_a2205b5879c63fcdf469002d9d5203bb3}
+
+
+Définition de la procédure virtuelle, pas d'effet dans cet Etat là 
+
+
+
+Implémente \hyperlink{class_state_a321fd726bbefc35fedbbf001d2a37021}{State}.
+
+\hypertarget{class_mate_state_af785a3407109dd3d0a6868a358c92213}{\index{Mate\-State@{Mate\-State}!check\-Mate@{check\-Mate}}
+\index{check\-Mate@{check\-Mate}!MateState@{Mate\-State}}
+\subsubsection[{check\-Mate}]{\setlength{\rightskip}{0pt plus 5cm}void Mate\-State\-::check\-Mate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_mate_state_af785a3407109dd3d0a6868a358c92213}
+
+
+Définition de la procédure virtuelle, pas d'effet dans cet Etat là 
+
+
+
+Implémente \hyperlink{class_state_aa2b89ec92ecd4f6271269fe4b8ccc790}{State}.
+
+\hypertarget{class_mate_state_a19b4fa2115a36da6e1dd333a617ee7bb}{\index{Mate\-State@{Mate\-State}!game\-End@{game\-End}}
+\index{game\-End@{game\-End}!MateState@{Mate\-State}}
+\subsubsection[{game\-End}]{\setlength{\rightskip}{0pt plus 5cm}void Mate\-State\-::game\-End (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_mate_state_a19b4fa2115a36da6e1dd333a617ee7bb}
+
+
+Définition de la procédure virtuelle, transition vers l'état End\-Game. 
+
+
+
+Implémente \hyperlink{class_state_a5117e1f9bf06e17b4b0277838fe39bd8}{State}.
+
+\hypertarget{class_mate_state_a59ad17cb3366c560b921619d52f00181}{\index{Mate\-State@{Mate\-State}!game\-Null@{game\-Null}}
+\index{game\-Null@{game\-Null}!MateState@{Mate\-State}}
+\subsubsection[{game\-Null}]{\setlength{\rightskip}{0pt plus 5cm}void Mate\-State\-::game\-Null (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_mate_state_a59ad17cb3366c560b921619d52f00181}
+
+
+Définition de la procédure virtuelle, pas d'effet dans cet Etat là 
+
+
+
+Implémente \hyperlink{class_state_ad5b7fe10b2c30243f36d7d0950c50d43}{State}.
+
+\hypertarget{class_mate_state_a99575ed4587f029511bc5bd1ec9ab262}{\index{Mate\-State@{Mate\-State}!in\-Game@{in\-Game}}
+\index{in\-Game@{in\-Game}!MateState@{Mate\-State}}
+\subsubsection[{in\-Game}]{\setlength{\rightskip}{0pt plus 5cm}void Mate\-State\-::in\-Game (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_mate_state_a99575ed4587f029511bc5bd1ec9ab262}
+
+
+Définition de la procédure virtuelle, pas d'effet dans cet Etat là 
+
+
+
+Implémente \hyperlink{class_state_a738b04d6e0c12a39bf96a2a7159202d8}{State}.
+
+\hypertarget{class_mate_state_a47e7642586f54efaa977755bb2b2311d}{\index{Mate\-State@{Mate\-State}!ischeck@{ischeck}}
+\index{ischeck@{ischeck}!MateState@{Mate\-State}}
+\subsubsection[{ischeck}]{\setlength{\rightskip}{0pt plus 5cm}bool Mate\-State\-::ischeck (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_mate_state_a47e7642586f54efaa977755bb2b2311d}
+
+
+procédure virtuelle permettant de savoir s'il se trouve en possition d'echec et mate 
+
+
+
+Implémente \hyperlink{class_state_ad2d7084c507d8d20be2e772d953129fb}{State}.
+
+\hypertarget{class_mate_state_a9b9eb5923dc94adb69b28174d580c3b1}{\index{Mate\-State@{Mate\-State}!ischeckmate@{ischeckmate}}
+\index{ischeckmate@{ischeckmate}!MateState@{Mate\-State}}
+\subsubsection[{ischeckmate}]{\setlength{\rightskip}{0pt plus 5cm}bool Mate\-State\-::ischeckmate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_mate_state_a9b9eb5923dc94adb69b28174d580c3b1}
+
+
+procédure virtuelle permettant de savoir s'il se trouve en possition d'echec 
+
+
+
+Implémente \hyperlink{class_state_ae1d813f250db75015ddeebece5ec0f2b}{State}.
+
+\hypertarget{class_mate_state_a0d586f9c4dafd94ebfa6b14e425fff8b}{\index{Mate\-State@{Mate\-State}!isnulle@{isnulle}}
+\index{isnulle@{isnulle}!MateState@{Mate\-State}}
+\subsubsection[{isnulle}]{\setlength{\rightskip}{0pt plus 5cm}bool Mate\-State\-::isnulle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_mate_state_a0d586f9c4dafd94ebfa6b14e425fff8b}
+
+
+procédure virtuelle permettant de savoir s'il se trouve en possition nulle 
+
+
+
+Implémente \hyperlink{class_state_a869f2ebfad7e60719df5f89a613adee1}{State}.
+
+\hypertarget{class_mate_state_ab96d11c6cbb289483659d55bb8735c77}{\index{Mate\-State@{Mate\-State}!print@{print}}
+\index{print@{print}!MateState@{Mate\-State}}
+\subsubsection[{print}]{\setlength{\rightskip}{0pt plus 5cm}void Mate\-State\-::print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_mate_state_ab96d11c6cbb289483659d55bb8735c77}
+
+
+Définition de la procédure virtuelle, affiche l'état \hyperlink{class_mate_state}{Mate\-State}. 
+
+
+
+Implémente \hyperlink{class_state_a95a537bb55b9118b23d5bed88ba3b335}{State}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{_state_8hpp}{State.\-hpp}\item 
+src/\hyperlink{_state_8cpp}{State.\-cpp}\end{DoxyCompactItemize}

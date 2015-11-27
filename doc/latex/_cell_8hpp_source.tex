@@ -1,0 +1,38 @@
+\hypertarget{_cell_8hpp}{\section{Cell.\-hpp}
+\label{_cell_8hpp}\index{src/\-Cell.\-hpp@{src/\-Cell.\-hpp}}
+}
+
+\begin{DoxyCode}
+00001 
+00009 \textcolor{preprocessor}{#ifndef \_\_Cell\_HPP\_\_}
+00010 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define \_\_Cell\_HPP\_\_}
+00011 \textcolor{preprocessor}{}
+00012 \textcolor{preprocessor}{#include <iostream>} 
+00013 
+\hypertarget{_cell_8hpp_source_l00021}{}\hyperlink{class_cell}{00021} \textcolor{keyword}{class }\hyperlink{class_cell}{Cell}
+00022 \{
+00023     \textcolor{keyword}{private}:
+00024 
+00025         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \_x;                \textcolor{comment}{// attribut : Coordonnée X d'une case}
+00026         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \_y;                \textcolor{comment}{// attribut : Coordonnée Y d'une case}
+00027 
+00028     \textcolor{keyword}{public}:
+00029 
+00030 
+00036           \hyperlink{class_cell_a4ccfb0a9923271daba6000afa1a33ee9}{Cell}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} x, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} y);
+00037 
+00041           \hyperlink{class_cell_a9fa559f7a28e2b4336c6879ca09304d8}{~Cell}();
+00042 
+00047           \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \hyperlink{class_cell_a09a86af000a7b6b00be01c0ea71e5319}{getX}();
+00048 
+00053           \textcolor{keywordtype}{void} \hyperlink{class_cell_a5db21f79684f86d4dad8e17a40bbb797}{setX}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} newX);
+00054 
+00059           \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \hyperlink{class_cell_a54bd0f63ff375abde26902cc2ca7ea78}{getY}();
+00060 
+00065           \textcolor{keywordtype}{void} \hyperlink{class_cell_ad797a4c776783b15f4637b1f667f56a5}{setY}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} newY);
+00066 
+00071           \textcolor{keywordtype}{bool} \hyperlink{class_cell_ae889f79cafc3dda80d430980e4418333}{operator==}(\hyperlink{class_cell}{Cell} & c2);
+00072 \};
+00073 
+00074 \textcolor{preprocessor}{#endif // \_\_Cell\_HPP\_\_}
+\end{DoxyCode}

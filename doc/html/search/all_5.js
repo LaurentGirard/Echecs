@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['game_2ecpp',['Game.cpp',['../_game_8cpp.html',1,'']]],
+  ['gameend',['gameEnd',['../class_player.html#a3e67b9ce45f196d24395b9a44cb3e140',1,'Player::gameEnd()'],['../class_state.html#a5117e1f9bf06e17b4b0277838fe39bd8',1,'State::gameEnd()'],['../class_game_state.html#a65fc1ef481baa95f675ff8a78aa14e05',1,'GameState::gameEnd()'],['../class_check_state.html#a54820bb890cc50e3782104fad094747f',1,'CheckState::gameEnd()'],['../class_mate_state.html#a19b4fa2115a36da6e1dd333a617ee7bb',1,'MateState::gameEnd()'],['../class_null_state.html#a73b1449815c3770ac24e56fa885a7961',1,'NullState::gameEnd()'],['../class_end_state.html#a6fc13eb28853a79e1b5396dd2f377a51',1,'EndState::gameEnd()']]],
+  ['gamenull',['gameNull',['../class_player.html#ab2f4e51ebb224662fd6e2aac37ed7a05',1,'Player::gameNull()'],['../class_state.html#ad5b7fe10b2c30243f36d7d0950c50d43',1,'State::gameNull()'],['../class_game_state.html#a006f729bc30cfa224d3235c87e5a6e59',1,'GameState::gameNull()'],['../class_check_state.html#ae3cc6446e2dd5de333797bb180104c50',1,'CheckState::gameNull()'],['../class_mate_state.html#a59ad17cb3366c560b921619d52f00181',1,'MateState::gameNull()'],['../class_null_state.html#a9a735f7e4cbf7c3439208f9bb90b649d',1,'NullState::gameNull()'],['../class_end_state.html#ad50c108e27c7b0497c3f2f2e76b904a5',1,'EndState::gameNull()']]],
+  ['gameround',['gameRound',['../class_chess.html#ac521e181e266322da1664977b102afc5',1,'Chess']]],
+  ['gamestate',['GameState',['../class_game_state.html',1,'GameState'],['../class_game_state.html#a564f9ae19ac9980b28b78944645b5163',1,'GameState::GameState()']]],
+  ['gerergrandroque',['gerergrandroque',['../class_chess.html#a37bce0d85e4d9e66dcc9845a440cd30d',1,'Chess']]],
+  ['gererpetitroque',['gererpetitroque',['../class_chess.html#a6206462cbbff396c4fa898d45660471b',1,'Chess']]],
+  ['getcheckstate',['getCheckState',['../class_player.html#a24f6a87b0480786ba2f966bc88d15195',1,'Player']]],
+  ['getchoiceint',['getChoiceInt',['../class_chess.html#a7d4dbb556159e245fe753d5a6daada8b',1,'Chess']]],
+  ['getcolor',['getColor',['../class_player.html#a3e4c06283c8cb949b338830b0d3d6abc',1,'Player']]],
+  ['getendstate',['getEndState',['../class_player.html#af8a9597bb9da1dcd21cb849ca519802b',1,'Player']]],
+  ['getgamestate',['getGameState',['../class_player.html#a98676a7d1647ac6db50507850fab1d92',1,'Player']]],
+  ['getking',['getking',['../class_player.html#a5c1bd88d1c71575488196335b60a76b0',1,'Player']]],
+  ['getlabel',['getLabel',['../class_piece.html#ab0b61a2a0f2f3d977b4b1946ab328f2b',1,'Piece']]],
+  ['getmatestate',['getMateState',['../class_player.html#abd42a23982b38a78bf66fe627d73b4cc',1,'Player']]],
+  ['getmovements',['getMovements',['../class_piece.html#af2a3be14e4732ac3f09a84a9cbefbf5b',1,'Piece']]],
+  ['getname',['getName',['../class_player.html#af1aa472885d589516f483e26e786600e',1,'Player']]],
+  ['getnullstate',['getNullState',['../class_player.html#a121812f4c5a5e913f31187b90f378aa7',1,'Player']]],
+  ['getpieces',['getPieces',['../class_player.html#a738451fc076901ecf28cae81c7604e2a',1,'Player']]],
+  ['getpool',['getPool',['../class_object_pool.html#af9f18a929a7de70525a18bf1622bb68c',1,'ObjectPool']]],
+  ['getsquare',['getSquare',['../class_piece.html#a91fddbcc85fe9fbbca1897079ce9b9e5',1,'Piece']]],
+  ['getstate',['getState',['../class_player.html#a1b85aeef66cdbc472caf951d25796086',1,'Player']]],
+  ['getx',['getX',['../class_cell.html#a09a86af000a7b6b00be01c0ea71e5319',1,'Cell']]],
+  ['gety',['getY',['../class_cell.html#a54bd0f63ff375abde26902cc2ca7ea78',1,'Cell']]]
+];

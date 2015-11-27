@@ -1,0 +1,356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Echecs:  Fichier source de src/State.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Echecs
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Bienvenue dans la taverne</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_state_8hpp_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">State.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_state_8hpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef __State_HPP__</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define __State_HPP__</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">class </span><a class="code" href="class_player.html">Player</a>;       <span class="comment">// Permet d&#39;utiliser les méthodes de Player -&gt; dépendance circulaire</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_state.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_state.html">State</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_state.html#a9a024fd38161f32fc10b68b4ccb13226">   18</a></span>&#160;        <a class="code" href="class_player.html">Player</a> * <a class="code" href="class_state.html#a9a024fd38161f32fc10b68b4ccb13226">player</a>;                <span class="comment">// Attribut : Player sur lequel l&#39;état courant sera modifié à l&#39;aide des transitions</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <a class="code" href="class_state.html#a7a0a6af0cd97aa575a097eca87e090ba">State</a>(<a class="code" href="class_player.html">Player</a> *p);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="class_state.html#afab438d92b90dc18d194dbd9c9c8bab3">~State</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_state.html#a738b04d6e0c12a39bf96a2a7159202d8">inGame</a>() = 0;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_state.html#a321fd726bbefc35fedbbf001d2a37021">check</a>() = 0;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_state.html#aa2b89ec92ecd4f6271269fe4b8ccc790">checkMate</a>() = 0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_state.html#ad5b7fe10b2c30243f36d7d0950c50d43">gameNull</a>() = 0;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_state.html#a5117e1f9bf06e17b4b0277838fe39bd8">gameEnd</a>() = 0;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_state.html#a95a537bb55b9118b23d5bed88ba3b335">print</a>() = 0;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_state.html#ad2d7084c507d8d20be2e772d953129fb">ischeck</a>() = 0;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_state.html#ae1d813f250db75015ddeebece5ec0f2b">ischeckmate</a>() = 0;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_state.html#a869f2ebfad7e60719df5f89a613adee1">isnulle</a>() = 0;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;};</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="class_game_state.html">   77</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_game_state.html">GameState</a> : <span class="keyword">public</span> <a class="code" href="class_state.html">State</a></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <a class="code" href="class_game_state.html#a564f9ae19ac9980b28b78944645b5163">GameState</a>(<a class="code" href="class_player.html">Player</a>* p);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <a class="code" href="class_game_state.html#ae623df5042cd0c17daa3394fdcb397b3">~GameState</a>();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_game_state.html#af0290fd87a2bc2a44119dc700d8b8721">inGame</a>();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_game_state.html#a646e5436c4191f323dfa736a06e79695">check</a>();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_game_state.html#ada8cd91a048922c4d8aedbef17ce6fbc">checkMate</a>();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_game_state.html#a006f729bc30cfa224d3235c87e5a6e59">gameNull</a>();</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_game_state.html#a65fc1ef481baa95f675ff8a78aa14e05">gameEnd</a>();</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_game_state.html#a9ccc5473c6f04e60711cb9a438b276e5">print</a>();</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_game_state.html#ae0f8b04f85ed4dfbbd4c2a6a06827273">ischeck</a>();</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_game_state.html#a595eb9db47758b91835fc12b13311b98">ischeckmate</a>();</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_game_state.html#a777e982cbef6125ba4003f68d6292825">isnulle</a>();</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;};</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="class_check_state.html">  136</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_check_state.html">CheckState</a> : <span class="keyword">public</span> <a class="code" href="class_state.html">State</a></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;{</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <a class="code" href="class_check_state.html#a5027a0f3dc626241c48ac33b0b974311">CheckState</a>(<a class="code" href="class_player.html">Player</a>* p);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <a class="code" href="class_check_state.html#aecd4b3d189f47df10445e70aec28502b">~CheckState</a>();</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_check_state.html#a3cc0cb64d061a72d91ee60b60801aa3b">inGame</a>();</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_check_state.html#a7e365f95e322b61609f05202c28db278">check</a>();</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_check_state.html#afb093377619bc04bcba50db601368019">checkMate</a>();</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_check_state.html#ae3cc6446e2dd5de333797bb180104c50">gameNull</a>();</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_check_state.html#a54820bb890cc50e3782104fad094747f">gameEnd</a>();</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_check_state.html#ace4965a79b3614c50d0db5396121b75e">print</a>();</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_check_state.html#aa6e88c453114883d8a415ff338b65526">ischeck</a>();</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_check_state.html#ae3704aaa5fbaf6c947462c211eafc9c9">ischeckmate</a>();</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_check_state.html#a569daf96d0340272068a3d36fdf288c4">isnulle</a>();</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;};</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
+<div class="line"><a name="l00194"></a><span class="lineno"><a class="line" href="class_mate_state.html">  194</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_mate_state.html">MateState</a> : <span class="keyword">public</span> <a class="code" href="class_state.html">State</a></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;{</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <a class="code" href="class_mate_state.html#aa4a8a6d8614ffddaeac5cf19b2707136">MateState</a>(<a class="code" href="class_player.html">Player</a>* p);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <a class="code" href="class_mate_state.html#af75f5df59f008abe5e1913e1d55acbad">~MateState</a>();</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_mate_state.html#a99575ed4587f029511bc5bd1ec9ab262">inGame</a>();</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_mate_state.html#a2205b5879c63fcdf469002d9d5203bb3">check</a>();</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_mate_state.html#af785a3407109dd3d0a6868a358c92213">checkMate</a>();</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_mate_state.html#a59ad17cb3366c560b921619d52f00181">gameNull</a>();</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_mate_state.html#a19b4fa2115a36da6e1dd333a617ee7bb">gameEnd</a>();</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_mate_state.html#ab96d11c6cbb289483659d55bb8735c77">print</a>();</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_mate_state.html#a9b9eb5923dc94adb69b28174d580c3b1">ischeckmate</a>();</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_mate_state.html#a47e7642586f54efaa977755bb2b2311d">ischeck</a>();</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_mate_state.html#a0d586f9c4dafd94ebfa6b14e425fff8b">isnulle</a>();</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;};</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
+<div class="line"><a name="l00252"></a><span class="lineno"><a class="line" href="class_null_state.html">  252</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_null_state.html">NullState</a> : <span class="keyword">public</span> <a class="code" href="class_state.html">State</a></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;{</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        <a class="code" href="class_null_state.html#a16b8bc7f006616e9c057ddf2b1ec811d">NullState</a>(<a class="code" href="class_player.html">Player</a>* p);</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        <a class="code" href="class_null_state.html#a3d286ab0ced8da71c8729871d1bd3aae">~NullState</a>();</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_null_state.html#a3c51a85d1d0273b7f7db4ed20672c68c">inGame</a>();</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_null_state.html#a04825452cd1018dec2525609a3079aff">check</a>();</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_null_state.html#a2bc6da41f64658fb9f733f6b23f0e499">checkMate</a>();</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_null_state.html#a9a735f7e4cbf7c3439208f9bb90b649d">gameNull</a>();</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_null_state.html#a73b1449815c3770ac24e56fa885a7961">gameEnd</a>();</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_null_state.html#a5a2b2f419bba204759bf344c8b7710d0">print</a>();</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_null_state.html#a8da9c3d889ff161f893d5522a89567a5">ischeck</a>();</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_null_state.html#adda1a19059bc77cf09886873912f91ff">ischeckmate</a>();</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_null_state.html#a0aa0845d4f2ce4f86749bd73edb8c8da">isnulle</a>();</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;};</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;</div>
+<div class="line"><a name="l00310"></a><span class="lineno"><a class="line" href="class_end_state.html">  310</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_end_state.html">EndState</a> : <span class="keyword">public</span> <a class="code" href="class_state.html">State</a></div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;{</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        <a class="code" href="class_end_state.html#a0c74d371934fe30dd66ad3275b0ca98e">EndState</a>(<a class="code" href="class_player.html">Player</a>* p);</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        <a class="code" href="class_end_state.html#a201636e52f201f6f34318c152139e2e1">~EndState</a>();</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_end_state.html#a6ba5aa5cfd2d0ac4aa1609e336d5669f">inGame</a>();</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_end_state.html#a80e538c38c1293803200e5d3b513ba77">check</a>();</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_end_state.html#a48a2531ee4bd2144b44823a5527488f3">checkMate</a>();</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_end_state.html#ad50c108e27c7b0497c3f2f2e76b904a5">gameNull</a>();</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_end_state.html#a6fc13eb28853a79e1b5396dd2f377a51">gameEnd</a>();</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_end_state.html#a1983377ed8a1e391871fb40db39f13e3">print</a>();</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_end_state.html#ae4ea53e0246be8cf37ccd8cf7b442523">ischeck</a>();</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_end_state.html#a2f505cd7004247548a3026ce70bc0f58">ischeckmate</a>();</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_end_state.html#aa9ccf089beda25f9d258e6a68e2a7309">isnulle</a>();</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;};</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;<span class="preprocessor">#endif // __State_HPP__</span></div>
+<div class="ttc" id="class_state_html_a7a0a6af0cd97aa575a097eca87e090ba"><div class="ttname"><a href="class_state.html#a7a0a6af0cd97aa575a097eca87e090ba">State::State</a></div><div class="ttdeci">State(Player *p)</div><div class="ttdoc">Constructeur, crée un Etat avec un Joueur en paramètre. </div><div class="ttdef"><b>Definition:</b> State.cpp:15</div></div>
+<div class="ttc" id="class_check_state_html_ae3704aaa5fbaf6c947462c211eafc9c9"><div class="ttname"><a href="class_check_state.html#ae3704aaa5fbaf6c947462c211eafc9c9">CheckState::ischeckmate</a></div><div class="ttdeci">bool ischeckmate()</div><div class="ttdoc">procédure virtuelle permettant de savoir s&#39;il se trouve en possition d&#39;echec et mat ...</div><div class="ttdef"><b>Definition:</b> State.cpp:179</div></div>
+<div class="ttc" id="class_game_state_html_a595eb9db47758b91835fc12b13311b98"><div class="ttname"><a href="class_game_state.html#a595eb9db47758b91835fc12b13311b98">GameState::ischeckmate</a></div><div class="ttdeci">bool ischeckmate()</div><div class="ttdoc">procédure virtuelle permettant de savoir s&#39;il se trouve en possition d&#39;echec et mate ...</div><div class="ttdef"><b>Definition:</b> State.cpp:113</div></div>
+<div class="ttc" id="class_null_state_html_a3c51a85d1d0273b7f7db4ed20672c68c"><div class="ttname"><a href="class_null_state.html#a3c51a85d1d0273b7f7db4ed20672c68c">NullState::inGame</a></div><div class="ttdeci">void inGame()</div><div class="ttdoc">Définition de la procédure virtuelle, pas d&#39;effet dans cet Etat là </div><div class="ttdef"><b>Definition:</b> State.cpp:262</div></div>
+<div class="ttc" id="class_end_state_html_aa9ccf089beda25f9d258e6a68e2a7309"><div class="ttname"><a href="class_end_state.html#aa9ccf089beda25f9d258e6a68e2a7309">EndState::isnulle</a></div><div class="ttdeci">bool isnulle()</div><div class="ttdoc">procédure virtuelle permettant de savoir s&#39;il se trouve en possition nulle </div><div class="ttdef"><b>Definition:</b> State.cpp:374</div></div>
+<div class="ttc" id="class_game_state_html_ae623df5042cd0c17daa3394fdcb397b3"><div class="ttname"><a href="class_game_state.html#ae623df5042cd0c17daa3394fdcb397b3">GameState::~GameState</a></div><div class="ttdeci">~GameState()</div><div class="ttdoc">Destructeur de l&#39;objet GameState. </div><div class="ttdef"><b>Definition:</b> State.cpp:57</div></div>
+<div class="ttc" id="class_state_html"><div class="ttname"><a href="class_state.html">State</a></div><div class="ttdef"><b>Definition:</b> State.hpp:14</div></div>
+<div class="ttc" id="class_mate_state_html_a2205b5879c63fcdf469002d9d5203bb3"><div class="ttname"><a href="class_mate_state.html#a2205b5879c63fcdf469002d9d5203bb3">MateState::check</a></div><div class="ttdeci">void check()</div><div class="ttdoc">Définition de la procédure virtuelle, pas d&#39;effet dans cet Etat là </div><div class="ttdef"><b>Definition:</b> State.cpp:204</div></div>
+<div class="ttc" id="class_game_state_html"><div class="ttname"><a href="class_game_state.html">GameState</a></div><div class="ttdef"><b>Definition:</b> State.hpp:77</div></div>
+<div class="ttc" id="class_check_state_html_a569daf96d0340272068a3d36fdf288c4"><div class="ttname"><a href="class_check_state.html#a569daf96d0340272068a3d36fdf288c4">CheckState::isnulle</a></div><div class="ttdeci">bool isnulle()</div><div class="ttdoc">procédure virtuelle permettant de savoir s&#39;il se trouve en possition nulle </div><div class="ttdef"><b>Definition:</b> State.cpp:185</div></div>
+<div class="ttc" id="class_check_state_html_a54820bb890cc50e3782104fad094747f"><div class="ttname"><a href="class_check_state.html#a54820bb890cc50e3782104fad094747f">CheckState::gameEnd</a></div><div class="ttdeci">void gameEnd()</div><div class="ttdoc">Définition de la procédure virtuelle, pas d&#39;effet dans cet Etat là </div><div class="ttdef"><b>Definition:</b> State.cpp:158</div></div>
+<div class="ttc" id="class_state_html_a5117e1f9bf06e17b4b0277838fe39bd8"><div class="ttname"><a href="class_state.html#a5117e1f9bf06e17b4b0277838fe39bd8">State::gameEnd</a></div><div class="ttdeci">virtual void gameEnd()=0</div><div class="ttdoc">procédure virtuelle permettant de la transition de l&#39;état MateState ou l&#39;état NullState à l&#39;état EndS...</div><div class="ttdef"><b>Definition:</b> State.cpp:32</div></div>
+<div class="ttc" id="class_state_html_ad2d7084c507d8d20be2e772d953129fb"><div class="ttname"><a href="class_state.html#ad2d7084c507d8d20be2e772d953129fb">State::ischeck</a></div><div class="ttdeci">virtual bool ischeck()=0</div><div class="ttdoc">procédure virtuelle permettant de savoir s&#39;il se trouve en possition d&#39;echec </div><div class="ttdef"><b>Definition:</b> State.cpp:39</div></div>
+<div class="ttc" id="class_mate_state_html_a47e7642586f54efaa977755bb2b2311d"><div class="ttname"><a href="class_mate_state.html#a47e7642586f54efaa977755bb2b2311d">MateState::ischeck</a></div><div class="ttdeci">bool ischeck()</div><div class="ttdoc">procédure virtuelle permettant de savoir s&#39;il se trouve en possition d&#39;echec et mate ...</div><div class="ttdef"><b>Definition:</b> State.cpp:243</div></div>
+<div class="ttc" id="class_null_state_html_a5a2b2f419bba204759bf344c8b7710d0"><div class="ttname"><a href="class_null_state.html#a5a2b2f419bba204759bf344c8b7710d0">NullState::print</a></div><div class="ttdeci">void print()</div><div class="ttdoc">Définition de la procédure virtuelle, affiche l&#39;état NullState. </div><div class="ttdef"><b>Definition:</b> State.cpp:292</div></div>
+<div class="ttc" id="class_state_html_ad5b7fe10b2c30243f36d7d0950c50d43"><div class="ttname"><a href="class_state.html#ad5b7fe10b2c30243f36d7d0950c50d43">State::gameNull</a></div><div class="ttdeci">virtual void gameNull()=0</div><div class="ttdoc">procédure virtuelle permettant de la transition de l&#39;état GameState à l&#39;état NullState ...</div><div class="ttdef"><b>Definition:</b> State.cpp:29</div></div>
+<div class="ttc" id="class_mate_state_html_af785a3407109dd3d0a6868a358c92213"><div class="ttname"><a href="class_mate_state.html#af785a3407109dd3d0a6868a358c92213">MateState::checkMate</a></div><div class="ttdeci">void checkMate()</div><div class="ttdoc">Définition de la procédure virtuelle, pas d&#39;effet dans cet Etat là </div><div class="ttdef"><b>Definition:</b> State.cpp:210</div></div>
+<div class="ttc" id="class_state_html_aa2b89ec92ecd4f6271269fe4b8ccc790"><div class="ttname"><a href="class_state.html#aa2b89ec92ecd4f6271269fe4b8ccc790">State::checkMate</a></div><div class="ttdeci">virtual void checkMate()=0</div><div class="ttdoc">procédure virtuelle permettant de la transition de l&#39;état GameState à l&#39;état MateState ...</div><div class="ttdef"><b>Definition:</b> State.cpp:26</div></div>
+<div class="ttc" id="class_end_state_html_a6ba5aa5cfd2d0ac4aa1609e336d5669f"><div class="ttname"><a href="class_end_state.html#a6ba5aa5cfd2d0ac4aa1609e336d5669f">EndState::inGame</a></div><div class="ttdeci">void inGame()</div><div class="ttdoc">Définition de la procédure virtuelle, pas d&#39;effet dans cet Etat là </div><div class="ttdef"><b>Definition:</b> State.cpp:324</div></div>
+<div class="ttc" id="class_game_state_html_a9ccc5473c6f04e60711cb9a438b276e5"><div class="ttname"><a href="class_game_state.html#a9ccc5473c6f04e60711cb9a438b276e5">GameState::print</a></div><div class="ttdeci">void print()</div><div class="ttdoc">Définition de la procédure virtuelle, affiche l&#39;état GameState. </div><div class="ttdef"><b>Definition:</b> State.cpp:98</div></div>
+<div class="ttc" id="class_mate_state_html_ab96d11c6cbb289483659d55bb8735c77"><div class="ttname"><a href="class_mate_state.html#ab96d11c6cbb289483659d55bb8735c77">MateState::print</a></div><div class="ttdeci">void print()</div><div class="ttdoc">Définition de la procédure virtuelle, affiche l&#39;état MateState. </div><div class="ttdef"><b>Definition:</b> State.cpp:228</div></div>
+<div class="ttc" id="class_check_state_html"><div class="ttname"><a href="class_check_state.html">CheckState</a></div><div class="ttdef"><b>Definition:</b> State.hpp:136</div></div>
+<div class="ttc" id="class_mate_state_html_a0d586f9c4dafd94ebfa6b14e425fff8b"><div class="ttname"><a href="class_mate_state.html#a0d586f9c4dafd94ebfa6b14e425fff8b">MateState::isnulle</a></div><div class="ttdeci">bool isnulle()</div><div class="ttdoc">procédure virtuelle permettant de savoir s&#39;il se trouve en possition nulle </div><div class="ttdef"><b>Definition:</b> State.cpp:249</div></div>
+<div class="ttc" id="class_game_state_html_a006f729bc30cfa224d3235c87e5a6e59"><div class="ttname"><a href="class_game_state.html#a006f729bc30cfa224d3235c87e5a6e59">GameState::gameNull</a></div><div class="ttdeci">void gameNull()</div><div class="ttdoc">Définition de la procédure virtuelle, transition vers l&#39;état NullState. </div><div class="ttdef"><b>Definition:</b> State.cpp:86</div></div>
+<div class="ttc" id="class_null_state_html_a16b8bc7f006616e9c057ddf2b1ec811d"><div class="ttname"><a href="class_null_state.html#a16b8bc7f006616e9c057ddf2b1ec811d">NullState::NullState</a></div><div class="ttdeci">NullState(Player *p)</div><div class="ttdoc">Constructeur, crée un EtatNull à l&#39;aide du constructeur de State avec un Joueur en paramètre...</div><div class="ttdef"><b>Definition:</b> State.cpp:256</div></div>
+<div class="ttc" id="class_state_html_a869f2ebfad7e60719df5f89a613adee1"><div class="ttname"><a href="class_state.html#a869f2ebfad7e60719df5f89a613adee1">State::isnulle</a></div><div class="ttdeci">virtual bool isnulle()=0</div><div class="ttdoc">procédure virtuelle permettant de savoir s&#39;il se trouve en possition null </div><div class="ttdef"><b>Definition:</b> State.cpp:46</div></div>
+<div class="ttc" id="class_null_state_html"><div class="ttname"><a href="class_null_state.html">NullState</a></div><div class="ttdef"><b>Definition:</b> State.hpp:252</div></div>
+<div class="ttc" id="class_game_state_html_af0290fd87a2bc2a44119dc700d8b8721"><div class="ttname"><a href="class_game_state.html#af0290fd87a2bc2a44119dc700d8b8721">GameState::inGame</a></div><div class="ttdeci">void inGame()</div><div class="ttdoc">Définition de la procédure virtuelle, pas d&#39;effet dans cet Etat là </div><div class="ttdef"><b>Definition:</b> State.cpp:60</div></div>
+<div class="ttc" id="class_state_html_a321fd726bbefc35fedbbf001d2a37021"><div class="ttname"><a href="class_state.html#a321fd726bbefc35fedbbf001d2a37021">State::check</a></div><div class="ttdeci">virtual void check()=0</div><div class="ttdoc">procédure virtuelle permettant de la transition de l&#39;état GameState à l&#39;état CheckState ...</div><div class="ttdef"><b>Definition:</b> State.cpp:23</div></div>
+<div class="ttc" id="class_null_state_html_adda1a19059bc77cf09886873912f91ff"><div class="ttname"><a href="class_null_state.html#adda1a19059bc77cf09886873912f91ff">NullState::ischeckmate</a></div><div class="ttdeci">bool ischeckmate()</div><div class="ttdoc">procédure virtuelle permettant de savoir s&#39;il se trouve en possition d&#39;echec et mate ...</div><div class="ttdef"><b>Definition:</b> State.cpp:306</div></div>
+<div class="ttc" id="class_null_state_html_a0aa0845d4f2ce4f86749bd73edb8c8da"><div class="ttname"><a href="class_null_state.html#a0aa0845d4f2ce4f86749bd73edb8c8da">NullState::isnulle</a></div><div class="ttdeci">bool isnulle()</div><div class="ttdoc">procédure virtuelle permettant de savoir s&#39;il se trouve en possition nulle </div><div class="ttdef"><b>Definition:</b> State.cpp:311</div></div>
+<div class="ttc" id="class_end_state_html_ad50c108e27c7b0497c3f2f2e76b904a5"><div class="ttname"><a href="class_end_state.html#ad50c108e27c7b0497c3f2f2e76b904a5">EndState::gameNull</a></div><div class="ttdeci">void gameNull()</div><div class="ttdoc">Définition de la procédure virtuelle, pas d&#39;effet dans cet Etat là </div><div class="ttdef"><b>Definition:</b> State.cpp:342</div></div>
+<div class="ttc" id="class_check_state_html_ae3cc6446e2dd5de333797bb180104c50"><div class="ttname"><a href="class_check_state.html#ae3cc6446e2dd5de333797bb180104c50">CheckState::gameNull</a></div><div class="ttdeci">void gameNull()</div><div class="ttdoc">Définition de la procédure virtuelle, pas d&#39;effet dans cet Etat là </div><div class="ttdef"><b>Definition:</b> State.cpp:152</div></div>
+<div class="ttc" id="class_end_state_html_ae4ea53e0246be8cf37ccd8cf7b442523"><div class="ttname"><a href="class_end_state.html#ae4ea53e0246be8cf37ccd8cf7b442523">EndState::ischeck</a></div><div class="ttdeci">bool ischeck()</div><div class="ttdoc">procédure virtuelle permettant de savoir s&#39;il se trouve en possition d&#39;echec </div><div class="ttdef"><b>Definition:</b> State.cpp:363</div></div>
+<div class="ttc" id="class_check_state_html_a7e365f95e322b61609f05202c28db278"><div class="ttname"><a href="class_check_state.html#a7e365f95e322b61609f05202c28db278">CheckState::check</a></div><div class="ttdeci">void check()</div><div class="ttdoc">Définition de la procédure virtuelle, pas d&#39;effet dans cet Etat là </div><div class="ttdef"><b>Definition:</b> State.cpp:138</div></div>
+<div class="ttc" id="class_mate_state_html_a99575ed4587f029511bc5bd1ec9ab262"><div class="ttname"><a href="class_mate_state.html#a99575ed4587f029511bc5bd1ec9ab262">MateState::inGame</a></div><div class="ttdeci">void inGame()</div><div class="ttdoc">Définition de la procédure virtuelle, pas d&#39;effet dans cet Etat là </div><div class="ttdef"><b>Definition:</b> State.cpp:198</div></div>
+<div class="ttc" id="class_end_state_html_a48a2531ee4bd2144b44823a5527488f3"><div class="ttname"><a href="class_end_state.html#a48a2531ee4bd2144b44823a5527488f3">EndState::checkMate</a></div><div class="ttdeci">void checkMate()</div><div class="ttdoc">Définition de la procédure virtuelle, pas d&#39;effet dans cet Etat là </div><div class="ttdef"><b>Definition:</b> State.cpp:336</div></div>
+<div class="ttc" id="class_null_state_html_a3d286ab0ced8da71c8729871d1bd3aae"><div class="ttname"><a href="class_null_state.html#a3d286ab0ced8da71c8729871d1bd3aae">NullState::~NullState</a></div><div class="ttdeci">~NullState()</div><div class="ttdoc">Destructeur de l&#39;objet NullState. </div><div class="ttdef"><b>Definition:</b> State.cpp:259</div></div>
+<div class="ttc" id="class_null_state_html_a73b1449815c3770ac24e56fa885a7961"><div class="ttname"><a href="class_null_state.html#a73b1449815c3770ac24e56fa885a7961">NullState::gameEnd</a></div><div class="ttdeci">void gameEnd()</div><div class="ttdoc">Définition de la procédure virtuelle, transition vers l&#39;état EndGame. </div><div class="ttdef"><b>Definition:</b> State.cpp:286</div></div>
+<div class="ttc" id="class_state_html_afab438d92b90dc18d194dbd9c9c8bab3"><div class="ttname"><a href="class_state.html#afab438d92b90dc18d194dbd9c9c8bab3">State::~State</a></div><div class="ttdeci">~State()</div><div class="ttdoc">Destructeur de l&#39;objet State. </div><div class="ttdef"><b>Definition:</b> State.cpp:17</div></div>
+<div class="ttc" id="class_state_html_a738b04d6e0c12a39bf96a2a7159202d8"><div class="ttname"><a href="class_state.html#a738b04d6e0c12a39bf96a2a7159202d8">State::inGame</a></div><div class="ttdeci">virtual void inGame()=0</div><div class="ttdoc">procédure virtuelle permettant de la transition de l&#39;état CheckState à l&#39;état GameState ...</div><div class="ttdef"><b>Definition:</b> State.cpp:20</div></div>
+<div class="ttc" id="class_end_state_html"><div class="ttname"><a href="class_end_state.html">EndState</a></div><div class="ttdef"><b>Definition:</b> State.hpp:310</div></div>
+<div class="ttc" id="class_check_state_html_aa6e88c453114883d8a415ff338b65526"><div class="ttname"><a href="class_check_state.html#aa6e88c453114883d8a415ff338b65526">CheckState::ischeck</a></div><div class="ttdeci">bool ischeck()</div><div class="ttdoc">procédure virtuelle permettant de savoir s&#39;il se trouve en possition d&#39;echec </div><div class="ttdef"><b>Definition:</b> State.cpp:173</div></div>
+<div class="ttc" id="class_mate_state_html_a19b4fa2115a36da6e1dd333a617ee7bb"><div class="ttname"><a href="class_mate_state.html#a19b4fa2115a36da6e1dd333a617ee7bb">MateState::gameEnd</a></div><div class="ttdeci">void gameEnd()</div><div class="ttdoc">Définition de la procédure virtuelle, transition vers l&#39;état EndGame. </div><div class="ttdef"><b>Definition:</b> State.cpp:222</div></div>
+<div class="ttc" id="class_end_state_html_a0c74d371934fe30dd66ad3275b0ca98e"><div class="ttname"><a href="class_end_state.html#a0c74d371934fe30dd66ad3275b0ca98e">EndState::EndState</a></div><div class="ttdeci">EndState(Player *p)</div><div class="ttdoc">Constructeur, crée un EtatFin à l&#39;aide du constructeur de State avec un Joueur en paramètre...</div><div class="ttdef"><b>Definition:</b> State.cpp:318</div></div>
+<div class="ttc" id="class_null_state_html_a9a735f7e4cbf7c3439208f9bb90b649d"><div class="ttname"><a href="class_null_state.html#a9a735f7e4cbf7c3439208f9bb90b649d">NullState::gameNull</a></div><div class="ttdeci">void gameNull()</div><div class="ttdoc">Définition de la procédure virtuelle, pas d&#39;effet dans cet Etat là </div><div class="ttdef"><b>Definition:</b> State.cpp:280</div></div>
+<div class="ttc" id="class_game_state_html_ae0f8b04f85ed4dfbbd4c2a6a06827273"><div class="ttname"><a href="class_game_state.html#ae0f8b04f85ed4dfbbd4c2a6a06827273">GameState::ischeck</a></div><div class="ttdeci">bool ischeck()</div><div class="ttdoc">procédure virtuelle permettant de savoir s&#39;il se trouve en possition d&#39;echec </div><div class="ttdef"><b>Definition:</b> State.cpp:107</div></div>
+<div class="ttc" id="class_end_state_html_a2f505cd7004247548a3026ce70bc0f58"><div class="ttname"><a href="class_end_state.html#a2f505cd7004247548a3026ce70bc0f58">EndState::ischeckmate</a></div><div class="ttdeci">bool ischeckmate()</div><div class="ttdoc">procédure virtuelle permettant de savoir s&#39;il se trouve en possition d&#39;echec et mate ...</div><div class="ttdef"><b>Definition:</b> State.cpp:369</div></div>
+<div class="ttc" id="class_check_state_html_ace4965a79b3614c50d0db5396121b75e"><div class="ttname"><a href="class_check_state.html#ace4965a79b3614c50d0db5396121b75e">CheckState::print</a></div><div class="ttdeci">void print()</div><div class="ttdoc">Définition de la procédure virtuelle, affiche l&#39;état CheckState. </div><div class="ttdef"><b>Definition:</b> State.cpp:164</div></div>
+<div class="ttc" id="class_check_state_html_aecd4b3d189f47df10445e70aec28502b"><div class="ttname"><a href="class_check_state.html#aecd4b3d189f47df10445e70aec28502b">CheckState::~CheckState</a></div><div class="ttdeci">~CheckState()</div><div class="ttdoc">Destructeur de l&#39;objet CheckState. </div><div class="ttdef"><b>Definition:</b> State.cpp:129</div></div>
+<div class="ttc" id="class_game_state_html_a65fc1ef481baa95f675ff8a78aa14e05"><div class="ttname"><a href="class_game_state.html#a65fc1ef481baa95f675ff8a78aa14e05">GameState::gameEnd</a></div><div class="ttdeci">void gameEnd()</div><div class="ttdoc">Définition de la procédure virtuelle, pas d&#39;effet dans cet Etat là </div><div class="ttdef"><b>Definition:</b> State.cpp:92</div></div>
+<div class="ttc" id="class_end_state_html_a201636e52f201f6f34318c152139e2e1"><div class="ttname"><a href="class_end_state.html#a201636e52f201f6f34318c152139e2e1">EndState::~EndState</a></div><div class="ttdeci">~EndState()</div><div class="ttdoc">Destructeur de l&#39;objet EndState. </div><div class="ttdef"><b>Definition:</b> State.cpp:321</div></div>
+<div class="ttc" id="class_end_state_html_a6fc13eb28853a79e1b5396dd2f377a51"><div class="ttname"><a href="class_end_state.html#a6fc13eb28853a79e1b5396dd2f377a51">EndState::gameEnd</a></div><div class="ttdeci">void gameEnd()</div><div class="ttdoc">Définition de la procédure virtuelle, pas d&#39;effet dans cet Etat là </div><div class="ttdef"><b>Definition:</b> State.cpp:348</div></div>
+<div class="ttc" id="class_null_state_html_a04825452cd1018dec2525609a3079aff"><div class="ttname"><a href="class_null_state.html#a04825452cd1018dec2525609a3079aff">NullState::check</a></div><div class="ttdeci">void check()</div><div class="ttdoc">Définition de la procédure virtuelle, pas d&#39;effet dans cet Etat là </div><div class="ttdef"><b>Definition:</b> State.cpp:268</div></div>
+<div class="ttc" id="class_state_html_ae1d813f250db75015ddeebece5ec0f2b"><div class="ttname"><a href="class_state.html#ae1d813f250db75015ddeebece5ec0f2b">State::ischeckmate</a></div><div class="ttdeci">virtual bool ischeckmate()=0</div><div class="ttdoc">procédure virtuelle permettant de savoir s&#39;il se trouve en possition d&#39;echec et mate ...</div><div class="ttdef"><b>Definition:</b> State.cpp:42</div></div>
+<div class="ttc" id="class_check_state_html_a5027a0f3dc626241c48ac33b0b974311"><div class="ttname"><a href="class_check_state.html#a5027a0f3dc626241c48ac33b0b974311">CheckState::CheckState</a></div><div class="ttdeci">CheckState(Player *p)</div><div class="ttdoc">Constructeur, crée un EtatEchec à l&#39;aide du constructeur de State avec un Joueur en paramètre...</div><div class="ttdef"><b>Definition:</b> State.cpp:126</div></div>
+<div class="ttc" id="class_state_html_a95a537bb55b9118b23d5bed88ba3b335"><div class="ttname"><a href="class_state.html#a95a537bb55b9118b23d5bed88ba3b335">State::print</a></div><div class="ttdeci">virtual void print()=0</div><div class="ttdoc">procédure virtuelle permettant d&#39;afficher l&#39;état courant </div><div class="ttdef"><b>Definition:</b> State.cpp:35</div></div>
+<div class="ttc" id="class_game_state_html_a564f9ae19ac9980b28b78944645b5163"><div class="ttname"><a href="class_game_state.html#a564f9ae19ac9980b28b78944645b5163">GameState::GameState</a></div><div class="ttdeci">GameState(Player *p)</div><div class="ttdoc">Constructeur, crée un EtatJeu à l&#39;aide du constructeur de State avec un Joueur en paramètre...</div><div class="ttdef"><b>Definition:</b> State.cpp:54</div></div>
+<div class="ttc" id="class_game_state_html_a777e982cbef6125ba4003f68d6292825"><div class="ttname"><a href="class_game_state.html#a777e982cbef6125ba4003f68d6292825">GameState::isnulle</a></div><div class="ttdeci">bool isnulle()</div><div class="ttdoc">procédure virtuelle permettant de savoir s&#39;il se trouve en possition nulle </div><div class="ttdef"><b>Definition:</b> State.cpp:119</div></div>
+<div class="ttc" id="class_player_html"><div class="ttname"><a href="class_player.html">Player</a></div><div class="ttdef"><b>Definition:</b> Player.hpp:18</div></div>
+<div class="ttc" id="class_mate_state_html_a59ad17cb3366c560b921619d52f00181"><div class="ttname"><a href="class_mate_state.html#a59ad17cb3366c560b921619d52f00181">MateState::gameNull</a></div><div class="ttdeci">void gameNull()</div><div class="ttdoc">Définition de la procédure virtuelle, pas d&#39;effet dans cet Etat là </div><div class="ttdef"><b>Definition:</b> State.cpp:216</div></div>
+<div class="ttc" id="class_mate_state_html_a9b9eb5923dc94adb69b28174d580c3b1"><div class="ttname"><a href="class_mate_state.html#a9b9eb5923dc94adb69b28174d580c3b1">MateState::ischeckmate</a></div><div class="ttdeci">bool ischeckmate()</div><div class="ttdoc">procédure virtuelle permettant de savoir s&#39;il se trouve en possition d&#39;echec </div><div class="ttdef"><b>Definition:</b> State.cpp:237</div></div>
+<div class="ttc" id="class_null_state_html_a8da9c3d889ff161f893d5522a89567a5"><div class="ttname"><a href="class_null_state.html#a8da9c3d889ff161f893d5522a89567a5">NullState::ischeck</a></div><div class="ttdeci">bool ischeck()</div><div class="ttdoc">procédure virtuelle permettant de savoir s&#39;il se trouve en possition d&#39;echec </div><div class="ttdef"><b>Definition:</b> State.cpp:301</div></div>
+<div class="ttc" id="class_end_state_html_a1983377ed8a1e391871fb40db39f13e3"><div class="ttname"><a href="class_end_state.html#a1983377ed8a1e391871fb40db39f13e3">EndState::print</a></div><div class="ttdeci">void print()</div><div class="ttdoc">Définition de la procédure virtuelle, affiche l&#39;état EndState. </div><div class="ttdef"><b>Definition:</b> State.cpp:354</div></div>
+<div class="ttc" id="class_game_state_html_a646e5436c4191f323dfa736a06e79695"><div class="ttname"><a href="class_game_state.html#a646e5436c4191f323dfa736a06e79695">GameState::check</a></div><div class="ttdeci">void check()</div><div class="ttdoc">Définition de la procédure virtuelle, transition vers l&#39;état CheckState. </div><div class="ttdef"><b>Definition:</b> State.cpp:68</div></div>
+<div class="ttc" id="class_mate_state_html_aa4a8a6d8614ffddaeac5cf19b2707136"><div class="ttname"><a href="class_mate_state.html#aa4a8a6d8614ffddaeac5cf19b2707136">MateState::MateState</a></div><div class="ttdeci">MateState(Player *p)</div><div class="ttdoc">Constructeur, crée un EtatMate à l&#39;aide du constructeur de State avec un Joueur en paramètre...</div><div class="ttdef"><b>Definition:</b> State.cpp:192</div></div>
+<div class="ttc" id="class_state_html_a9a024fd38161f32fc10b68b4ccb13226"><div class="ttname"><a href="class_state.html#a9a024fd38161f32fc10b68b4ccb13226">State::player</a></div><div class="ttdeci">Player * player</div><div class="ttdef"><b>Definition:</b> State.hpp:18</div></div>
+<div class="ttc" id="class_check_state_html_a3cc0cb64d061a72d91ee60b60801aa3b"><div class="ttname"><a href="class_check_state.html#a3cc0cb64d061a72d91ee60b60801aa3b">CheckState::inGame</a></div><div class="ttdeci">void inGame()</div><div class="ttdoc">Définition de la procédure virtuelle, transition vers l&#39;état GameState. </div><div class="ttdef"><b>Definition:</b> State.cpp:132</div></div>
+<div class="ttc" id="class_game_state_html_ada8cd91a048922c4d8aedbef17ce6fbc"><div class="ttname"><a href="class_game_state.html#ada8cd91a048922c4d8aedbef17ce6fbc">GameState::checkMate</a></div><div class="ttdeci">void checkMate()</div><div class="ttdoc">Définition de la procédure virtuelle, transition vers l&#39;état MateState. </div><div class="ttdef"><b>Definition:</b> State.cpp:77</div></div>
+<div class="ttc" id="class_mate_state_html"><div class="ttname"><a href="class_mate_state.html">MateState</a></div><div class="ttdef"><b>Definition:</b> State.hpp:194</div></div>
+<div class="ttc" id="class_end_state_html_a80e538c38c1293803200e5d3b513ba77"><div class="ttname"><a href="class_end_state.html#a80e538c38c1293803200e5d3b513ba77">EndState::check</a></div><div class="ttdeci">void check()</div><div class="ttdoc">Définition de la procédure virtuelle, pas d&#39;effet dans cet Etat là </div><div class="ttdef"><b>Definition:</b> State.cpp:330</div></div>
+<div class="ttc" id="class_null_state_html_a2bc6da41f64658fb9f733f6b23f0e499"><div class="ttname"><a href="class_null_state.html#a2bc6da41f64658fb9f733f6b23f0e499">NullState::checkMate</a></div><div class="ttdeci">void checkMate()</div><div class="ttdoc">Définition de la procédure virtuelle, pas d&#39;effet dans cet Etat là </div><div class="ttdef"><b>Definition:</b> State.cpp:274</div></div>
+<div class="ttc" id="class_check_state_html_afb093377619bc04bcba50db601368019"><div class="ttname"><a href="class_check_state.html#afb093377619bc04bcba50db601368019">CheckState::checkMate</a></div><div class="ttdeci">void checkMate()</div><div class="ttdoc">Définition de la procédure virtuelle, pas d&#39;effet dans cet Etat là </div><div class="ttdef"><b>Definition:</b> State.cpp:146</div></div>
+<div class="ttc" id="class_mate_state_html_af75f5df59f008abe5e1913e1d55acbad"><div class="ttname"><a href="class_mate_state.html#af75f5df59f008abe5e1913e1d55acbad">MateState::~MateState</a></div><div class="ttdeci">~MateState()</div><div class="ttdoc">Destructeur de l&#39;objet MateState. </div><div class="ttdef"><b>Definition:</b> State.cpp:195</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_state_8hpp.html">State.hpp</a></li>
+    <li class="footer">Généré le Vendredi 27 Novembre 2015 02:34:08 pour Echecs par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Echecs:  Fichier source de src/Piece.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Echecs
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Bienvenue dans la taverne</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_piece_8hpp_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Piece.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_piece_8hpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef __Piece_HPP__</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define __Piece_HPP__</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_cell_8hpp.html">Cell.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_piece.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_piece.html">Piece</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_piece.html#a1e38a3d73f5f7171eca664a77c7aaeff">   27</a></span>&#160;        <a class="code" href="class_cell.html">Cell</a>* <a class="code" href="class_piece.html#a1e38a3d73f5f7171eca664a77c7aaeff">square</a>;                                         <span class="comment">// attribut : case sur laquelle est la pièce</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_piece.html#a8b3c2f812ead74ba513f521e63f767f9">   28</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_piece.html#a8b3c2f812ead74ba513f521e63f767f9">alive</a>;                                   <span class="comment">// attribut : état de la pièce ( 0 = pièce détruite ; 1 = pièce en vie )</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_piece.html#a022b28159d944243023804a678d7024f">   29</a></span>&#160;            std::vector&lt; std::vector&lt;Cell*&gt; &gt; <a class="code" href="class_piece.html#a022b28159d944243023804a678d7024f">movements</a>;          <span class="comment">// attribut : liste de liste de cases représentant les déplacements possibles de la pièce</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_piece.html#aec026f7ca20120f0b635591de2f86662">   30</a></span>&#160;            std::string <a class="code" href="class_piece.html#aec026f7ca20120f0b635591de2f86662">label</a>;                                    <span class="comment">// attribut : libellé de la pièce (S = Spawn, R = Rook, C = Knight etc.)</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <a class="code" href="class_piece.html#ac57de5803bbad829b143bc7268267dc1">Piece</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="class_piece.html#ac57de5803bbad829b143bc7268267dc1">Piece</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_piece.html#a5d7a4f6bade94cb33b6f634de8aa7918">~Piece</a>();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="class_cell.html">Cell</a>* <a class="code" href="class_piece.html#a91fddbcc85fe9fbbca1897079ce9b9e5">getSquare</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_piece.html#af405feca349d71dfacb20b128c3cc686">setSquare</a>(<a class="code" href="class_cell.html">Cell</a>* newCell);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_piece.html#a9f6a89d6fd5ae865af73c2220d1a5839">isAlive</a>();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_piece.html#ad4161cd37efb373e08b50cdf43b07b5f">setAlive</a>(<span class="keywordtype">bool</span> newAlive);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            std::string <a class="code" href="class_piece.html#ab0b61a2a0f2f3d977b4b1946ab328f2b">getLabel</a>();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_piece.html#ae9c47c1e15caf3ecf060c274aec62820">printPiece</a>();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_piece.html#ae721b5ed94376fd4e7d348d36739ed4d">movement</a>();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        std::vector&lt; std::vector&lt;Cell*&gt; &gt; <a class="code" href="class_piece.html#af2a3be14e4732ac3f09a84a9cbefbf5b">getMovements</a>();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;};</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="class_spawn.html">  105</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_spawn.html">Spawn</a> : <span class="keyword">public</span> <a class="code" href="class_piece.html">Piece</a></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordtype">bool</span> _direction;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;      <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <a class="code" href="class_spawn.html#ad401aa751cbbf9ea4f444e3011ff36b5">Spawn</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y, <span class="keywordtype">bool</span> direction);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            <a class="code" href="class_spawn.html#aea08036b23acdb06fd47eba35dc2a8cf">~Spawn</a>();</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_spawn.html#ae176dffa40411480840c3e39cd619300">movement</a>();</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;};</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="class_rook.html">  140</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_rook.html">Rook</a> : <span class="keyword">public</span> <a class="code" href="class_piece.html">Piece</a></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;{</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;      <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;            <span class="keywordtype">bool</span> _moved;                        <span class="comment">// attribut : permet de savoir si la tour a bougé ou non pendant la partie</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;      <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            <a class="code" href="class_rook.html#ab9613a93abc8a73bda94c596868ec1b1">Rook</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            <a class="code" href="class_rook.html#a70d445b94848b22ded850b6f58bc2972">~Rook</a>();</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="class_rook.html#afb50e8a85759ba7518b55dace6b6e406">asMoved</a>();</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="class_rook.html#a7ee5b6169a3fff6d5536ba0c02607950">setMoved</a>(<span class="keywordtype">bool</span> newMoved);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_rook.html#acc6139577c8ca679a93dcfbe42b71cb3">movement</a>();</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;};</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
+<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="class_knight.html">  185</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_knight.html">Knight</a> : <span class="keyword">public</span> <a class="code" href="class_piece.html">Piece</a></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;{</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <a class="code" href="class_knight.html#ae39d8e49ade7c0b66cf35dad69f2d2db">Knight</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <a class="code" href="class_knight.html#a2754123d6876babe915f4da8f761361b">~Knight</a>();</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_knight.html#ab228b385a3154ecdc18fce4cc0df9cd6">movement</a>();</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;};</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;</div>
+<div class="line"><a name="l00214"></a><span class="lineno"><a class="line" href="class_bishop.html">  214</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_bishop.html">Bishop</a> : <span class="keyword">public</span> <a class="code" href="class_piece.html">Piece</a></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;{</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;      <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;            <a class="code" href="class_bishop.html#a7e73da51fcaac88ce0d16e78221142ee">Bishop</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;            <a class="code" href="class_bishop.html#a3705b4537a39d09a59143fe01a62442f">~Bishop</a>();</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_bishop.html#abd25da5816a737ab64880cbaa7bd7582">movement</a>();</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;};</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;</div>
+<div class="line"><a name="l00243"></a><span class="lineno"><a class="line" href="class_queen.html">  243</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_queen.html">Queen</a> : <span class="keyword">public</span> <a class="code" href="class_piece.html">Piece</a></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;{</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;      <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;            <a class="code" href="class_queen.html#a90ebaca4522d07b5a662b20c09a968aa">Queen</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;            <a class="code" href="class_queen.html#aa22f6c1a49a583b549bd1f940e50721d">~Queen</a>();</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_queen.html#a6cf9ea1320f2ebe6fa9bb35430e63603">movement</a>();</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;};</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;</div>
+<div class="line"><a name="l00272"></a><span class="lineno"><a class="line" href="class_king.html">  272</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_king.html">King</a> : <span class="keyword">public</span> <a class="code" href="class_piece.html">Piece</a></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;{</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;      <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;            <span class="keywordtype">bool</span> _moved;                        <span class="comment">// attribut : permet de savoir si le roi a bougé ou non pendant la partie</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;      <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;            <a class="code" href="class_king.html#af934f2cda4bb5baca66c2ae114997b6e">King</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;            <a class="code" href="class_king.html#aac368ce96e2b12f62e3608d27262e941">~King</a>();</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="class_king.html#a1e7d9da6599c3e3ab9cbc4d5026f0dcf">asMoved</a>();</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="class_king.html#a29a4ff10443abb0b0ecd088c88861d18">setMoved</a>(<span class="keywordtype">bool</span> newMoved);</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_king.html#aabc0b7a9a553383e7aba11daecbbc61c">movement</a>();</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;};</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;<span class="preprocessor">#endif // __Piece_HPP__</span></div>
+<div class="ttc" id="class_queen_html_a6cf9ea1320f2ebe6fa9bb35430e63603"><div class="ttname"><a href="class_queen.html#a6cf9ea1320f2ebe6fa9bb35430e63603">Queen::movement</a></div><div class="ttdeci">virtual void movement()</div><div class="ttdoc">procédure virtuelle permettant de mettre à jour l&#39;attribut movements en fonction des déplacements pos...</div><div class="ttdef"><b>Definition:</b> Piece.cpp:456</div></div>
+<div class="ttc" id="class_piece_html_ab0b61a2a0f2f3d977b4b1946ab328f2b"><div class="ttname"><a href="class_piece.html#ab0b61a2a0f2f3d977b4b1946ab328f2b">Piece::getLabel</a></div><div class="ttdeci">std::string getLabel()</div><div class="ttdoc">Getter l&#39;attribut label. </div><div class="ttdef"><b>Definition:</b> Piece.cpp:53</div></div>
+<div class="ttc" id="class_piece_html_ae9c47c1e15caf3ecf060c274aec62820"><div class="ttname"><a href="class_piece.html#ae9c47c1e15caf3ecf060c274aec62820">Piece::printPiece</a></div><div class="ttdeci">void printPiece()</div><div class="ttdoc">procédure permettant d&#39;afficher les coordonnées de la case sur laquelle se trouve la pièce ...</div><div class="ttdef"><b>Definition:</b> Piece.cpp:59</div></div>
+<div class="ttc" id="class_piece_html_a8b3c2f812ead74ba513f521e63f767f9"><div class="ttname"><a href="class_piece.html#a8b3c2f812ead74ba513f521e63f767f9">Piece::alive</a></div><div class="ttdeci">bool alive</div><div class="ttdef"><b>Definition:</b> Piece.hpp:28</div></div>
+<div class="ttc" id="class_bishop_html_a7e73da51fcaac88ce0d16e78221142ee"><div class="ttname"><a href="class_bishop.html#a7e73da51fcaac88ce0d16e78221142ee">Bishop::Bishop</a></div><div class="ttdeci">Bishop(unsigned int x, unsigned int y)</div><div class="ttdoc">Constructeur, crée un objet Bishop de coordonnées x,y. </div><div class="ttdef"><b>Definition:</b> Piece.cpp:349</div></div>
+<div class="ttc" id="class_piece_html_a5d7a4f6bade94cb33b6f634de8aa7918"><div class="ttname"><a href="class_piece.html#a5d7a4f6bade94cb33b6f634de8aa7918">Piece::~Piece</a></div><div class="ttdeci">virtual ~Piece()</div><div class="ttdoc">Destructeur de Piece. </div><div class="ttdef"><b>Definition:</b> Piece.cpp:25</div></div>
+<div class="ttc" id="class_piece_html_a91fddbcc85fe9fbbca1897079ce9b9e5"><div class="ttname"><a href="class_piece.html#a91fddbcc85fe9fbbca1897079ce9b9e5">Piece::getSquare</a></div><div class="ttdeci">Cell * getSquare()</div><div class="ttdoc">de Getter l&#39;attribut square </div><div class="ttdef"><b>Definition:</b> Piece.cpp:28</div></div>
+<div class="ttc" id="class_cell_html"><div class="ttname"><a href="class_cell.html">Cell</a></div><div class="ttdoc">Classe permettant de représenter une case du jeu d&#39;echec. </div><div class="ttdef"><b>Definition:</b> Cell.hpp:21</div></div>
+<div class="ttc" id="class_king_html"><div class="ttname"><a href="class_king.html">King</a></div><div class="ttdoc">Classe King héritant de Piece. </div><div class="ttdef"><b>Definition:</b> Piece.hpp:272</div></div>
+<div class="ttc" id="class_knight_html"><div class="ttname"><a href="class_knight.html">Knight</a></div><div class="ttdoc">Classe Knight héritant de Piece. </div><div class="ttdef"><b>Definition:</b> Piece.hpp:185</div></div>
+<div class="ttc" id="class_spawn_html"><div class="ttname"><a href="class_spawn.html">Spawn</a></div><div class="ttdoc">Classe Spawn héritant de Piece. </div><div class="ttdef"><b>Definition:</b> Piece.hpp:105</div></div>
+<div class="ttc" id="class_rook_html"><div class="ttname"><a href="class_rook.html">Rook</a></div><div class="ttdoc">Classe Rook héritant de Piece. </div><div class="ttdef"><b>Definition:</b> Piece.hpp:140</div></div>
+<div class="ttc" id="class_rook_html_acc6139577c8ca679a93dcfbe42b71cb3"><div class="ttname"><a href="class_rook.html#acc6139577c8ca679a93dcfbe42b71cb3">Rook::movement</a></div><div class="ttdeci">virtual void movement()</div><div class="ttdoc">procédure virtuelle permettant de mettre à jour l&#39;attribut movements en fonction des déplacements pos...</div><div class="ttdef"><b>Definition:</b> Piece.cpp:203</div></div>
+<div class="ttc" id="class_rook_html_a70d445b94848b22ded850b6f58bc2972"><div class="ttname"><a href="class_rook.html#a70d445b94848b22ded850b6f58bc2972">Rook::~Rook</a></div><div class="ttdeci">~Rook()</div><div class="ttdoc">Destructeur d&#39;un objet Rook. </div><div class="ttdef"><b>Definition:</b> Piece.cpp:188</div></div>
+<div class="ttc" id="class_knight_html_ab228b385a3154ecdc18fce4cc0df9cd6"><div class="ttname"><a href="class_knight.html#ab228b385a3154ecdc18fce4cc0df9cd6">Knight::movement</a></div><div class="ttdeci">virtual void movement()</div><div class="ttdoc">procédure virtuelle permettant de mettre à jour l&#39;attribut movements en fonction des déplacements pos...</div><div class="ttdef"><b>Definition:</b> Piece.cpp:275</div></div>
+<div class="ttc" id="class_piece_html_ad4161cd37efb373e08b50cdf43b07b5f"><div class="ttname"><a href="class_piece.html#ad4161cd37efb373e08b50cdf43b07b5f">Piece::setAlive</a></div><div class="ttdeci">void setAlive(bool newAlive)</div><div class="ttdoc">Setter de l&#39;attribut alive. </div><div class="ttdef"><b>Definition:</b> Piece.cpp:47</div></div>
+<div class="ttc" id="class_bishop_html_a3705b4537a39d09a59143fe01a62442f"><div class="ttname"><a href="class_bishop.html#a3705b4537a39d09a59143fe01a62442f">Bishop::~Bishop</a></div><div class="ttdeci">~Bishop()</div><div class="ttdoc">Destructeur d&#39;un objet cavalier. </div><div class="ttdef"><b>Definition:</b> Piece.cpp:356</div></div>
+<div class="ttc" id="class_rook_html_ab9613a93abc8a73bda94c596868ec1b1"><div class="ttname"><a href="class_rook.html#ab9613a93abc8a73bda94c596868ec1b1">Rook::Rook</a></div><div class="ttdeci">Rook(unsigned int x, unsigned int y)</div><div class="ttdoc">Constructeur, crée un objet Rook de coordonnées x,y. </div><div class="ttdef"><b>Definition:</b> Piece.cpp:181</div></div>
+<div class="ttc" id="class_knight_html_a2754123d6876babe915f4da8f761361b"><div class="ttname"><a href="class_knight.html#a2754123d6876babe915f4da8f761361b">Knight::~Knight</a></div><div class="ttdeci">~Knight()</div><div class="ttdoc">Destructeur d&#39;un objet cavalier. </div><div class="ttdef"><b>Definition:</b> Piece.cpp:272</div></div>
+<div class="ttc" id="class_piece_html_af405feca349d71dfacb20b128c3cc686"><div class="ttname"><a href="class_piece.html#af405feca349d71dfacb20b128c3cc686">Piece::setSquare</a></div><div class="ttdeci">void setSquare(Cell *newCell)</div><div class="ttdoc">Setter de l&#39;attribut square. </div><div class="ttdef"><b>Definition:</b> Piece.cpp:34</div></div>
+<div class="ttc" id="class_queen_html_a90ebaca4522d07b5a662b20c09a968aa"><div class="ttname"><a href="class_queen.html#a90ebaca4522d07b5a662b20c09a968aa">Queen::Queen</a></div><div class="ttdeci">Queen(unsigned int x, unsigned int y)</div><div class="ttdoc">Constructeur, crée un objet Queen de coordonnées x,y. </div><div class="ttdef"><b>Definition:</b> Piece.cpp:446</div></div>
+<div class="ttc" id="class_king_html_aac368ce96e2b12f62e3608d27262e941"><div class="ttname"><a href="class_king.html#aac368ce96e2b12f62e3608d27262e941">King::~King</a></div><div class="ttdeci">~King()</div><div class="ttdoc">Destructeur d&#39;un objet King. </div><div class="ttdef"><b>Definition:</b> Piece.cpp:601</div></div>
+<div class="ttc" id="class_bishop_html_abd25da5816a737ab64880cbaa7bd7582"><div class="ttname"><a href="class_bishop.html#abd25da5816a737ab64880cbaa7bd7582">Bishop::movement</a></div><div class="ttdeci">virtual void movement()</div><div class="ttdoc">procédure virtuelle permettant de mettre à jour l&#39;attribut movements en fonction des déplacements pos...</div><div class="ttdef"><b>Definition:</b> Piece.cpp:359</div></div>
+<div class="ttc" id="class_king_html_aabc0b7a9a553383e7aba11daecbbc61c"><div class="ttname"><a href="class_king.html#aabc0b7a9a553383e7aba11daecbbc61c">King::movement</a></div><div class="ttdeci">virtual void movement()</div><div class="ttdoc">procédure virtuelle permettant de mettre à jour l&#39;attribut movements en fonction des déplacements pos...</div><div class="ttdef"><b>Definition:</b> Piece.cpp:611</div></div>
+<div class="ttc" id="class_piece_html_a022b28159d944243023804a678d7024f"><div class="ttname"><a href="class_piece.html#a022b28159d944243023804a678d7024f">Piece::movements</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; Cell * &gt; &gt; movements</div><div class="ttdef"><b>Definition:</b> Piece.hpp:29</div></div>
+<div class="ttc" id="class_piece_html_ac57de5803bbad829b143bc7268267dc1"><div class="ttname"><a href="class_piece.html#ac57de5803bbad829b143bc7268267dc1">Piece::Piece</a></div><div class="ttdeci">Piece()</div><div class="ttdoc">Constructeur vide, crée une pièce. </div><div class="ttdef"><b>Definition:</b> Piece.cpp:16</div></div>
+<div class="ttc" id="class_bishop_html"><div class="ttname"><a href="class_bishop.html">Bishop</a></div><div class="ttdoc">Classe Bishop héritant de Piece. </div><div class="ttdef"><b>Definition:</b> Piece.hpp:214</div></div>
+<div class="ttc" id="class_rook_html_afb50e8a85759ba7518b55dace6b6e406"><div class="ttname"><a href="class_rook.html#afb50e8a85759ba7518b55dace6b6e406">Rook::asMoved</a></div><div class="ttdeci">bool asMoved()</div><div class="ttdoc">Getter de l&#39;attribut _moved. </div><div class="ttdef"><b>Definition:</b> Piece.cpp:191</div></div>
+<div class="ttc" id="class_king_html_af934f2cda4bb5baca66c2ae114997b6e"><div class="ttname"><a href="class_king.html#af934f2cda4bb5baca66c2ae114997b6e">King::King</a></div><div class="ttdeci">King(unsigned int x, unsigned int y)</div><div class="ttdoc">Constructeur, crée un objet King d&#39;une couleur mise en paramètre. </div><div class="ttdef"><b>Definition:</b> Piece.cpp:594</div></div>
+<div class="ttc" id="class_knight_html_ae39d8e49ade7c0b66cf35dad69f2d2db"><div class="ttname"><a href="class_knight.html#ae39d8e49ade7c0b66cf35dad69f2d2db">Knight::Knight</a></div><div class="ttdeci">Knight(unsigned int x, unsigned int y)</div><div class="ttdoc">Constructeur, crée un objet Knight de coordonnées x,y. </div><div class="ttdef"><b>Definition:</b> Piece.cpp:265</div></div>
+<div class="ttc" id="class_queen_html_aa22f6c1a49a583b549bd1f940e50721d"><div class="ttname"><a href="class_queen.html#aa22f6c1a49a583b549bd1f940e50721d">Queen::~Queen</a></div><div class="ttdeci">~Queen()</div><div class="ttdoc">Destructeur d&#39;un objet cavalier. </div><div class="ttdef"><b>Definition:</b> Piece.cpp:453</div></div>
+<div class="ttc" id="class_spawn_html_ad401aa751cbbf9ea4f444e3011ff36b5"><div class="ttname"><a href="class_spawn.html#ad401aa751cbbf9ea4f444e3011ff36b5">Spawn::Spawn</a></div><div class="ttdeci">Spawn(unsigned int x, unsigned int y, bool direction)</div><div class="ttdoc">Constructeur, crée un objet Spawn de coordonnées x,y. </div><div class="ttdef"><b>Definition:</b> Piece.cpp:79</div></div>
+<div class="ttc" id="class_spawn_html_aea08036b23acdb06fd47eba35dc2a8cf"><div class="ttname"><a href="class_spawn.html#aea08036b23acdb06fd47eba35dc2a8cf">Spawn::~Spawn</a></div><div class="ttdeci">~Spawn()</div><div class="ttdoc">Destructeur d&#39;un objet cavalier. </div><div class="ttdef"><b>Definition:</b> Piece.cpp:125</div></div>
+<div class="ttc" id="class_king_html_a1e7d9da6599c3e3ab9cbc4d5026f0dcf"><div class="ttname"><a href="class_king.html#a1e7d9da6599c3e3ab9cbc4d5026f0dcf">King::asMoved</a></div><div class="ttdeci">bool asMoved()</div><div class="ttdoc">Getter de l&#39;attribut _moved. </div><div class="ttdef"><b>Definition:</b> Piece.cpp:604</div></div>
+<div class="ttc" id="class_piece_html_a9f6a89d6fd5ae865af73c2220d1a5839"><div class="ttname"><a href="class_piece.html#a9f6a89d6fd5ae865af73c2220d1a5839">Piece::isAlive</a></div><div class="ttdeci">bool isAlive()</div><div class="ttdoc">Getter de l&#39;attribut alive. </div><div class="ttdef"><b>Definition:</b> Piece.cpp:41</div></div>
+<div class="ttc" id="class_piece_html_aec026f7ca20120f0b635591de2f86662"><div class="ttname"><a href="class_piece.html#aec026f7ca20120f0b635591de2f86662">Piece::label</a></div><div class="ttdeci">std::string label</div><div class="ttdef"><b>Definition:</b> Piece.hpp:30</div></div>
+<div class="ttc" id="class_queen_html"><div class="ttname"><a href="class_queen.html">Queen</a></div><div class="ttdoc">Classe Queen héritant de Piece. </div><div class="ttdef"><b>Definition:</b> Piece.hpp:243</div></div>
+<div class="ttc" id="class_spawn_html_ae176dffa40411480840c3e39cd619300"><div class="ttname"><a href="class_spawn.html#ae176dffa40411480840c3e39cd619300">Spawn::movement</a></div><div class="ttdeci">virtual void movement()</div><div class="ttdoc">procédure virtuelle permettant de mettre à jour l&#39;attribut movements en fonction des déplacements pos...</div><div class="ttdef"><b>Definition:</b> Piece.cpp:128</div></div>
+<div class="ttc" id="_cell_8hpp_html"><div class="ttname"><a href="_cell_8hpp.html">Cell.hpp</a></div><div class="ttdoc">Définition d&#39;une classe de Cell. </div></div>
+<div class="ttc" id="class_piece_html_a1e38a3d73f5f7171eca664a77c7aaeff"><div class="ttname"><a href="class_piece.html#a1e38a3d73f5f7171eca664a77c7aaeff">Piece::square</a></div><div class="ttdeci">Cell * square</div><div class="ttdef"><b>Definition:</b> Piece.hpp:27</div></div>
+<div class="ttc" id="class_rook_html_a7ee5b6169a3fff6d5536ba0c02607950"><div class="ttname"><a href="class_rook.html#a7ee5b6169a3fff6d5536ba0c02607950">Rook::setMoved</a></div><div class="ttdeci">void setMoved(bool newMoved)</div><div class="ttdoc">Setter de l&#39;attribut _moved. </div><div class="ttdef"><b>Definition:</b> Piece.cpp:197</div></div>
+<div class="ttc" id="class_piece_html"><div class="ttname"><a href="class_piece.html">Piece</a></div><div class="ttdoc">Classe abstaite de Piece. </div><div class="ttdef"><b>Definition:</b> Piece.hpp:23</div></div>
+<div class="ttc" id="class_piece_html_ae721b5ed94376fd4e7d348d36739ed4d"><div class="ttname"><a href="class_piece.html#ae721b5ed94376fd4e7d348d36739ed4d">Piece::movement</a></div><div class="ttdeci">virtual void movement()</div><div class="ttdoc">procédure virtuelle mettant à jour les cases possibles pour un déplacement de la pièce ...</div><div class="ttdef"><b>Definition:</b> Piece.cpp:65</div></div>
+<div class="ttc" id="class_king_html_a29a4ff10443abb0b0ecd088c88861d18"><div class="ttname"><a href="class_king.html#a29a4ff10443abb0b0ecd088c88861d18">King::setMoved</a></div><div class="ttdeci">void setMoved(bool newMoved)</div><div class="ttdoc">Setter de l&#39;attribut _moved. </div></div>
+<div class="ttc" id="class_piece_html_af2a3be14e4732ac3f09a84a9cbefbf5b"><div class="ttname"><a href="class_piece.html#af2a3be14e4732ac3f09a84a9cbefbf5b">Piece::getMovements</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; Cell * &gt; &gt; getMovements()</div><div class="ttdoc">Getter de l&#39;attribut movements. </div><div class="ttdef"><b>Definition:</b> Piece.cpp:68</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_piece_8hpp.html">Piece.hpp</a></li>
+    <li class="footer">Généré le Vendredi 27 Novembre 2015 02:34:08 pour Echecs par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>

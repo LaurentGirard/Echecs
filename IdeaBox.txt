@@ -10,7 +10,6 @@ Class contenant les différentes erreurs : pattern ?
 
 -------------------- TO DO ----------------------
 
-Initialiser les labels  apres les ":" dans les constructeurs ?
 FAIRE LES DELETE
 
 -------------------A revoir----------------------
@@ -23,8 +22,6 @@ Si le roi n'est pas en échec mais que le joueur ne peut faire aucun déplacemen
 
 Si la partie ne peut pas se finir, genre s'il ne reste plus que Roi contre Roi, Roi et fou contre Roi, etc.normalement c'est bon !!! faire pleins de test !!!
 Il y a une liste de cas comme ça
-
-
 
 A REVOIR URGENT :
 Revoir tous les copier coller que tu as fait (cf transformationsSpawns : il y a des trucs que tu executes dans tous tes "if")

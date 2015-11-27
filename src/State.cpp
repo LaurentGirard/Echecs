@@ -59,20 +59,26 @@ GameState::~GameState(){}
 //------------------------------------------------------------------------------------------------------
 void GameState::inGame()
 {
-	std::cout << "Le joueur " << player->getName() << " est en état de jeu !" << std::endl;
+	// std::cout << "---------------------------------------------------------" << std::endl;
+	// std::cout << " Le joueur " << player->getName() << " est en jeu " << std::endl;
+	// std::cout << "---------------------------------------------------------" << std::endl;
 }
 
 //------------------------------------------------------------------------------------------------------
 void GameState::check()
 {
-	std::cout << "Le joueur " << player->getName() << " passe en mode echec !" << std::endl;
+	std::cout << "---------------------------------------------------------" << std::endl;
+	std::cout << " Le joueur " << player->getName() << " est en Echec !" << std::endl;
+	std::cout << "---------------------------------------------------------" << std::endl;
 	player->setState(player->getCheckState());
 }
 
 //------------------------------------------------------------------------------------------------------
 void GameState::checkMate()
 {
-	std::cout << "Le joueur " << player->getName() << " passe en mode echec et mat !" << std::endl;	
+	std::cout << "---------------------------------------------------------" << std::endl;
+	std::cout << " Le joueur " << player->getName() << " est Echec et Mat !" << std::endl;
+	std::cout << "---------------------------------------------------------" << std::endl;	
 	player->setState(player->getMateState());
 }
 
@@ -85,13 +91,15 @@ void GameState::gameNull()
 //------------------------------------------------------------------------------------------------------
 void GameState::gameEnd()
 {
-	std::cout << "Le joueur " << player->getName() << " est encore en état de jeu !" << std::endl;
+	std::cout << " Le joueur " << player->getName() << " est encore en état de jeu !" << std::endl;
 }
 
 //------------------------------------------------------------------------------------------------------
 void GameState::print()
 {
-	std::cout << "En jeu" << std::endl;
+	std::cout << "---------------------------------------------------------" << std::endl;
+	std::cout << " Le joueur " << player->getName() << " est en jeu" << std::endl;
+	std::cout << "---------------------------------------------------------" << std::endl;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -129,7 +137,9 @@ void CheckState::inGame()
 //------------------------------------------------------------------------------------------------------
 void CheckState::check()
 {
-	std::cout << "Le joueur " << player->getName() << " est déjà en état d'échec !" << std::endl;
+	std::cout << "---------------------------------------------------------" << std::endl;
+	std::cout << " Le joueur " << player->getName() << " est de nouveau en Echec !" << std::endl;
+	std::cout << "---------------------------------------------------------" << std::endl;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -141,19 +151,21 @@ void CheckState::checkMate()
 //------------------------------------------------------------------------------------------------------
 void CheckState::gameNull()
 {
-	std::cout << "Le joueur " << player->getName() << " ne peut pas passer en état de jeu nul !" << std::endl;
+	std::cout << " Le joueur " << player->getName() << " ne peut pas passer en état de jeu nul !" << std::endl;
 }
 
 //------------------------------------------------------------------------------------------------------
 void CheckState::gameEnd()
 {
-	std::cout << "Le joueur " << player->getName() << " est encore en état d'échec et ne peut donc pas finir la partie !" << std::endl;
+	std::cout << " Le joueur " << player->getName() << " est encore en état d'échec et ne peut donc pas finir la partie !" << std::endl;
 }
 
 //------------------------------------------------------------------------------------------------------
 void CheckState::print()
 {
-	std::cout << "Echec" << std::endl;
+	std::cout << "---------------------------------------------------------" << std::endl;
+	std::cout << " Le joueur " << player->getName() << " est en Echec" << std::endl;
+	std::cout << "---------------------------------------------------------" << std::endl;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -185,7 +197,7 @@ MateState::~MateState(){}
 //------------------------------------------------------------------------------------------------------
 void MateState::inGame()
 {
-	std::cout << "Le joueur " << player->getName() << " est en état d'échec et mat, il ne peut donc pas revenir en jeu !" << std::endl;
+	std::cout << "Le joueur " << player->getName() << " est Echec et Mat, il ne peut donc pas revenir en jeu !" << std::endl;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -215,7 +227,9 @@ void MateState::gameEnd()
 //------------------------------------------------------------------------------------------------------
 void MateState::print()
 {
-	std::cout << "Echec et mat" << std::endl;
+	std::cout << "---------------------------------------------------------" << std::endl;
+	std::cout << " Le joueur " << player->getName() << " est Echec et mat" << std::endl;
+	std::cout << "---------------------------------------------------------" << std::endl;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -277,7 +291,9 @@ void NullState::gameEnd()
 //------------------------------------------------------------------------------------------------------
 void NullState::print()
 {
-	std::cout << "Jeu nul" << std::endl;
+	std::cout << "---------------------------------------------------------" << std::endl;
+	std::cout << " Partie nulle" << std::endl;
+	std::cout << "---------------------------------------------------------" << std::endl;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -337,7 +353,9 @@ void EndState::gameEnd()
 //------------------------------------------------------------------------------------------------------
 void EndState::print()
 {
-	std::cout << "Jeu terminé" << std::endl;
+	std::cout << "---------------------------------------------------------" << std::endl;
+	std::cout << " Le joueur " << player->getName() << " a terminé la partie" << std::endl;
+	std::cout << "---------------------------------------------------------" << std::endl;
 }
 
 //------------------------------------------------------------------------------------------------------

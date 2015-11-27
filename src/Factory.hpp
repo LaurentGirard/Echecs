@@ -1,5 +1,5 @@
 /**
- * @file Chess.hpp
+ * @file Factory.hpp
  * @author P. Sullivan, G.Laurent
  * @since 25/12/2015
  * @brief Définition de la factoty
@@ -15,22 +15,24 @@
 /**
 * @class factory 
 * 
-* @brief Classe abstaite de Piece
+* @brief Classe abstaite Factory
 *
 */
 
 class Factory
 {
     public:
-    	Factory();
-    	~Factory();
-		virtual std::vector<Piece*> fabriquePieces(bool color);//false == White
+
+    Factory();
+    virtual ~Factory();
+
+		virtual std::vector<Piece*> buildPieces(bool color); //false == White
 };
 
 /**
-* @class fabriquespawns
+* @class FactorySpawn
 * 
-* @brief Classe fabriquespawns héritant de Factory
+* @brief Classe FactorySpawn héritant de Factory
 *
 */
 
@@ -40,13 +42,13 @@ class FactorySpawn : public Factory
       public:
       FactorySpawn();
       ~FactorySpawn();
-      std::vector<Piece*> fabriquePieces(bool color);
+      std::vector<Piece*> buildPieces(bool color);
 };
 
 /**
-* @class fabriquespawns
+* @class FactoryRook
 * 
-* @brief Classe fabriquespawns héritant de Factory
+* @brief Classe FactoryRook héritant de Factory
 *
 */
 
@@ -56,13 +58,13 @@ class FactoryRook : public Factory
       public:
       FactoryRook();
       ~FactoryRook();
-      std::vector<Piece*> fabriquePieces(bool color);
+      std::vector<Piece*> buildPieces(bool color);
 };
 
 /**
-* @class fabriquespawns
+* @class FactoryKnight
 * 
-* @brief Classe fabriquespawns héritant de Factory
+* @brief Classe FactoryKnight héritant de Factory
 *
 */
 
@@ -72,13 +74,13 @@ class FactoryKnight : public Factory
       public:
       FactoryKnight();
       ~FactoryKnight();
-      std::vector<Piece*> fabriquePieces(bool color);
+      std::vector<Piece*> buildPieces(bool color);
 };
 
 /**
-* @class fabriquespawns
+* @class FactoryBishop
 * 
-* @brief Classe fabriquespawns héritant de Factory
+* @brief Classe FactoryBishop héritant de Factory
 *
 */
 
@@ -88,13 +90,13 @@ class FactoryBishop : public Factory
       public:
       FactoryBishop();
       ~FactoryBishop();
-      std::vector<Piece*> fabriquePieces(bool color);
+      std::vector<Piece*> buildPieces(bool color);
 };
 
 /**
-* @class fabriquespawns
+* @class FactoryQueen
 * 
-* @brief Classe fabriquespawns héritant de Factory
+* @brief Classe FactoryQueen héritant de Factory
 *
 */
 
@@ -104,13 +106,13 @@ class FactoryQueen : public Factory
       public:
       FactoryQueen();
       ~FactoryQueen();
-      std::vector<Piece*> fabriquePieces(bool color);
+      std::vector<Piece*> buildPieces(bool color);
 };
 
 /**
-* @class fabriquespawns
+* @class FactoryKing
 * 
-* @brief Classe fabriquespawns héritant de Factory
+* @brief Classe FactoryKing héritant de Factory
 *
 */
 
@@ -120,7 +122,7 @@ class FactoryKing : public Factory
       public:
       FactoryKing();
       ~FactoryKing();
-      std::vector<Piece*> fabriquePieces(bool color);
+      std::vector<Piece*> buildPieces(bool color);
 };
 
 

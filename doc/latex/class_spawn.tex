@@ -1,0 +1,91 @@
+\hypertarget{class_spawn}{\section{Référence de la classe Spawn}
+\label{class_spawn}\index{Spawn@{Spawn}}
+}
+
+
+Classe \hyperlink{class_spawn}{Spawn} héritant de \hyperlink{class_piece}{Piece}.  
+
+
+
+
+{\ttfamily \#include $<$Piece.\-hpp$>$}
+
+Graphe d'héritage de Spawn\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_spawn}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_spawn_ad401aa751cbbf9ea4f444e3011ff36b5}{Spawn} (unsigned int x, unsigned int y, bool direction)
+\begin{DoxyCompactList}\small\item\em Constructeur, crée un objet \hyperlink{class_spawn}{Spawn} de coordonnées x,y. \end{DoxyCompactList}\item 
+\hyperlink{class_spawn_aea08036b23acdb06fd47eba35dc2a8cf}{$\sim$\-Spawn} ()
+\begin{DoxyCompactList}\small\item\em Destructeur d'un objet cavalier. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_spawn_ae176dffa40411480840c3e39cd619300}{movement} ()
+\begin{DoxyCompactList}\small\item\em procédure virtuelle permettant de mettre à jour l'attribut movements en fonction des déplacements possibles du Pion \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Description détaillée}
+Classe \hyperlink{class_spawn}{Spawn} héritant de \hyperlink{class_piece}{Piece}. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{class_spawn_ad401aa751cbbf9ea4f444e3011ff36b5}{\index{Spawn@{Spawn}!Spawn@{Spawn}}
+\index{Spawn@{Spawn}!Spawn@{Spawn}}
+\subsubsection[{Spawn}]{\setlength{\rightskip}{0pt plus 5cm}Spawn\-::\-Spawn (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{x, }
+\item[{unsigned int}]{y, }
+\item[{bool}]{direction}
+\end{DoxyParamCaption}
+)}}\label{class_spawn_ad401aa751cbbf9ea4f444e3011ff36b5}
+
+
+Constructeur, crée un objet \hyperlink{class_spawn}{Spawn} de coordonnées x,y. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em unsigned} & int x \\
+\hline
+{\em unsigned} & int y \\
+\hline
+{\em bool} & haut(true)/bas(false) \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_spawn_aea08036b23acdb06fd47eba35dc2a8cf}{\index{Spawn@{Spawn}!$\sim$\-Spawn@{$\sim$\-Spawn}}
+\index{$\sim$\-Spawn@{$\sim$\-Spawn}!Spawn@{Spawn}}
+\subsubsection[{$\sim$\-Spawn}]{\setlength{\rightskip}{0pt plus 5cm}Spawn\-::$\sim$\-Spawn (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_spawn_aea08036b23acdb06fd47eba35dc2a8cf}
+
+
+Destructeur d'un objet cavalier. 
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_spawn_ae176dffa40411480840c3e39cd619300}{\index{Spawn@{Spawn}!movement@{movement}}
+\index{movement@{movement}!Spawn@{Spawn}}
+\subsubsection[{movement}]{\setlength{\rightskip}{0pt plus 5cm}void Spawn\-::movement (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_spawn_ae176dffa40411480840c3e39cd619300}
+
+
+procédure virtuelle permettant de mettre à jour l'attribut movements en fonction des déplacements possibles du Pion 
+
+
+
+Réimplémentée à partir de \hyperlink{class_piece_ae721b5ed94376fd4e7d348d36739ed4d}{Piece}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{_piece_8hpp}{Piece.\-hpp}\item 
+src/\hyperlink{_piece_8cpp}{Piece.\-cpp}\end{DoxyCompactItemize}

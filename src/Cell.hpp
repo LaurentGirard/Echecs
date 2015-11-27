@@ -30,8 +30,8 @@ class Cell
 
 	/**
        * @brief Constructeur, crée un objet Cell initialisant les coordonnées
-       * @param unsigned int x
-       * @param unsigned int y
+       * @param unsigned int, x
+       * @param unsigned int, y
        */
 	      Cell(unsigned int x, unsigned int y);
 

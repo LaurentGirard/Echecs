@@ -1,0 +1,76 @@
+\hypertarget{_chess_8hpp}{\section{Chess.\-hpp}
+\label{_chess_8hpp}\index{src/\-Chess.\-hpp@{src/\-Chess.\-hpp}}
+}
+
+\begin{DoxyCode}
+00001 
+00009 \textcolor{preprocessor}{#ifndef \_\_CHESS\_HPP\_\_}
+00010 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define \_\_CHESS\_HPP\_\_}
+00011 \textcolor{preprocessor}{}
+00012 \textcolor{preprocessor}{#include "\hyperlink{_player_8hpp}{Player.hpp}"}
+00013 
+\hypertarget{_chess_8hpp_source_l00014}{}\hyperlink{class_chess}{00014} \textcolor{keyword}{class }\hyperlink{class_chess}{Chess}
+00015 \{
+00016     \textcolor{keyword}{private}:
+00017         \hyperlink{class_player}{Player}* p1;               \textcolor{comment}{// Attribut : Joueur 1}
+00018         \hyperlink{class_player}{Player}* p2;               \textcolor{comment}{// Attribut : Joueur 2}
+00019         \hyperlink{class_piece}{Piece}* \_board[8][8];       \textcolor{comment}{// Plateau de pièces}
+00020 
+00021     \textcolor{keyword}{public}:
+00022 
+00028             \hyperlink{class_chess_a7524da0608df5a385dfd25d23d2d4e50}{Chess}(std::string nameP1, std::string nameP2);
+00029 
+00033             \hyperlink{class_chess_aa9717ab5263bc4fbb844e78bbe5587a8}{~Chess}();
+00034 
+00038             \textcolor{keywordtype}{void} \hyperlink{class_chess_a8fc79b0c34c21d522abd9b8ae62ee38f}{initBoard}();
+00039 
+00048             \hyperlink{class_piece}{Piece}* \hyperlink{class_chess_a67069ea8ee1fce34961fc9c645c4dc10}{selectDest}(\hyperlink{class_player}{Player}* player, \hyperlink{class_piece}{Piece}* piece, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} x, \textcolor{keywordtype}{
+      unsigned} \textcolor{keywordtype}{int} y);
+00049 
+00057             \textcolor{keywordtype}{bool} \hyperlink{class_chess_ae24e3b25128b76757859c913fae1930f}{noCollision}(\hyperlink{class_piece}{Piece}* selectedP, \hyperlink{class_piece}{Piece}* selectedD, 
+      \hyperlink{class_piece}{Piece}* pieceaeviter);
+00058 
+00064             \textcolor{keywordtype}{void} \hyperlink{class_chess_aec36eadf1a550d2f6c85ec8a23bac2d1}{movePiece}(\hyperlink{class_piece}{Piece}* selectedP, \hyperlink{class_piece}{Piece}* selectedD);
+00065 
+00072             \textcolor{keywordtype}{bool} \hyperlink{class_chess_ac521e181e266322da1664977b102afc5}{gameRound}(\hyperlink{class_player}{Player}* playerIG, \hyperlink{class_player}{Player}* adver);
+00073 
+00078             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \hyperlink{class_chess_a7d4dbb556159e245fe753d5a6daada8b}{getChoiceInt}();
+00079 
+00083             \textcolor{keywordtype}{void} \hyperlink{class_chess_a9cd677e16f4c08ddcdad57a4e12be99f}{printBoard}();
+00084 
+00092         \textcolor{keywordtype}{bool} \hyperlink{class_chess_a801d97e9ed968f62b1dd850e11ff3b49}{testechec}(\hyperlink{class_player}{Player}* playerIG, \hyperlink{class_player}{Player}* adver); 
+00093 
+00101         \textcolor{keywordtype}{bool} \hyperlink{class_chess_a801d97e9ed968f62b1dd850e11ff3b49}{testechec}(\hyperlink{class_piece}{Piece}* selectedP, \hyperlink{class_player}{Player}* adver); 
+00102 
+00110         \textcolor{keywordtype}{bool} \hyperlink{class_chess_a8bb11009c45ca72877afdddc67c23016}{testechecmat}(\hyperlink{class_player}{Player}* playerIG, \hyperlink{class_player}{Player}* adver);
+00111 
+00120         \textcolor{keywordtype}{bool} \hyperlink{class_chess_aa4a6555edfbb4ec3d81f5feea272c889}{surlepassage}(\hyperlink{class_player}{Player}* playerIG, \hyperlink{class_piece}{Piece}* pieceD, 
+      \hyperlink{class_player}{Player}* advers);
+00121 
+00128         std::vector<Piece*> \hyperlink{class_chess_ab1077aa8c0d1d6849788b2548c2e71ad}{listepieces}(\hyperlink{class_piece}{Piece}* selectedP, \hyperlink{class_player}{Player}* advers);
+00129 
+00139         \textcolor{keywordtype}{bool} \hyperlink{class_chess_ae4012cc01ef4914e17c756c0adcfee14}{listpeutmangerleroi}(std::vector<Piece*> list, 
+      \hyperlink{class_player}{Player}* advers, \hyperlink{class_player}{Player}* playerIG, \hyperlink{class_piece}{Piece}* selectedP,\hyperlink{class_piece}{Piece}* selectedD);
+00140         
+00147         \textcolor{keywordtype}{void} \hyperlink{class_chess_a28adecf1d95d52e735ae592222bd2618}{transformationspawn}(\hyperlink{class_player}{Player}* playerIG, 
+      \hyperlink{class_piece}{Piece}* selectedP, \hyperlink{class_piece}{Piece}* selectedD);
+00148 
+00155         \textcolor{keywordtype}{bool} \hyperlink{class_chess_a6206462cbbff396c4fa898d45660471b}{gererpetitroque}(\hyperlink{class_player}{Player}* playerIG,\hyperlink{class_piece}{Piece}* selectedP,
+      \hyperlink{class_piece}{Piece}* selectedD);
+00156 
+00163         \textcolor{keywordtype}{bool} \hyperlink{class_chess_a37bce0d85e4d9e66dcc9845a440cd30d}{gerergrandroque}(\hyperlink{class_player}{Player}* playerIG,\hyperlink{class_piece}{Piece}* selectedP,
+      \hyperlink{class_piece}{Piece}* selectedD);
+00164 
+00169         \textcolor{keywordtype}{void} \hyperlink{class_chess_ab92c6dd132e82810617bd3abc02feda0}{fairepetitroque}(\hyperlink{class_player}{Player}* playerIG);
+00170 
+00175         \textcolor{keywordtype}{void} \hyperlink{class_chess_a65ef639fd19934036349c68e911ca71d}{fairegrandroque}(\hyperlink{class_player}{Player}* playerIG);
+00176         
+00183         \textcolor{keywordtype}{bool} \hyperlink{class_chess_a50a49db321a3b0a7ce8c812b72ef0fe1}{testpieceappartence}(\hyperlink{class_piece}{Piece}* piece, \hyperlink{class_player}{Player}* playerIG);
+00184     
+00189         \textcolor{keywordtype}{bool} \hyperlink{class_chess_a6e538fe6848f15b72dfa95bd1aac4eec}{testnull}();
+00190 
+00194         \textcolor{keywordtype}{void} \hyperlink{class_chess_aea92734ff5516066d5c1a690a78ea146}{startGame}();
+00195 \};
+00196 
+00197 \textcolor{preprocessor}{#endif // \_\_CHESS\_HPP\_\_}
+\end{DoxyCode}

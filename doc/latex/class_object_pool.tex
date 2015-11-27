@@ -1,0 +1,106 @@
+\hypertarget{class_object_pool}{\section{Référence de la classe Object\-Pool}
+\label{class_object_pool}\index{Object\-Pool@{Object\-Pool}}
+}
+
+
+{\ttfamily \#include $<$Object\-Pool.\-hpp$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_object_pool_ad6a851944917327bd1c035f9a81e0684}{Object\-Pool} ()
+\begin{DoxyCompactList}\small\item\em Constructeur, crée un objet \hyperlink{class_object_pool}{Object\-Pool}. \end{DoxyCompactList}\item 
+\hyperlink{class_object_pool_ae45acbed251b192f83bc68ef277a7a3f}{$\sim$\-Object\-Pool} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+\hyperlink{class_piece}{Piece} $\ast$ \hyperlink{class_object_pool_aa6b45de56e448971193590ec18269ca0}{pick\-Piece} (unsigned int ind\-Piece)
+\begin{DoxyCompactList}\small\item\em permet de prendre un objet dans la pool \end{DoxyCompactList}\item 
+void \hyperlink{class_object_pool_a6f4c72edf13fadf5d873be5ef6f27cd5}{put\-Piece} (\hyperlink{class_piece}{Piece} $\ast$piece, unsigned int ind\-Piece)
+\begin{DoxyCompactList}\small\item\em permet de remettre un objet dans la pool \end{DoxyCompactList}\item 
+\hyperlink{class_piece}{Piece} $\ast$$\ast$ \hyperlink{class_object_pool_af9f18a929a7de70525a18bf1622bb68c}{get\-Pool} ()
+\begin{DoxyCompactList}\small\item\em getter de l'attribut \-\_\-pool \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{class_object_pool_ad6a851944917327bd1c035f9a81e0684}{\index{Object\-Pool@{Object\-Pool}!Object\-Pool@{Object\-Pool}}
+\index{Object\-Pool@{Object\-Pool}!ObjectPool@{Object\-Pool}}
+\subsubsection[{Object\-Pool}]{\setlength{\rightskip}{0pt plus 5cm}Object\-Pool\-::\-Object\-Pool (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_object_pool_ad6a851944917327bd1c035f9a81e0684}
+
+
+Constructeur, crée un objet \hyperlink{class_object_pool}{Object\-Pool}. 
+
+\hypertarget{class_object_pool_ae45acbed251b192f83bc68ef277a7a3f}{\index{Object\-Pool@{Object\-Pool}!$\sim$\-Object\-Pool@{$\sim$\-Object\-Pool}}
+\index{$\sim$\-Object\-Pool@{$\sim$\-Object\-Pool}!ObjectPool@{Object\-Pool}}
+\subsubsection[{$\sim$\-Object\-Pool}]{\setlength{\rightskip}{0pt plus 5cm}Object\-Pool\-::$\sim$\-Object\-Pool (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_object_pool_ae45acbed251b192f83bc68ef277a7a3f}
+
+
+Destructeur. 
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_object_pool_af9f18a929a7de70525a18bf1622bb68c}{\index{Object\-Pool@{Object\-Pool}!get\-Pool@{get\-Pool}}
+\index{get\-Pool@{get\-Pool}!ObjectPool@{Object\-Pool}}
+\subsubsection[{get\-Pool}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Piece} $\ast$$\ast$ Object\-Pool\-::get\-Pool (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_object_pool_af9f18a929a7de70525a18bf1622bb68c}
+
+
+getter de l'attribut \-\_\-pool 
+
+\begin{DoxyReturn}{Renvoie}
+Piece$\ast$ 
+\end{DoxyReturn}
+\hypertarget{class_object_pool_aa6b45de56e448971193590ec18269ca0}{\index{Object\-Pool@{Object\-Pool}!pick\-Piece@{pick\-Piece}}
+\index{pick\-Piece@{pick\-Piece}!ObjectPool@{Object\-Pool}}
+\subsubsection[{pick\-Piece}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Piece} $\ast$ Object\-Pool\-::pick\-Piece (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{ind\-Piece}
+\end{DoxyParamCaption}
+)}}\label{class_object_pool_aa6b45de56e448971193590ec18269ca0}
+
+
+permet de prendre un objet dans la pool 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em unsigned} & int, indice de la pool permettant d'enlever la Piece$\ast$ à cet indice \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Piece$\ast$, pointeur de la pièce sortante 
+\end{DoxyReturn}
+\hypertarget{class_object_pool_a6f4c72edf13fadf5d873be5ef6f27cd5}{\index{Object\-Pool@{Object\-Pool}!put\-Piece@{put\-Piece}}
+\index{put\-Piece@{put\-Piece}!ObjectPool@{Object\-Pool}}
+\subsubsection[{put\-Piece}]{\setlength{\rightskip}{0pt plus 5cm}void Object\-Pool\-::put\-Piece (
+\begin{DoxyParamCaption}
+\item[{{\bf Piece} $\ast$}]{piece, }
+\item[{unsigned int}]{ind\-Piece}
+\end{DoxyParamCaption}
+)}}\label{class_object_pool_a6f4c72edf13fadf5d873be5ef6f27cd5}
+
+
+permet de remettre un objet dans la pool 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em Piece$\ast$,pointeur} & de la pièce à remettre dans la pool (en fin de partie) \\
+\hline
+{\em unsigned} & int, indice de la pool permettant de remettre la Piece$\ast$ à cet indice \\
+\hline
+\end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{_object_pool_8hpp}{Object\-Pool.\-hpp}\item 
+src/\hyperlink{_object_pool_8cpp}{Object\-Pool.\-cpp}\end{DoxyCompactItemize}

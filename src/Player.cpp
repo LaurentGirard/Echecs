@@ -11,6 +11,10 @@
 //------------------------------------------------------------------------------------------------------
 Player::Player(std::string name, std::string color) : _name(name), _color(color)
 {
+	bool col;
+	int i;
+	Factory* factory = new Factory();
+
 	// Initialisation des différents états
 	_gameState = new GameState(this);
 	_checkState = new CheckState(this);
@@ -19,53 +23,13 @@ Player::Player(std::string name, std::string color) : _name(name), _color(color)
 	_endState = new EndState(this);
 	_state = _gameState;
 
-	// Initialisation des pièces du joueur en fonction de sa couleur
-	/*unsigned int i;
-	unsigned int ySpawn = 8;
-	unsigned int yPieces = 8;
+	col = !( (color == "White") || (color == "Blanc") );
 
-	if( (color == "White") || (color == "Blanc") )
-	{
-		ySpawn = 1;
-		yPieces = 0;
-	}
-	else if( (color == "Black") || (color == "Noir") )
-	{
-		ySpawn = 6;
-		yPieces = 7;
-	}
-	else
-		std::cout << "Erreur d'initialisation, la couleur : " << color << " n'est pas valide !" << std::endl;
 
-	for(i = 0; i < 8 ; ++i)
-	{
-		if ( (color == "White") || (color == "Blanc") )
-			_pieces[i] = new Spawn(i,ySpawn,false);
+	for (i = 0; i < 16;++i)
+		_pieces[i] = factory->buildPieces(col)[i];
 
-		if( (color == "Black") || (color == "Noir") )
-			_pieces[i] = new Spawn(i,ySpawn,true);
-	}
-
-	_pieces[8] = new Rook(0,yPieces);
-	_pieces[9] = new Knight(1,yPieces);
-	_pieces[10] = new Bishop(2,yPieces);
-	_pieces[11] = new Queen(3,yPieces);
-	_pieces[12] = new King(4,yPieces);
-	_pieces[13] = new Bishop(5,yPieces);
-	_pieces[14] = new Knight(6,yPieces);
-	_pieces[15] = new Rook(7,yPieces);*/
-	bool col;
-	int i;
-	if( (color == "White") || (color == "Blanc") )
-	{
-		col=false;
-	}else
-	{
-		col=true;	
-	}
-	Factory* factory=new Factory();
-	for (i =0; i<16;++i)
-		_pieces[i]=factory->fabriquePieces(col)[i];
+	delete factory;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -202,12 +166,6 @@ State* Player::getEndState()
 Piece* Player::getking()
 {
 	return _pieces[12];
-}
-
-//------------------------------------------------------------------------------------------------------
-ObjectPool* Player::getObjectPool()
-{
-	return _op;
 }
 
 //------------------------------------------------------------------------------------------------------

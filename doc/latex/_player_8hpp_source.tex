@@ -1,0 +1,85 @@
+\hypertarget{_player_8hpp}{\section{Player.\-hpp}
+\label{_player_8hpp}\index{src/\-Player.\-hpp@{src/\-Player.\-hpp}}
+}
+
+\begin{DoxyCode}
+00001 
+00009 \textcolor{preprocessor}{#ifndef \_\_Player\_HPP\_\_}
+00010 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define \_\_Player\_HPP\_\_}
+00011 \textcolor{preprocessor}{}
+00012 \textcolor{preprocessor}{#include "\hyperlink{_state_8hpp}{State.hpp}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{_piece_8hpp}{Piece.hpp}"}
+00014 \textcolor{preprocessor}{#include "\hyperlink{_object_pool_8hpp}{ObjectPool.hpp}"}
+00015 \textcolor{preprocessor}{#include "\hyperlink{_factory_8hpp}{Factory.hpp}"}
+00016 
+00017 
+\hypertarget{_player_8hpp_source_l00018}{}\hyperlink{class_player}{00018} \textcolor{keyword}{class }\hyperlink{class_player}{Player}
+00019 \{
+00020     \textcolor{keyword}{private}:
+00021 
+00022         std::string \_name;              \textcolor{comment}{// Attribut : nom du joueur}
+00023         std::string \_color;             \textcolor{comment}{// Attribut : couleur du joueur}
+00024         \hyperlink{class_piece}{Piece}* \_pieces[16];                \textcolor{comment}{// Attribut : pièces du joueur par indice (Pions: 0->7;
+       Tours: 8,15; Cavaliers: 9,14; Fous: 10,13; Reine: 11, Roi: 12) cf ordre plateau}
+00025 
+00026         \hyperlink{class_state}{State} *\_state;                 \textcolor{comment}{// Attribut : état courant du joueur dans la partie}
+00027         \hyperlink{class_state}{State} *\_gameState;             \textcolor{comment}{// Attribut : état en jeu}
+00028         \hyperlink{class_state}{State} *\_checkState;                \textcolor{comment}{// Attribut : état d'échec}
+00029         \hyperlink{class_state}{State} *\_mateState;             \textcolor{comment}{// Attribut : état d'échec et mat}
+00030         \hyperlink{class_state}{State} *\_nullState;             \textcolor{comment}{// Attribut : état de jeu nul}
+00031         \hyperlink{class_state}{State} *\_endState;              \textcolor{comment}{// Attribut : état de fin de jeu}
+00032 
+00033     \textcolor{keyword}{public}:
+00034 
+00039         \hyperlink{class_player_a06ca07f2ce539e4b458437857a720718}{Player}(std::string name, std::string color);
+00040 
+00044         \hyperlink{class_player_a749d2c00e1fe0f5c2746f7505a58c062}{~Player}();
+00045 
+00049         \textcolor{keywordtype}{void} \hyperlink{class_player_ac587f5febaceec87ddefbaf78f74539d}{inGame}();
+00050 
+00054         \textcolor{keywordtype}{void} \hyperlink{class_player_adf4962f4f2b134085f1e26809cf42680}{check}();
+00055 
+00059         \textcolor{keywordtype}{void} \hyperlink{class_player_ab9d193b41e8553470f7af7c18abe3ecc}{checkMate}();
+00060 
+00064         \textcolor{keywordtype}{void} \hyperlink{class_player_ab2f4e51ebb224662fd6e2aac37ed7a05}{gameNull}();
+00065 
+00069         \textcolor{keywordtype}{void} \hyperlink{class_player_a3e67b9ce45f196d24395b9a44cb3e140}{gameEnd}();
+00070 
+00074         \textcolor{keywordtype}{void} \hyperlink{class_player_a4fda4bd6b5fa84d436a7592e4faebe92}{printState}();
+00075 
+00079         \textcolor{keywordtype}{void} \hyperlink{class_player_ac51828429e6e1401f04677ec3f1e0769}{printPieces}();
+00080 
+00087         \hyperlink{class_piece}{Piece}* \hyperlink{class_player_a777c790075ce371af98eaf6e40f2a726}{selectPiece}( \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} x, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} y);
+00088 
+00093         std::string \hyperlink{class_player_af1aa472885d589516f483e26e786600e}{getName}();
+00094 
+00099         \textcolor{keywordtype}{void} \hyperlink{class_player_a1b456e164e73e5cf5ffe925529fc8c2a}{setName}(std::string newName);
+00100 
+00105         std::string \hyperlink{class_player_a3e4c06283c8cb949b338830b0d3d6abc}{getColor}();
+00106 
+00111         \hyperlink{class_piece}{Piece}** \hyperlink{class_player_a738451fc076901ecf28cae81c7604e2a}{getPieces}();
+00112 
+00117         \hyperlink{class_state}{State}* \hyperlink{class_player_a1b85aeef66cdbc472caf951d25796086}{getState}();
+00118 
+00123         \textcolor{keywordtype}{void} \hyperlink{class_player_a02d8b0f8340dc5557a01b33c4254757a}{setState}(\hyperlink{class_state}{State} *newState);
+00128         \hyperlink{class_state}{State}* \hyperlink{class_player_a98676a7d1647ac6db50507850fab1d92}{getGameState}();
+00129 
+00134         \hyperlink{class_state}{State}* \hyperlink{class_player_a24f6a87b0480786ba2f966bc88d15195}{getCheckState}();
+00135 
+00140         \hyperlink{class_state}{State}* \hyperlink{class_player_abd42a23982b38a78bf66fe627d73b4cc}{getMateState}();
+00141 
+00146         \hyperlink{class_state}{State}* \hyperlink{class_player_a121812f4c5a5e913f31187b90f378aa7}{getNullState}();
+00147 
+00152         \hyperlink{class_state}{State}* \hyperlink{class_player_af8a9597bb9da1dcd21cb849ca519802b}{getEndState}();
+00153 
+00158         \hyperlink{class_piece}{Piece}* \hyperlink{class_player_a5c1bd88d1c71575488196335b60a76b0}{getking}();
+00159 
+00164         \textcolor{keywordtype}{bool} \hyperlink{class_player_a98003bced20a95fd42452ce149fddad7}{ischeckmate}();
+00165 
+00170         \textcolor{keywordtype}{bool} \hyperlink{class_player_aa8d4b069eedca62c2b8d5243db8689db}{ischeck}();
+00171 
+00176         \textcolor{keywordtype}{bool} \hyperlink{class_player_a363d24fe41c4d6b0faad5f90f53a2114}{isnulle}();
+00177 \};
+00178 
+00179 \textcolor{preprocessor}{#endif // \_\_Player\_HPP\_\_}
+\end{DoxyCode}

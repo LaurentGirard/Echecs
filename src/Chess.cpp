@@ -196,6 +196,7 @@ bool Chess::listpeutmangerleroi(std::vector<Piece*> list, Player* advers, Player
 	bool res = false;
 	Piece* king = playerIG->getPieces()[12];
 	Piece* piecetueuse = NULL;
+
 	for(int i = 0; i < list.size() ; ++i)
 	{
 		piecetueuse = list[i];//on prend toute les pieces du joueur adverse
@@ -207,7 +208,8 @@ bool Chess::listpeutmangerleroi(std::vector<Piece*> list, Player* advers, Player
 				{
 					if(noCollision(piecetueuse, selectedD,selectedP))//si la piecetueuse peut aller manger le roi en sautant la piece selectedP
 						res=true;
-				}else
+				}
+				else
 				{
 					if(noCollision(piecetueuse, king, selectedP))//si la piecetueuse peut aller manger le roi en sautant la piece selectedP
 						res = true;
@@ -278,7 +280,7 @@ bool Chess::surlepassage(Player* playerIG, Piece* pieceD, Player* advers){
 		{
 			xxx = piecetueuse->getMovements()[indice][w]->getX();
 			yyy = piecetueuse->getMovements()[indice][w]->getY();
-			if ( ( xx==xxx ) && ( yy==yyy ) )
+			if ( (xx == xxx) && (yy == yyy) )
 				trouve = true;						
 		}
 	}
@@ -288,20 +290,24 @@ bool Chess::surlepassage(Player* playerIG, Piece* pieceD, Player* advers){
 void Chess::transformationspawn(Player* playerIG, Piece* selectedP, Piece* selectedD)
 {
 	int choose;
+	bool recherche = false;
+	int coordonnee = 0;
+
 	std::cout << "Vous pouvez transformer votre pion en : " << std::endl;
 	std::cout << "- Saissisez 0 pour le transformer en Reine." << std::endl;
 	std::cout << "- Saissisez 1 pour le transformer en fou." << std::endl;
 	std::cout << "- Saissisez 2 pour le transformer en cavalier." << std::endl;
 	std::cout << "- Saissisez 3 pour le transformer en tour." << std::endl;
+
 	choose = getChoiceInt();
+
 	while(choose > 3)
 	{
 		std::cout << "Veuillez saisir un chiffre entre 0 et 4 !" << std::endl;
 		choose = getChoiceInt();
 	}
 	// recheche de la coordonnée de la piece dans ces mains
-	bool recherche = false;
-	int coordonnee = 0;
+
 	while(!recherche && coordonnee < 16)
 	{
 		if(playerIG->getPieces()[coordonnee]->getSquare() == selectedP->getSquare())
@@ -310,6 +316,7 @@ void Chess::transformationspawn(Player* playerIG, Piece* selectedP, Piece* selec
 			++coordonnee;
 	}
 	movePiece(selectedP, selectedD);//déplacement de la pièce quand meme
+
 	switch(choose)
 	{
 		// Spawn devient Queen
@@ -351,7 +358,8 @@ bool Chess::gererpetitroque(Player* playerIG, Piece* selectedP, Piece* selectedD
 		playerIG->getPieces()[15]->getMovements()[0][0]->getY() == playerIG->getPieces()[15]->getSquare()->getY() )
 		res = true;
 	if(res)
-		std::cout << "Le petit roque est possible !" << std::endl;
+		std::cout << "Coup du Petit Roque !" << std::endl;
+
 	return res;
 }
 
@@ -372,7 +380,8 @@ bool Chess::gerergrandroque(Player* playerIG, Piece* selectedP, Piece* selectedD
 			res = true;
 	}
 	if(res)
-		std::cout << "Le grand roque est possible !" << std::endl;
+		std::cout << "Coup du Grand Roque !" << std::endl;
+
 	return res;
 }
 
@@ -415,11 +424,15 @@ void Chess::fairegrandroque(Player* playerIG)
 	int y2 = playerIG->getking()->getSquare()->getY();
 
 	_board[x1][y1] = playerIG->getking();	// Le roi est déplacée sur le plateau
+
 	playerIG->getking()->setSquare(new Cell(x1,y1));// Mise à jour des coordonnées du roi qui vient d'être déplacée
 	playerIG->getking()->movement();	
+
 	_board[x2][y2] = playerIG->getPieces()[8]; // la tour es déplacée
+
 	playerIG->getPieces()[8]->setSquare(new Cell(x2,y2));// Mise à jour des coordonnées de la tour qui vient d'être déplacée
 	playerIG->getPieces()[8]->movement();
+
 	_board[xroi][yroi] = new Piece(xroi,yroi);			// L'ancienne position de la pièce est maintenant une pièce "vide"
 	_board[xtour][ytour] = new Piece(xtour,ytour);			// L'ancienne position de la pièce est maintenant une pièce "vide"
 }
@@ -429,27 +442,30 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 {
 	Piece* selectedP;
 	Piece* selectedD;
-	unsigned int x, y, x2, y2; //,i,j;
+	unsigned int x, y, x2, y2;
 	// Selection de la pièce du joueur
 	bool choix = false;
 	bool arreter = false;
 	std::string arret;
 	int value_returned;
 	
-	std::cout << "C'est au tour de : "<<playerIG->getName()<<std::endl;
-	while(!choix&&!arreter)
+	std::cout << " C'est au tour de : " << playerIG->getName() << std::endl;
+	std::cout << "---------------------------------------------------------" << std::endl << std::endl;
+
+	while(!choix && !arreter)
 	{
+		/*
 		std::cout << "Souhaitez-vous arreter la partie ? si oui, tapez oui sinon mettez n'importe quoi !" << std::endl;
 		std::cin >> arret;
 		if( arret == "oui")
-		{
-			arreter = true;
-		}
+			arreter = true;*/
+
 		if(!arreter)
 		{
 			printBoard();
-			std::cout << std::endl;
-			std::cout << "Coordonnées de la pièce que vous voulez selectionner : " << std::endl;
+
+			std::cout << std::endl << "---------------------------------------------------------" << std::endl;
+			std::cout << " Coordonnées de la pièce que vous voulez selectionner : " << std::endl;
 			std::cout << "x: ";
 			x = getChoiceInt();
 			std::cout << "y: ";
@@ -459,9 +475,10 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 			//demande au joueur de selectionner une piece tant que la piece selectionnée n'est pas une piece a lui 
 			while((selectedP == NULL))
 			{
-				std::cout << "Aucune pièce en votre possession ne se situe sur la case : (" << x << "," << y << ")" << std::endl;
-
-				std::cout << "Entrer des nouvelles coordonnées : " << std::endl;
+				std::cout << "---------------------------------------------------------" << std::endl;
+				std::cout << " Aucune pièce en votre possession ne se situe sur la case : (" << x << "," << y << ")" << std::endl;
+				std::cout << "---------------------------------------------------------" << std::endl;
+				std::cout << " Entrer de nouvelles coordonnées : " << std::endl;
 				std::cout << "x: ";
 				x = getChoiceInt();
 				std::cout << "y: ";
@@ -469,26 +486,18 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 
 				selectedP = playerIG->selectPiece(x,y);
 			}
-			std::cout << std::endl;
-			std::cout << "Vous avez selectionné la pièce :" << std::endl;
+			std::cout << "---------------------------------------------------------" << std::endl;
+			std::cout << " Vous avez selectionné la pièce :" << std::endl;
 			selectedP->printPiece();
 
-			std::cout << std::endl;
-			/*std::cout << "Voici les déplacements possibles : "<<std::endl;
-			// afficher les déplacement possible de la piece
-			for(i = 0 ; i < selectedP->getMovements().size() ; ++i)
-			{
-				for(j = 0 ; j < selectedP->getMovements()[i].size() ; ++j)
-					std::cout << "(" << selectedP->getMovements()[i][j]->getX() << "," << selectedP->getMovements()[i][j]->getY() << ")" << std::endl;
-
-			}*/
-
-			std::cout << "Coordonnées de la case sur laquelle vous voulez déplacer la pièce : " << std::endl;
+			std::cout << "---------------------------------------------------------" << std::endl;
+			std::cout << " Coordonnées de la case sur laquelle vous voulez déplacer la pièce : " << std::endl;
 			std::cout << "x: ";
 			x2 = getChoiceInt();
 			std::cout << "y: ";
 			y2 = getChoiceInt();
-			selectedD = selectDest(playerIG, selectedP, x2, y2); 	
+			selectedD = selectDest(playerIG, selectedP, x2, y2);
+
 			if(!(selectedD == NULL))
 			{
 			// Selection valide de la destination sur le plateau ( selectedD sera soit une pièce adverse, soit une pièce "vide" )
@@ -516,10 +525,11 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 										if(roque)
 											choix = true;
 											fairepetitroque(playerIG);
-								}else
+								}
+								else
 								{
 									//si le cas du grand roque est demandé
-									if(selectedP->getSquare()->getX()>2&&selectedD->getSquare()->getX()==(selectedP->getSquare()->getX()-2))
+									if(selectedP->getSquare()->getX() > 2 && selectedD->getSquare()->getX() == (selectedP->getSquare()->getX()-2))
 									{
 										int xroipetit = selectedP->getSquare()->getX();
 										int yroipetit = selectedP->getSquare()->getY();
@@ -527,61 +537,19 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 										bool test1 = (_board[xroipetit-1][yroipetit]->getLabel()==" ");
 										bool test2 = (_board[xroipetit-2][yroipetit]->getLabel()==" ");
 										bool test3 = (_board[xroipetit-3][yroipetit]->getLabel()==" ");
-										if(test1&&test2&&test3)
+										if(test1 && test2 && test3)
 										{
 											roque = gerergrandroque(playerIG,selectedP,selectedD);
 											if(roque)
-												choix=true;
+												choix = true;
 												fairegrandroque(playerIG);
 										}
-									}else
+									}
+									else
 									{
 										if(noCollision(selectedP, selectedD))
 										{
-											choix=true;
-											movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
-										}
-									}
-								}
-							}else
-							{
-								if(noCollision(selectedP, selectedD))
-								{
-									choix=true;
-									movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
-								}
-							}
-						}else
-						{
-							if(noCollision(selectedP, selectedD))
-							{
-								if(!(selectedP->getLabel()=="S"))// si le pion selectionné n'est pas un spawn
-								{
-										choix=true;
-										movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
-								}else
-								{
-									if( ( playerIG->getColor()=="White" ) || ( playerIG->getColor()=="Blanc") )
-									{
-										// cas pour transformer le spawn en reine, fou ..... si possible
-										if(selectedD->getSquare()->getY()==7)
-										{
-											transformationspawn(playerIG, selectedP, selectedD);
-											choix=true;
-										}else// sinon faire le cas normal
-										{
-											choix=true;
-											movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD	
-										}
-									}else
-									{
-										if(selectedD->getSquare()->getY()==0)
-										{
-											transformationspawn(playerIG, selectedP, selectedD);
-											choix=true;
-										}else
-										{
-											choix=true;
+											choix = true;
 											movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
 										}
 									}
@@ -589,7 +557,57 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 							}
 							else
 							{
-								std::cout << "collision !!" << std::endl;
+								if(noCollision(selectedP, selectedD))
+								{
+									choix = true;
+									movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
+								}
+							}
+						}
+						else
+						{
+							if(noCollision(selectedP, selectedD))
+							{
+								if(!(selectedP->getLabel() == "S"))// si le pion selectionné n'est pas un spawn
+								{
+										choix=true;
+										movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
+								}
+								else
+								{
+									if( ( playerIG->getColor() == "White" ) || ( playerIG->getColor() == "Blanc") )
+									{
+										// cas pour transformer le spawn en reine, fou ..... si possible
+										if(selectedD->getSquare()->getY() == 7)
+										{
+											transformationspawn(playerIG, selectedP, selectedD);
+											choix = true;
+										}
+										else// sinon faire le cas normal
+										{
+											choix = true;
+											movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD	
+										}
+									}
+									else
+									{
+										if(selectedD->getSquare()->getY() == 0)
+										{
+											transformationspawn(playerIG, selectedP, selectedD);
+											choix = true;
+										}
+										else
+										{
+											choix = true;
+											movePiece(selectedP, selectedD);		// déplacement de la pièce selectionnée vers selectedD
+										}
+									}
+								}
+							}
+							else
+							{
+								std::cout << "---------------------------------------------------------" << std::endl;
+								std::cout << "Il y a une collision sur le chemin !" << std::endl;
 							}
 						}
 					}else
@@ -610,11 +628,12 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 											}
 									}
 								}
-							}else
+							}
+							else
 							{
 								if(noCollision(selectedP, selectedD))
 								{
-									choix=true;
+									choix = true;
 									movePiece(selectedP, selectedD);
 								}
 							}
@@ -622,18 +641,41 @@ bool Chess::gameRound(Player* playerIG, Player* advers)
 						// Test s'il y a une collision ou non avec une pièce réelle lors du déplacement de selectedP vers selectedD
 						if(choix == false)
 						{
-							std::cout << "Votre roi se trouve en position d'échec vous devez le sauver ! " << std::endl;
+							std::cout << "---------------------------------------------------------" << std::endl;
+							std::cout << " Votre roi se trouve en position d'échec vous devez le sauver ! " << std::endl;
 						}
 					}
-				}else
-					std::cout << "Vous ne pouvez pas bouger cette piece car vous mettez votre Roi en échec !" << std::endl; 
+				}
+				else
+				{
+					std::cout << "---------------------------------------------------------" << std::endl;
+					std::cout << " Votre Roi est toujours en position d'Echec !" << std::endl; 
+				}
 
 				if(!choix)
-					std::cout << "Veuillez reselectionner une pièce" << std::endl; 
-			}else
-				std::cout << "Il est impossible d'aller à cette destination." << std::endl;
+				{
+					std::cout << "---------------------------------------------------------" << std::endl;
+					std::cout << " Veuillez sélectionner de nouveau une pièce" << std::endl;
+					std::cout << "---------------------------------------------------------" << std::endl << std::endl;
+				}
+			}
+			else
+			{
+				std::cout << "---------------------------------------------------------" << std::endl;
+				std::cout << " Il est impossible d'aller à cette destination." << std::endl;
+				std::cout << "---------------------------------------------------------" << std::endl << std::endl;
+			}
 		}
 	}
+
+	std::cout << "---------------------------------------------------------" << std::endl;
+	std::cout << " Fin du tour" << std::endl;
+	std::cout << "---------------------------------------------------------" << std::endl;
+	// Permet de faire une pause sur la sortie standard
+	std::cin.ignore(1024, '\n');
+	std::cout << " Appuyez sur une touche pour continuer";
+	std::cin.get();
+
 
 	// Permet de clear la sortie standard en affichant un message s'il y a eu une erreur
 	value_returned = std::system("clear");
@@ -661,27 +703,26 @@ void Chess::printBoard()
 {
 	unsigned int i, j, k;
 	Piece* piece;
+
 	for(i = 0; i < 8 ; ++i)
 	{
-		std::cout << 7-i<<"  |";
+		std::cout << 7-i << "  |";
 		for(j = 0 ; j < 8 ; ++j)
 		{
 			piece =_board[j][7-i]; 
+
 			if (testpieceappartence(piece,p1))
-			{
 				std::cout << _board[j][7-i]->getLabel() << "|";
-			}else{
-				std::cout <<  "\x1B[31;1m"<<_board[j][7-i]->getLabel()<<"\x1B[m" << "|";
-			}
+			else
+				std::cout << "\x1B[31;1m" << _board[j][7-i]->getLabel() << "\x1B[m" << "|";
 		}
 
 		std::cout << std::endl;
 	}
-	
-  	std::cout <<"y/x ";
+  	std::cout << "y/x ";
 
 	for(k = 0; k < 8 ; ++k)
-		std::cout << k <<" ";
+		std::cout << k << " ";
 
 	std::cout << std::endl;
 }
@@ -690,12 +731,13 @@ void Chess::printBoard()
 // regarde si la piece appartient au joueur
 bool Chess::testpieceappartence(Piece* piece, Player* playerIG)
 {
-	bool trouve=false;
-	int i =0;
-	while(!trouve&&i<16)
+	bool trouve = false;
+	int i = 0;
+
+	while(!trouve && (i < 16) )
 	{
 		if(piece->getSquare()==playerIG->getPieces()[i]->getSquare())
-			trouve =true;
+			trouve = true;
 		++i;
 	}
 	return trouve;
@@ -707,10 +749,12 @@ bool Chess::testechec(Player* playerIG, Player* adver)
 	Piece* kingIG;
 	kingIG = playerIG->getking();
 	bool res = testechec(kingIG, adver);
+
 	if(res)
 		playerIG->check();
 	else
 		playerIG->inGame();
+
 	return res;
 }
 
@@ -720,6 +764,7 @@ bool Chess::testechec(Piece* selectedP, Player* adver)
 	bool positionEchec = false;
 	Piece* selectedD;
 	int i = 0;
+
 	// regarde si une piece selectedP peut se faire manger par le joueur adverse
 	while( (positionEchec == false) && (i < 16) )
 	{
@@ -727,9 +772,7 @@ bool Chess::testechec(Piece* selectedP, Player* adver)
 		if (!(selectDest(adver,selectedD, selectedP->getSquare()->getX(), selectedP->getSquare()->getY())==NULL))
 		{
 			if(noCollision(selectedD, selectedP))
-			{
 				positionEchec = true;
-			}
 		}
 		i++;
 	}
@@ -938,7 +981,6 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 	if(!testnull()){
 		if(testechec(playerIG,adver))
 		{
-
 			s = 0;
 			// regarde si le roi peut bouger sans qu'il se remette en position d'echec 
 			for(i = 0; i < kingIG->getMovements().size(); ++i)
@@ -1038,6 +1080,9 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 	if (res){
 		playerIG->checkMate();
 	}
+
+	delete king_deplacement_virtuel;
+
 	return res;
 }
 
@@ -1045,49 +1090,49 @@ bool Chess::testechecmat(Player* playerIG, Player* adver)
 void Chess::startGame()
 {
 	bool finpartie = false;
+	bool checkmate = false;
 	std::string gagnant;
 
 	while(!finpartie)
 	{
 		p1->getState()->print();
+
 		finpartie = gameRound(p1, p2);
-		if (testechecmat(p2,p1)||testnull())
+
+		if (testechecmat(p2,p1) || testnull())
 		{
 			p1->getState()->print();
 			finpartie = true;
-		}else
+		}
+		else
 		{
 			p2->getState()->print();
-			finpartie= gameRound(p2, p1);
+			finpartie = gameRound(p2, p1);
 		}
-		if (testechecmat(p1,p2)||testnull())
+		if (testechecmat(p1,p2) || testnull())
 		{
 			p1->getState()->print();
 			finpartie = true;
 		}
 	}
-	bool checkmate = false;
+
 	if(!p1->isnulle())
 	{
 		if(p1->ischeckmate())
 		{
-			checkmate=true;
+			checkmate = true;
 			gagnant = p2->getName();
 		}
 		else if(p2->ischeckmate())
 		{
-			checkmate=true;
+			checkmate = true;
 			gagnant = p1->getName();
 		}
 		if(checkmate)
-		{
-			std::cout << "La partie est terminée, le Gagnant de cette partie est : " << gagnant<<std::endl;
-		}else
-		{
-			std::cout << "La partie est terminée ! " << gagnant<<std::endl;
-		}
+			std::cout << " La partie est terminée, le Gagnant de cette partie est : " << gagnant << std::endl;
+		else
+			std::cout << " La partie est terminée ! " << gagnant << std::endl;
 	}
 	else
-		std::cout << "La partie est terminée, car la partie est nulle." << std::endl;
-	
+		std::cout << " La partie est terminée, car la partie est nulle." << std::endl;
 }

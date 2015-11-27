@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Echecs:  Fichier source de src/Factory.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Echecs
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Bienvenue dans la taverne</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_factory_8hpp_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Factory.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_factory_8hpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef __FACTORY_HPP__</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define __FACTORY_HPP__</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_piece_8hpp.html">Piece.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_factory.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_factory.html">Factory</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_factory.html#ac792bf88cfb7b6804b479529da5308cc">Factory</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_factory.html#a8f71456f48e4df402c778a44191ff40e">~Factory</a>();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">virtual</span> std::vector&lt;Piece*&gt; <a class="code" href="class_factory.html#a90f20f663caa6e5a5370465d3014630f">buildPieces</a>(<span class="keywordtype">bool</span> color); <span class="comment">//false == White</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_factory_spawn.html">   39</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_factory_spawn.html">FactorySpawn</a> : <span class="keyword">public</span> <a class="code" href="class_factory.html">Factory</a></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <a class="code" href="class_factory_spawn.html#afa2ea203f016dc06217ab48607c4e899">FactorySpawn</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <a class="code" href="class_factory_spawn.html#ae7ec52abd4b3dc1e49cd9988a1d1d9bc">~FactorySpawn</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      std::vector&lt;Piece*&gt; <a class="code" href="class_factory_spawn.html#acdae41c4747246f35de741b32b3f74ac">buildPieces</a>(<span class="keywordtype">bool</span> color);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="class_factory_rook.html">   55</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_factory_rook.html">FactoryRook</a> : <span class="keyword">public</span> <a class="code" href="class_factory.html">Factory</a></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <a class="code" href="class_factory_rook.html#a4d8dfebcba093ee2f6009ffe907a8a8a">FactoryRook</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <a class="code" href="class_factory_rook.html#a0bc1c85e0c4db96d877ccf00566470f4">~FactoryRook</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      std::vector&lt;Piece*&gt; <a class="code" href="class_factory_rook.html#a50ff41cf552af801c123bf2b28120c68">buildPieces</a>(<span class="keywordtype">bool</span> color);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="class_factory_knight.html">   71</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_factory_knight.html">FactoryKnight</a> : <span class="keyword">public</span> <a class="code" href="class_factory.html">Factory</a></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;{</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <a class="code" href="class_factory_knight.html#a4c3de6c385f4b3d02286e39cdbf99136">FactoryKnight</a>();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      <a class="code" href="class_factory_knight.html#a40846bdf0be3fb8ecbcb50df3c4a7f61">~FactoryKnight</a>();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      std::vector&lt;Piece*&gt; <a class="code" href="class_factory_knight.html#a25af606063189d96698aae45b1bfc1b9">buildPieces</a>(<span class="keywordtype">bool</span> color);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;};</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="class_factory_bishop.html">   87</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_factory_bishop.html">FactoryBishop</a> : <span class="keyword">public</span> <a class="code" href="class_factory.html">Factory</a></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      <a class="code" href="class_factory_bishop.html#a6452991e628ec8262c57318da26171f1">FactoryBishop</a>();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      <a class="code" href="class_factory_bishop.html#aacec6859e5c70571357c5d172a62a38e">~FactoryBishop</a>();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      std::vector&lt;Piece*&gt; <a class="code" href="class_factory_bishop.html#a501a01fc371b26931d528ea0aa8b5c14">buildPieces</a>(<span class="keywordtype">bool</span> color);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;};</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="class_factory_queen.html">  103</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_factory_queen.html">FactoryQueen</a> : <span class="keyword">public</span> <a class="code" href="class_factory.html">Factory</a></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;{</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      <a class="code" href="class_factory_queen.html#ab6cc7393c4cb1670ba041a44276a58cd">FactoryQueen</a>();</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      <a class="code" href="class_factory_queen.html#ab1e9dfe91a868c88b775d3220b8f9bc0">~FactoryQueen</a>();</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      std::vector&lt;Piece*&gt; <a class="code" href="class_factory_queen.html#ac256e556b525b35d39f58af62fd1f962">buildPieces</a>(<span class="keywordtype">bool</span> color);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;};</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="class_factory_king.html">  119</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_factory_king.html">FactoryKing</a> : <span class="keyword">public</span> <a class="code" href="class_factory.html">Factory</a></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;{</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;      <a class="code" href="class_factory_king.html#ad6762ceddcc10d41b5652e17455d3503">FactoryKing</a>();</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;      <a class="code" href="class_factory_king.html#adbf2005c439f045fb97bdb86147181a7">~FactoryKing</a>();</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      std::vector&lt;Piece*&gt; <a class="code" href="class_factory_king.html#a0d5fd0a7340ab7bb50fe63e119c3a3ef">buildPieces</a>(<span class="keywordtype">bool</span> color);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;};</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="preprocessor">#endif // __FACTORY_HPP__</span></div>
+<div class="ttc" id="class_factory_queen_html_ac256e556b525b35d39f58af62fd1f962"><div class="ttname"><a href="class_factory_queen.html#ac256e556b525b35d39f58af62fd1f962">FactoryQueen::buildPieces</a></div><div class="ttdeci">std::vector&lt; Piece * &gt; buildPieces(bool color)</div><div class="ttdef"><b>Definition:</b> Factory.cpp:171</div></div>
+<div class="ttc" id="class_factory_queen_html"><div class="ttname"><a href="class_factory_queen.html">FactoryQueen</a></div><div class="ttdoc">Classe FactoryQueen héritant de Factory. </div><div class="ttdef"><b>Definition:</b> Factory.hpp:103</div></div>
+<div class="ttc" id="class_factory_king_html"><div class="ttname"><a href="class_factory_king.html">FactoryKing</a></div><div class="ttdoc">Classe FactoryKing héritant de Factory. </div><div class="ttdef"><b>Definition:</b> Factory.hpp:119</div></div>
+<div class="ttc" id="class_factory_rook_html_a0bc1c85e0c4db96d877ccf00566470f4"><div class="ttname"><a href="class_factory_rook.html#a0bc1c85e0c4db96d877ccf00566470f4">FactoryRook::~FactoryRook</a></div><div class="ttdeci">~FactoryRook()</div><div class="ttdef"><b>Definition:</b> Factory.cpp:91</div></div>
+<div class="ttc" id="class_factory_king_html_adbf2005c439f045fb97bdb86147181a7"><div class="ttname"><a href="class_factory_king.html#adbf2005c439f045fb97bdb86147181a7">FactoryKing::~FactoryKing</a></div><div class="ttdeci">~FactoryKing()</div><div class="ttdef"><b>Definition:</b> Factory.cpp:190</div></div>
+<div class="ttc" id="class_factory_html"><div class="ttname"><a href="class_factory.html">Factory</a></div><div class="ttdef"><b>Definition:</b> Factory.hpp:22</div></div>
+<div class="ttc" id="class_factory_king_html_ad6762ceddcc10d41b5652e17455d3503"><div class="ttname"><a href="class_factory_king.html#ad6762ceddcc10d41b5652e17455d3503">FactoryKing::FactoryKing</a></div><div class="ttdeci">FactoryKing()</div><div class="ttdef"><b>Definition:</b> Factory.cpp:187</div></div>
+<div class="ttc" id="class_factory_rook_html"><div class="ttname"><a href="class_factory_rook.html">FactoryRook</a></div><div class="ttdoc">Classe FactoryRook héritant de Factory. </div><div class="ttdef"><b>Definition:</b> Factory.hpp:55</div></div>
+<div class="ttc" id="class_factory_rook_html_a50ff41cf552af801c123bf2b28120c68"><div class="ttname"><a href="class_factory_rook.html#a50ff41cf552af801c123bf2b28120c68">FactoryRook::buildPieces</a></div><div class="ttdeci">std::vector&lt; Piece * &gt; buildPieces(bool color)</div><div class="ttdef"><b>Definition:</b> Factory.cpp:94</div></div>
+<div class="ttc" id="class_factory_knight_html"><div class="ttname"><a href="class_factory_knight.html">FactoryKnight</a></div><div class="ttdoc">Classe FactoryKnight héritant de Factory. </div><div class="ttdef"><b>Definition:</b> Factory.hpp:71</div></div>
+<div class="ttc" id="class_factory_spawn_html_afa2ea203f016dc06217ab48607c4e899"><div class="ttname"><a href="class_factory_spawn.html#afa2ea203f016dc06217ab48607c4e899">FactorySpawn::FactorySpawn</a></div><div class="ttdeci">FactorySpawn()</div><div class="ttdef"><b>Definition:</b> Factory.cpp:64</div></div>
+<div class="ttc" id="class_factory_king_html_a0d5fd0a7340ab7bb50fe63e119c3a3ef"><div class="ttname"><a href="class_factory_king.html#a0d5fd0a7340ab7bb50fe63e119c3a3ef">FactoryKing::buildPieces</a></div><div class="ttdeci">std::vector&lt; Piece * &gt; buildPieces(bool color)</div><div class="ttdef"><b>Definition:</b> Factory.cpp:193</div></div>
+<div class="ttc" id="class_factory_bishop_html_a501a01fc371b26931d528ea0aa8b5c14"><div class="ttname"><a href="class_factory_bishop.html#a501a01fc371b26931d528ea0aa8b5c14">FactoryBishop::buildPieces</a></div><div class="ttdeci">std::vector&lt; Piece * &gt; buildPieces(bool color)</div><div class="ttdef"><b>Definition:</b> Factory.cpp:146</div></div>
+<div class="ttc" id="class_factory_bishop_html_aacec6859e5c70571357c5d172a62a38e"><div class="ttname"><a href="class_factory_bishop.html#aacec6859e5c70571357c5d172a62a38e">FactoryBishop::~FactoryBishop</a></div><div class="ttdeci">~FactoryBishop()</div><div class="ttdef"><b>Definition:</b> Factory.cpp:142</div></div>
+<div class="ttc" id="class_factory_knight_html_a40846bdf0be3fb8ecbcb50df3c4a7f61"><div class="ttname"><a href="class_factory_knight.html#a40846bdf0be3fb8ecbcb50df3c4a7f61">FactoryKnight::~FactoryKnight</a></div><div class="ttdeci">~FactoryKnight()</div><div class="ttdef"><b>Definition:</b> Factory.cpp:116</div></div>
+<div class="ttc" id="class_factory_spawn_html_ae7ec52abd4b3dc1e49cd9988a1d1d9bc"><div class="ttname"><a href="class_factory_spawn.html#ae7ec52abd4b3dc1e49cd9988a1d1d9bc">FactorySpawn::~FactorySpawn</a></div><div class="ttdeci">~FactorySpawn()</div><div class="ttdef"><b>Definition:</b> Factory.cpp:67</div></div>
+<div class="ttc" id="class_factory_bishop_html_a6452991e628ec8262c57318da26171f1"><div class="ttname"><a href="class_factory_bishop.html#a6452991e628ec8262c57318da26171f1">FactoryBishop::FactoryBishop</a></div><div class="ttdeci">FactoryBishop()</div><div class="ttdef"><b>Definition:</b> Factory.cpp:139</div></div>
+<div class="ttc" id="class_factory_spawn_html"><div class="ttname"><a href="class_factory_spawn.html">FactorySpawn</a></div><div class="ttdoc">Classe FactorySpawn héritant de Factory. </div><div class="ttdef"><b>Definition:</b> Factory.hpp:39</div></div>
+<div class="ttc" id="class_factory_rook_html_a4d8dfebcba093ee2f6009ffe907a8a8a"><div class="ttname"><a href="class_factory_rook.html#a4d8dfebcba093ee2f6009ffe907a8a8a">FactoryRook::FactoryRook</a></div><div class="ttdeci">FactoryRook()</div><div class="ttdef"><b>Definition:</b> Factory.cpp:88</div></div>
+<div class="ttc" id="class_factory_bishop_html"><div class="ttname"><a href="class_factory_bishop.html">FactoryBishop</a></div><div class="ttdoc">Classe FactoryBishop héritant de Factory. </div><div class="ttdef"><b>Definition:</b> Factory.hpp:87</div></div>
+<div class="ttc" id="class_factory_html_a90f20f663caa6e5a5370465d3014630f"><div class="ttname"><a href="class_factory.html#a90f20f663caa6e5a5370465d3014630f">Factory::buildPieces</a></div><div class="ttdeci">virtual std::vector&lt; Piece * &gt; buildPieces(bool color)</div><div class="ttdef"><b>Definition:</b> Factory.cpp:22</div></div>
+<div class="ttc" id="_piece_8hpp_html"><div class="ttname"><a href="_piece_8hpp.html">Piece.hpp</a></div><div class="ttdoc">Définition d&#39;une classe de Piece. </div></div>
+<div class="ttc" id="class_factory_queen_html_ab1e9dfe91a868c88b775d3220b8f9bc0"><div class="ttname"><a href="class_factory_queen.html#ab1e9dfe91a868c88b775d3220b8f9bc0">FactoryQueen::~FactoryQueen</a></div><div class="ttdeci">~FactoryQueen()</div><div class="ttdef"><b>Definition:</b> Factory.cpp:168</div></div>
+<div class="ttc" id="class_factory_html_a8f71456f48e4df402c778a44191ff40e"><div class="ttname"><a href="class_factory.html#a8f71456f48e4df402c778a44191ff40e">Factory::~Factory</a></div><div class="ttdeci">virtual ~Factory()</div><div class="ttdef"><b>Definition:</b> Factory.cpp:19</div></div>
+<div class="ttc" id="class_factory_knight_html_a4c3de6c385f4b3d02286e39cdbf99136"><div class="ttname"><a href="class_factory_knight.html#a4c3de6c385f4b3d02286e39cdbf99136">FactoryKnight::FactoryKnight</a></div><div class="ttdeci">FactoryKnight()</div><div class="ttdef"><b>Definition:</b> Factory.cpp:112</div></div>
+<div class="ttc" id="class_factory_queen_html_ab6cc7393c4cb1670ba041a44276a58cd"><div class="ttname"><a href="class_factory_queen.html#ab6cc7393c4cb1670ba041a44276a58cd">FactoryQueen::FactoryQueen</a></div><div class="ttdeci">FactoryQueen()</div><div class="ttdef"><b>Definition:</b> Factory.cpp:165</div></div>
+<div class="ttc" id="class_factory_spawn_html_acdae41c4747246f35de741b32b3f74ac"><div class="ttname"><a href="class_factory_spawn.html#acdae41c4747246f35de741b32b3f74ac">FactorySpawn::buildPieces</a></div><div class="ttdeci">std::vector&lt; Piece * &gt; buildPieces(bool color)</div><div class="ttdef"><b>Definition:</b> Factory.cpp:70</div></div>
+<div class="ttc" id="class_factory_html_ac792bf88cfb7b6804b479529da5308cc"><div class="ttname"><a href="class_factory.html#ac792bf88cfb7b6804b479529da5308cc">Factory::Factory</a></div><div class="ttdeci">Factory()</div><div class="ttdef"><b>Definition:</b> Factory.cpp:16</div></div>
+<div class="ttc" id="class_factory_knight_html_a25af606063189d96698aae45b1bfc1b9"><div class="ttname"><a href="class_factory_knight.html#a25af606063189d96698aae45b1bfc1b9">FactoryKnight::buildPieces</a></div><div class="ttdeci">std::vector&lt; Piece * &gt; buildPieces(bool color)</div><div class="ttdef"><b>Definition:</b> Factory.cpp:119</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_factory_8hpp.html">Factory.hpp</a></li>
+    <li class="footer">Généré le Vendredi 27 Novembre 2015 02:34:08 pour Echecs par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>

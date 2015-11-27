@@ -1,0 +1,619 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Echecs: Membres de classe - Fonctions</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Echecs
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Bienvenue dans la taverne</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Liste&#160;des&#160;classes</span></a></li>
+      <li><a href="classes.html"><span>Index&#160;des&#160;classes</span></a></li>
+      <li><a href="hierarchy.html"><span>Hiérarchie&#160;des&#160;classes</span></a></li>
+      <li class="current"><a href="functions.html"><span>Membres&#160;de&#160;classe</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow3" class="tabs2">
+    <ul class="tablist">
+      <li><a href="functions.html"><span>Tout</span></a></li>
+      <li class="current"><a href="functions_func.html"><span>Fonctions</span></a></li>
+      <li><a href="functions_vars.html"><span>Variables</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow4" class="tabs3">
+    <ul class="tablist">
+      <li><a href="#index_a"><span>a</span></a></li>
+      <li><a href="#index_b"><span>b</span></a></li>
+      <li><a href="#index_c"><span>c</span></a></li>
+      <li><a href="#index_e"><span>e</span></a></li>
+      <li><a href="#index_f"><span>f</span></a></li>
+      <li><a href="#index_g"><span>g</span></a></li>
+      <li><a href="#index_i"><span>i</span></a></li>
+      <li><a href="#index_k"><span>k</span></a></li>
+      <li><a href="#index_l"><span>l</span></a></li>
+      <li><a href="#index_m"><span>m</span></a></li>
+      <li><a href="#index_n"><span>n</span></a></li>
+      <li><a href="#index_o"><span>o</span></a></li>
+      <li><a href="#index_p"><span>p</span></a></li>
+      <li><a href="#index_q"><span>q</span></a></li>
+      <li><a href="#index_r"><span>r</span></a></li>
+      <li><a href="#index_s"><span>s</span></a></li>
+      <li><a href="#index_t"><span>t</span></a></li>
+      <li class="current"><a href="#index_~"><span>~</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('functions_func.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="contents">
+&#160;
+
+<h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
+<li>asMoved()
+: <a class="el" href="class_king.html#a1e7d9da6599c3e3ab9cbc4d5026f0dcf">King</a>
+, <a class="el" href="class_rook.html#afb50e8a85759ba7518b55dace6b6e406">Rook</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_b"></a>- b -</h3><ul>
+<li>Bishop()
+: <a class="el" href="class_bishop.html#a7e73da51fcaac88ce0d16e78221142ee">Bishop</a>
+</li>
+<li>buildPieces()
+: <a class="el" href="class_factory.html#a90f20f663caa6e5a5370465d3014630f">Factory</a>
+, <a class="el" href="class_factory_bishop.html#a501a01fc371b26931d528ea0aa8b5c14">FactoryBishop</a>
+, <a class="el" href="class_factory_king.html#a0d5fd0a7340ab7bb50fe63e119c3a3ef">FactoryKing</a>
+, <a class="el" href="class_factory_knight.html#a25af606063189d96698aae45b1bfc1b9">FactoryKnight</a>
+, <a class="el" href="class_factory_queen.html#ac256e556b525b35d39f58af62fd1f962">FactoryQueen</a>
+, <a class="el" href="class_factory_rook.html#a50ff41cf552af801c123bf2b28120c68">FactoryRook</a>
+, <a class="el" href="class_factory_spawn.html#acdae41c4747246f35de741b32b3f74ac">FactorySpawn</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>Cell()
+: <a class="el" href="class_cell.html#a4ccfb0a9923271daba6000afa1a33ee9">Cell</a>
+</li>
+<li>check()
+: <a class="el" href="class_check_state.html#a7e365f95e322b61609f05202c28db278">CheckState</a>
+, <a class="el" href="class_end_state.html#a80e538c38c1293803200e5d3b513ba77">EndState</a>
+, <a class="el" href="class_game_state.html#a646e5436c4191f323dfa736a06e79695">GameState</a>
+, <a class="el" href="class_mate_state.html#a2205b5879c63fcdf469002d9d5203bb3">MateState</a>
+, <a class="el" href="class_null_state.html#a04825452cd1018dec2525609a3079aff">NullState</a>
+, <a class="el" href="class_player.html#adf4962f4f2b134085f1e26809cf42680">Player</a>
+, <a class="el" href="class_state.html#a321fd726bbefc35fedbbf001d2a37021">State</a>
+</li>
+<li>checkMate()
+: <a class="el" href="class_check_state.html#afb093377619bc04bcba50db601368019">CheckState</a>
+, <a class="el" href="class_end_state.html#a48a2531ee4bd2144b44823a5527488f3">EndState</a>
+, <a class="el" href="class_game_state.html#ada8cd91a048922c4d8aedbef17ce6fbc">GameState</a>
+, <a class="el" href="class_mate_state.html#af785a3407109dd3d0a6868a358c92213">MateState</a>
+, <a class="el" href="class_null_state.html#a2bc6da41f64658fb9f733f6b23f0e499">NullState</a>
+, <a class="el" href="class_player.html#ab9d193b41e8553470f7af7c18abe3ecc">Player</a>
+, <a class="el" href="class_state.html#aa2b89ec92ecd4f6271269fe4b8ccc790">State</a>
+</li>
+<li>CheckState()
+: <a class="el" href="class_check_state.html#a5027a0f3dc626241c48ac33b0b974311">CheckState</a>
+</li>
+<li>Chess()
+: <a class="el" href="class_chess.html#a7524da0608df5a385dfd25d23d2d4e50">Chess</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
+<li>EndState()
+: <a class="el" href="class_end_state.html#a0c74d371934fe30dd66ad3275b0ca98e">EndState</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
+<li>Factory()
+: <a class="el" href="class_factory.html#ac792bf88cfb7b6804b479529da5308cc">Factory</a>
+</li>
+<li>FactoryBishop()
+: <a class="el" href="class_factory_bishop.html#a6452991e628ec8262c57318da26171f1">FactoryBishop</a>
+</li>
+<li>FactoryKing()
+: <a class="el" href="class_factory_king.html#ad6762ceddcc10d41b5652e17455d3503">FactoryKing</a>
+</li>
+<li>FactoryKnight()
+: <a class="el" href="class_factory_knight.html#a4c3de6c385f4b3d02286e39cdbf99136">FactoryKnight</a>
+</li>
+<li>FactoryQueen()
+: <a class="el" href="class_factory_queen.html#ab6cc7393c4cb1670ba041a44276a58cd">FactoryQueen</a>
+</li>
+<li>FactoryRook()
+: <a class="el" href="class_factory_rook.html#a4d8dfebcba093ee2f6009ffe907a8a8a">FactoryRook</a>
+</li>
+<li>FactorySpawn()
+: <a class="el" href="class_factory_spawn.html#afa2ea203f016dc06217ab48607c4e899">FactorySpawn</a>
+</li>
+<li>fairegrandroque()
+: <a class="el" href="class_chess.html#a65ef639fd19934036349c68e911ca71d">Chess</a>
+</li>
+<li>fairepetitroque()
+: <a class="el" href="class_chess.html#ab92c6dd132e82810617bd3abc02feda0">Chess</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>gameEnd()
+: <a class="el" href="class_check_state.html#a54820bb890cc50e3782104fad094747f">CheckState</a>
+, <a class="el" href="class_end_state.html#a6fc13eb28853a79e1b5396dd2f377a51">EndState</a>
+, <a class="el" href="class_game_state.html#a65fc1ef481baa95f675ff8a78aa14e05">GameState</a>
+, <a class="el" href="class_mate_state.html#a19b4fa2115a36da6e1dd333a617ee7bb">MateState</a>
+, <a class="el" href="class_null_state.html#a73b1449815c3770ac24e56fa885a7961">NullState</a>
+, <a class="el" href="class_player.html#a3e67b9ce45f196d24395b9a44cb3e140">Player</a>
+, <a class="el" href="class_state.html#a5117e1f9bf06e17b4b0277838fe39bd8">State</a>
+</li>
+<li>gameNull()
+: <a class="el" href="class_check_state.html#ae3cc6446e2dd5de333797bb180104c50">CheckState</a>
+, <a class="el" href="class_end_state.html#ad50c108e27c7b0497c3f2f2e76b904a5">EndState</a>
+, <a class="el" href="class_game_state.html#a006f729bc30cfa224d3235c87e5a6e59">GameState</a>
+, <a class="el" href="class_mate_state.html#a59ad17cb3366c560b921619d52f00181">MateState</a>
+, <a class="el" href="class_null_state.html#a9a735f7e4cbf7c3439208f9bb90b649d">NullState</a>
+, <a class="el" href="class_player.html#ab2f4e51ebb224662fd6e2aac37ed7a05">Player</a>
+, <a class="el" href="class_state.html#ad5b7fe10b2c30243f36d7d0950c50d43">State</a>
+</li>
+<li>gameRound()
+: <a class="el" href="class_chess.html#ac521e181e266322da1664977b102afc5">Chess</a>
+</li>
+<li>GameState()
+: <a class="el" href="class_game_state.html#a564f9ae19ac9980b28b78944645b5163">GameState</a>
+</li>
+<li>gerergrandroque()
+: <a class="el" href="class_chess.html#a37bce0d85e4d9e66dcc9845a440cd30d">Chess</a>
+</li>
+<li>gererpetitroque()
+: <a class="el" href="class_chess.html#a6206462cbbff396c4fa898d45660471b">Chess</a>
+</li>
+<li>getCheckState()
+: <a class="el" href="class_player.html#a24f6a87b0480786ba2f966bc88d15195">Player</a>
+</li>
+<li>getChoiceInt()
+: <a class="el" href="class_chess.html#a7d4dbb556159e245fe753d5a6daada8b">Chess</a>
+</li>
+<li>getColor()
+: <a class="el" href="class_player.html#a3e4c06283c8cb949b338830b0d3d6abc">Player</a>
+</li>
+<li>getEndState()
+: <a class="el" href="class_player.html#af8a9597bb9da1dcd21cb849ca519802b">Player</a>
+</li>
+<li>getGameState()
+: <a class="el" href="class_player.html#a98676a7d1647ac6db50507850fab1d92">Player</a>
+</li>
+<li>getking()
+: <a class="el" href="class_player.html#a5c1bd88d1c71575488196335b60a76b0">Player</a>
+</li>
+<li>getLabel()
+: <a class="el" href="class_piece.html#ab0b61a2a0f2f3d977b4b1946ab328f2b">Piece</a>
+</li>
+<li>getMateState()
+: <a class="el" href="class_player.html#abd42a23982b38a78bf66fe627d73b4cc">Player</a>
+</li>
+<li>getMovements()
+: <a class="el" href="class_piece.html#af2a3be14e4732ac3f09a84a9cbefbf5b">Piece</a>
+</li>
+<li>getName()
+: <a class="el" href="class_player.html#af1aa472885d589516f483e26e786600e">Player</a>
+</li>
+<li>getNullState()
+: <a class="el" href="class_player.html#a121812f4c5a5e913f31187b90f378aa7">Player</a>
+</li>
+<li>getPieces()
+: <a class="el" href="class_player.html#a738451fc076901ecf28cae81c7604e2a">Player</a>
+</li>
+<li>getPool()
+: <a class="el" href="class_object_pool.html#af9f18a929a7de70525a18bf1622bb68c">ObjectPool</a>
+</li>
+<li>getSquare()
+: <a class="el" href="class_piece.html#a91fddbcc85fe9fbbca1897079ce9b9e5">Piece</a>
+</li>
+<li>getState()
+: <a class="el" href="class_player.html#a1b85aeef66cdbc472caf951d25796086">Player</a>
+</li>
+<li>getX()
+: <a class="el" href="class_cell.html#a09a86af000a7b6b00be01c0ea71e5319">Cell</a>
+</li>
+<li>getY()
+: <a class="el" href="class_cell.html#a54bd0f63ff375abde26902cc2ca7ea78">Cell</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
+<li>inGame()
+: <a class="el" href="class_check_state.html#a3cc0cb64d061a72d91ee60b60801aa3b">CheckState</a>
+, <a class="el" href="class_end_state.html#a6ba5aa5cfd2d0ac4aa1609e336d5669f">EndState</a>
+, <a class="el" href="class_game_state.html#af0290fd87a2bc2a44119dc700d8b8721">GameState</a>
+, <a class="el" href="class_mate_state.html#a99575ed4587f029511bc5bd1ec9ab262">MateState</a>
+, <a class="el" href="class_null_state.html#a3c51a85d1d0273b7f7db4ed20672c68c">NullState</a>
+, <a class="el" href="class_player.html#ac587f5febaceec87ddefbaf78f74539d">Player</a>
+, <a class="el" href="class_state.html#a738b04d6e0c12a39bf96a2a7159202d8">State</a>
+</li>
+<li>initBoard()
+: <a class="el" href="class_chess.html#a8fc79b0c34c21d522abd9b8ae62ee38f">Chess</a>
+</li>
+<li>isAlive()
+: <a class="el" href="class_piece.html#a9f6a89d6fd5ae865af73c2220d1a5839">Piece</a>
+</li>
+<li>ischeck()
+: <a class="el" href="class_check_state.html#aa6e88c453114883d8a415ff338b65526">CheckState</a>
+, <a class="el" href="class_end_state.html#ae4ea53e0246be8cf37ccd8cf7b442523">EndState</a>
+, <a class="el" href="class_game_state.html#ae0f8b04f85ed4dfbbd4c2a6a06827273">GameState</a>
+, <a class="el" href="class_mate_state.html#a47e7642586f54efaa977755bb2b2311d">MateState</a>
+, <a class="el" href="class_null_state.html#a8da9c3d889ff161f893d5522a89567a5">NullState</a>
+, <a class="el" href="class_player.html#aa8d4b069eedca62c2b8d5243db8689db">Player</a>
+, <a class="el" href="class_state.html#ad2d7084c507d8d20be2e772d953129fb">State</a>
+</li>
+<li>ischeckmate()
+: <a class="el" href="class_check_state.html#ae3704aaa5fbaf6c947462c211eafc9c9">CheckState</a>
+, <a class="el" href="class_end_state.html#a2f505cd7004247548a3026ce70bc0f58">EndState</a>
+, <a class="el" href="class_game_state.html#a595eb9db47758b91835fc12b13311b98">GameState</a>
+, <a class="el" href="class_mate_state.html#a9b9eb5923dc94adb69b28174d580c3b1">MateState</a>
+, <a class="el" href="class_null_state.html#adda1a19059bc77cf09886873912f91ff">NullState</a>
+, <a class="el" href="class_player.html#a98003bced20a95fd42452ce149fddad7">Player</a>
+, <a class="el" href="class_state.html#ae1d813f250db75015ddeebece5ec0f2b">State</a>
+</li>
+<li>isnulle()
+: <a class="el" href="class_check_state.html#a569daf96d0340272068a3d36fdf288c4">CheckState</a>
+, <a class="el" href="class_end_state.html#aa9ccf089beda25f9d258e6a68e2a7309">EndState</a>
+, <a class="el" href="class_game_state.html#a777e982cbef6125ba4003f68d6292825">GameState</a>
+, <a class="el" href="class_mate_state.html#a0d586f9c4dafd94ebfa6b14e425fff8b">MateState</a>
+, <a class="el" href="class_null_state.html#a0aa0845d4f2ce4f86749bd73edb8c8da">NullState</a>
+, <a class="el" href="class_player.html#a363d24fe41c4d6b0faad5f90f53a2114">Player</a>
+, <a class="el" href="class_state.html#a869f2ebfad7e60719df5f89a613adee1">State</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_k"></a>- k -</h3><ul>
+<li>King()
+: <a class="el" href="class_king.html#af934f2cda4bb5baca66c2ae114997b6e">King</a>
+</li>
+<li>Knight()
+: <a class="el" href="class_knight.html#ae39d8e49ade7c0b66cf35dad69f2d2db">Knight</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
+<li>listepieces()
+: <a class="el" href="class_chess.html#ab1077aa8c0d1d6849788b2548c2e71ad">Chess</a>
+</li>
+<li>listpeutmangerleroi()
+: <a class="el" href="class_chess.html#ae4012cc01ef4914e17c756c0adcfee14">Chess</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
+<li>MateState()
+: <a class="el" href="class_mate_state.html#aa4a8a6d8614ffddaeac5cf19b2707136">MateState</a>
+</li>
+<li>movement()
+: <a class="el" href="class_bishop.html#abd25da5816a737ab64880cbaa7bd7582">Bishop</a>
+, <a class="el" href="class_king.html#aabc0b7a9a553383e7aba11daecbbc61c">King</a>
+, <a class="el" href="class_knight.html#ab228b385a3154ecdc18fce4cc0df9cd6">Knight</a>
+, <a class="el" href="class_piece.html#ae721b5ed94376fd4e7d348d36739ed4d">Piece</a>
+, <a class="el" href="class_queen.html#a6cf9ea1320f2ebe6fa9bb35430e63603">Queen</a>
+, <a class="el" href="class_rook.html#acc6139577c8ca679a93dcfbe42b71cb3">Rook</a>
+, <a class="el" href="class_spawn.html#ae176dffa40411480840c3e39cd619300">Spawn</a>
+</li>
+<li>movePiece()
+: <a class="el" href="class_chess.html#aec36eadf1a550d2f6c85ec8a23bac2d1">Chess</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
+<li>noCollision()
+: <a class="el" href="class_chess.html#ae24e3b25128b76757859c913fae1930f">Chess</a>
+</li>
+<li>NullState()
+: <a class="el" href="class_null_state.html#a16b8bc7f006616e9c057ddf2b1ec811d">NullState</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_o"></a>- o -</h3><ul>
+<li>ObjectPool()
+: <a class="el" href="class_object_pool.html#ad6a851944917327bd1c035f9a81e0684">ObjectPool</a>
+</li>
+<li>operator==()
+: <a class="el" href="class_cell.html#ae889f79cafc3dda80d430980e4418333">Cell</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
+<li>pickPiece()
+: <a class="el" href="class_object_pool.html#aa6b45de56e448971193590ec18269ca0">ObjectPool</a>
+</li>
+<li>Piece()
+: <a class="el" href="class_piece.html#ac57de5803bbad829b143bc7268267dc1">Piece</a>
+</li>
+<li>Player()
+: <a class="el" href="class_player.html#a06ca07f2ce539e4b458437857a720718">Player</a>
+</li>
+<li>print()
+: <a class="el" href="class_check_state.html#ace4965a79b3614c50d0db5396121b75e">CheckState</a>
+, <a class="el" href="class_end_state.html#a1983377ed8a1e391871fb40db39f13e3">EndState</a>
+, <a class="el" href="class_game_state.html#a9ccc5473c6f04e60711cb9a438b276e5">GameState</a>
+, <a class="el" href="class_mate_state.html#ab96d11c6cbb289483659d55bb8735c77">MateState</a>
+, <a class="el" href="class_null_state.html#a5a2b2f419bba204759bf344c8b7710d0">NullState</a>
+, <a class="el" href="class_state.html#a95a537bb55b9118b23d5bed88ba3b335">State</a>
+</li>
+<li>printBoard()
+: <a class="el" href="class_chess.html#a9cd677e16f4c08ddcdad57a4e12be99f">Chess</a>
+</li>
+<li>printPiece()
+: <a class="el" href="class_piece.html#ae9c47c1e15caf3ecf060c274aec62820">Piece</a>
+</li>
+<li>printPieces()
+: <a class="el" href="class_player.html#ac51828429e6e1401f04677ec3f1e0769">Player</a>
+</li>
+<li>printState()
+: <a class="el" href="class_player.html#a4fda4bd6b5fa84d436a7592e4faebe92">Player</a>
+</li>
+<li>putPiece()
+: <a class="el" href="class_object_pool.html#a6f4c72edf13fadf5d873be5ef6f27cd5">ObjectPool</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_q"></a>- q -</h3><ul>
+<li>Queen()
+: <a class="el" href="class_queen.html#a90ebaca4522d07b5a662b20c09a968aa">Queen</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
+<li>Rook()
+: <a class="el" href="class_rook.html#ab9613a93abc8a73bda94c596868ec1b1">Rook</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>selectDest()
+: <a class="el" href="class_chess.html#a67069ea8ee1fce34961fc9c645c4dc10">Chess</a>
+</li>
+<li>selectPiece()
+: <a class="el" href="class_player.html#a777c790075ce371af98eaf6e40f2a726">Player</a>
+</li>
+<li>setAlive()
+: <a class="el" href="class_piece.html#ad4161cd37efb373e08b50cdf43b07b5f">Piece</a>
+</li>
+<li>setMoved()
+: <a class="el" href="class_king.html#a29a4ff10443abb0b0ecd088c88861d18">King</a>
+, <a class="el" href="class_rook.html#a7ee5b6169a3fff6d5536ba0c02607950">Rook</a>
+</li>
+<li>setName()
+: <a class="el" href="class_player.html#a1b456e164e73e5cf5ffe925529fc8c2a">Player</a>
+</li>
+<li>setSquare()
+: <a class="el" href="class_piece.html#af405feca349d71dfacb20b128c3cc686">Piece</a>
+</li>
+<li>setState()
+: <a class="el" href="class_player.html#a02d8b0f8340dc5557a01b33c4254757a">Player</a>
+</li>
+<li>setX()
+: <a class="el" href="class_cell.html#a5db21f79684f86d4dad8e17a40bbb797">Cell</a>
+</li>
+<li>setY()
+: <a class="el" href="class_cell.html#ad797a4c776783b15f4637b1f667f56a5">Cell</a>
+</li>
+<li>Spawn()
+: <a class="el" href="class_spawn.html#ad401aa751cbbf9ea4f444e3011ff36b5">Spawn</a>
+</li>
+<li>startGame()
+: <a class="el" href="class_chess.html#aea92734ff5516066d5c1a690a78ea146">Chess</a>
+</li>
+<li>State()
+: <a class="el" href="class_state.html#a7a0a6af0cd97aa575a097eca87e090ba">State</a>
+</li>
+<li>surlepassage()
+: <a class="el" href="class_chess.html#aa4a6555edfbb4ec3d81f5feea272c889">Chess</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
+<li>testechec()
+: <a class="el" href="class_chess.html#a801d97e9ed968f62b1dd850e11ff3b49">Chess</a>
+</li>
+<li>testechecmat()
+: <a class="el" href="class_chess.html#a8bb11009c45ca72877afdddc67c23016">Chess</a>
+</li>
+<li>testnull()
+: <a class="el" href="class_chess.html#a6e538fe6848f15b72dfa95bd1aac4eec">Chess</a>
+</li>
+<li>testpieceappartence()
+: <a class="el" href="class_chess.html#a50a49db321a3b0a7ce8c812b72ef0fe1">Chess</a>
+</li>
+<li>transformationspawn()
+: <a class="el" href="class_chess.html#a28adecf1d95d52e735ae592222bd2618">Chess</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_~"></a>- ~ -</h3><ul>
+<li>~Bishop()
+: <a class="el" href="class_bishop.html#a3705b4537a39d09a59143fe01a62442f">Bishop</a>
+</li>
+<li>~Cell()
+: <a class="el" href="class_cell.html#a9fa559f7a28e2b4336c6879ca09304d8">Cell</a>
+</li>
+<li>~CheckState()
+: <a class="el" href="class_check_state.html#aecd4b3d189f47df10445e70aec28502b">CheckState</a>
+</li>
+<li>~Chess()
+: <a class="el" href="class_chess.html#aa9717ab5263bc4fbb844e78bbe5587a8">Chess</a>
+</li>
+<li>~EndState()
+: <a class="el" href="class_end_state.html#a201636e52f201f6f34318c152139e2e1">EndState</a>
+</li>
+<li>~Factory()
+: <a class="el" href="class_factory.html#a8f71456f48e4df402c778a44191ff40e">Factory</a>
+</li>
+<li>~FactoryBishop()
+: <a class="el" href="class_factory_bishop.html#aacec6859e5c70571357c5d172a62a38e">FactoryBishop</a>
+</li>
+<li>~FactoryKing()
+: <a class="el" href="class_factory_king.html#adbf2005c439f045fb97bdb86147181a7">FactoryKing</a>
+</li>
+<li>~FactoryKnight()
+: <a class="el" href="class_factory_knight.html#a40846bdf0be3fb8ecbcb50df3c4a7f61">FactoryKnight</a>
+</li>
+<li>~FactoryQueen()
+: <a class="el" href="class_factory_queen.html#ab1e9dfe91a868c88b775d3220b8f9bc0">FactoryQueen</a>
+</li>
+<li>~FactoryRook()
+: <a class="el" href="class_factory_rook.html#a0bc1c85e0c4db96d877ccf00566470f4">FactoryRook</a>
+</li>
+<li>~FactorySpawn()
+: <a class="el" href="class_factory_spawn.html#ae7ec52abd4b3dc1e49cd9988a1d1d9bc">FactorySpawn</a>
+</li>
+<li>~GameState()
+: <a class="el" href="class_game_state.html#ae623df5042cd0c17daa3394fdcb397b3">GameState</a>
+</li>
+<li>~King()
+: <a class="el" href="class_king.html#aac368ce96e2b12f62e3608d27262e941">King</a>
+</li>
+<li>~Knight()
+: <a class="el" href="class_knight.html#a2754123d6876babe915f4da8f761361b">Knight</a>
+</li>
+<li>~MateState()
+: <a class="el" href="class_mate_state.html#af75f5df59f008abe5e1913e1d55acbad">MateState</a>
+</li>
+<li>~NullState()
+: <a class="el" href="class_null_state.html#a3d286ab0ced8da71c8729871d1bd3aae">NullState</a>
+</li>
+<li>~ObjectPool()
+: <a class="el" href="class_object_pool.html#ae45acbed251b192f83bc68ef277a7a3f">ObjectPool</a>
+</li>
+<li>~Piece()
+: <a class="el" href="class_piece.html#a5d7a4f6bade94cb33b6f634de8aa7918">Piece</a>
+</li>
+<li>~Player()
+: <a class="el" href="class_player.html#a749d2c00e1fe0f5c2746f7505a58c062">Player</a>
+</li>
+<li>~Queen()
+: <a class="el" href="class_queen.html#aa22f6c1a49a583b549bd1f940e50721d">Queen</a>
+</li>
+<li>~Rook()
+: <a class="el" href="class_rook.html#a70d445b94848b22ded850b6f58bc2972">Rook</a>
+</li>
+<li>~Spawn()
+: <a class="el" href="class_spawn.html#aea08036b23acdb06fd47eba35dc2a8cf">Spawn</a>
+</li>
+<li>~State()
+: <a class="el" href="class_state.html#afab438d92b90dc18d194dbd9c9c8bab3">State</a>
+</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Généré le Vendredi 27 Novembre 2015 02:34:12 pour Echecs par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>

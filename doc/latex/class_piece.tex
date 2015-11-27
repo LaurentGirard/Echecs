@@ -1,0 +1,239 @@
+\hypertarget{class_piece}{\section{Référence de la classe Piece}
+\label{class_piece}\index{Piece@{Piece}}
+}
+
+
+Classe abstaite de \hyperlink{class_piece}{Piece}.  
+
+
+
+
+{\ttfamily \#include $<$Piece.\-hpp$>$}
+
+Graphe d'héritage de Piece\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_piece}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_piece_ac57de5803bbad829b143bc7268267dc1}{Piece} ()
+\begin{DoxyCompactList}\small\item\em Constructeur vide, crée une pièce. \end{DoxyCompactList}\item 
+\hyperlink{class_piece_a26c8c5a537f1733833787820d3f1ff01}{Piece} (unsigned int x, unsigned int y)
+\begin{DoxyCompactList}\small\item\em Constructeur, crée une pièce. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_piece_a5d7a4f6bade94cb33b6f634de8aa7918}{$\sim$\-Piece} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de \hyperlink{class_piece}{Piece}. \end{DoxyCompactList}\item 
+\hyperlink{class_cell}{Cell} $\ast$ \hyperlink{class_piece_a91fddbcc85fe9fbbca1897079ce9b9e5}{get\-Square} ()
+\begin{DoxyCompactList}\small\item\em de Getter l'attribut square \end{DoxyCompactList}\item 
+void \hyperlink{class_piece_af405feca349d71dfacb20b128c3cc686}{set\-Square} (\hyperlink{class_cell}{Cell} $\ast$new\-Cell)
+\begin{DoxyCompactList}\small\item\em Setter de l'attribut square. \end{DoxyCompactList}\item 
+bool \hyperlink{class_piece_a9f6a89d6fd5ae865af73c2220d1a5839}{is\-Alive} ()
+\begin{DoxyCompactList}\small\item\em Getter de l'attribut alive. \end{DoxyCompactList}\item 
+void \hyperlink{class_piece_ad4161cd37efb373e08b50cdf43b07b5f}{set\-Alive} (bool new\-Alive)
+\begin{DoxyCompactList}\small\item\em Setter de l'attribut alive. \end{DoxyCompactList}\item 
+std\-::string \hyperlink{class_piece_ab0b61a2a0f2f3d977b4b1946ab328f2b}{get\-Label} ()
+\begin{DoxyCompactList}\small\item\em Getter l'attribut label. \end{DoxyCompactList}\item 
+void \hyperlink{class_piece_ae9c47c1e15caf3ecf060c274aec62820}{print\-Piece} ()
+\begin{DoxyCompactList}\small\item\em procédure permettant d'afficher les coordonnées de la case sur laquelle se trouve la pièce \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_piece_ae721b5ed94376fd4e7d348d36739ed4d}{movement} ()
+\begin{DoxyCompactList}\small\item\em procédure virtuelle mettant à jour les cases possibles pour un déplacement de la pièce \end{DoxyCompactList}\item 
+std\-::vector$<$ std\-::vector$<$ \hyperlink{class_cell}{Cell} $\ast$ $>$ $>$ \hyperlink{class_piece_af2a3be14e4732ac3f09a84a9cbefbf5b}{get\-Movements} ()
+\begin{DoxyCompactList}\small\item\em Getter de l'attribut movements. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_cell}{Cell} $\ast$ \hyperlink{class_piece_a1e38a3d73f5f7171eca664a77c7aaeff}{square}
+\item 
+bool \hyperlink{class_piece_a8b3c2f812ead74ba513f521e63f767f9}{alive}
+\item 
+std\-::vector$<$ std\-::vector$<$ \hyperlink{class_cell}{Cell} $\ast$ $>$ $>$ \hyperlink{class_piece_a022b28159d944243023804a678d7024f}{movements}
+\item 
+std\-::string \hyperlink{class_piece_aec026f7ca20120f0b635591de2f86662}{label}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Classe abstaite de \hyperlink{class_piece}{Piece}. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{class_piece_ac57de5803bbad829b143bc7268267dc1}{\index{Piece@{Piece}!Piece@{Piece}}
+\index{Piece@{Piece}!Piece@{Piece}}
+\subsubsection[{Piece}]{\setlength{\rightskip}{0pt plus 5cm}Piece\-::\-Piece (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_piece_ac57de5803bbad829b143bc7268267dc1}
+
+
+Constructeur vide, crée une pièce. 
+
+\hypertarget{class_piece_a26c8c5a537f1733833787820d3f1ff01}{\index{Piece@{Piece}!Piece@{Piece}}
+\index{Piece@{Piece}!Piece@{Piece}}
+\subsubsection[{Piece}]{\setlength{\rightskip}{0pt plus 5cm}Piece\-::\-Piece (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{x, }
+\item[{unsigned int}]{y}
+\end{DoxyParamCaption}
+)}}\label{class_piece_a26c8c5a537f1733833787820d3f1ff01}
+
+
+Constructeur, crée une pièce. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em unsigned} & int x \\
+\hline
+{\em unsigned} & int y \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_piece_a5d7a4f6bade94cb33b6f634de8aa7918}{\index{Piece@{Piece}!$\sim$\-Piece@{$\sim$\-Piece}}
+\index{$\sim$\-Piece@{$\sim$\-Piece}!Piece@{Piece}}
+\subsubsection[{$\sim$\-Piece}]{\setlength{\rightskip}{0pt plus 5cm}Piece\-::$\sim$\-Piece (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_piece_a5d7a4f6bade94cb33b6f634de8aa7918}
+
+
+Destructeur de \hyperlink{class_piece}{Piece}. 
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_piece_ab0b61a2a0f2f3d977b4b1946ab328f2b}{\index{Piece@{Piece}!get\-Label@{get\-Label}}
+\index{get\-Label@{get\-Label}!Piece@{Piece}}
+\subsubsection[{get\-Label}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Piece\-::get\-Label (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_piece_ab0b61a2a0f2f3d977b4b1946ab328f2b}
+
+
+Getter l'attribut label. 
+
+\begin{DoxyReturn}{Renvoie}
+attribut label 
+\end{DoxyReturn}
+\hypertarget{class_piece_af2a3be14e4732ac3f09a84a9cbefbf5b}{\index{Piece@{Piece}!get\-Movements@{get\-Movements}}
+\index{get\-Movements@{get\-Movements}!Piece@{Piece}}
+\subsubsection[{get\-Movements}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ std\-::vector$<$ {\bf Cell} $\ast$ $>$ $>$ Piece\-::get\-Movements (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_piece_af2a3be14e4732ac3f09a84a9cbefbf5b}
+
+
+Getter de l'attribut movements. 
+
+\begin{DoxyReturn}{Renvoie}
+attribut movements 
+\end{DoxyReturn}
+\hypertarget{class_piece_a91fddbcc85fe9fbbca1897079ce9b9e5}{\index{Piece@{Piece}!get\-Square@{get\-Square}}
+\index{get\-Square@{get\-Square}!Piece@{Piece}}
+\subsubsection[{get\-Square}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Cell} $\ast$ Piece\-::get\-Square (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_piece_a91fddbcc85fe9fbbca1897079ce9b9e5}
+
+
+de Getter l'attribut square 
+
+\begin{DoxyReturn}{Renvoie}
+attribut square 
+\end{DoxyReturn}
+\hypertarget{class_piece_a9f6a89d6fd5ae865af73c2220d1a5839}{\index{Piece@{Piece}!is\-Alive@{is\-Alive}}
+\index{is\-Alive@{is\-Alive}!Piece@{Piece}}
+\subsubsection[{is\-Alive}]{\setlength{\rightskip}{0pt plus 5cm}bool Piece\-::is\-Alive (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_piece_a9f6a89d6fd5ae865af73c2220d1a5839}
+
+
+Getter de l'attribut alive. 
+
+\begin{DoxyReturn}{Renvoie}
+attribut alive 
+\end{DoxyReturn}
+\hypertarget{class_piece_ae721b5ed94376fd4e7d348d36739ed4d}{\index{Piece@{Piece}!movement@{movement}}
+\index{movement@{movement}!Piece@{Piece}}
+\subsubsection[{movement}]{\setlength{\rightskip}{0pt plus 5cm}void Piece\-::movement (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_piece_ae721b5ed94376fd4e7d348d36739ed4d}
+
+
+procédure virtuelle mettant à jour les cases possibles pour un déplacement de la pièce 
+
+
+
+Réimplémentée dans \hyperlink{class_king_aabc0b7a9a553383e7aba11daecbbc61c}{King}, \hyperlink{class_queen_a6cf9ea1320f2ebe6fa9bb35430e63603}{Queen}, \hyperlink{class_bishop_abd25da5816a737ab64880cbaa7bd7582}{Bishop}, \hyperlink{class_knight_ab228b385a3154ecdc18fce4cc0df9cd6}{Knight}, \hyperlink{class_rook_acc6139577c8ca679a93dcfbe42b71cb3}{Rook}, et \hyperlink{class_spawn_ae176dffa40411480840c3e39cd619300}{Spawn}.
+
+\hypertarget{class_piece_ae9c47c1e15caf3ecf060c274aec62820}{\index{Piece@{Piece}!print\-Piece@{print\-Piece}}
+\index{print\-Piece@{print\-Piece}!Piece@{Piece}}
+\subsubsection[{print\-Piece}]{\setlength{\rightskip}{0pt plus 5cm}void Piece\-::print\-Piece (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_piece_ae9c47c1e15caf3ecf060c274aec62820}
+
+
+procédure permettant d'afficher les coordonnées de la case sur laquelle se trouve la pièce 
+
+\hypertarget{class_piece_ad4161cd37efb373e08b50cdf43b07b5f}{\index{Piece@{Piece}!set\-Alive@{set\-Alive}}
+\index{set\-Alive@{set\-Alive}!Piece@{Piece}}
+\subsubsection[{set\-Alive}]{\setlength{\rightskip}{0pt plus 5cm}void Piece\-::set\-Alive (
+\begin{DoxyParamCaption}
+\item[{bool}]{new\-Alive}
+\end{DoxyParamCaption}
+)}}\label{class_piece_ad4161cd37efb373e08b50cdf43b07b5f}
+
+
+Setter de l'attribut alive. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em new\-Alive} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_piece_af405feca349d71dfacb20b128c3cc686}{\index{Piece@{Piece}!set\-Square@{set\-Square}}
+\index{set\-Square@{set\-Square}!Piece@{Piece}}
+\subsubsection[{set\-Square}]{\setlength{\rightskip}{0pt plus 5cm}void Piece\-::set\-Square (
+\begin{DoxyParamCaption}
+\item[{{\bf Cell} $\ast$}]{new\-Cell}
+\end{DoxyParamCaption}
+)}}\label{class_piece_af405feca349d71dfacb20b128c3cc686}
+
+
+Setter de l'attribut square. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em new\-Cell} & est la nouvelle case sur laquelle est la pièce \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des données membres}
+\hypertarget{class_piece_a8b3c2f812ead74ba513f521e63f767f9}{\index{Piece@{Piece}!alive@{alive}}
+\index{alive@{alive}!Piece@{Piece}}
+\subsubsection[{alive}]{\setlength{\rightskip}{0pt plus 5cm}bool Piece\-::alive\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_piece_a8b3c2f812ead74ba513f521e63f767f9}
+\hypertarget{class_piece_aec026f7ca20120f0b635591de2f86662}{\index{Piece@{Piece}!label@{label}}
+\index{label@{label}!Piece@{Piece}}
+\subsubsection[{label}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Piece\-::label\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_piece_aec026f7ca20120f0b635591de2f86662}
+\hypertarget{class_piece_a022b28159d944243023804a678d7024f}{\index{Piece@{Piece}!movements@{movements}}
+\index{movements@{movements}!Piece@{Piece}}
+\subsubsection[{movements}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ std\-::vector$<${\bf Cell}$\ast$$>$ $>$ Piece\-::movements\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_piece_a022b28159d944243023804a678d7024f}
+\hypertarget{class_piece_a1e38a3d73f5f7171eca664a77c7aaeff}{\index{Piece@{Piece}!square@{square}}
+\index{square@{square}!Piece@{Piece}}
+\subsubsection[{square}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Cell}$\ast$ Piece\-::square\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_piece_a1e38a3d73f5f7171eca664a77c7aaeff}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{_piece_8hpp}{Piece.\-hpp}\item 
+src/\hyperlink{_piece_8cpp}{Piece.\-cpp}\end{DoxyCompactItemize}

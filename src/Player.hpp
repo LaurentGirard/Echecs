@@ -23,8 +23,6 @@ class Player
 		std::string _color;				// Attribut : couleur du joueur
 		Piece* _pieces[16];				// Attribut : pièces du joueur par indice (Pions: 0->7; Tours: 8,15; Cavaliers: 9,14; Fous: 10,13; Reine: 11, Roi: 12) cf ordre plateau
 
-		ObjectPool* _op;				// Attribut : ObjectPool permettant de prendre ou remettre des pièces
-
 		State *_state;					// Attribut : état courant du joueur dans la partie
 		State *_gameState;				// Attribut : état en jeu
 		State *_checkState;				// Attribut : état d'échec
@@ -158,12 +156,6 @@ class Player
 	* @return piece* pointeur de la piece roi
 	*/
 		Piece* getking();
-
-	/**
-	* @brief getter de l'attribut _op
-	* @return ObjectPool*
-	*/
-		ObjectPool* getObjectPool();
 
 	/**
 	* @brief permet de savoir si le joueur se trouve en en checkmate

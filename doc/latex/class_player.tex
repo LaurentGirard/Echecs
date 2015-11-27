@@ -1,0 +1,413 @@
+\hypertarget{class_player}{\section{Référence de la classe Player}
+\label{class_player}\index{Player@{Player}}
+}
+
+
+{\ttfamily \#include $<$Player.\-hpp$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_player_a06ca07f2ce539e4b458437857a720718}{Player} (std\-::string name, std\-::string color)
+\begin{DoxyCompactList}\small\item\em Destructeur de \hyperlink{class_player}{Player}. \end{DoxyCompactList}\item 
+\hyperlink{class_player_a749d2c00e1fe0f5c2746f7505a58c062}{$\sim$\-Player} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de \hyperlink{class_player}{Player}. \end{DoxyCompactList}\item 
+void \hyperlink{class_player_ac587f5febaceec87ddefbaf78f74539d}{in\-Game} ()
+\begin{DoxyCompactList}\small\item\em Permet de passer le joueur en état de jeu \char`\"{}normal\char`\"{}. \end{DoxyCompactList}\item 
+void \hyperlink{class_player_adf4962f4f2b134085f1e26809cf42680}{check} ()
+\begin{DoxyCompactList}\small\item\em Permet de passer le joueur en état d'Echec. \end{DoxyCompactList}\item 
+void \hyperlink{class_player_ab9d193b41e8553470f7af7c18abe3ecc}{check\-Mate} ()
+\begin{DoxyCompactList}\small\item\em Permet de passer le joueur en état d'Echec et Mat. \end{DoxyCompactList}\item 
+void \hyperlink{class_player_ab2f4e51ebb224662fd6e2aac37ed7a05}{game\-Null} ()
+\begin{DoxyCompactList}\small\item\em Permet de passer le joueur en état de partie nulle. \end{DoxyCompactList}\item 
+void \hyperlink{class_player_a3e67b9ce45f196d24395b9a44cb3e140}{game\-End} ()
+\begin{DoxyCompactList}\small\item\em Permet de passer le joueur en état de partie finie. \end{DoxyCompactList}\item 
+void \hyperlink{class_player_a4fda4bd6b5fa84d436a7592e4faebe92}{print\-State} ()
+\begin{DoxyCompactList}\small\item\em Affiche l'état courant du joueur sur la sortie standard. \end{DoxyCompactList}\item 
+void \hyperlink{class_player_ac51828429e6e1401f04677ec3f1e0769}{print\-Pieces} ()
+\begin{DoxyCompactList}\small\item\em Affiche l'ensemble des pièces encore en vie avec leurs coordonnées respectives. \end{DoxyCompactList}\item 
+\hyperlink{class_piece}{Piece} $\ast$ \hyperlink{class_player_a777c790075ce371af98eaf6e40f2a726}{select\-Piece} (unsigned int x, unsigned int y)
+\begin{DoxyCompactList}\small\item\em Permet au joueur de selectionner une pièce qu'il possède. \end{DoxyCompactList}\item 
+std\-::string \hyperlink{class_player_af1aa472885d589516f483e26e786600e}{get\-Name} ()
+\begin{DoxyCompactList}\small\item\em Getter de l'attribut \-\_\-name. \end{DoxyCompactList}\item 
+void \hyperlink{class_player_a1b456e164e73e5cf5ffe925529fc8c2a}{set\-Name} (std\-::string new\-Name)
+\begin{DoxyCompactList}\small\item\em Setter de l'attribut \-\_\-name. \end{DoxyCompactList}\item 
+std\-::string \hyperlink{class_player_a3e4c06283c8cb949b338830b0d3d6abc}{get\-Color} ()
+\begin{DoxyCompactList}\small\item\em Getter de l'attribut \-\_\-color. \end{DoxyCompactList}\item 
+\hyperlink{class_piece}{Piece} $\ast$$\ast$ \hyperlink{class_player_a738451fc076901ecf28cae81c7604e2a}{get\-Pieces} ()
+\begin{DoxyCompactList}\small\item\em Getter de l'attribut \-\_\-pieces. \end{DoxyCompactList}\item 
+\hyperlink{class_state}{State} $\ast$ \hyperlink{class_player_a1b85aeef66cdbc472caf951d25796086}{get\-State} ()
+\begin{DoxyCompactList}\small\item\em Getter de l'attribut $\ast$\-\_\-state. \end{DoxyCompactList}\item 
+void \hyperlink{class_player_a02d8b0f8340dc5557a01b33c4254757a}{set\-State} (\hyperlink{class_state}{State} $\ast$new\-State)
+\begin{DoxyCompactList}\small\item\em Setter de l'attribut $\ast$\-\_\-state. \end{DoxyCompactList}\item 
+\hyperlink{class_state}{State} $\ast$ \hyperlink{class_player_a98676a7d1647ac6db50507850fab1d92}{get\-Game\-State} ()
+\begin{DoxyCompactList}\small\item\em Getter de l'attribut $\ast$game\-State. \end{DoxyCompactList}\item 
+\hyperlink{class_state}{State} $\ast$ \hyperlink{class_player_a24f6a87b0480786ba2f966bc88d15195}{get\-Check\-State} ()
+\begin{DoxyCompactList}\small\item\em Getter de l'attribut $\ast$\-\_\-check\-State. \end{DoxyCompactList}\item 
+\hyperlink{class_state}{State} $\ast$ \hyperlink{class_player_abd42a23982b38a78bf66fe627d73b4cc}{get\-Mate\-State} ()
+\begin{DoxyCompactList}\small\item\em Getter de l'attribut $\ast$\-\_\-mate\-State. \end{DoxyCompactList}\item 
+\hyperlink{class_state}{State} $\ast$ \hyperlink{class_player_a121812f4c5a5e913f31187b90f378aa7}{get\-Null\-State} ()
+\begin{DoxyCompactList}\small\item\em Getter de l'attribut $\ast$\-\_\-null\-State. \end{DoxyCompactList}\item 
+\hyperlink{class_state}{State} $\ast$ \hyperlink{class_player_af8a9597bb9da1dcd21cb849ca519802b}{get\-End\-State} ()
+\begin{DoxyCompactList}\small\item\em Getter de l'attribut $\ast$\-\_\-end\-State. \end{DoxyCompactList}\item 
+\hyperlink{class_piece}{Piece} $\ast$ \hyperlink{class_player_a5c1bd88d1c71575488196335b60a76b0}{getking} ()
+\begin{DoxyCompactList}\small\item\em permet de retourner la piece roi \end{DoxyCompactList}\item 
+bool \hyperlink{class_player_a98003bced20a95fd42452ce149fddad7}{ischeckmate} ()
+\begin{DoxyCompactList}\small\item\em permet de savoir si le joueur se trouve en en checkmate \end{DoxyCompactList}\item 
+bool \hyperlink{class_player_aa8d4b069eedca62c2b8d5243db8689db}{ischeck} ()
+\begin{DoxyCompactList}\small\item\em permet de savoir si le joueur se trouve en en check \end{DoxyCompactList}\item 
+bool \hyperlink{class_player_a363d24fe41c4d6b0faad5f90f53a2114}{isnulle} ()
+\begin{DoxyCompactList}\small\item\em permet de savoir si le joueur se trouve en en partie nulle \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{class_player_a06ca07f2ce539e4b458437857a720718}{\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\subsubsection[{Player}]{\setlength{\rightskip}{0pt plus 5cm}Player\-::\-Player (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name, }
+\item[{std\-::string}]{color}
+\end{DoxyParamCaption}
+)}}\label{class_player_a06ca07f2ce539e4b458437857a720718}
+
+
+Destructeur de \hyperlink{class_player}{Player}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em name,nom} & du joueur \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_player_a749d2c00e1fe0f5c2746f7505a58c062}{\index{Player@{Player}!$\sim$\-Player@{$\sim$\-Player}}
+\index{$\sim$\-Player@{$\sim$\-Player}!Player@{Player}}
+\subsubsection[{$\sim$\-Player}]{\setlength{\rightskip}{0pt plus 5cm}Player\-::$\sim$\-Player (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_player_a749d2c00e1fe0f5c2746f7505a58c062}
+
+
+Destructeur de \hyperlink{class_player}{Player}. 
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_player_adf4962f4f2b134085f1e26809cf42680}{\index{Player@{Player}!check@{check}}
+\index{check@{check}!Player@{Player}}
+\subsubsection[{check}]{\setlength{\rightskip}{0pt plus 5cm}void Player\-::check (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_player_adf4962f4f2b134085f1e26809cf42680}
+
+
+Permet de passer le joueur en état d'Echec. 
+
+\hypertarget{class_player_ab9d193b41e8553470f7af7c18abe3ecc}{\index{Player@{Player}!check\-Mate@{check\-Mate}}
+\index{check\-Mate@{check\-Mate}!Player@{Player}}
+\subsubsection[{check\-Mate}]{\setlength{\rightskip}{0pt plus 5cm}void Player\-::check\-Mate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_player_ab9d193b41e8553470f7af7c18abe3ecc}
+
+
+Permet de passer le joueur en état d'Echec et Mat. 
+
+\hypertarget{class_player_a3e67b9ce45f196d24395b9a44cb3e140}{\index{Player@{Player}!game\-End@{game\-End}}
+\index{game\-End@{game\-End}!Player@{Player}}
+\subsubsection[{game\-End}]{\setlength{\rightskip}{0pt plus 5cm}void Player\-::game\-End (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_player_a3e67b9ce45f196d24395b9a44cb3e140}
+
+
+Permet de passer le joueur en état de partie finie. 
+
+\hypertarget{class_player_ab2f4e51ebb224662fd6e2aac37ed7a05}{\index{Player@{Player}!game\-Null@{game\-Null}}
+\index{game\-Null@{game\-Null}!Player@{Player}}
+\subsubsection[{game\-Null}]{\setlength{\rightskip}{0pt plus 5cm}void Player\-::game\-Null (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_player_ab2f4e51ebb224662fd6e2aac37ed7a05}
+
+
+Permet de passer le joueur en état de partie nulle. 
+
+\hypertarget{class_player_a24f6a87b0480786ba2f966bc88d15195}{\index{Player@{Player}!get\-Check\-State@{get\-Check\-State}}
+\index{get\-Check\-State@{get\-Check\-State}!Player@{Player}}
+\subsubsection[{get\-Check\-State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf State} $\ast$ Player\-::get\-Check\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_player_a24f6a87b0480786ba2f966bc88d15195}
+
+
+Getter de l'attribut $\ast$\-\_\-check\-State. 
+
+\begin{DoxyReturn}{Renvoie}
+attribut $\ast$\-\_\-check\-State 
+\end{DoxyReturn}
+\hypertarget{class_player_a3e4c06283c8cb949b338830b0d3d6abc}{\index{Player@{Player}!get\-Color@{get\-Color}}
+\index{get\-Color@{get\-Color}!Player@{Player}}
+\subsubsection[{get\-Color}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Player\-::get\-Color (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_player_a3e4c06283c8cb949b338830b0d3d6abc}
+
+
+Getter de l'attribut \-\_\-color. 
+
+\begin{DoxyReturn}{Renvoie}
+attribut \-\_\-color 
+\end{DoxyReturn}
+\hypertarget{class_player_af8a9597bb9da1dcd21cb849ca519802b}{\index{Player@{Player}!get\-End\-State@{get\-End\-State}}
+\index{get\-End\-State@{get\-End\-State}!Player@{Player}}
+\subsubsection[{get\-End\-State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf State} $\ast$ Player\-::get\-End\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_player_af8a9597bb9da1dcd21cb849ca519802b}
+
+
+Getter de l'attribut $\ast$\-\_\-end\-State. 
+
+\begin{DoxyReturn}{Renvoie}
+attribut $\ast$\-\_\-end\-State 
+\end{DoxyReturn}
+\hypertarget{class_player_a98676a7d1647ac6db50507850fab1d92}{\index{Player@{Player}!get\-Game\-State@{get\-Game\-State}}
+\index{get\-Game\-State@{get\-Game\-State}!Player@{Player}}
+\subsubsection[{get\-Game\-State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf State} $\ast$ Player\-::get\-Game\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_player_a98676a7d1647ac6db50507850fab1d92}
+
+
+Getter de l'attribut $\ast$game\-State. 
+
+\begin{DoxyReturn}{Renvoie}
+attribut $\ast$game\-State 
+\end{DoxyReturn}
+\hypertarget{class_player_a5c1bd88d1c71575488196335b60a76b0}{\index{Player@{Player}!getking@{getking}}
+\index{getking@{getking}!Player@{Player}}
+\subsubsection[{getking}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Piece} $\ast$ Player\-::getking (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_player_a5c1bd88d1c71575488196335b60a76b0}
+
+
+permet de retourner la piece roi 
+
+\begin{DoxyReturn}{Renvoie}
+piece$\ast$ pointeur de la piece roi 
+\end{DoxyReturn}
+\hypertarget{class_player_abd42a23982b38a78bf66fe627d73b4cc}{\index{Player@{Player}!get\-Mate\-State@{get\-Mate\-State}}
+\index{get\-Mate\-State@{get\-Mate\-State}!Player@{Player}}
+\subsubsection[{get\-Mate\-State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf State} $\ast$ Player\-::get\-Mate\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_player_abd42a23982b38a78bf66fe627d73b4cc}
+
+
+Getter de l'attribut $\ast$\-\_\-mate\-State. 
+
+\begin{DoxyReturn}{Renvoie}
+attribut $\ast$\-\_\-mate\-State 
+\end{DoxyReturn}
+\hypertarget{class_player_af1aa472885d589516f483e26e786600e}{\index{Player@{Player}!get\-Name@{get\-Name}}
+\index{get\-Name@{get\-Name}!Player@{Player}}
+\subsubsection[{get\-Name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Player\-::get\-Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_player_af1aa472885d589516f483e26e786600e}
+
+
+Getter de l'attribut \-\_\-name. 
+
+\begin{DoxyReturn}{Renvoie}
+attribut \-\_\-name 
+\end{DoxyReturn}
+\hypertarget{class_player_a121812f4c5a5e913f31187b90f378aa7}{\index{Player@{Player}!get\-Null\-State@{get\-Null\-State}}
+\index{get\-Null\-State@{get\-Null\-State}!Player@{Player}}
+\subsubsection[{get\-Null\-State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf State} $\ast$ Player\-::get\-Null\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_player_a121812f4c5a5e913f31187b90f378aa7}
+
+
+Getter de l'attribut $\ast$\-\_\-null\-State. 
+
+\begin{DoxyReturn}{Renvoie}
+attribut $\ast$\-\_\-null\-State 
+\end{DoxyReturn}
+\hypertarget{class_player_a738451fc076901ecf28cae81c7604e2a}{\index{Player@{Player}!get\-Pieces@{get\-Pieces}}
+\index{get\-Pieces@{get\-Pieces}!Player@{Player}}
+\subsubsection[{get\-Pieces}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Piece} $\ast$$\ast$ Player\-::get\-Pieces (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_player_a738451fc076901ecf28cae81c7604e2a}
+
+
+Getter de l'attribut \-\_\-pieces. 
+
+\begin{DoxyReturn}{Renvoie}
+attribut \-\_\-pieces 
+\end{DoxyReturn}
+\hypertarget{class_player_a1b85aeef66cdbc472caf951d25796086}{\index{Player@{Player}!get\-State@{get\-State}}
+\index{get\-State@{get\-State}!Player@{Player}}
+\subsubsection[{get\-State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf State} $\ast$ Player\-::get\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_player_a1b85aeef66cdbc472caf951d25796086}
+
+
+Getter de l'attribut $\ast$\-\_\-state. 
+
+\begin{DoxyReturn}{Renvoie}
+attribut $\ast$\-\_\-state 
+\end{DoxyReturn}
+\hypertarget{class_player_ac587f5febaceec87ddefbaf78f74539d}{\index{Player@{Player}!in\-Game@{in\-Game}}
+\index{in\-Game@{in\-Game}!Player@{Player}}
+\subsubsection[{in\-Game}]{\setlength{\rightskip}{0pt plus 5cm}void Player\-::in\-Game (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_player_ac587f5febaceec87ddefbaf78f74539d}
+
+
+Permet de passer le joueur en état de jeu \char`\"{}normal\char`\"{}. 
+
+\hypertarget{class_player_aa8d4b069eedca62c2b8d5243db8689db}{\index{Player@{Player}!ischeck@{ischeck}}
+\index{ischeck@{ischeck}!Player@{Player}}
+\subsubsection[{ischeck}]{\setlength{\rightskip}{0pt plus 5cm}bool Player\-::ischeck (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_player_aa8d4b069eedca62c2b8d5243db8689db}
+
+
+permet de savoir si le joueur se trouve en en check 
+
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+\hypertarget{class_player_a98003bced20a95fd42452ce149fddad7}{\index{Player@{Player}!ischeckmate@{ischeckmate}}
+\index{ischeckmate@{ischeckmate}!Player@{Player}}
+\subsubsection[{ischeckmate}]{\setlength{\rightskip}{0pt plus 5cm}bool Player\-::ischeckmate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_player_a98003bced20a95fd42452ce149fddad7}
+
+
+permet de savoir si le joueur se trouve en en checkmate 
+
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+\hypertarget{class_player_a363d24fe41c4d6b0faad5f90f53a2114}{\index{Player@{Player}!isnulle@{isnulle}}
+\index{isnulle@{isnulle}!Player@{Player}}
+\subsubsection[{isnulle}]{\setlength{\rightskip}{0pt plus 5cm}bool Player\-::isnulle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_player_a363d24fe41c4d6b0faad5f90f53a2114}
+
+
+permet de savoir si le joueur se trouve en en partie nulle 
+
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+\hypertarget{class_player_ac51828429e6e1401f04677ec3f1e0769}{\index{Player@{Player}!print\-Pieces@{print\-Pieces}}
+\index{print\-Pieces@{print\-Pieces}!Player@{Player}}
+\subsubsection[{print\-Pieces}]{\setlength{\rightskip}{0pt plus 5cm}void Player\-::print\-Pieces (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_player_ac51828429e6e1401f04677ec3f1e0769}
+
+
+Affiche l'ensemble des pièces encore en vie avec leurs coordonnées respectives. 
+
+\hypertarget{class_player_a4fda4bd6b5fa84d436a7592e4faebe92}{\index{Player@{Player}!print\-State@{print\-State}}
+\index{print\-State@{print\-State}!Player@{Player}}
+\subsubsection[{print\-State}]{\setlength{\rightskip}{0pt plus 5cm}void Player\-::print\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_player_a4fda4bd6b5fa84d436a7592e4faebe92}
+
+
+Affiche l'état courant du joueur sur la sortie standard. 
+
+\hypertarget{class_player_a777c790075ce371af98eaf6e40f2a726}{\index{Player@{Player}!select\-Piece@{select\-Piece}}
+\index{select\-Piece@{select\-Piece}!Player@{Player}}
+\subsubsection[{select\-Piece}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Piece} $\ast$ Player\-::select\-Piece (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{x, }
+\item[{unsigned int}]{y}
+\end{DoxyParamCaption}
+)}}\label{class_player_a777c790075ce371af98eaf6e40f2a726}
+
+
+Permet au joueur de selectionner une pièce qu'il possède. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em unsigned} & int x, coordonnée x de la case selectionnée \\
+\hline
+{\em unsigned} & int y, coordonnée y de la case selectionnée \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Piece$\ast$ pointeur de la pièce selectionnée (null si coordonnées invalides) 
+\end{DoxyReturn}
+\hypertarget{class_player_a1b456e164e73e5cf5ffe925529fc8c2a}{\index{Player@{Player}!set\-Name@{set\-Name}}
+\index{set\-Name@{set\-Name}!Player@{Player}}
+\subsubsection[{set\-Name}]{\setlength{\rightskip}{0pt plus 5cm}void Player\-::set\-Name (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{new\-Name}
+\end{DoxyParamCaption}
+)}}\label{class_player_a1b456e164e73e5cf5ffe925529fc8c2a}
+
+
+Setter de l'attribut \-\_\-name. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em new\-Name,nouveau} & nom \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_player_a02d8b0f8340dc5557a01b33c4254757a}{\index{Player@{Player}!set\-State@{set\-State}}
+\index{set\-State@{set\-State}!Player@{Player}}
+\subsubsection[{set\-State}]{\setlength{\rightskip}{0pt plus 5cm}void Player\-::set\-State (
+\begin{DoxyParamCaption}
+\item[{{\bf State} $\ast$}]{new\-State}
+\end{DoxyParamCaption}
+)}}\label{class_player_a02d8b0f8340dc5557a01b33c4254757a}
+
+
+Setter de l'attribut $\ast$\-\_\-state. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em new\-Name,nouveau} & nom \\
+\hline
+\end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{_player_8hpp}{Player.\-hpp}\item 
+src/\hyperlink{_player_8cpp}{Player.\-cpp}\end{DoxyCompactItemize}

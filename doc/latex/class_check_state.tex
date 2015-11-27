@@ -1,0 +1,213 @@
+\hypertarget{class_check_state}{\section{Référence de la classe Check\-State}
+\label{class_check_state}\index{Check\-State@{Check\-State}}
+}
+
+
+{\ttfamily \#include $<$State.\-hpp$>$}
+
+Graphe d'héritage de Check\-State\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_check_state}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_check_state_a5027a0f3dc626241c48ac33b0b974311}{Check\-State} (\hyperlink{class_player}{Player} $\ast$p)
+\begin{DoxyCompactList}\small\item\em Constructeur, crée un Etat\-Echec à l'aide du constructeur de \hyperlink{class_state}{State} avec un Joueur en paramètre. \end{DoxyCompactList}\item 
+\hyperlink{class_check_state_aecd4b3d189f47df10445e70aec28502b}{$\sim$\-Check\-State} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de l'objet \hyperlink{class_check_state}{Check\-State}. \end{DoxyCompactList}\item 
+void \hyperlink{class_check_state_a3cc0cb64d061a72d91ee60b60801aa3b}{in\-Game} ()
+\begin{DoxyCompactList}\small\item\em Définition de la procédure virtuelle, transition vers l'état \hyperlink{class_game_state}{Game\-State}. \end{DoxyCompactList}\item 
+void \hyperlink{class_check_state_a7e365f95e322b61609f05202c28db278}{check} ()
+\begin{DoxyCompactList}\small\item\em Définition de la procédure virtuelle, pas d'effet dans cet Etat là \end{DoxyCompactList}\item 
+void \hyperlink{class_check_state_afb093377619bc04bcba50db601368019}{check\-Mate} ()
+\begin{DoxyCompactList}\small\item\em Définition de la procédure virtuelle, pas d'effet dans cet Etat là \end{DoxyCompactList}\item 
+void \hyperlink{class_check_state_ae3cc6446e2dd5de333797bb180104c50}{game\-Null} ()
+\begin{DoxyCompactList}\small\item\em Définition de la procédure virtuelle, pas d'effet dans cet Etat là \end{DoxyCompactList}\item 
+void \hyperlink{class_check_state_a54820bb890cc50e3782104fad094747f}{game\-End} ()
+\begin{DoxyCompactList}\small\item\em Définition de la procédure virtuelle, pas d'effet dans cet Etat là \end{DoxyCompactList}\item 
+void \hyperlink{class_check_state_ace4965a79b3614c50d0db5396121b75e}{print} ()
+\begin{DoxyCompactList}\small\item\em Définition de la procédure virtuelle, affiche l'état \hyperlink{class_check_state}{Check\-State}. \end{DoxyCompactList}\item 
+bool \hyperlink{class_check_state_aa6e88c453114883d8a415ff338b65526}{ischeck} ()
+\begin{DoxyCompactList}\small\item\em procédure virtuelle permettant de savoir s'il se trouve en possition d'echec \end{DoxyCompactList}\item 
+bool \hyperlink{class_check_state_ae3704aaa5fbaf6c947462c211eafc9c9}{ischeckmate} ()
+\begin{DoxyCompactList}\small\item\em procédure virtuelle permettant de savoir s'il se trouve en possition d'echec et mat \end{DoxyCompactList}\item 
+bool \hyperlink{class_check_state_a569daf96d0340272068a3d36fdf288c4}{isnulle} ()
+\begin{DoxyCompactList}\small\item\em procédure virtuelle permettant de savoir s'il se trouve en possition nulle \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{class_check_state_a5027a0f3dc626241c48ac33b0b974311}{\index{Check\-State@{Check\-State}!Check\-State@{Check\-State}}
+\index{Check\-State@{Check\-State}!CheckState@{Check\-State}}
+\subsubsection[{Check\-State}]{\setlength{\rightskip}{0pt plus 5cm}Check\-State\-::\-Check\-State (
+\begin{DoxyParamCaption}
+\item[{{\bf Player} $\ast$}]{p}
+\end{DoxyParamCaption}
+)}}\label{class_check_state_a5027a0f3dc626241c48ac33b0b974311}
+
+
+Constructeur, crée un Etat\-Echec à l'aide du constructeur de \hyperlink{class_state}{State} avec un Joueur en paramètre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_check_state_aecd4b3d189f47df10445e70aec28502b}{\index{Check\-State@{Check\-State}!$\sim$\-Check\-State@{$\sim$\-Check\-State}}
+\index{$\sim$\-Check\-State@{$\sim$\-Check\-State}!CheckState@{Check\-State}}
+\subsubsection[{$\sim$\-Check\-State}]{\setlength{\rightskip}{0pt plus 5cm}Check\-State\-::$\sim$\-Check\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_check_state_aecd4b3d189f47df10445e70aec28502b}
+
+
+Destructeur de l'objet \hyperlink{class_check_state}{Check\-State}. 
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_check_state_a7e365f95e322b61609f05202c28db278}{\index{Check\-State@{Check\-State}!check@{check}}
+\index{check@{check}!CheckState@{Check\-State}}
+\subsubsection[{check}]{\setlength{\rightskip}{0pt plus 5cm}void Check\-State\-::check (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_check_state_a7e365f95e322b61609f05202c28db278}
+
+
+Définition de la procédure virtuelle, pas d'effet dans cet Etat là 
+
+
+
+Implémente \hyperlink{class_state_a321fd726bbefc35fedbbf001d2a37021}{State}.
+
+\hypertarget{class_check_state_afb093377619bc04bcba50db601368019}{\index{Check\-State@{Check\-State}!check\-Mate@{check\-Mate}}
+\index{check\-Mate@{check\-Mate}!CheckState@{Check\-State}}
+\subsubsection[{check\-Mate}]{\setlength{\rightskip}{0pt plus 5cm}void Check\-State\-::check\-Mate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_check_state_afb093377619bc04bcba50db601368019}
+
+
+Définition de la procédure virtuelle, pas d'effet dans cet Etat là 
+
+
+
+Implémente \hyperlink{class_state_aa2b89ec92ecd4f6271269fe4b8ccc790}{State}.
+
+\hypertarget{class_check_state_a54820bb890cc50e3782104fad094747f}{\index{Check\-State@{Check\-State}!game\-End@{game\-End}}
+\index{game\-End@{game\-End}!CheckState@{Check\-State}}
+\subsubsection[{game\-End}]{\setlength{\rightskip}{0pt plus 5cm}void Check\-State\-::game\-End (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_check_state_a54820bb890cc50e3782104fad094747f}
+
+
+Définition de la procédure virtuelle, pas d'effet dans cet Etat là 
+
+
+
+Implémente \hyperlink{class_state_a5117e1f9bf06e17b4b0277838fe39bd8}{State}.
+
+\hypertarget{class_check_state_ae3cc6446e2dd5de333797bb180104c50}{\index{Check\-State@{Check\-State}!game\-Null@{game\-Null}}
+\index{game\-Null@{game\-Null}!CheckState@{Check\-State}}
+\subsubsection[{game\-Null}]{\setlength{\rightskip}{0pt plus 5cm}void Check\-State\-::game\-Null (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_check_state_ae3cc6446e2dd5de333797bb180104c50}
+
+
+Définition de la procédure virtuelle, pas d'effet dans cet Etat là 
+
+
+
+Implémente \hyperlink{class_state_ad5b7fe10b2c30243f36d7d0950c50d43}{State}.
+
+\hypertarget{class_check_state_a3cc0cb64d061a72d91ee60b60801aa3b}{\index{Check\-State@{Check\-State}!in\-Game@{in\-Game}}
+\index{in\-Game@{in\-Game}!CheckState@{Check\-State}}
+\subsubsection[{in\-Game}]{\setlength{\rightskip}{0pt plus 5cm}void Check\-State\-::in\-Game (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_check_state_a3cc0cb64d061a72d91ee60b60801aa3b}
+
+
+Définition de la procédure virtuelle, transition vers l'état \hyperlink{class_game_state}{Game\-State}. 
+
+
+
+Implémente \hyperlink{class_state_a738b04d6e0c12a39bf96a2a7159202d8}{State}.
+
+\hypertarget{class_check_state_aa6e88c453114883d8a415ff338b65526}{\index{Check\-State@{Check\-State}!ischeck@{ischeck}}
+\index{ischeck@{ischeck}!CheckState@{Check\-State}}
+\subsubsection[{ischeck}]{\setlength{\rightskip}{0pt plus 5cm}bool Check\-State\-::ischeck (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_check_state_aa6e88c453114883d8a415ff338b65526}
+
+
+procédure virtuelle permettant de savoir s'il se trouve en possition d'echec 
+
+
+
+Implémente \hyperlink{class_state_ad2d7084c507d8d20be2e772d953129fb}{State}.
+
+\hypertarget{class_check_state_ae3704aaa5fbaf6c947462c211eafc9c9}{\index{Check\-State@{Check\-State}!ischeckmate@{ischeckmate}}
+\index{ischeckmate@{ischeckmate}!CheckState@{Check\-State}}
+\subsubsection[{ischeckmate}]{\setlength{\rightskip}{0pt plus 5cm}bool Check\-State\-::ischeckmate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_check_state_ae3704aaa5fbaf6c947462c211eafc9c9}
+
+
+procédure virtuelle permettant de savoir s'il se trouve en possition d'echec et mat 
+
+
+
+Implémente \hyperlink{class_state_ae1d813f250db75015ddeebece5ec0f2b}{State}.
+
+\hypertarget{class_check_state_a569daf96d0340272068a3d36fdf288c4}{\index{Check\-State@{Check\-State}!isnulle@{isnulle}}
+\index{isnulle@{isnulle}!CheckState@{Check\-State}}
+\subsubsection[{isnulle}]{\setlength{\rightskip}{0pt plus 5cm}bool Check\-State\-::isnulle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_check_state_a569daf96d0340272068a3d36fdf288c4}
+
+
+procédure virtuelle permettant de savoir s'il se trouve en possition nulle 
+
+
+
+Implémente \hyperlink{class_state_a869f2ebfad7e60719df5f89a613adee1}{State}.
+
+\hypertarget{class_check_state_ace4965a79b3614c50d0db5396121b75e}{\index{Check\-State@{Check\-State}!print@{print}}
+\index{print@{print}!CheckState@{Check\-State}}
+\subsubsection[{print}]{\setlength{\rightskip}{0pt plus 5cm}void Check\-State\-::print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_check_state_ace4965a79b3614c50d0db5396121b75e}
+
+
+Définition de la procédure virtuelle, affiche l'état \hyperlink{class_check_state}{Check\-State}. 
+
+
+
+Implémente \hyperlink{class_state_a95a537bb55b9118b23d5bed88ba3b335}{State}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{_state_8hpp}{State.\-hpp}\item 
+src/\hyperlink{_state_8cpp}{State.\-cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,28 @@
+var class_player =
+[
+    [ "Player", "class_player.html#a06ca07f2ce539e4b458437857a720718", null ],
+    [ "~Player", "class_player.html#a749d2c00e1fe0f5c2746f7505a58c062", null ],
+    [ "check", "class_player.html#adf4962f4f2b134085f1e26809cf42680", null ],
+    [ "checkMate", "class_player.html#ab9d193b41e8553470f7af7c18abe3ecc", null ],
+    [ "gameEnd", "class_player.html#a3e67b9ce45f196d24395b9a44cb3e140", null ],
+    [ "gameNull", "class_player.html#ab2f4e51ebb224662fd6e2aac37ed7a05", null ],
+    [ "getCheckState", "class_player.html#a24f6a87b0480786ba2f966bc88d15195", null ],
+    [ "getColor", "class_player.html#a3e4c06283c8cb949b338830b0d3d6abc", null ],
+    [ "getEndState", "class_player.html#af8a9597bb9da1dcd21cb849ca519802b", null ],
+    [ "getGameState", "class_player.html#a98676a7d1647ac6db50507850fab1d92", null ],
+    [ "getking", "class_player.html#a5c1bd88d1c71575488196335b60a76b0", null ],
+    [ "getMateState", "class_player.html#abd42a23982b38a78bf66fe627d73b4cc", null ],
+    [ "getName", "class_player.html#af1aa472885d589516f483e26e786600e", null ],
+    [ "getNullState", "class_player.html#a121812f4c5a5e913f31187b90f378aa7", null ],
+    [ "getPieces", "class_player.html#a738451fc076901ecf28cae81c7604e2a", null ],
+    [ "getState", "class_player.html#a1b85aeef66cdbc472caf951d25796086", null ],
+    [ "inGame", "class_player.html#ac587f5febaceec87ddefbaf78f74539d", null ],
+    [ "ischeck", "class_player.html#aa8d4b069eedca62c2b8d5243db8689db", null ],
+    [ "ischeckmate", "class_player.html#a98003bced20a95fd42452ce149fddad7", null ],
+    [ "isnulle", "class_player.html#a363d24fe41c4d6b0faad5f90f53a2114", null ],
+    [ "printPieces", "class_player.html#ac51828429e6e1401f04677ec3f1e0769", null ],
+    [ "printState", "class_player.html#a4fda4bd6b5fa84d436a7592e4faebe92", null ],
+    [ "selectPiece", "class_player.html#a777c790075ce371af98eaf6e40f2a726", null ],
+    [ "setName", "class_player.html#a1b456e164e73e5cf5ffe925529fc8c2a", null ],
+    [ "setState", "class_player.html#a02d8b0f8340dc5557a01b33c4254757a", null ]
+];

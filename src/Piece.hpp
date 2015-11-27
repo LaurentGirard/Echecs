@@ -46,7 +46,7 @@ class Piece
       /**
        * @brief Destructeur de Piece
        */
-		~Piece();
+		virtual ~Piece();
 
 	/**
        * @brief de Getter l'attribut square

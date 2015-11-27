@@ -1,0 +1,150 @@
+\hypertarget{class_cell}{\section{Référence de la classe Cell}
+\label{class_cell}\index{Cell@{Cell}}
+}
+
+
+Classe permettant de représenter une case du jeu d'echec.  
+
+
+
+
+{\ttfamily \#include $<$Cell.\-hpp$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_cell_a4ccfb0a9923271daba6000afa1a33ee9}{Cell} (unsigned int x, unsigned int y)
+\begin{DoxyCompactList}\small\item\em Constructeur, crée un objet \hyperlink{class_cell}{Cell} initialisant les coordonnées. \end{DoxyCompactList}\item 
+\hyperlink{class_cell_a9fa559f7a28e2b4336c6879ca09304d8}{$\sim$\-Cell} ()
+\begin{DoxyCompactList}\small\item\em Destructeur d'un objet \hyperlink{class_cell}{Cell}. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{class_cell_a09a86af000a7b6b00be01c0ea71e5319}{get\-X} ()
+\begin{DoxyCompactList}\small\item\em Getter de l'attribut \-\_\-x. \end{DoxyCompactList}\item 
+void \hyperlink{class_cell_a5db21f79684f86d4dad8e17a40bbb797}{set\-X} (unsigned int new\-X)
+\begin{DoxyCompactList}\small\item\em Setter de l'attribut \-\_\-x. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{class_cell_a54bd0f63ff375abde26902cc2ca7ea78}{get\-Y} ()
+\begin{DoxyCompactList}\small\item\em Getter de l'attribut \-\_\-y. \end{DoxyCompactList}\item 
+void \hyperlink{class_cell_ad797a4c776783b15f4637b1f667f56a5}{set\-Y} (unsigned int new\-Y)
+\begin{DoxyCompactList}\small\item\em Setter de l'attribut \-\_\-y. \end{DoxyCompactList}\item 
+bool \hyperlink{class_cell_ae889f79cafc3dda80d430980e4418333}{operator==} (\hyperlink{class_cell}{Cell} \&c2)
+\begin{DoxyCompactList}\small\item\em comparer avec une autre piece \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Classe permettant de représenter une case du jeu d'echec. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{class_cell_a4ccfb0a9923271daba6000afa1a33ee9}{\index{Cell@{Cell}!Cell@{Cell}}
+\index{Cell@{Cell}!Cell@{Cell}}
+\subsubsection[{Cell}]{\setlength{\rightskip}{0pt plus 5cm}Cell\-::\-Cell (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{x, }
+\item[{unsigned int}]{y}
+\end{DoxyParamCaption}
+)}}\label{class_cell_a4ccfb0a9923271daba6000afa1a33ee9}
+
+
+Constructeur, crée un objet \hyperlink{class_cell}{Cell} initialisant les coordonnées. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em unsigned} & int, x \\
+\hline
+{\em unsigned} & int, y \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_cell_a9fa559f7a28e2b4336c6879ca09304d8}{\index{Cell@{Cell}!$\sim$\-Cell@{$\sim$\-Cell}}
+\index{$\sim$\-Cell@{$\sim$\-Cell}!Cell@{Cell}}
+\subsubsection[{$\sim$\-Cell}]{\setlength{\rightskip}{0pt plus 5cm}Cell\-::$\sim$\-Cell (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_cell_a9fa559f7a28e2b4336c6879ca09304d8}
+
+
+Destructeur d'un objet \hyperlink{class_cell}{Cell}. 
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_cell_a09a86af000a7b6b00be01c0ea71e5319}{\index{Cell@{Cell}!get\-X@{get\-X}}
+\index{get\-X@{get\-X}!Cell@{Cell}}
+\subsubsection[{get\-X}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Cell\-::get\-X (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_cell_a09a86af000a7b6b00be01c0ea71e5319}
+
+
+Getter de l'attribut \-\_\-x. 
+
+\begin{DoxyReturn}{Renvoie}
+attribut \-\_\-x 
+\end{DoxyReturn}
+\hypertarget{class_cell_a54bd0f63ff375abde26902cc2ca7ea78}{\index{Cell@{Cell}!get\-Y@{get\-Y}}
+\index{get\-Y@{get\-Y}!Cell@{Cell}}
+\subsubsection[{get\-Y}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Cell\-::get\-Y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_cell_a54bd0f63ff375abde26902cc2ca7ea78}
+
+
+Getter de l'attribut \-\_\-y. 
+
+\begin{DoxyReturn}{Renvoie}
+attribut \-\_\-y 
+\end{DoxyReturn}
+\hypertarget{class_cell_ae889f79cafc3dda80d430980e4418333}{\index{Cell@{Cell}!operator==@{operator==}}
+\index{operator==@{operator==}!Cell@{Cell}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool Cell\-::operator== (
+\begin{DoxyParamCaption}
+\item[{{\bf Cell} \&}]{c2}
+\end{DoxyParamCaption}
+)}}\label{class_cell_ae889f79cafc3dda80d430980e4418333}
+
+
+comparer avec une autre piece 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em unsigned} & cell newcell \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_cell_a5db21f79684f86d4dad8e17a40bbb797}{\index{Cell@{Cell}!set\-X@{set\-X}}
+\index{set\-X@{set\-X}!Cell@{Cell}}
+\subsubsection[{set\-X}]{\setlength{\rightskip}{0pt plus 5cm}void Cell\-::set\-X (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{new\-X}
+\end{DoxyParamCaption}
+)}}\label{class_cell_a5db21f79684f86d4dad8e17a40bbb797}
+
+
+Setter de l'attribut \-\_\-x. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em unsigned} & int new\-X \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_cell_ad797a4c776783b15f4637b1f667f56a5}{\index{Cell@{Cell}!set\-Y@{set\-Y}}
+\index{set\-Y@{set\-Y}!Cell@{Cell}}
+\subsubsection[{set\-Y}]{\setlength{\rightskip}{0pt plus 5cm}void Cell\-::set\-Y (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{new\-Y}
+\end{DoxyParamCaption}
+)}}\label{class_cell_ad797a4c776783b15f4637b1f667f56a5}
+
+
+Setter de l'attribut \-\_\-y. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em unsigned} & int new\-Y \\
+\hline
+\end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{_cell_8hpp}{Cell.\-hpp}\item 
+src/\hyperlink{_cell_8cpp}{Cell.\-cpp}\end{DoxyCompactItemize}

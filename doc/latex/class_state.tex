@@ -1,0 +1,223 @@
+\hypertarget{class_state}{\section{Référence de la classe State}
+\label{class_state}\index{State@{State}}
+}
+
+
+{\ttfamily \#include $<$State.\-hpp$>$}
+
+Graphe d'héritage de State\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_state}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_state_a7a0a6af0cd97aa575a097eca87e090ba}{State} (\hyperlink{class_player}{Player} $\ast$p)
+\begin{DoxyCompactList}\small\item\em Constructeur, crée un Etat avec un Joueur en paramètre. \end{DoxyCompactList}\item 
+\hyperlink{class_state_afab438d92b90dc18d194dbd9c9c8bab3}{$\sim$\-State} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de l'objet \hyperlink{class_state}{State}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_state_a738b04d6e0c12a39bf96a2a7159202d8}{in\-Game} ()=0
+\begin{DoxyCompactList}\small\item\em procédure virtuelle permettant de la transition de l'état \hyperlink{class_check_state}{Check\-State} à l'état \hyperlink{class_game_state}{Game\-State} \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_state_a321fd726bbefc35fedbbf001d2a37021}{check} ()=0
+\begin{DoxyCompactList}\small\item\em procédure virtuelle permettant de la transition de l'état \hyperlink{class_game_state}{Game\-State} à l'état \hyperlink{class_check_state}{Check\-State} \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_state_aa2b89ec92ecd4f6271269fe4b8ccc790}{check\-Mate} ()=0
+\begin{DoxyCompactList}\small\item\em procédure virtuelle permettant de la transition de l'état \hyperlink{class_game_state}{Game\-State} à l'état \hyperlink{class_mate_state}{Mate\-State} \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_state_ad5b7fe10b2c30243f36d7d0950c50d43}{game\-Null} ()=0
+\begin{DoxyCompactList}\small\item\em procédure virtuelle permettant de la transition de l'état \hyperlink{class_game_state}{Game\-State} à l'état \hyperlink{class_null_state}{Null\-State} \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_state_a5117e1f9bf06e17b4b0277838fe39bd8}{game\-End} ()=0
+\begin{DoxyCompactList}\small\item\em procédure virtuelle permettant de la transition de l'état \hyperlink{class_mate_state}{Mate\-State} ou l'état \hyperlink{class_null_state}{Null\-State} à l'état \hyperlink{class_end_state}{End\-State} \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_state_a95a537bb55b9118b23d5bed88ba3b335}{print} ()=0
+\begin{DoxyCompactList}\small\item\em procédure virtuelle permettant d'afficher l'état courant \end{DoxyCompactList}\item 
+virtual bool \hyperlink{class_state_ad2d7084c507d8d20be2e772d953129fb}{ischeck} ()=0
+\begin{DoxyCompactList}\small\item\em procédure virtuelle permettant de savoir s'il se trouve en possition d'echec \end{DoxyCompactList}\item 
+virtual bool \hyperlink{class_state_ae1d813f250db75015ddeebece5ec0f2b}{ischeckmate} ()=0
+\begin{DoxyCompactList}\small\item\em procédure virtuelle permettant de savoir s'il se trouve en possition d'echec et mate \end{DoxyCompactList}\item 
+virtual bool \hyperlink{class_state_a869f2ebfad7e60719df5f89a613adee1}{isnulle} ()=0
+\begin{DoxyCompactList}\small\item\em procédure virtuelle permettant de savoir s'il se trouve en possition null \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_player}{Player} $\ast$ \hyperlink{class_state_a9a024fd38161f32fc10b68b4ccb13226}{player}
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{class_state_a7a0a6af0cd97aa575a097eca87e090ba}{\index{State@{State}!State@{State}}
+\index{State@{State}!State@{State}}
+\subsubsection[{State}]{\setlength{\rightskip}{0pt plus 5cm}State\-::\-State (
+\begin{DoxyParamCaption}
+\item[{{\bf Player} $\ast$}]{p}
+\end{DoxyParamCaption}
+)}}\label{class_state_a7a0a6af0cd97aa575a097eca87e090ba}
+
+
+Constructeur, crée un Etat avec un Joueur en paramètre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_state_afab438d92b90dc18d194dbd9c9c8bab3}{\index{State@{State}!$\sim$\-State@{$\sim$\-State}}
+\index{$\sim$\-State@{$\sim$\-State}!State@{State}}
+\subsubsection[{$\sim$\-State}]{\setlength{\rightskip}{0pt plus 5cm}State\-::$\sim$\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_state_afab438d92b90dc18d194dbd9c9c8bab3}
+
+
+Destructeur de l'objet \hyperlink{class_state}{State}. 
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_state_a321fd726bbefc35fedbbf001d2a37021}{\index{State@{State}!check@{check}}
+\index{check@{check}!State@{State}}
+\subsubsection[{check}]{\setlength{\rightskip}{0pt plus 5cm}void State\-::check (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_state_a321fd726bbefc35fedbbf001d2a37021}
+
+
+procédure virtuelle permettant de la transition de l'état \hyperlink{class_game_state}{Game\-State} à l'état \hyperlink{class_check_state}{Check\-State} 
+
+
+
+Implémenté dans \hyperlink{class_end_state_a80e538c38c1293803200e5d3b513ba77}{End\-State}, \hyperlink{class_null_state_a04825452cd1018dec2525609a3079aff}{Null\-State}, \hyperlink{class_mate_state_a2205b5879c63fcdf469002d9d5203bb3}{Mate\-State}, \hyperlink{class_check_state_a7e365f95e322b61609f05202c28db278}{Check\-State}, et \hyperlink{class_game_state_a646e5436c4191f323dfa736a06e79695}{Game\-State}.
+
+\hypertarget{class_state_aa2b89ec92ecd4f6271269fe4b8ccc790}{\index{State@{State}!check\-Mate@{check\-Mate}}
+\index{check\-Mate@{check\-Mate}!State@{State}}
+\subsubsection[{check\-Mate}]{\setlength{\rightskip}{0pt plus 5cm}void State\-::check\-Mate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_state_aa2b89ec92ecd4f6271269fe4b8ccc790}
+
+
+procédure virtuelle permettant de la transition de l'état \hyperlink{class_game_state}{Game\-State} à l'état \hyperlink{class_mate_state}{Mate\-State} 
+
+
+
+Implémenté dans \hyperlink{class_end_state_a48a2531ee4bd2144b44823a5527488f3}{End\-State}, \hyperlink{class_null_state_a2bc6da41f64658fb9f733f6b23f0e499}{Null\-State}, \hyperlink{class_mate_state_af785a3407109dd3d0a6868a358c92213}{Mate\-State}, \hyperlink{class_check_state_afb093377619bc04bcba50db601368019}{Check\-State}, et \hyperlink{class_game_state_ada8cd91a048922c4d8aedbef17ce6fbc}{Game\-State}.
+
+\hypertarget{class_state_a5117e1f9bf06e17b4b0277838fe39bd8}{\index{State@{State}!game\-End@{game\-End}}
+\index{game\-End@{game\-End}!State@{State}}
+\subsubsection[{game\-End}]{\setlength{\rightskip}{0pt plus 5cm}void State\-::game\-End (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_state_a5117e1f9bf06e17b4b0277838fe39bd8}
+
+
+procédure virtuelle permettant de la transition de l'état \hyperlink{class_mate_state}{Mate\-State} ou l'état \hyperlink{class_null_state}{Null\-State} à l'état \hyperlink{class_end_state}{End\-State} 
+
+
+
+Implémenté dans \hyperlink{class_end_state_a6fc13eb28853a79e1b5396dd2f377a51}{End\-State}, \hyperlink{class_null_state_a73b1449815c3770ac24e56fa885a7961}{Null\-State}, \hyperlink{class_mate_state_a19b4fa2115a36da6e1dd333a617ee7bb}{Mate\-State}, \hyperlink{class_check_state_a54820bb890cc50e3782104fad094747f}{Check\-State}, et \hyperlink{class_game_state_a65fc1ef481baa95f675ff8a78aa14e05}{Game\-State}.
+
+\hypertarget{class_state_ad5b7fe10b2c30243f36d7d0950c50d43}{\index{State@{State}!game\-Null@{game\-Null}}
+\index{game\-Null@{game\-Null}!State@{State}}
+\subsubsection[{game\-Null}]{\setlength{\rightskip}{0pt plus 5cm}void State\-::game\-Null (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_state_ad5b7fe10b2c30243f36d7d0950c50d43}
+
+
+procédure virtuelle permettant de la transition de l'état \hyperlink{class_game_state}{Game\-State} à l'état \hyperlink{class_null_state}{Null\-State} 
+
+
+
+Implémenté dans \hyperlink{class_end_state_ad50c108e27c7b0497c3f2f2e76b904a5}{End\-State}, \hyperlink{class_null_state_a9a735f7e4cbf7c3439208f9bb90b649d}{Null\-State}, \hyperlink{class_mate_state_a59ad17cb3366c560b921619d52f00181}{Mate\-State}, \hyperlink{class_check_state_ae3cc6446e2dd5de333797bb180104c50}{Check\-State}, et \hyperlink{class_game_state_a006f729bc30cfa224d3235c87e5a6e59}{Game\-State}.
+
+\hypertarget{class_state_a738b04d6e0c12a39bf96a2a7159202d8}{\index{State@{State}!in\-Game@{in\-Game}}
+\index{in\-Game@{in\-Game}!State@{State}}
+\subsubsection[{in\-Game}]{\setlength{\rightskip}{0pt plus 5cm}void State\-::in\-Game (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_state_a738b04d6e0c12a39bf96a2a7159202d8}
+
+
+procédure virtuelle permettant de la transition de l'état \hyperlink{class_check_state}{Check\-State} à l'état \hyperlink{class_game_state}{Game\-State} 
+
+
+
+Implémenté dans \hyperlink{class_end_state_a6ba5aa5cfd2d0ac4aa1609e336d5669f}{End\-State}, \hyperlink{class_null_state_a3c51a85d1d0273b7f7db4ed20672c68c}{Null\-State}, \hyperlink{class_mate_state_a99575ed4587f029511bc5bd1ec9ab262}{Mate\-State}, \hyperlink{class_check_state_a3cc0cb64d061a72d91ee60b60801aa3b}{Check\-State}, et \hyperlink{class_game_state_af0290fd87a2bc2a44119dc700d8b8721}{Game\-State}.
+
+\hypertarget{class_state_ad2d7084c507d8d20be2e772d953129fb}{\index{State@{State}!ischeck@{ischeck}}
+\index{ischeck@{ischeck}!State@{State}}
+\subsubsection[{ischeck}]{\setlength{\rightskip}{0pt plus 5cm}bool State\-::ischeck (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_state_ad2d7084c507d8d20be2e772d953129fb}
+
+
+procédure virtuelle permettant de savoir s'il se trouve en possition d'echec 
+
+
+
+Implémenté dans \hyperlink{class_end_state_ae4ea53e0246be8cf37ccd8cf7b442523}{End\-State}, \hyperlink{class_null_state_a8da9c3d889ff161f893d5522a89567a5}{Null\-State}, \hyperlink{class_mate_state_a47e7642586f54efaa977755bb2b2311d}{Mate\-State}, \hyperlink{class_check_state_aa6e88c453114883d8a415ff338b65526}{Check\-State}, et \hyperlink{class_game_state_ae0f8b04f85ed4dfbbd4c2a6a06827273}{Game\-State}.
+
+\hypertarget{class_state_ae1d813f250db75015ddeebece5ec0f2b}{\index{State@{State}!ischeckmate@{ischeckmate}}
+\index{ischeckmate@{ischeckmate}!State@{State}}
+\subsubsection[{ischeckmate}]{\setlength{\rightskip}{0pt plus 5cm}bool State\-::ischeckmate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_state_ae1d813f250db75015ddeebece5ec0f2b}
+
+
+procédure virtuelle permettant de savoir s'il se trouve en possition d'echec et mate 
+
+
+
+Implémenté dans \hyperlink{class_end_state_a2f505cd7004247548a3026ce70bc0f58}{End\-State}, \hyperlink{class_null_state_adda1a19059bc77cf09886873912f91ff}{Null\-State}, \hyperlink{class_mate_state_a9b9eb5923dc94adb69b28174d580c3b1}{Mate\-State}, \hyperlink{class_check_state_ae3704aaa5fbaf6c947462c211eafc9c9}{Check\-State}, et \hyperlink{class_game_state_a595eb9db47758b91835fc12b13311b98}{Game\-State}.
+
+\hypertarget{class_state_a869f2ebfad7e60719df5f89a613adee1}{\index{State@{State}!isnulle@{isnulle}}
+\index{isnulle@{isnulle}!State@{State}}
+\subsubsection[{isnulle}]{\setlength{\rightskip}{0pt plus 5cm}bool State\-::isnulle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_state_a869f2ebfad7e60719df5f89a613adee1}
+
+
+procédure virtuelle permettant de savoir s'il se trouve en possition null 
+
+
+
+Implémenté dans \hyperlink{class_end_state_aa9ccf089beda25f9d258e6a68e2a7309}{End\-State}, \hyperlink{class_null_state_a0aa0845d4f2ce4f86749bd73edb8c8da}{Null\-State}, \hyperlink{class_mate_state_a0d586f9c4dafd94ebfa6b14e425fff8b}{Mate\-State}, \hyperlink{class_check_state_a569daf96d0340272068a3d36fdf288c4}{Check\-State}, et \hyperlink{class_game_state_a777e982cbef6125ba4003f68d6292825}{Game\-State}.
+
+\hypertarget{class_state_a95a537bb55b9118b23d5bed88ba3b335}{\index{State@{State}!print@{print}}
+\index{print@{print}!State@{State}}
+\subsubsection[{print}]{\setlength{\rightskip}{0pt plus 5cm}void State\-::print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_state_a95a537bb55b9118b23d5bed88ba3b335}
+
+
+procédure virtuelle permettant d'afficher l'état courant 
+
+
+
+Implémenté dans \hyperlink{class_end_state_a1983377ed8a1e391871fb40db39f13e3}{End\-State}, \hyperlink{class_null_state_a5a2b2f419bba204759bf344c8b7710d0}{Null\-State}, \hyperlink{class_mate_state_ab96d11c6cbb289483659d55bb8735c77}{Mate\-State}, \hyperlink{class_check_state_ace4965a79b3614c50d0db5396121b75e}{Check\-State}, et \hyperlink{class_game_state_a9ccc5473c6f04e60711cb9a438b276e5}{Game\-State}.
+
+
+
+\subsection{Documentation des données membres}
+\hypertarget{class_state_a9a024fd38161f32fc10b68b4ccb13226}{\index{State@{State}!player@{player}}
+\index{player@{player}!State@{State}}
+\subsubsection[{player}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Player}$\ast$ State\-::player\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_state_a9a024fd38161f32fc10b68b4ccb13226}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{_state_8hpp}{State.\-hpp}\item 
+src/\hyperlink{_state_8cpp}{State.\-cpp}\end{DoxyCompactItemize}
