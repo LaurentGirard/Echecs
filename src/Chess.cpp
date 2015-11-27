@@ -138,11 +138,8 @@ bool Chess::noCollision(Piece* selectedP, Piece* selectedD, Piece* pieceeaeviter
 				noCollision = (_board[x][y]->getLabel() == " "); // Si le label de la case (x,y) est " ", alors il n'y a pas de pièce réelle sur la case [i][k]
 			}else
 			{
-				std::cout<<"no collision "<<noCollision<<" label "<<_board[x][y]->getLabel()<<std::endl;
 				if( (( pieceeaeviter->getSquare()->getX() != x ) && ( pieceeaeviter->getSquare()->getY() != y ))  )
-					noCollision = (_board[x][y]->getLabel() == " "); // Si le label de la case (x,y) est " ", alors il n'y a pas de pièce réelle sur la case [i][k]
-				std::cout<<"no collision "<<noCollision<<" label "<<_board[x][y]->getLabel()<<std::endl;
-				
+					noCollision = (_board[x][y]->getLabel() == " "); // Si le label de la case (x,y) est " ", alors il n'y a pas de pièce réelle sur la case [i][k]				
 				if( pieceD!= NULL &&pieceD->getSquare()->getX()==x && pieceD->getSquare()->getY()==y )
 					noCollision = false;
 			}
@@ -220,7 +217,6 @@ bool Chess::listCanEatKing(std::vector<Piece*> list, Player* advers, Player* pla
 				{
 					if(noCollision(piecetueuse, king, selectedP, selectedD))//si la piecetueuse peut aller manger le roi en sautant la piece selectedP
 						res = true;
-					std::cout<<"res ?"<<res <<" nocollision ? "<<noCollision(piecetueuse, king, selectedP)<<std::endl;
 				}
 			}else
 			{
